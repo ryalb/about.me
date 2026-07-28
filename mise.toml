@@ -1,0 +1,11 @@
+# mise — pins the toolchain and provides task shortcuts.
+# https://mise.jdx.dev  ·  `mise install` then `mise run <task>`.
+#
+# mise only pins python + uv here; uv owns the virtualenv and the lockfile
+# (`uv sync`), so we deliberately do NOT let mise auto-create/activate a venv —
+# that would fight uv's `.venv`.
+
+[tools]
+python = "3.14"
+uv = "latest"
+bun = "1.3.5" 

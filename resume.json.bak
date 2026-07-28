@@ -1,0 +1,239 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-sc()hema/master/schema.json",
+  "basics": {
+    "name": "Ryan Leite Albuquerque",
+    "label": "Senior Software Engineer",
+    "email": "ryan.leite@gmail.com",
+    "phone": "+55 (81) 98255-0011",
+    "url": "",
+    "summary": "Senior Software Engineer with over 24 years of experience at CESAR (Centro de Estudos e Sistemas Avancados do Recife), Brazil's leading software engineering and innovation institute. Holds an M.Sc. in Computer Science with a specialization in Artificial Intelligence. Deep expertise in full-stack web development (Python, PHP, Ruby, JavaScript), DevOps/CI-CD pipelines, and software configuration management. Proven track record leading cross-functional teams in agile environments, achieving CMMI Level 3, and delivering large-scale web and mobile applications.",
+    "location": {
+      "city": "Recife",
+      "region": "Pernambuco",
+      "countryCode": "BR"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "ryalb",
+        "url": "https://linkedin.com/in/ryalb"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Sr (Backend) Software Engineer",
+      "startDate": "2022-10",
+      "endDate": "",
+      "summary": "Focused on backend software development as a senior engineer.",
+      "highlights": [
+        "Develop backend services for 2 concurrent web platforms using Python (Django and Flask), maintaining production-grade code quality through automated formatting and lint checks.",
+        "Design and implement REST APIs following the JSON:API specification, improving API consistency and integration speed across teams.",
+        "Own the CI/CD pipeline end-to-end (Docker, Git/GitFlow, Jenkins), enabling fully automated build, test, and deployment cycles."
+      ],
+      "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Sr (Full-Stack) Software Engineer",
+      "startDate": "2013-06",
+      "endDate": "2022-09",
+      "summary": "Focused on software development and configuration management across three major projects.",
+      "highlights": [
+        "Delivered 4 web applications across 9 years using PHP (Yii), Python (Flask/Falcon), Ruby on Rails, and JavaScript (Backbone/Marionette, EmberJs, VueJs).",
+        "Built and maintained CI/CD environments using Git/GitFlow, TeamCity, Jenkins, HashiCorp Vault, and Ansible for secure, automated deployments.",
+        "Led technical direction for project teams using Scrum, coordinating sprint planning, code reviews, and delivery timelines."
+      ],
+      "keywords": ["PHP", "Yii", "Python", "Flask", "Falcon", "Ruby on Rails", "JavaScript", "EmberJs", "VueJs", "Scrum", "Ansible"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Sr (Full-Stack) Software Engineer",
+      "startDate": "2009-01",
+      "endDate": "2013-06",
+      "summary": "Senior software engineer and configuration management engineer across three main projects.",
+      "highlights": [
+        "Developed a telephony platform using C, Asterisk, and Git.",
+        "Built a web application using Java EE/ME, Android, Apache Struts2, Apache CXF, Spring, Hibernate, Oracle, and Apache Tomcat, spanning backend and frontend engineering.",
+        "Implemented a full CI/CD environment (Subversion/Git, Tomcat, TeamCity, Maven) for automated builds and deployments.",
+        "Built a Scrum task-board integration with Mantis (PHP) to support distributed remote teams.",
+        "Maintained a nation-wide web project in production while developing new features."
+      ],
+      "keywords": ["C", "Asterisk", "Java EE", "Java ME", "Android", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Mantis"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Sr Software Configuration Engineer",
+      "startDate": "2005-01",
+      "endDate": "2009-01",
+      "summary": "Led the Software Configuration Management Team (~10 engineers) and drove the CMMI 1.2 Level 3 Maturity Appraisal.",
+      "highlights": [
+        "Led a 10-person Software Configuration Management team through a formal CMMI 1.2 Level 3 Maturity Appraisal, serving as a trained SCAMPI evaluator.",
+        "Defined and maintained company-wide SCM processes as SCM leader within the Software Engineering Process Group (SEPG).",
+        "Implemented SCM processes across multiple projects using Rational ClearCase, ClearDDTS, CVS, Subversion, Mantis, Apache Ant, and Luntbuild.",
+        "Built automation tools and Mantis extensions (PHP, Shell Script) for bug tracking, requirements management, and code review reporting, adopted as company-wide standards."
+      ],
+      "keywords": ["CMMI", "SCAMPI", "SCM", "Rational ClearCase", "ClearDDTS", "CVS", "Subversion", "Mantis", "PHP", "Shell Script"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Software Configuration Engineer",
+      "startDate": "2001-10",
+      "endDate": "2005-01",
+      "summary": "SCM process definition and implementation in mobile device development projects, supporting multi-site development using Rational ClearCase and ClearDDTS.",
+      "highlights": [
+        "Defined and implemented SCM processes for multi-site mobile development projects using Rational ClearCase and ClearDDTS, contributing to CMM Level 2 certification.",
+        "Improved client evaluation scores on SCM performance by approximately 20% through process automation across a dozen projects."
+      ],
+      "keywords": ["SCM", "Rational ClearCase", "ClearDDTS", "CMM Level 2"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Jr. Software Engineer",
+      "startDate": "2001-01",
+      "endDate": "2001-10",
+      "summary": "Development of systems based on Java 2, Micro Edition (J2ME).",
+      "highlights": [
+        "Pioneer development of applications for mobile devices using J2ME.",
+        "At least 15 applications developed, most of them games.",
+        "Asia Java Mobile Challenge — awarded best application from the Americas (Sea Hunter)."
+      ],
+      "keywords": ["Java", "J2ME", "Mobile Games"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avancados do Recife)",
+      "location": "Recife, PE, Brazil",
+      "url": "https://www.cesar.org.br",
+      "position": "Jr. Software Engineer",
+      "startDate": "2000-06",
+      "endDate": "2000-12",
+      "summary": "Development of systems based on Java using a 3-tier company default architecture.",
+      "highlights": [
+        "Developed a WAP application using J2SE for lottery games management.",
+        "Developed an e-commerce portal to validate a project member's M.Sc. dissertation."
+      ],
+      "keywords": ["Java", "J2SE", "WAP", "E-commerce"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Federal University of Pernambuco (UFPE)",
+      "url": "https://portal.cin.ufpe.br",
+      "area": "Computer Science — Artificial Intelligence and Software Development",
+      "studyType": "M.Sc.",
+      "startDate": "2000-03",
+      "endDate": "2002-08",
+      "score": "",
+      "courses": [
+        "Dissertation: KAGENT — A Java API for Intelligent Agents in Mobile Devices (repositorio.ufpe.br)"
+      ]
+    },
+    {
+      "institution": "Federal University of Ceará (UFC)",
+      "url": "https://centrodeciencias.ufc.br/pt/departamentos/departamento-de-computacao/",
+      "area": "Computer Science — Software Development",
+      "studyType": "B.Sc.",
+      "startDate": "1996-01",
+      "endDate": "2000-01",
+      "score": "",
+      "courses": []
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certified ScrumMaster (CSM)",
+      "date": "2017-10",
+      "issuer": "Scrum Alliance",
+      "url": "https://bcert.me/sciltuxvg"
+    },
+    {
+      "name": "Zend PHP Certified Developer",
+      "date": "2014-10",
+      "issuer": "Zend Technologies, Ltd.",
+      "url": ""
+    }
+  ],
+  "publications": [
+    {
+      "name": "Software Configuration Management Diversity — A Commercial Study Case",
+      "publisher": "BCS-CMSG (The CMDB and CMS — the Powerhouse of Service Management)",
+      "releaseDate": "2008-07",
+      "url": "",
+      "summary": "T. H. B. Oliveira, R. Albuquerque"
+    },
+    {
+      "name": "Desenvolvendo Projeto Conceitual de Jogos Wireless",
+      "publisher": "1st Brazilian Workshop in Games and Digital Entertainment · WJOGOS · SIBGRAPI'02 · Fortaleza, Brazil",
+      "releaseDate": "2002-10",
+      "url": "",
+      "summary": "D. R. Silva, A. Damasceno, E. Perazzo, P. Macedo, R. Albuquerque, G. L. Ramalho"
+    },
+    {
+      "name": "Embedding J2ME-Based Inference Engine in Handheld Devices: The KEOPS Case Study",
+      "publisher": "Workshop on Ubiquitous Agents on Embedded, Wearable, and Mobile Devices · Italy",
+      "releaseDate": "2002",
+      "url": "",
+      "summary": "R. Albuquerque, P. Guedes, C. Figueira Filho, J. Robin, G. Ramalho"
+    },
+    {
+      "name": "KSACI: A Handheld Device Infrastructure for Agents Communication",
+      "publisher": "ATAL 2001 Conference · Seattle, USA",
+      "releaseDate": "2001",
+      "url": "",
+      "summary": "R. Albuquerque, J. Hubner, G. Eliano de Paula, J. Sichman, G. Ramalho"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Frontend",
+      "level": "Senior",
+      "keywords": ["HTML", "CSS", "SCSS", "SASS", "BEM", "JavaScript", "TypeScript", "EmberJS", "VueJS", "NuxtJS", "Backbone", "Marionette"]
+    },
+    {
+      "name": "Backend",
+      "level": "Senior",
+      "keywords": ["PHP", "Yii", "Laravel", "Python", "Flask", "Django", "Falcon", "Ruby", "Ruby on Rails", "Java", "C"]
+    },
+    {
+      "name": "Databases",
+      "level": "Senior",
+      "keywords": ["PostgreSQL", "MySQL", "Redis", "Oracle"]
+    },
+    {
+      "name": "DevOps & Cloud",
+      "level": "Senior",
+      "keywords": ["CI/CD", "Bash", "Jenkins", "TeamCity", "GitLab CI", "Git", "GitHub", "GitLab", "GitFlow", "Docker", "Kubernetes", "Google Cloud", "AWS", "Ansible", "HashiCorp Vault"]
+    },
+    {
+      "name": "Methodologies & Leadership",
+      "level": "Senior",
+      "keywords": ["Scrum", "Kanban", "CMMI", "SCM (Software Configuration Management)", "Technical Leadership", "Agile"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Portuguese",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Fluent"
+    }
+  ],
+  "meta": {
+    "notes": "Master resume file — single source of truth. Edit here first, then regenerate tailored versions (ATS docx, LinkedIn summary, one-page executive version, etc.) from this file. Birthdate intentionally omitted (age-bias best practice). 'highlights' fields are quantified/action-verb bullets ready for ATS docx export; 'keywords' fields are for tagging/filtering when generating role-specific versions."
+  }
+}

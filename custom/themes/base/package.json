@@ -1,0 +1,21 @@
+{
+  "name": "jsonresume-theme-base",
+  "version": "1.0.0",
+  "description": "Custom base theme — structural keylines and geometric precision, derived from architects-portfolio. Starting point for further customization.",
+  "main": "./src/index.jsx",
+  "type": "module",
+  "private": true,
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./src/index.jsx",
+      "default": "./src/index.jsx"
+    }
+  },
+  "dependencies": {
+    "@jsonresume/core": "0.3.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.19"
+  }
+}

@@ -1,0 +1,469 @@
+{
+  "lockfileVersion": 1,
+  "configVersion": 0,
+  "workspaces": {
+    "": {
+      "name": "resume-cli",
+      "dependencies": {
+        "jsonresume-theme-architects-portfolio": "^1.1.4",
+        "jsonresume-theme-caffeine": "^1.2.3",
+        "jsonresume-theme-compact": "^1.0.4",
+        "jsonresume-theme-elegant": "^1.16.1",
+        "jsonresume-theme-even": "^0.26.1",
+        "jsonresume-theme-flat": "^0.3.7",
+        "jsonresume-theme-paper": "^0.5.0",
+      },
+    },
+  },
+  "packages": {
+    "@emotion/is-prop-valid": ["@emotion/is-prop-valid@1.4.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@emotion/is-prop-valid/-/is-prop-valid-1.4.0.tgz", { "dependencies": { "@emotion/memoize": "^0.9.0" } }, "sha512-QgD4fyscGcbbKwJmqNvUMSE02OsHUa+lAWKdEUIJKgqe5IwRSKd7+KhibEWdaKwgjLj0DRSHA9biAIqGBk05lw=="],
+
+    "@emotion/memoize": ["@emotion/memoize@0.9.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@emotion/memoize/-/memoize-0.9.0.tgz", {}, "sha512-30FAj7/EoJ5mwVPOWhAyCX+FPfMDrVecJAM+Iw9NRoSl4BBAQeqj4cApHHUXOVvIPgLVDsCFoz/hGD+5QQD1GQ=="],
+
+    "@isaacs/fs-minipass": ["@isaacs/fs-minipass@4.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@isaacs/fs-minipass/-/fs-minipass-4.0.1.tgz", { "dependencies": { "minipass": "^7.0.4" } }, "sha512-wgm9Ehl2jpeqP3zw/7mo3kRHFp5MEDhqAdwy1fTGkHAwnkGOVsgpvQhL8B5n1qlb01jV3n/bI0ZfZp5lWA1k4w=="],
+
+    "@jsonresume/core": ["@jsonresume/core@0.3.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@jsonresume/core/-/core-0.3.2.tgz", { "dependencies": { "@jsonresume/types": "0.2.1", "@jsonresume/utils": "0.2.2", "styled-components": "^6.1.19" }, "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-1XUNUGIk8JL8DtnUPDsaoTcz92ZhLnqeBxJU4eL6PHHovf7cVvCZr+JKleJdzJydWja/8y8H2BE1XEX7GRe+/w=="],
+
+    "@jsonresume/types": ["@jsonresume/types@0.2.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@jsonresume/types/-/types-0.2.1.tgz", {}, "sha512-Z+d4EUbpybCMsYaR0aJsbbqqwX6jSfn88WantnduwWs9Bx5zGaef7l1jWWFoALE25/XPvqLqIQNgO4twv6S8KQ=="],
+
+    "@jsonresume/utils": ["@jsonresume/utils@0.2.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@jsonresume/utils/-/utils-0.2.2.tgz", {}, "sha512-vHr4NvWCYc5im7nnBNoepC/YR6o0tPQtfE5UymLLxZezJPQvOYYFEpewGMv7m7GmjpbSlgqYmiIf2sSgIoN+ng=="],
+
+    "@rbardini/html": ["@rbardini/html@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@rbardini/html/-/html-1.0.1.tgz", {}, "sha512-sVnvDG2ujW5R0mfubZDCnxnxHSsM1kS4ExY+Z3j7XQkY4Y7RKnM4tPi6E8OkkUmbD3NUeVWV2ObSmgaaZUHIDw=="],
+
+    "@types/babel-types": ["@types/babel-types@7.0.16", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@types/babel-types/-/babel-types-7.0.16.tgz", {}, "sha512-5QXs9GBFTNTmilLlWBhnsprqpjfrotyrnzUdwDrywEL/DA4LuCWQT300BTOXA3Y9ngT9F2uvmCoIxI6z8DlJEA=="],
+
+    "@types/babylon": ["@types/babylon@6.16.9", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/@types/babylon/-/babylon-6.16.9.tgz", { "dependencies": { "@types/babel-types": "*" } }, "sha512-sEKyxMVEowhcr8WLfN0jJYe4gS4Z9KC2DGz0vqfC7+MXFbmvOF7jSjALC77thvAO2TLgFUPa9vDeOak+AcUrZA=="],
+
+    "acorn": ["acorn@3.3.0", "https://npm.apple.com/acorn/-/acorn-3.3.0.tgz", { "bin": "bin/acorn" }, "sha512-OLUyIIZ7mF5oaAUT1w0TFqQS81q3saT46x8t7ukpPjMNk+nbs4ZHhs7ToV8EWnLYLepjETXd4XaCE4uxkMeqUw=="],
+
+    "acorn-globals": ["acorn-globals@3.1.0", "https://npm.apple.com/acorn-globals/-/acorn-globals-3.1.0.tgz", { "dependencies": { "acorn": "^4.0.4" } }, "sha512-uWttZCk96+7itPxK8xCzY86PnxKTMrReKDqrHzv42VQY0K30PUO8WY13WMOuI+cOdX4EIdzdvQ8k6jkuGRFMYw=="],
+
+    "address-format": ["address-format@0.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/address-format/-/address-format-0.0.3.tgz", {}, "sha512-vM2d+doiuUo3Ed4vGhco/ZF7hbp84BBNjGxetj5S44Pr0LOC0Ab3UbIdqmG1iq42JYCBPQZUn7of116/txcejA=="],
+
+    "align-text": ["align-text@0.1.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/align-text/-/align-text-0.1.4.tgz", { "dependencies": { "kind-of": "^3.0.2", "longest": "^1.0.1", "repeat-string": "^1.5.2" } }, "sha512-GrTZLRpmp6wIC2ztrWW9MjjTgSKccffgFagbNDOX95/dcjEcYZibYTeaOntySQLcdw1ztBoFkviiUvTMbb9MYg=="],
+
+    "amdefine": ["amdefine@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/amdefine/-/amdefine-1.0.1.tgz", {}, "sha512-S2Hw0TtNkMJhIabBwIojKL9YHO5T0n5eNqWJ7Lrlel/zDbftQpxpapi8tZs3X1HWa+u+QeydGmzzNU0m09+Rcg=="],
+
+    "ansi-regex": ["ansi-regex@5.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/ansi-regex/-/ansi-regex-5.0.1.tgz", {}, "sha512-quJQXlTSUGL2LH9SUXo8VwsY4soanhgo6LNSm84E1LBcE8s3O0wpdiRzyR9z/ZZJMlMWv37qOOb9pdJlMUEKFQ=="],
+
+    "ansi-styles": ["ansi-styles@4.3.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/ansi-styles/-/ansi-styles-4.3.0.tgz", { "dependencies": { "color-convert": "^2.0.1" } }, "sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg=="],
+
+    "argparse": ["argparse@1.0.10", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/argparse/-/argparse-1.0.10.tgz", { "dependencies": { "sprintf-js": "~1.0.2" } }, "sha512-o5Roy6tNG4SL/FOkCAN6RzjiakZS25RLYFrcMttJqbdd8BWrnA+fGz57iN5Pb06pvBGvl5gQ0B48dJlslXvoTg=="],
+
+    "array-union": ["array-union@1.0.2", "https://npm.apple.com/array-union/-/array-union-1.0.2.tgz", { "dependencies": { "array-uniq": "^1.0.1" } }, "sha512-Dxr6QJj/RdU/hCaBjOfxW+q6lyuVE6JFWIrAUpuOOhoJJoQ99cUn3igRaHVB5P9WrgFVN0FfArM3x0cueOU8ng=="],
+
+    "array-uniq": ["array-uniq@1.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/array-uniq/-/array-uniq-1.0.3.tgz", {}, "sha512-MNha4BWQ6JbwhFhj03YK552f7cb3AzoE8SzeljgChvL1dl3IcvggXVz1DilzySZkCja+CXuZbdW7yATchWn8/Q=="],
+
+    "asap": ["asap@2.0.6", "https://npm.apple.com/asap/-/asap-2.0.6.tgz", {}, "sha512-BSHWgDSAiKs50o2Re8ppvp3seVHXSRM44cdSsT9FfNEUUZLOGWVCsiWaRPWM1Znn+mqZ1OfVZ3z3DWEzSp7hRA=="],
+
+    "asn1": ["asn1@0.2.6", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/asn1/-/asn1-0.2.6.tgz", { "dependencies": { "safer-buffer": "~2.1.0" } }, "sha512-ix/FxPn0MDjeyJ7i/yoHGFt/EX6LyNbxSEhPPXODPL+KB0VPk86UYfL0lMdy+KCnv+fmvIzySwaK5COwqVbWTQ=="],
+
+    "assert-plus": ["assert-plus@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/assert-plus/-/assert-plus-1.0.0.tgz", {}, "sha512-NfJ4UzBCcQGLDlQq7nHxH+tv3kyZ0hHQqF5BO6J7tNJeP5do1llPr8dZ8zHonfhAu0PHAdMkSo+8o0wxg9lZWw=="],
+
+    "async": ["async@0.2.10", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/async/-/async-0.2.10.tgz", {}, "sha512-eAkdoKxU6/LkKDBzLpT+t6Ff5EtfSF4wx1WfJiPEEV7WNLnDaRXk0oVysiEPm262roaachGexwUv94WhSgN5TQ=="],
+
+    "babel-runtime": ["babel-runtime@6.26.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/babel-runtime/-/babel-runtime-6.26.0.tgz", { "dependencies": { "core-js": "^2.4.0", "regenerator-runtime": "^0.11.0" } }, "sha512-ITKNuq2wKlW1fJg9sSW52eepoYgZBggvOAHC0u/CYu/qxQ9EVzThCgR69BnSXLHjy2f7SY5zaQ4yt7H9ZVxY2g=="],
+
+    "babel-types": ["babel-types@6.26.0", "https://npm.apple.com/babel-types/-/babel-types-6.26.0.tgz", { "dependencies": { "babel-runtime": "^6.26.0", "esutils": "^2.0.2", "lodash": "^4.17.4", "to-fast-properties": "^1.0.3" } }, "sha512-zhe3V/26rCWsEZK8kZN+HaQj5yQ1CilTObixFzKW1UWjqG7618Twz6YEsCnjfg5gBcJh02DrpCkS9h98ZqDY+g=="],
+
+    "babylon": ["babylon@6.18.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/babylon/-/babylon-6.18.0.tgz", { "bin": "bin/babylon.js" }, "sha512-q/UEjfGJ2Cm3oKV71DJz9d25TPnq5rhBVL2Q4fA5wcC3jcrdn7+SssEybFIxwAvvP+YCsCYNKughoF33GxgycQ=="],
+
+    "balanced-match": ["balanced-match@1.0.2", "https://npm.apple.com/balanced-match/-/balanced-match-1.0.2.tgz", {}, "sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw=="],
+
+    "bcrypt-pbkdf": ["bcrypt-pbkdf@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/bcrypt-pbkdf/-/bcrypt-pbkdf-1.0.2.tgz", { "dependencies": { "tweetnacl": "^0.14.3" } }, "sha512-qeFIXtP4MSoi6NLqO12WfqARWWuCKi2Rn/9hJLEmtB5yTNr9DqFWkJRCf2qShWzPeAMRnOgCrq0sg/KLv5ES9w=="],
+
+    "blueimp-md5": ["blueimp-md5@2.19.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/blueimp-md5/-/blueimp-md5-2.19.0.tgz", {}, "sha512-DRQrD6gJyy8FbiE4s+bDoXS9hiW3Vbx5uCdwvcCf3zLHL+Iv7LtGHLpr+GZV8rHG8tK766FGYBwRbu8pELTt+w=="],
+
+    "brace-expansion": ["brace-expansion@1.1.16", "https://npm.apple.com/brace-expansion/-/brace-expansion-1.1.16.tgz", { "dependencies": { "balanced-match": "^1.0.0", "concat-map": "0.0.1" } }, "sha512-IDw48K2/2kRkg9LdJxurvq3lV3aBgq0REY89duEqFRthjlPdXHKMj7EnQOXVckxzgisinf3nHfrcE2FufFLXMw=="],
+
+    "call-bind-apply-helpers": ["call-bind-apply-helpers@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/call-bind-apply-helpers/-/call-bind-apply-helpers-1.0.2.tgz", { "dependencies": { "es-errors": "^1.3.0", "function-bind": "^1.1.2" } }, "sha512-Sp1ablJ0ivDkSzjcaJdxEunN5/XvksFJ2sMBFfq6x0ryhQV/2b/KwFe21cMpmHtPOSij8K99/wSfoEuTObmuMQ=="],
+
+    "call-bound": ["call-bound@1.0.4", "https://npm.apple.com/call-bound/-/call-bound-1.0.4.tgz", { "dependencies": { "call-bind-apply-helpers": "^1.0.2", "get-intrinsic": "^1.3.0" } }, "sha512-+ys997U96po4Kx/ABpBCqhA9EuxJaQWDQg7295H4hBphv3IZg0boBKuwYpt4YXp6MZ5AmZQnU/tyMTlRpaSejg=="],
+
+    "callsites": ["callsites@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/callsites/-/callsites-1.0.1.tgz", {}, "sha512-4pzUzADrTwH4QwhsYEY1yQYUYXb4Lp3CB7FVknTNtWNCFdcQkRV4ICEGnMQ35DcJhCVlAB1VD3A/SoWC0O2kMg=="],
+
+    "camelcase": ["camelcase@5.3.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/camelcase/-/camelcase-5.3.1.tgz", {}, "sha512-L28STB170nwWS63UjtlEOE3dldQApaJXZkOI1uMFfzf3rRuPegHaHesyee+YxQ+W6SvRDQV6UrdOdRiR153wJg=="],
+
+    "camelize": ["camelize@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/camelize/-/camelize-1.0.1.tgz", {}, "sha512-dU+Tx2fsypxTgtLoE36npi3UqcjSSMNYfkqgmoEhtZrraP5VWq0K7FkWVTYa8eMPtnU/G2txVsfdCJTn9uzpuQ=="],
+
+    "center-align": ["center-align@0.1.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/center-align/-/center-align-0.1.3.tgz", { "dependencies": { "align-text": "^0.1.3", "lazy-cache": "^1.0.3" } }, "sha512-Baz3aNe2gd2LP2qk5U+sDk/m4oSuwSDcBfayTCTBoWpfIGO5XFxPmjILQII4NGiZjD6DoDI6kf7gKaxkf7s3VQ=="],
+
+    "character-entities": ["character-entities@1.2.4", "https://npm.apple.com/character-entities/-/character-entities-1.2.4.tgz", {}, "sha512-iBMyeEHxfVnIakwOuDXpVkc54HijNgCyQB2w0VfGQThle6NXn50zU6V/u+LDhxHcDUPojn6Kpga3PTAD8W1bQw=="],
+
+    "character-entities-legacy": ["character-entities-legacy@1.1.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/character-entities-legacy/-/character-entities-legacy-1.1.4.tgz", {}, "sha512-3Xnr+7ZFS1uxeiUDvV02wQ+QDbc55o97tIV5zHScSPJpcLm/r0DFPcoY3tYRp+VZukxuMeKgXYmsXQHO05zQeA=="],
+
+    "character-parser": ["character-parser@2.2.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/character-parser/-/character-parser-2.2.0.tgz", { "dependencies": { "is-regex": "^1.0.3" } }, "sha512-+UqJQjFEFaTAs3bNsF2j2kEN1baG/zghZbdqoYEDxGZtJo9LBzl1A+m0D4n3qKx8N2FNv8/Xp6yV9mQmBuptaw=="],
+
+    "character-reference-invalid": ["character-reference-invalid@1.1.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/character-reference-invalid/-/character-reference-invalid-1.1.4.tgz", {}, "sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg=="],
+
+    "chownr": ["chownr@3.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/chownr/-/chownr-3.0.0.tgz", {}, "sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g=="],
+
+    "classnames": ["classnames@2.5.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/classnames/-/classnames-2.5.1.tgz", {}, "sha512-saHYOzhIQs6wy2sVxTM6bUDsQO4F50V9RQ22qBpEdCW+I+/Wmke2HOl6lS6dTpdxVhb88/I6+Hs+438c3lfUow=="],
+
+    "clean-css": ["clean-css@4.2.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/clean-css/-/clean-css-4.2.4.tgz", { "dependencies": { "source-map": "~0.6.0" } }, "sha512-EJUDT7nDVFDvaQgAo2G/PJvxmp1o/c6iXLbswsBbUFXi1Nr+AjA2cKmfbKDMjMvzEe75g3P6JkaDDAKk96A85A=="],
+
+    "cliui": ["cliui@6.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/cliui/-/cliui-6.0.0.tgz", { "dependencies": { "string-width": "^4.2.0", "strip-ansi": "^6.0.0", "wrap-ansi": "^6.2.0" } }, "sha512-t6wbgtoCXvAzst7QgXxJYqPt0usEfbgQdftEPbLL/cvv6HPE5VgvqCuAIDR0NgU52ds6rFwqrgakNLrHEjCbrQ=="],
+
+    "color-convert": ["color-convert@2.0.1", "https://npm.apple.com/color-convert/-/color-convert-2.0.1.tgz", { "dependencies": { "color-name": "~1.1.4" } }, "sha512-RRECPsj7iu/xb5oKYcsFHSppFNnsj/52OVTRKb4zP5onXwVF3zVmmToNcOfGC+CRDpfK/U584fMg38ZHCaElKQ=="],
+
+    "color-name": ["color-name@1.1.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/color-name/-/color-name-1.1.4.tgz", {}, "sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA=="],
+
+    "commander": ["commander@2.20.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/commander/-/commander-2.20.3.tgz", {}, "sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ=="],
+
+    "concat-map": ["concat-map@0.0.1", "https://npm.apple.com/concat-map/-/concat-map-0.0.1.tgz", {}, "sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg=="],
+
+    "constantinople": ["constantinople@3.1.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/constantinople/-/constantinople-3.1.2.tgz", { "dependencies": { "@types/babel-types": "^7.0.0", "@types/babylon": "^6.16.2", "babel-types": "^6.26.0", "babylon": "^6.18.0" } }, "sha512-yePcBqEFhLOqSBtwYOGGS1exHo/s1xjekXiinh4itpNQGCu4KA1euPh1fg07N2wMITZXQkBz75Ntdt1ctGZouw=="],
+
+    "core-js": ["core-js@3.49.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/core-js/-/core-js-3.49.0.tgz", {}, "sha512-es1U2+YTtzpwkxVLwAFdSpaIMyQaq0PBgm3YD1W3Qpsn1NAmO3KSgZfu+oGSWVu6NvLHoHCV/aYcsE5wiB7ALg=="],
+
+    "css-color-keywords": ["css-color-keywords@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/css-color-keywords/-/css-color-keywords-1.0.0.tgz", {}, "sha512-FyyrDHZKEjXDpNJYvVsV960FiqQyXc/LlYmsxl2BcdMb2WPx0OGRVgTg55rPSyLSNMqP52R9r8geSp7apN3Ofg=="],
+
+    "css-to-react-native": ["css-to-react-native@3.2.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/css-to-react-native/-/css-to-react-native-3.2.0.tgz", { "dependencies": { "camelize": "^1.0.0", "css-color-keywords": "^1.0.0", "postcss-value-parser": "^4.0.2" } }, "sha512-e8RKaLXMOFii+02mOlqwjbD00KSEKqblnpO9e++1aXS1fPQOpS1YoqdVHBqPjHNoxeF2mimzVqawm2KCbEdtHQ=="],
+
+    "csstype": ["csstype@3.2.3", "https://npm.apple.com/csstype/-/csstype-3.2.3.tgz", {}, "sha512-z1HGKcYy2xA8AGQfwrn0PAy+PB7X/GSj3UVJW9qKyn43xWa+gl5nXmU4qqLMRzWVLFC8KusUX8T/0kCiOYpAIQ=="],
+
+    "dashdash": ["dashdash@1.14.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/dashdash/-/dashdash-1.14.1.tgz", { "dependencies": { "assert-plus": "^1.0.0" } }, "sha512-jRFi8UDGo6j+odZiEpjazZaWqEal3w/basFjQHQEwVtZJGDpxbH1MeYluwCS8Xq5wmLJooDlMgvVarmWfGM44g=="],
+
+    "debug": ["debug@4.4.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/debug/-/debug-4.4.3.tgz", { "dependencies": { "ms": "^2.1.3" } }, "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="],
+
+    "decamelize": ["decamelize@1.2.0", "https://npm.apple.com/decamelize/-/decamelize-1.2.0.tgz", {}, "sha512-z2S+W9X73hAUUki+N+9Za2lBlun89zigOyGrsax+KUQ6wKW4ZoWpEYBkGhQjwAjjDCkWxhY0VKEhk8wzY7F5cA=="],
+
+    "doctypes": ["doctypes@1.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/doctypes/-/doctypes-1.1.0.tgz", {}, "sha512-LLBi6pEqS6Do3EKQ3J0NqHWV5hhb78Pi8vvESYwyOy2c31ZEZVdtitdzsQsKb7878PEERhzUk0ftqGhG6Mz+pQ=="],
+
+    "dunder-proto": ["dunder-proto@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/dunder-proto/-/dunder-proto-1.0.1.tgz", { "dependencies": { "call-bind-apply-helpers": "^1.0.1", "es-errors": "^1.3.0", "gopd": "^1.2.0" } }, "sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A=="],
+
+    "ecc-jsbn": ["ecc-jsbn@0.1.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/ecc-jsbn/-/ecc-jsbn-0.1.2.tgz", { "dependencies": { "jsbn": "~0.1.0", "safer-buffer": "^2.1.0" } }, "sha512-eh9O+hwRHNbG4BLTjEl3nw044CkGm5X6LoaCf7LPp7UU8Qrt47JYNi6nPX8xjW97TKGKm1ouctg0QSpZe9qrnw=="],
+
+    "email-validator": ["email-validator@2.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/email-validator/-/email-validator-2.0.4.tgz", {}, "sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ=="],
+
+    "emoji-regex": ["emoji-regex@8.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/emoji-regex/-/emoji-regex-8.0.0.tgz", {}, "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="],
+
+    "entities": ["entities@1.1.2", "https://npm.apple.com/entities/-/entities-1.1.2.tgz", {}, "sha512-f2LZMYl1Fzu7YSBKg+RoROelpOaNrcGmE9AZubeDfrCEia483oW4MI4VyFd5VNHIgQ/7qm1I0wUHK1eJnn2y2w=="],
+
+    "es-define-property": ["es-define-property@1.0.1", "https://npm.apple.com/es-define-property/-/es-define-property-1.0.1.tgz", {}, "sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g=="],
+
+    "es-errors": ["es-errors@1.3.0", "https://npm.apple.com/es-errors/-/es-errors-1.3.0.tgz", {}, "sha512-Zf5H2Kxt2xjTvbJvP2ZWLEICxA6j+hAmMzIlypy4xcBg1vKVnx89Wy0GbS+kf5cwCVFFzdCFh2XSCFNULS6csw=="],
+
+    "es-object-atoms": ["es-object-atoms@1.1.2", "https://npm.apple.com/es-object-atoms/-/es-object-atoms-1.1.2.tgz", { "dependencies": { "es-errors": "^1.3.0" } }, "sha512-HWcBoN6NileqtSydK2FqHbS/LoDd2pqrnQHLyJzBj4kOp/ky2MWMN694xOfkK8/SnUsW2DH7EfyVlydKCsm1Zw=="],
+
+    "esutils": ["esutils@2.0.3", "https://npm.apple.com/esutils/-/esutils-2.0.3.tgz", {}, "sha512-kVscqXk4OCp68SZ0dkgEKVi6/8ij300KBWTJq32P/dYeWTSwK41WyTxalN1eRmA5Z9UU/LX9D7FWSmV9SAYx6g=="],
+
+    "feather-icons": ["feather-icons@4.29.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/feather-icons/-/feather-icons-4.29.2.tgz", { "dependencies": { "classnames": "^2.2.5", "core-js": "^3.1.3" } }, "sha512-0TaCFTnBTVCz6U+baY2UJNKne5ifGh7sMG4ZC2LoBWCZdIyPa+y6UiR4lEYGws1JOFWdee8KAsAIvu0VcXqiqA=="],
+
+    "find-up": ["find-up@4.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/find-up/-/find-up-4.1.0.tgz", { "dependencies": { "locate-path": "^5.0.0", "path-exists": "^4.0.0" } }, "sha512-PpOwAdQ/YlXQ2vj8a3h8IipDuYRi3wceVQQGYWxNINccq40Anw7BlsEXCMbt1Zt+OLA6Fq9suIpIWD0OsnISlw=="],
+
+    "fs.realpath": ["fs.realpath@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/fs.realpath/-/fs.realpath-1.0.0.tgz", {}, "sha512-OO0pH2lK6a0hZnAdau5ItzHPI6pUlvI7jMVnxUQRtw4owF2wk8lOSabtGDCTP4Ggrg2MbGnWO9X8K1t4+fGMDw=="],
+
+    "function-bind": ["function-bind@1.1.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/function-bind/-/function-bind-1.1.2.tgz", {}, "sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA=="],
+
+    "get-caller-file": ["get-caller-file@2.0.5", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/get-caller-file/-/get-caller-file-2.0.5.tgz", {}, "sha512-DyFP3BM/3YHTQOCUL/w0OZHR0lpKeGrxotcHWcqNEdnltqFwXVfhEBQ94eIo34AfQpo0rGki4cyIiftY06h2Fg=="],
+
+    "get-intrinsic": ["get-intrinsic@1.3.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/get-intrinsic/-/get-intrinsic-1.3.0.tgz", { "dependencies": { "call-bind-apply-helpers": "^1.0.2", "es-define-property": "^1.0.1", "es-errors": "^1.3.0", "es-object-atoms": "^1.1.1", "function-bind": "^1.1.2", "get-proto": "^1.0.1", "gopd": "^1.2.0", "has-symbols": "^1.1.0", "hasown": "^2.0.2", "math-intrinsics": "^1.1.0" } }, "sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ=="],
+
+    "get-proto": ["get-proto@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/get-proto/-/get-proto-1.0.1.tgz", { "dependencies": { "dunder-proto": "^1.0.1", "es-object-atoms": "^1.0.0" } }, "sha512-sTSfBjoXBp89JvIKIefqw7U2CCebsc74kiY6awiGogKtoSGbgjYE/G/+l9sF3MWFPNc9IcoOC4ODfKHfxFmp0g=="],
+
+    "getpass": ["getpass@0.1.7", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/getpass/-/getpass-0.1.7.tgz", { "dependencies": { "assert-plus": "^1.0.0" } }, "sha512-0fzj9JxOLfJ+XGLhR8ze3unN0KZCgZwiSSDz168VERjK8Wl8kVSdcu2kspd4s4wtAa1y/qrVRiAA0WclVsu0ng=="],
+
+    "glob": ["glob@7.2.3", "https://npm.apple.com/glob/-/glob-7.2.3.tgz", { "dependencies": { "fs.realpath": "^1.0.0", "inflight": "^1.0.4", "inherits": "2", "minimatch": "^3.1.1", "once": "^1.3.0", "path-is-absolute": "^1.0.0" } }, "sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q=="],
+
+    "glob-parent": ["glob-parent@3.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/glob-parent/-/glob-parent-3.1.0.tgz", { "dependencies": { "is-glob": "^3.1.0", "path-dirname": "^1.0.0" } }, "sha512-E8Ak/2+dZY6fnzlR7+ueWvhsH1SjHr4jjss4YS/h4py44jY9MhK/VFdaZJAWDz6BbL21KeteKxFSFpq8OS5gVA=="],
+
+    "globby": ["globby@6.1.0", "https://npm.apple.com/globby/-/globby-6.1.0.tgz", { "dependencies": { "array-union": "^1.0.1", "glob": "^7.0.3", "object-assign": "^4.0.1", "pify": "^2.0.0", "pinkie-promise": "^2.0.0" } }, "sha512-KVbFv2TQtbzCoxAnfD6JcHZTYCzyliEaaeM/gH8qQdkKr5s0OP9scEgvdcngyk7AVdY6YVW/TJHd+lQ/Df3Daw=="],
+
+    "gopd": ["gopd@1.2.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/gopd/-/gopd-1.2.0.tgz", {}, "sha512-ZUKRh6/kUFoAiTAtTYPZJ3hw9wNxx+BIBOijnlG9PnrJsCcSjs1wyyD6vJpaYtgnzDrKYRSqf3OO6Rfa93xsRg=="],
+
+    "gravatar": ["gravatar@1.8.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/gravatar/-/gravatar-1.8.2.tgz", { "dependencies": { "blueimp-md5": "^2.16.0", "email-validator": "^2.0.4", "querystring": "0.2.0", "yargs": "^15.4.1" }, "bin": "cli.js" }, "sha512-GdRwLM3oYpFQKy47MKuluw9hZ2gaCtiKPbDGdcDEuYDKlc8eNnW27KYL9LVbIDzEsx88WtDWQm2ClBcsgBnj6w=="],
+
+    "handlebars": ["handlebars@4.7.9", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/handlebars/-/handlebars-4.7.9.tgz", { "dependencies": { "minimist": "^1.2.5", "neo-async": "^2.6.2", "source-map": "^0.6.1", "wordwrap": "^1.0.0" }, "optionalDependencies": { "uglify-js": "^3.1.4" }, "bin": "bin/handlebars" }, "sha512-4E71E0rpOaQuJR2A3xDZ+GM1HyWYv1clR58tC8emQNeQe3RH7MAzSbat+V0wG78LQBo6m6bzSG/L4pBuCsgnUQ=="],
+
+    "handlebars-wax": ["handlebars-wax@4.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/handlebars-wax/-/handlebars-wax-4.0.4.tgz", { "dependencies": { "object-assign": "^4.1.0", "require-glob": "^3.2.0" } }, "sha512-vqHmG6mW50NboIH+GA5aJqUUb/MH40jA5TrYiSXr02OZqQs98csDe9s/w0IruinId03P0EGw4tPel/UGo1FI2w=="],
+
+    "has-symbols": ["has-symbols@1.1.0", "https://npm.apple.com/has-symbols/-/has-symbols-1.1.0.tgz", {}, "sha512-1cDNdwJ2Jaohmb3sg4OmKaMBwuC48sYni5HUw2DvsC8LjGTLK9h+eb1X6RyuOHe4hT0ULCW68iomhjUoKUqlPQ=="],
+
+    "has-tostringtag": ["has-tostringtag@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/has-tostringtag/-/has-tostringtag-1.0.2.tgz", { "dependencies": { "has-symbols": "^1.0.3" } }, "sha512-NqADB8VjPFLM2V0VvHUewwwsw0ZWBaIdgo+ieHtK3hasLz4qeCRjYcqfB6AQrBggRKppKF8L52/VqdVsO47Dlw=="],
+
+    "hasown": ["hasown@2.0.4", "https://npm.apple.com/hasown/-/hasown-2.0.4.tgz", { "dependencies": { "function-bind": "^1.1.2" } }, "sha512-T2UbfbBEF32wiepXIsMlTW9+dDYC6wMh/t/vYA4tuOMKqWz/n3vr1NFSxQiyP+zk2mXsoMA/i/7qV6LKut1t1A=="],
+
+    "inflight": ["inflight@1.0.6", "https://npm.apple.com/inflight/-/inflight-1.0.6.tgz", { "dependencies": { "once": "^1.3.0", "wrappy": "1" } }, "sha512-k92I/b08q4wvFscXCLvqfsHCrjrF7yiXsQuIVvVE7N82W3+aqpzuUdBbfhWcy/FZR3/4IgflMgKLOsvPDrGCJA=="],
+
+    "inherits": ["inherits@2.0.4", "https://npm.apple.com/inherits/-/inherits-2.0.4.tgz", {}, "sha512-k/vGaX4/Yla3WzyMCvTQOXYeIHvqOKtnqBduzTHpzpQZzAskKMhZ2K+EnBiSM9zGSoIFeMpXKxa4dYeZIQqewQ=="],
+
+    "is-alphabetical": ["is-alphabetical@1.0.4", "https://npm.apple.com/is-alphabetical/-/is-alphabetical-1.0.4.tgz", {}, "sha512-DwzsA04LQ10FHTZuL0/grVDk4rFoVH1pjAToYwBrHSxcrBIGQuXrQMtD5U1b0U2XVgKZCTLLP8u2Qxqhy3l2Vg=="],
+
+    "is-alphanumerical": ["is-alphanumerical@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-alphanumerical/-/is-alphanumerical-1.0.4.tgz", { "dependencies": { "is-alphabetical": "^1.0.0", "is-decimal": "^1.0.0" } }, "sha512-UzoZUr+XfVz3t3v4KyGEniVL9BDRoQtY7tOyrRybkVNjDFWyo1yhXNGrrBTQxp3ib9BLAWs7k2YKBQsFRkZG9A=="],
+
+    "is-buffer": ["is-buffer@1.1.6", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-buffer/-/is-buffer-1.1.6.tgz", {}, "sha512-NcdALwpXkTm5Zvvbk7owOUSvVvBKDgKP5/ewfXEznmQFfs4ZRmanOeKBTjRVjka3QFoN6XJ+9F3USqfHqTaU5w=="],
+
+    "is-core-module": ["is-core-module@2.16.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-core-module/-/is-core-module-2.16.2.tgz", { "dependencies": { "hasown": "^2.0.3" } }, "sha512-evOr8xfXKxE6qSR0hSXL2r3sd7ALj8+7jQEUvPYcm5sgZFdJ+AYzT6yNmJenvIYQBgIGwfwz08sL8zoL7yq2BA=="],
+
+    "is-decimal": ["is-decimal@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-decimal/-/is-decimal-1.0.4.tgz", {}, "sha512-RGdriMmQQvZ2aqaQq3awNA6dCGtKpiDFcOzrTWrDAT2MiWrKQVPmxLGHl7Y2nNu6led0kEyoX0enY0qXYsv9zw=="],
+
+    "is-expression": ["is-expression@3.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-expression/-/is-expression-3.0.0.tgz", { "dependencies": { "acorn": "~4.0.2", "object-assign": "^4.0.1" } }, "sha512-vyMeQMq+AiH5uUnoBfMTwf18tO3bM6k1QXBE9D6ueAAquEfCZe3AJPtud9g6qS0+4X8xA7ndpZiDyeb2l2qOBw=="],
+
+    "is-extglob": ["is-extglob@2.1.1", "https://npm.apple.com/is-extglob/-/is-extglob-2.1.1.tgz", {}, "sha512-SbKbANkN603Vi4jEZv49LeVJMn4yGwsbzZworEoyEiutsN3nJYdbO36zfhGJ6QEDpOZIFkDtnq5JRxmvl3jsoQ=="],
+
+    "is-fullwidth-code-point": ["is-fullwidth-code-point@3.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-fullwidth-code-point/-/is-fullwidth-code-point-3.0.0.tgz", {}, "sha512-zymm5+u+sCsSWyD9qNaejV3DFvhCKclKdizYaJUuHA83RLjb7nSuGnddCHGv0hk+KY7BMAlsWeK4Ueg6EV6XQg=="],
+
+    "is-glob": ["is-glob@3.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-glob/-/is-glob-3.1.0.tgz", { "dependencies": { "is-extglob": "^2.1.0" } }, "sha512-UFpDDrPgM6qpnFNI+rh/p3bUaq9hKLZN8bMUWzxmcnZVS3omf4IPK+BrewlnWjO1WmUsMYuSjKh4UJuV4+Lqmw=="],
+
+    "is-hexadecimal": ["is-hexadecimal@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-hexadecimal/-/is-hexadecimal-1.0.4.tgz", {}, "sha512-gyPJuv83bHMpocVYoqof5VDiZveEoGoFL8m3BXNb2VW8Xs+rz9kqO8LOQ5DH6EsuvilT1ApazU0pyl+ytbPtlw=="],
+
+    "is-promise": ["is-promise@2.2.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-promise/-/is-promise-2.2.2.tgz", {}, "sha512-+lP4/6lKUBfQjZ2pdxThZvLUAafmZb8OAxFb8XXtiQmS35INgr85hdOGoEs124ez1FCnZJt6jau/T+alh58QFQ=="],
+
+    "is-regex": ["is-regex@1.2.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/is-regex/-/is-regex-1.2.1.tgz", { "dependencies": { "call-bound": "^1.0.2", "gopd": "^1.2.0", "has-tostringtag": "^1.0.2", "hasown": "^2.0.2" } }, "sha512-MjYsKHO5O7mCsmRGxWcLWheFqN9DJ/2TmngvjKXihe6efViPqc274+Fx/4fYj/r03+ESvBdTXK0V6tA3rgez1g=="],
+
+    "js-stringify": ["js-stringify@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/js-stringify/-/js-stringify-1.0.2.tgz", {}, "sha512-rtS5ATOo2Q5k1G+DADISilDA6lv79zIiwFd6CcjuIxGKLFm5C+RLImRscVap9k55i+MOZwgliw+NejvkLuGD5g=="],
+
+    "jsbn": ["jsbn@0.1.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsbn/-/jsbn-0.1.1.tgz", {}, "sha512-UVU9dibq2JcFWxQPA6KCqj5O42VOmAY3zQUfEKxU0KpTGXwNoCjkX1e13eHNvw/xPynt6pU0rZ1htjWTNTSXsg=="],
+
+    "jsonresume-theme-architects-portfolio": ["jsonresume-theme-architects-portfolio@1.1.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-architects-portfolio/-/jsonresume-theme-architects-portfolio-1.1.4.tgz", { "dependencies": { "@jsonresume/core": "0.3.2", "styled-components": "^6.1.19" }, "peerDependencies": { "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-iNbu8apr8gFjMF5jbrCwEdg8eGcysbCqd2Bz+FhtxKPXEV09tMcyjI/pHI3FpsIEj3p+X7JKITQ4AwbDdeVMgg=="],
+
+    "jsonresume-theme-caffeine": ["jsonresume-theme-caffeine@1.2.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-caffeine/-/jsonresume-theme-caffeine-1.2.3.tgz", { "dependencies": { "address-format": "0.0.3", "handlebars": "^4.0.5", "handlebars-wax": "^4.0.0", "moment": "^2.17.1", "swag": "^0.7.0" } }, "sha512-SCcKReZjSauVWIs55B2NwU4X44iWYBnJuvC93CcjfXDiHBLkIVtZ1OgufgHxm7UD2bSXu4juD/lR+vb9s8EOiA=="],
+
+    "jsonresume-theme-compact": ["jsonresume-theme-compact@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-compact/-/jsonresume-theme-compact-1.0.4.tgz", { "dependencies": { "handlebars": "^2.0.0-alpha.4", "moment": "^2.8.2" } }, "sha512-F9xRvpI/AF0czNvF9o3OuxLvgSNczTIl7oB7AcNHxqiCcX6FZQmVWdpCHL2LtwDZsFt9WqTiOBVwxkXavmLv+A=="],
+
+    "jsonresume-theme-elegant": ["jsonresume-theme-elegant@1.16.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-elegant/-/jsonresume-theme-elegant-1.16.1.tgz", { "dependencies": { "gravatar": "^1.0.6", "handlebars": ">=4.0.14", "jsonresume-themeutils": "^1.4.3", "markdown-it": "^6.0.1", "markdown-it-abbr": "^1.0.3", "moment": "^2.22.2", "pug": "^2.0.4", "resume-schema": "1.0.0", "sshpk": ">=1.13.2", "tarball-extract": "0.0.3", "underscore": "^1.6.0" } }, "sha512-UHKZx+AoE/zGnsZBgV60b+kP5s7euzLp1wDfOItWCt90iwzXuiY++BETTsaRlQHt4nrKbb5GvjXHkE02xovS1w=="],
+
+    "jsonresume-theme-even": ["jsonresume-theme-even@0.26.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-even/-/jsonresume-theme-even-0.26.1.tgz", { "dependencies": { "@rbardini/html": "^1.0.0", "feather-icons": "^4.28.0", "micromark": "^2.11.0", "striptags": "^3.2.0" }, "bin": "bin/cli.js" }, "sha512-m7KVaPosBP+pZfsM+6UdShhfiB3YgJtVfhFZ2k3fzvA6jayVhrDbXKsRBhYAKCkHoPrq+zwLazz4drYaw06l0w=="],
+
+    "jsonresume-theme-flat": ["jsonresume-theme-flat@0.3.7", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-flat/-/jsonresume-theme-flat-0.3.7.tgz", { "dependencies": { "handlebars": "^2.0.0-alpha.4" } }, "sha512-sdDkJdmMR4hqV/z/acBQCEWmzUlmsg74F97+aeH7KMhRRipB7j8GO2XKZxK9Zb+lh3ewZ7kmlo5/AX+mvTYcig=="],
+
+    "jsonresume-theme-paper": ["jsonresume-theme-paper@0.5.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-theme-paper/-/jsonresume-theme-paper-0.5.0.tgz", { "dependencies": { "handlebars": "^4.5.3" } }, "sha512-RhXdFOZ3Bpic2d4gL9qV+9sLbvGuZRN1NPk/yai0GnVm0OZZw+0kYUSYiO3nCRrw3cYam5gyusL3NMEScCrrwA=="],
+
+    "jsonresume-themeutils": ["jsonresume-themeutils@1.4.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jsonresume-themeutils/-/jsonresume-themeutils-1.4.3.tgz", { "dependencies": { "gravatar": "^1.5.2", "moment": "^2.13.0", "underscore": "^1.8.3" } }, "sha512-Nor8HmHHe3gkyba76A2p1pOom9iaszI0eqZk5/EbvmEV6UxYkHfoeGp+HbVYFbRV+qQucf9GBeteN1VTPCqQZg=="],
+
+    "jstransformer": ["jstransformer@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/jstransformer/-/jstransformer-1.0.0.tgz", { "dependencies": { "is-promise": "^2.0.0", "promise": "^7.0.1" } }, "sha512-C9YK3Rf8q6VAPDCCU9fnqo3mAfOH6vUGnMcP4AQAYIEpWtfGLpwOTmZ+igtdK5y+VvI2n3CyYSzy4Qh34eq24A=="],
+
+    "kind-of": ["kind-of@3.2.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/kind-of/-/kind-of-3.2.2.tgz", { "dependencies": { "is-buffer": "^1.1.5" } }, "sha512-NOW9QQXMoZGg/oqnVNoNTTIFEIid1627WCffUBJEdMxYApq7mNE7CpzucIPc+ZQg25Phej7IJSmX3hO+oblOtQ=="],
+
+    "lazy-cache": ["lazy-cache@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/lazy-cache/-/lazy-cache-1.0.4.tgz", {}, "sha512-RE2g0b5VGZsOCFOCgP7omTRYFqydmZkBwl5oNnQ1lDYC57uyO9KqNnNVxT7COSHTxrRCWVcAVOcbjk+tvh/rgQ=="],
+
+    "linkify-it": ["linkify-it@1.2.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/linkify-it/-/linkify-it-1.2.4.tgz", { "dependencies": { "uc.micro": "^1.0.1" } }, "sha512-eGHwtlABkp1NOJSiKUNqBf3SYAS5jPHtvRXPAgNaQwTqmkTahjtiLH9NtxdR5IOPhNvwNMN/diswSfZKzUkhGg=="],
+
+    "locate-path": ["locate-path@5.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/locate-path/-/locate-path-5.0.0.tgz", { "dependencies": { "p-locate": "^4.1.0" } }, "sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g=="],
+
+    "lodash": ["lodash@4.18.1", "https://npm.apple.com/lodash/-/lodash-4.18.1.tgz", {}, "sha512-dMInicTPVE8d1e5otfwmmjlxkZoUpiVLwyeTdUsi/Caj/gfzzblBcCE5sRHV/AsjuCmxWrte2TNGSYuCeCq+0Q=="],
+
+    "lodash.get": ["lodash.get@4.4.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/lodash.get/-/lodash.get-4.4.2.tgz", {}, "sha512-z+Uw/vLuy6gQe8cfaFWD7p0wVv8fJl3mbzXh33RS+0oW2wvUqiRXiQ69gLWSLpgB5/6sU+r6BlQR0MBILadqTQ=="],
+
+    "lodash.isequal": ["lodash.isequal@4.5.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/lodash.isequal/-/lodash.isequal-4.5.0.tgz", {}, "sha512-pDo3lu8Jhfjqls6GkMgpahsF9kCyayhgykjyLMNFTKWrpVdAQtYyB4muAMWozBB4ig/dtWAmsMxLEI8wuz+DYQ=="],
+
+    "longest": ["longest@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/longest/-/longest-1.0.1.tgz", {}, "sha512-k+yt5n3l48JU4k8ftnKG6V7u32wyH2NfKzeMto9F/QRE0amxy/LayxwlvjjkZEIzqR+19IrtFO8p5kB9QaYUFg=="],
+
+    "markdown-it": ["markdown-it@6.1.1", "https://npm.apple.com/markdown-it/-/markdown-it-6.1.1.tgz", { "dependencies": { "argparse": "^1.0.7", "entities": "~1.1.1", "linkify-it": "~1.2.2", "mdurl": "~1.0.1", "uc.micro": "^1.0.1" }, "bin": "bin/markdown-it.js" }, "sha512-woFl7h/sqt9xRmiMweNuO7nu+w8Lz3SXsDlvE3TYeu1SdPqQ+VW4GZyaKP442Bq6XUN6V6IQjJTR93RDYG2mjw=="],
+
+    "markdown-it-abbr": ["markdown-it-abbr@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/markdown-it-abbr/-/markdown-it-abbr-1.0.4.tgz", {}, "sha512-ZeA4Z4SaBbYysZap5iZcxKmlPL6bYA8grqhzJIHB1ikn7njnzaP8uwbtuXc4YXD5LicI4/2Xmc0VwmSiFV04gg=="],
+
+    "math-intrinsics": ["math-intrinsics@1.1.0", "https://npm.apple.com/math-intrinsics/-/math-intrinsics-1.1.0.tgz", {}, "sha512-/IXtbwEk5HTPyEwyKX6hGkYXxM9nbj64B+ilVJnC/R6B0pH5G4V3b0pVbL7DBj4tkhBAppbQUlf6F6Xl9LHu1g=="],
+
+    "mdurl": ["mdurl@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/mdurl/-/mdurl-1.0.1.tgz", {}, "sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g=="],
+
+    "micromark": ["micromark@2.11.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/micromark/-/micromark-2.11.4.tgz", { "dependencies": { "debug": "^4.0.0", "parse-entities": "^2.0.0" } }, "sha512-+WoovN/ppKolQOFIAajxi7Lu9kInbPxFuTBVEavFcL8eAfVstoc5MocPmqBeAdBOJV00uaVjegzH4+MA0DN/uA=="],
+
+    "minimatch": ["minimatch@3.1.5", "https://npm.apple.com/minimatch/-/minimatch-3.1.5.tgz", { "dependencies": { "brace-expansion": "^1.1.7" } }, "sha512-VgjWUsnnT6n+NUk6eZq77zeFdpW2LWDzP6zFGrCbHXiYNul5Dzqk2HHQ5uFH2DNW5Xbp8+jVzaeNt94ssEEl4w=="],
+
+    "minimist": ["minimist@1.2.8", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/minimist/-/minimist-1.2.8.tgz", {}, "sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA=="],
+
+    "minipass": ["minipass@7.1.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/minipass/-/minipass-7.1.3.tgz", {}, "sha512-tEBHqDnIoM/1rXME1zgka9g6Q2lcoCkxHLuc7ODJ5BxbP5d4c2Z5cGgtXAku59200Cx7diuHTOYfSBD8n6mm8A=="],
+
+    "minizlib": ["minizlib@3.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/minizlib/-/minizlib-3.1.0.tgz", { "dependencies": { "minipass": "^7.1.2" } }, "sha512-KZxYo1BUkWD2TVFLr0MQoM8vUUigWD3LlD83a/75BqC+4qE0Hb1Vo5v1FgcfaNXvfXzr+5EhQ6ing/CaBijTlw=="],
+
+    "moment": ["moment@2.30.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/moment/-/moment-2.30.1.tgz", {}, "sha512-uEmtNhbDOrWPFS+hdjFCBfy9f2YoyzRpwcl+DqpC6taX21FzsTLQVbMV/W7PzNSX6x/bhC1zA3c2UQ5NzH6how=="],
+
+    "ms": ["ms@2.1.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/ms/-/ms-2.1.3.tgz", {}, "sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA=="],
+
+    "neo-async": ["neo-async@2.6.2", "https://npm.apple.com/neo-async/-/neo-async-2.6.2.tgz", {}, "sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw=="],
+
+    "object-assign": ["object-assign@4.1.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/object-assign/-/object-assign-4.1.1.tgz", {}, "sha512-rJgTQnkUnH1sFw8yT6VSU3zD3sWmu6sZhIseY8VX+GRu3P6F7Fu+JNDoXfklElbLJSnc3FUQHVe4cU5hj+BcUg=="],
+
+    "once": ["once@1.4.0", "https://npm.apple.com/once/-/once-1.4.0.tgz", { "dependencies": { "wrappy": "1" } }, "sha512-lNaJgI+2Q5URQBkccEKHTQOPaXdUxnZZElQTZY0MFUAuaEqe1E+Nyvgdz/aIyNi6Z9MzO5dv1H8n58/GELp3+w=="],
+
+    "optimist": ["optimist@0.3.7", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/optimist/-/optimist-0.3.7.tgz", { "dependencies": { "wordwrap": "~0.0.2" } }, "sha512-TCx0dXQzVtSCg2OgY/bO9hjM9cV4XYx09TVK+s3+FhkjT6LovsLe+pPMzpWf+6yXK/hUizs2gUoTw3jHM0VaTQ=="],
+
+    "p-limit": ["p-limit@2.3.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/p-limit/-/p-limit-2.3.0.tgz", { "dependencies": { "p-try": "^2.0.0" } }, "sha512-//88mFWSJx8lxCzwdAABTJL2MyWB12+eIY7MDL2SqLmAkeKU9qxRvWuSyTjm3FUmpBEMuFfckAIqEaVGUDxb6w=="],
+
+    "p-locate": ["p-locate@4.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/p-locate/-/p-locate-4.1.0.tgz", { "dependencies": { "p-limit": "^2.2.0" } }, "sha512-R79ZZ/0wAxKGu3oYMlz8jy/kbhsNrS7SKZ7PxEHBgJ5+F2mtFW2fK2cOtBh1cHYkQsbzFV7I+EoRKe6Yt0oK7A=="],
+
+    "p-try": ["p-try@2.2.0", "https://npm.apple.com/p-try/-/p-try-2.2.0.tgz", {}, "sha512-R4nPAVTAU0B9D35/Gk3uJf/7XYbQcyohSKdvAxIRSNghFl4e71hVoGnBNQz9cWaXxO2I10KTC+3jMdvvoKw6dQ=="],
+
+    "parent-module": ["parent-module@0.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/parent-module/-/parent-module-0.1.0.tgz", { "dependencies": { "callsites": "^1.0.0" } }, "sha512-fkZFUUL8tSsJUm/WvAqyJLV/Aj9/jpnMXHy0leJYEUu2qw5FE6nJQI/bMVW2xbZySot4uaPb6cw4eY5zQn7/Ww=="],
+
+    "parse-entities": ["parse-entities@2.0.0", "https://npm.apple.com/parse-entities/-/parse-entities-2.0.0.tgz", { "dependencies": { "character-entities": "^1.0.0", "character-entities-legacy": "^1.0.0", "character-reference-invalid": "^1.0.0", "is-alphanumerical": "^1.0.0", "is-decimal": "^1.0.0", "is-hexadecimal": "^1.0.0" } }, "sha512-kkywGpCcRYhqQIchaWqZ875wzpS/bMKhz5HnN3p7wveJTkTtyAB/AlnS0f8DFSqYW1T82t6yEAkEcB+A1I3MbQ=="],
+
+    "path-dirname": ["path-dirname@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/path-dirname/-/path-dirname-1.0.2.tgz", {}, "sha512-ALzNPpyNq9AqXMBjeymIjFDAkAFH06mHJH/cSBHAgU0s4vfpBn6b2nf8tiRLvagKD8RbTpq2FKTBg7cl9l3c7Q=="],
+
+    "path-exists": ["path-exists@4.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/path-exists/-/path-exists-4.0.0.tgz", {}, "sha512-ak9Qy5Q7jYb2Wwcey5Fpvg2KoAc/ZIhLSLOSBmRmygPsGwkVVt0fZa0qrtMz+m6tJTAHfZQ8FnmB4MG4LWy7/w=="],
+
+    "path-is-absolute": ["path-is-absolute@1.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/path-is-absolute/-/path-is-absolute-1.0.1.tgz", {}, "sha512-AVbw3UJ2e9bq64vSaS9Am0fje1Pa8pbGqTTsmXfaIiMpnr5DlDhfJOuLj9Sf95ZPVDAUerDfEk88MPmPe7UCQg=="],
+
+    "path-parse": ["path-parse@1.0.7", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/path-parse/-/path-parse-1.0.7.tgz", {}, "sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw=="],
+
+    "pify": ["pify@2.3.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pify/-/pify-2.3.0.tgz", {}, "sha512-udgsAY+fTnvv7kI7aaxbqwWNb0AHiB0qBO89PZKPkoTmGOgdbrHDKD+0B2X4uTfJ/FT1R09r9gTsjUjNJotuog=="],
+
+    "pinkie": ["pinkie@2.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pinkie/-/pinkie-2.0.4.tgz", {}, "sha512-MnUuEycAemtSaeFSjXKW/aroV7akBbY+Sv+RkyqFjgAe73F+MR0TBWKBRDkmfWq/HiFmdavfZ1G7h4SPZXaCSg=="],
+
+    "pinkie-promise": ["pinkie-promise@2.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pinkie-promise/-/pinkie-promise-2.0.1.tgz", { "dependencies": { "pinkie": "^2.0.0" } }, "sha512-0Gni6D4UcLTbv9c57DfxDGdr41XfgUjqWZu492f0cIGr16zDU06BWP/RAEvOuo7CQ0CNjHaLlM59YJJFm3NWlw=="],
+
+    "postcss-value-parser": ["postcss-value-parser@4.2.0", "https://npm.apple.com/postcss-value-parser/-/postcss-value-parser-4.2.0.tgz", {}, "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="],
+
+    "promise": ["promise@7.3.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/promise/-/promise-7.3.1.tgz", { "dependencies": { "asap": "~2.0.3" } }, "sha512-nolQXZ/4L+bP/UGlkfaIujX9BKxGwmQ9OT4mOt5yvy8iK1h3wqTEJCijzGANTCCl9nWjY41juyAn2K3Q1hLLTg=="],
+
+    "pug": ["pug@2.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug/-/pug-2.0.4.tgz", { "dependencies": { "pug-code-gen": "^2.0.2", "pug-filters": "^3.1.1", "pug-lexer": "^4.1.0", "pug-linker": "^3.0.6", "pug-load": "^2.0.12", "pug-parser": "^5.0.1", "pug-runtime": "^2.0.5", "pug-strip-comments": "^1.0.4" } }, "sha512-XhoaDlvi6NIzL49nu094R2NA6P37ijtgMDuWE+ofekDChvfKnzFal60bhSdiy8y2PBO6fmz3oMEIcfpBVRUdvw=="],
+
+    "pug-attrs": ["pug-attrs@2.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-attrs/-/pug-attrs-2.0.4.tgz", { "dependencies": { "constantinople": "^3.0.1", "js-stringify": "^1.0.1", "pug-runtime": "^2.0.5" } }, "sha512-TaZ4Z2TWUPDJcV3wjU3RtUXMrd3kM4Wzjbe3EWnSsZPsJ3LDI0F3yCnf2/W7PPFF+edUFQ0HgDL1IoxSz5K8EQ=="],
+
+    "pug-code-gen": ["pug-code-gen@2.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-code-gen/-/pug-code-gen-2.0.3.tgz", { "dependencies": { "constantinople": "^3.1.2", "doctypes": "^1.1.0", "js-stringify": "^1.0.1", "pug-attrs": "^2.0.4", "pug-error": "^1.3.3", "pug-runtime": "^2.0.5", "void-elements": "^2.0.1", "with": "^5.0.0" } }, "sha512-r9sezXdDuZJfW9J91TN/2LFbiqDhmltTFmGpHTsGdrNGp3p4SxAjjXEfnuK2e4ywYsRIVP0NeLbSAMHUcaX1EA=="],
+
+    "pug-error": ["pug-error@1.3.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-error/-/pug-error-1.3.3.tgz", {}, "sha512-qE3YhESP2mRAWMFJgKdtT5D7ckThRScXRwkfo+Erqga7dyJdY3ZquspprMCj/9sJ2ijm5hXFWQE/A3l4poMWiQ=="],
+
+    "pug-filters": ["pug-filters@3.1.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-filters/-/pug-filters-3.1.1.tgz", { "dependencies": { "clean-css": "^4.1.11", "constantinople": "^3.0.1", "jstransformer": "1.0.0", "pug-error": "^1.3.3", "pug-walk": "^1.1.8", "resolve": "^1.1.6", "uglify-js": "^2.6.1" } }, "sha512-lFfjNyGEyVWC4BwX0WyvkoWLapI5xHSM3xZJFUhx4JM4XyyRdO8Aucc6pCygnqV2uSgJFaJWW3Ft1wCWSoQkQg=="],
+
+    "pug-lexer": ["pug-lexer@4.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-lexer/-/pug-lexer-4.1.0.tgz", { "dependencies": { "character-parser": "^2.1.1", "is-expression": "^3.0.0", "pug-error": "^1.3.3" } }, "sha512-i55yzEBtjm0mlplW4LoANq7k3S8gDdfC6+LThGEvsK4FuobcKfDAwt6V4jKPH9RtiE3a2Akfg5UpafZ1OksaPA=="],
+
+    "pug-linker": ["pug-linker@3.0.6", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-linker/-/pug-linker-3.0.6.tgz", { "dependencies": { "pug-error": "^1.3.3", "pug-walk": "^1.1.8" } }, "sha512-bagfuHttfQOpANGy1Y6NJ+0mNb7dD2MswFG2ZKj22s8g0wVsojpRlqveEQHmgXXcfROB2RT6oqbPYr9EN2ZWzg=="],
+
+    "pug-load": ["pug-load@2.0.12", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-load/-/pug-load-2.0.12.tgz", { "dependencies": { "object-assign": "^4.1.0", "pug-walk": "^1.1.8" } }, "sha512-UqpgGpyyXRYgJs/X60sE6SIf8UBsmcHYKNaOccyVLEuT6OPBIMo6xMPhoJnqtB3Q3BbO4Z3Bjz5qDsUWh4rXsg=="],
+
+    "pug-parser": ["pug-parser@5.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-parser/-/pug-parser-5.0.1.tgz", { "dependencies": { "pug-error": "^1.3.3", "token-stream": "0.0.1" } }, "sha512-nGHqK+w07p5/PsPIyzkTQfzlYfuqoiGjaoqHv1LjOv2ZLXmGX1O+4Vcvps+P4LhxZ3drYSljjq4b+Naid126wA=="],
+
+    "pug-runtime": ["pug-runtime@2.0.5", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-runtime/-/pug-runtime-2.0.5.tgz", {}, "sha512-P+rXKn9un4fQY77wtpcuFyvFaBww7/91f3jHa154qU26qFAnOe6SW1CbIDcxiG5lLK9HazYrMCCuDvNgDQNptw=="],
+
+    "pug-strip-comments": ["pug-strip-comments@1.0.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-strip-comments/-/pug-strip-comments-1.0.4.tgz", { "dependencies": { "pug-error": "^1.3.3" } }, "sha512-i5j/9CS4yFhSxHp5iKPHwigaig/VV9g+FgReLJWWHEHbvKsbqL0oP/K5ubuLco6Wu3Kan5p7u7qk8A4oLLh6vw=="],
+
+    "pug-walk": ["pug-walk@1.1.8", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/pug-walk/-/pug-walk-1.1.8.tgz", {}, "sha512-GMu3M5nUL3fju4/egXwZO0XLi6fW/K3T3VTgFQ14GxNi8btlxgT5qZL//JwZFm/2Fa64J/PNS8AZeys3wiMkVA=="],
+
+    "querystring": ["querystring@0.2.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/querystring/-/querystring-0.2.0.tgz", {}, "sha512-X/xY82scca2tau62i9mDyU9K+I+djTMUsvwf7xnUX5GLvVzgJybOJf4Y6o9Zx3oJK/LSXg5tTZBjwzqVPaPO2g=="],
+
+    "react": ["react@19.2.8", "https://npm.apple.com/react/-/react-19.2.8.tgz", {}, "sha512-PWaYA1L/q9u2u7xYQi+Y3L3Yfnie7XyLeaJICV1MGD6LprsBxcAqGjYyr0eY3p+QdsA+x/Irkt4Qif8D63+Sbw=="],
+
+    "react-dom": ["react-dom@19.2.8", "https://npm.apple.com/react-dom/-/react-dom-19.2.8.tgz", { "dependencies": { "scheduler": "^0.27.0" }, "peerDependencies": { "react": "^19.2.8" } }, "sha512-rVprimfGBG3DR+Tq0IQG2DT5PxKth1WIGDmj5yPmlzr4YBe7uyE+Du4oVqTDXZSHGGGXRtTJEGSSePyQCMBglQ=="],
+
+    "regenerator-runtime": ["regenerator-runtime@0.11.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz", {}, "sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg=="],
+
+    "repeat-string": ["repeat-string@1.6.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/repeat-string/-/repeat-string-1.6.1.tgz", {}, "sha512-PV0dzCYDNfRi1jCDbJzpW7jNNDRuCOG/jI5ctQcGKt/clZD+YcPS3yIlWuTJMmESC8aevCFmWJy5wjAFgNqN6w=="],
+
+    "require-directory": ["require-directory@2.1.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/require-directory/-/require-directory-2.1.1.tgz", {}, "sha512-fGxEI7+wsG9xrvdjsrlmL22OMTTiHRwAMroiEeMgq8gzoLC/PQr7RsRDSTLUg/bZAZtF+TVIkHc6/4RIKrui+Q=="],
+
+    "require-glob": ["require-glob@3.2.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/require-glob/-/require-glob-3.2.0.tgz", { "dependencies": { "glob-parent": "^3.0.0", "globby": "^6.0.0", "parent-module": "^0.1.0" } }, "sha512-F7diVunoVBanWJ4kq9t+ZKiPhxn588xBvFEDbe8XJnpZ68qEUZ3wXzoAaRSDYxylh6ssSIIPV2+qD6QIsOkR1g=="],
+
+    "require-main-filename": ["require-main-filename@2.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/require-main-filename/-/require-main-filename-2.0.0.tgz", {}, "sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg=="],
+
+    "resolve": ["resolve@1.22.12", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/resolve/-/resolve-1.22.12.tgz", { "dependencies": { "es-errors": "^1.3.0", "is-core-module": "^2.16.1", "path-parse": "^1.0.7", "supports-preserve-symlinks-flag": "^1.0.0" }, "bin": "bin/resolve" }, "sha512-TyeJ1zif53BPfHootBGwPRYT1RUt6oGWsaQr8UyZW/eAm9bKoijtvruSDEmZHm92CwS9nj7/fWttqPCgzep8CA=="],
+
+    "resume-schema": ["resume-schema@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/resume-schema/-/resume-schema-1.0.0.tgz", { "dependencies": { "z-schema": "^4.2.2" } }, "sha512-9ZEP3oO1IRrjQWTOfDq7fDNNeJp7gWqfS/l2D02f6f25nRw/wRAkpDyvIlw9uoaDARK7Ebj/CN2D/6Ht27S0zg=="],
+
+    "right-align": ["right-align@0.1.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/right-align/-/right-align-0.1.3.tgz", { "dependencies": { "align-text": "^0.1.1" } }, "sha512-yqINtL/G7vs2v+dFIZmFUDbnVyFUJFKd6gK22Kgo6R4jfJGFtisKyncWDDULgjfqf4ASQuIQyjJ7XZ+3aWpsAg=="],
+
+    "safer-buffer": ["safer-buffer@2.1.2", "https://npm.apple.com/safer-buffer/-/safer-buffer-2.1.2.tgz", {}, "sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg=="],
+
+    "scheduler": ["scheduler@0.27.0", "https://npm.apple.com/scheduler/-/scheduler-0.27.0.tgz", {}, "sha512-eNv+WrVbKu1f3vbYJT/xtiF5syA5HPIMtf9IgY/nKg0sWqzAUEvqY/xm7OcZc/qafLx/iO9FgOmeSAp4v5ti/Q=="],
+
+    "set-blocking": ["set-blocking@2.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/set-blocking/-/set-blocking-2.0.0.tgz", {}, "sha512-KiKBS8AnWGEyLzofFfmvKwpdPzqiy16LvQfK3yv/fVH7Bj13/wl3JSR1J+rfgRE9q7xUJK4qvgS8raSOeLUehw=="],
+
+    "source-map": ["source-map@0.6.1", "https://npm.apple.com/source-map/-/source-map-0.6.1.tgz", {}, "sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g=="],
+
+    "sprintf-js": ["sprintf-js@1.0.3", "https://npm.apple.com/sprintf-js/-/sprintf-js-1.0.3.tgz", {}, "sha512-D9cPgkvLlV3t3IzL0D0YLvGA9Ahk4PcvVwUbN0dSGr1aP0Nrt4AEnTUbuGvquEC0mA64Gqt1fzirlRs5ibXx8g=="],
+
+    "sshpk": ["sshpk@1.18.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/sshpk/-/sshpk-1.18.0.tgz", { "dependencies": { "asn1": "~0.2.3", "assert-plus": "^1.0.0", "bcrypt-pbkdf": "^1.0.0", "dashdash": "^1.12.0", "ecc-jsbn": "~0.1.1", "getpass": "^0.1.1", "jsbn": "~0.1.0", "safer-buffer": "^2.0.2", "tweetnacl": "~0.14.0" }, "bin": { "sshpk-conv": "bin/sshpk-conv", "sshpk-sign": "bin/sshpk-sign", "sshpk-verify": "bin/sshpk-verify" } }, "sha512-2p2KJZTSqQ/I3+HX42EpYOa2l3f8Erv8MWKsy2I9uf4wA7yFIkXRffYdsx86y6z4vHtV8u7g+pPlr8/4ouAxsQ=="],
+
+    "string-width": ["string-width@4.2.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/string-width/-/string-width-4.2.3.tgz", { "dependencies": { "emoji-regex": "^8.0.0", "is-fullwidth-code-point": "^3.0.0", "strip-ansi": "^6.0.1" } }, "sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g=="],
+
+    "strip-ansi": ["strip-ansi@6.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/strip-ansi/-/strip-ansi-6.0.1.tgz", { "dependencies": { "ansi-regex": "^5.0.1" } }, "sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A=="],
+
+    "striptags": ["striptags@3.2.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/striptags/-/striptags-3.2.0.tgz", {}, "sha512-g45ZOGzHDMe2bdYMdIvdAfCQkCTDMGBazSw1ypMowwGIee7ZQ5dU0rBJ8Jqgl+jAKIv4dbeE1jscZq9wid1Tkw=="],
+
+    "styled-components": ["styled-components@6.4.4", "https://npm.apple.com/styled-components/-/styled-components-6.4.4.tgz", { "dependencies": { "@emotion/is-prop-valid": "1.4.0", "css-to-react-native": "3.2.0", "csstype": "3.2.3", "stylis": "4.3.6" }, "peerDependencies": { "css-to-react-native": ">= 3.2.0", "react": ">= 16.8.0", "react-dom": ">= 16.8.0", "react-native": ">= 0.68.0" }, "optionalPeers": ["react-native"] }, "sha512-tJk5CmKUPMDoTsZQ8m0hHInBk9HFKUPSusqmbBuefDX+yUbMBWea2Ob/wdXFyHW8XZqXkprJscysAdKeGWNqlA=="],
+
+    "stylis": ["stylis@4.3.6", "https://npm.apple.com/stylis/-/stylis-4.3.6.tgz", {}, "sha512-yQ3rwFWRfwNUY7H5vpU0wfdkNSnvnJinhF9830Swlaxl03zsOjCfmX0ugac+3LtK0lYSgwL/KXc8oYL3mG4YFQ=="],
+
+    "supports-preserve-symlinks-flag": ["supports-preserve-symlinks-flag@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz", {}, "sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w=="],
+
+    "swag": ["swag@0.7.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/swag/-/swag-0.7.0.tgz", { "dependencies": { "handlebars": "1.x" } }, "sha512-9pd1T3gNpUcmYFHC+YBOUOw9RdoM2+G6Gkp4SGhD5oI4CTH4BRmqtmrGezBb6uwzJ16K7C+SLsaGkyax1TPE1A=="],
+
+    "tar": ["tar@7.5.22", "https://npm.apple.com/tar/-/tar-7.5.22.tgz", { "dependencies": { "@isaacs/fs-minipass": "^4.0.0", "chownr": "^3.0.0", "minipass": "^7.1.2", "minizlib": "^3.1.0", "yallist": "^5.0.0" } }, "sha512-MFO/QzvtAOmJbkhOaCTvbGcFN9L9b+JunIsDwaKljSOdcLMea3NJ1k9Usz/rjdfSXTq4dfzfeS7W4p4YOAAHeA=="],
+
+    "tarball-extract": ["tarball-extract@0.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/tarball-extract/-/tarball-extract-0.0.3.tgz", { "dependencies": { "tar": "*", "wget": "*" } }, "sha512-ZstvL99CvEv5REj3hDXBHXBirNhfzVw2kW/v9qk3v6otmamrka+7lmbPrqxiXBs3GrNsIa7P01PkjLbhX6Dp0A=="],
+
+    "to-fast-properties": ["to-fast-properties@1.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/to-fast-properties/-/to-fast-properties-1.0.3.tgz", {}, "sha512-lxrWP8ejsq+7E3nNjwYmUBMAgjMTZoTI+sdBOpvNyijeDLa29LUn9QaoXAHv4+Z578hbmHHJKZknzxVtvo77og=="],
+
+    "token-stream": ["token-stream@0.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/token-stream/-/token-stream-0.0.1.tgz", {}, "sha512-nfjOAu/zAWmX9tgwi5NRp7O7zTDUD1miHiB40klUnAh9qnL1iXdgzcz/i5dMaL5jahcBAaSfmNOBBJBLJW8TEg=="],
+
+    "tunnel": ["tunnel@0.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/tunnel/-/tunnel-0.0.2.tgz", {}, "sha512-PjBRT+4Y/UH3q/lnjXosoaB+hY1yNH2TXWMjPSF1bAIdZmUDAJ2lBPt5s8jTH1e7sgb3nleK889E9vyY4NXpYw=="],
+
+    "tweetnacl": ["tweetnacl@0.14.5", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/tweetnacl/-/tweetnacl-0.14.5.tgz", {}, "sha512-KXXFFdAbFXY4geFIwoyNK+f5Z1b7swfXABfL7HXCmoIWMKU3dmS26672A4EeQtDzLKy7SXmfBu51JolvEKwtGA=="],
+
+    "uc.micro": ["uc.micro@1.0.6", "https://npm.apple.com/uc.micro/-/uc.micro-1.0.6.tgz", {}, "sha512-8Y75pvTYkLJW2hWQHXxoqRgV7qb9B+9vFEtidML+7koHUFapnVJAZ6cKs+Qjz5Aw3aZWHMC6u0wJE3At+nSGwA=="],
+
+    "uglify-js": ["uglify-js@3.19.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/uglify-js/-/uglify-js-3.19.3.tgz", { "bin": { "uglifyjs": "bin/uglifyjs" } }, "sha512-v3Xu+yuwBXisp6QYTcH4UbH+xYJXqnq2m/LtQVWKWzYc1iehYnLixoQDN9FH6/j9/oybfd6W9Ghwkl8+UMKTKQ=="],
+
+    "uglify-to-browserify": ["uglify-to-browserify@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/uglify-to-browserify/-/uglify-to-browserify-1.0.2.tgz", {}, "sha512-vb2s1lYx2xBtUgy+ta+b2J/GLVUR+wmpINwHePmPRhOsIVCG2wDzKJ0n14GslH1BifsqVzSOwQhRaCAsZ/nI4Q=="],
+
+    "underscore": ["underscore@1.13.8", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/underscore/-/underscore-1.13.8.tgz", {}, "sha512-DXtD3ZtEQzc7M8m4cXotyHR+FAS18C64asBYY5vqZexfYryNNnDc02W4hKg3rdQuqOYas1jkseX0+nZXjTXnvQ=="],
+
+    "validator": ["validator@13.15.35", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/validator/-/validator-13.15.35.tgz", {}, "sha512-TQ5pAGhd5whStmqWvYF4OjQROlmv9SMFVt37qoCBdqRffuuklWYQlCNnEs2ZaIBD1kZRNnikiZOS1eqgkar0iw=="],
+
+    "void-elements": ["void-elements@2.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/void-elements/-/void-elements-2.0.1.tgz", {}, "sha512-qZKX4RnBzH2ugr8Lxa7x+0V6XD9Sb/ouARtiasEQCHB1EVU4NXtmHsDDrx1dO4ne5fc3J6EW05BP1Dl0z0iung=="],
+
+    "wget": ["wget@0.0.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/wget/-/wget-0.0.1.tgz", { "dependencies": { "tunnel": "0.0.2" }, "bin": { "nwget": "bin/nwget.js" } }, "sha512-iKDSrvontU6lAQq89bNn7me3HU/+Cau7NedEYz607TOS4n0AgksloCt2UwU+ZH5Kn0Lq+XbJ6STOpnhpjicvOQ=="],
+
+    "which-module": ["which-module@2.0.1", "https://npm.apple.com/which-module/-/which-module-2.0.1.tgz", {}, "sha512-iBdZ57RDvnOR9AGBhML2vFZf7h8vmBjhoaZqODJBFWHVtKkDmKuHai3cx5PgVMrX5YDNp27AofYbAwctSS+vhQ=="],
+
+    "window-size": ["window-size@0.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/window-size/-/window-size-0.1.0.tgz", {}, "sha512-1pTPQDKTdd61ozlKGNCjhNRd+KPmgLSGa3mZTHoOliaGcESD8G1PXhh7c1fgiPjVbNVfgy2Faw4BI8/m0cC8Mg=="],
+
+    "with": ["with@5.1.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/with/-/with-5.1.1.tgz", { "dependencies": { "acorn": "^3.1.0", "acorn-globals": "^3.0.0" } }, "sha512-uAnSsFGfSpF6DNhBXStvlZILfHJfJu4eUkfbRGk94kGO1Ta7bg6FwfvoOhhyHAJuFbCw+0xk4uJ3u57jLvlCJg=="],
+
+    "wordwrap": ["wordwrap@1.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/wordwrap/-/wordwrap-1.0.0.tgz", {}, "sha512-gvVzJFlPycKc5dZN4yPkP8w7Dc37BtP1yczEneOb4uq34pXZcvrtRTmWV8W+Ume+XCxKgbjM+nevkyFPMybd4Q=="],
+
+    "wrap-ansi": ["wrap-ansi@6.2.0", "https://npm.apple.com/wrap-ansi/-/wrap-ansi-6.2.0.tgz", { "dependencies": { "ansi-styles": "^4.0.0", "string-width": "^4.1.0", "strip-ansi": "^6.0.0" } }, "sha512-r6lPcBGxZXlIcymEu7InxDMhdW0KDxpLgoFLcguasxCaJ/SOIZwINatK9KY/tf+ZrlywOKU0UDj3ATXUBfxJXA=="],
+
+    "wrappy": ["wrappy@1.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/wrappy/-/wrappy-1.0.2.tgz", {}, "sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ=="],
+
+    "y18n": ["y18n@4.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/y18n/-/y18n-4.0.3.tgz", {}, "sha512-JKhqTOwSrqNA1NY5lSztJ1GrBiUodLMmIZuLiDaMRJ+itFd+ABVE8XBjOvIWL+rSqNDC74LCSFmlb/U4UZ4hJQ=="],
+
+    "yallist": ["yallist@5.0.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/yallist/-/yallist-5.0.0.tgz", {}, "sha512-YgvUTfwqyc7UXVMrB+SImsVYSmTS8X/tSrtdNZMImM+n7+QTriRXyXim0mBrTXNeqzVF0KWGgHPeiyViFFrNDw=="],
+
+    "yargs": ["yargs@15.4.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/yargs/-/yargs-15.4.1.tgz", { "dependencies": { "cliui": "^6.0.0", "decamelize": "^1.2.0", "find-up": "^4.1.0", "get-caller-file": "^2.0.1", "require-directory": "^2.1.1", "require-main-filename": "^2.0.0", "set-blocking": "^2.0.0", "string-width": "^4.2.0", "which-module": "^2.0.0", "y18n": "^4.0.0", "yargs-parser": "^18.1.2" } }, "sha512-aePbxDmcYW++PaqBsJ+HYUFwCdv4LVvdnhBy78E57PIor8/OVvhMrADFFEDh8DHDFRv/O9i3lPhsENjO7QX0+A=="],
+
+    "yargs-parser": ["yargs-parser@18.1.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/yargs-parser/-/yargs-parser-18.1.3.tgz", { "dependencies": { "camelcase": "^5.0.0", "decamelize": "^1.2.0" } }, "sha512-o50j0JeToy/4K6OZcaQmW6lyXXKhq7csREXcDwk2omFPJEwUNOVtJKvmDr9EI1fAJZUyZcRF7kxGBWmRXudrCQ=="],
+
+    "z-schema": ["z-schema@4.2.4", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/z-schema/-/z-schema-4.2.4.tgz", { "dependencies": { "lodash.get": "^4.4.2", "lodash.isequal": "^4.5.0", "validator": "^13.6.0" }, "optionalDependencies": { "commander": "^2.7.1" }, "bin": "bin/z-schema" }, "sha512-YvBeW5RGNeNzKOUJs3rTL4+9rpcvHXt5I051FJbOcitV8bl40pEfcG0Q+dWSwS0/BIYrMZ/9HHoqLllMkFhD0w=="],
+
+    "acorn-globals/acorn": ["acorn@4.0.13", "https://npm.apple.com/acorn/-/acorn-4.0.13.tgz", { "bin": "bin/acorn" }, "sha512-fu2ygVGuMmlzG8ZeRJ0bvR41nsAkxxhbyk8bZ1SS521Z7vmgJFTQQlfz/Mp/nJexGBz+v8sC9bM6+lNgskt4Ug=="],
+
+    "babel-runtime/core-js": ["core-js@2.6.12", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/core-js/-/core-js-2.6.12.tgz", {}, "sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ=="],
+
+    "is-expression/acorn": ["acorn@4.0.13", "https://npm.apple.com/acorn/-/acorn-4.0.13.tgz", { "bin": "bin/acorn" }, "sha512-fu2ygVGuMmlzG8ZeRJ0bvR41nsAkxxhbyk8bZ1SS521Z7vmgJFTQQlfz/Mp/nJexGBz+v8sC9bM6+lNgskt4Ug=="],
+
+    "jsonresume-theme-compact/handlebars": ["handlebars@2.0.0", "https://npm.apple.com/handlebars/-/handlebars-2.0.0.tgz", { "dependencies": { "optimist": "~0.3" }, "optionalDependencies": { "uglify-js": "~2.3" }, "bin": "bin/handlebars" }, "sha512-OdfkaA0M8qGD5EJBkMw3TpguSWl6lz94jdyVmYs5e4TpwepZJ35Y5XlchsIwcN7NP/yzNa3MJYd/dRTO7Nf/fg=="],
+
+    "jsonresume-theme-flat/handlebars": ["handlebars@2.0.0", "https://npm.apple.com/handlebars/-/handlebars-2.0.0.tgz", { "dependencies": { "optimist": "~0.3" }, "optionalDependencies": { "uglify-js": "~2.3" }, "bin": "bin/handlebars" }, "sha512-OdfkaA0M8qGD5EJBkMw3TpguSWl6lz94jdyVmYs5e4TpwepZJ35Y5XlchsIwcN7NP/yzNa3MJYd/dRTO7Nf/fg=="],
+
+    "optimist/wordwrap": ["wordwrap@0.0.3", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/wordwrap/-/wordwrap-0.0.3.tgz", {}, "sha512-1tMA907+V4QmxV7dbRvb4/8MaRALK6q9Abid3ndMYnbyo8piisCmeONVqVSXqQA3KaP4SLt5b7ud6E2sqP8TFw=="],
+
+    "pug-filters/uglify-js": ["uglify-js@2.8.29", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/uglify-js/-/uglify-js-2.8.29.tgz", { "dependencies": { "source-map": "~0.5.1", "yargs": "~3.10.0" }, "optionalDependencies": { "uglify-to-browserify": "~1.0.0" }, "bin": { "uglifyjs": "bin/uglifyjs" } }, "sha512-qLq/4y2pjcU3vhlhseXGGJ7VbFO4pBANu0kwl8VCa9KEI0V8VfZIx2Fy3w01iSTA/pGwKZSmu/+I4etLNDdt5w=="],
+
+    "swag/handlebars": ["handlebars@1.3.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/handlebars/-/handlebars-1.3.0.tgz", { "dependencies": { "optimist": "~0.3" }, "optionalDependencies": { "uglify-js": "~2.3" }, "bin": "bin/handlebars" }, "sha512-l7sLUTqXCkc1Ypoy8mSOWZFEZJK3VYQYnLfIVTRJeSHdgzt6hXkQ0uPGugydPa99KyyBdsi0J3WvYfm/HX5naQ=="],
+
+    "jsonresume-theme-compact/handlebars/uglify-js": ["uglify-js@2.3.6", "https://npm.apple.com/uglify-js/-/uglify-js-2.3.6.tgz", { "dependencies": { "async": "~0.2.6", "optimist": "~0.3.5", "source-map": "~0.1.7" }, "bin": { "uglifyjs": "bin/uglifyjs" } }, "sha512-T2LWWydxf5+Btpb0S/Gg/yKFmYjnX9jtQ4mdN9YRq73BhN21EhU0Dvw3wYDLqd3TooGUJlCKf3Gfyjjy/RTcWA=="],
+
+    "jsonresume-theme-flat/handlebars/uglify-js": ["uglify-js@2.3.6", "https://npm.apple.com/uglify-js/-/uglify-js-2.3.6.tgz", { "dependencies": { "async": "~0.2.6", "optimist": "~0.3.5", "source-map": "~0.1.7" }, "bin": { "uglifyjs": "bin/uglifyjs" } }, "sha512-T2LWWydxf5+Btpb0S/Gg/yKFmYjnX9jtQ4mdN9YRq73BhN21EhU0Dvw3wYDLqd3TooGUJlCKf3Gfyjjy/RTcWA=="],
+
+    "pug-filters/uglify-js/source-map": ["source-map@0.5.7", "https://npm.apple.com/source-map/-/source-map-0.5.7.tgz", {}, "sha512-LbrmJOMUSdEVxIKvdcJzQC+nQhe8FUZQTXQy6+I75skNgn3OoQ0DZA8YnFa7gp8tqtL3KPf1kmo0R5DoApeSGQ=="],
+
+    "pug-filters/uglify-js/yargs": ["yargs@3.10.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/yargs/-/yargs-3.10.0.tgz", { "dependencies": { "camelcase": "^1.0.2", "cliui": "^2.1.0", "decamelize": "^1.0.0", "window-size": "0.1.0" } }, "sha512-QFzUah88GAGy9lyDKGBqZdkYApt63rCXYBGYnEP4xDJPXNqXXnBDACnbrXnViV6jRSqAePwrATi2i8mfYm4L1A=="],
+
+    "swag/handlebars/uglify-js": ["uglify-js@2.3.6", "https://npm.apple.com/uglify-js/-/uglify-js-2.3.6.tgz", { "dependencies": { "async": "~0.2.6", "optimist": "~0.3.5", "source-map": "~0.1.7" }, "bin": { "uglifyjs": "bin/uglifyjs" } }, "sha512-T2LWWydxf5+Btpb0S/Gg/yKFmYjnX9jtQ4mdN9YRq73BhN21EhU0Dvw3wYDLqd3TooGUJlCKf3Gfyjjy/RTcWA=="],
+
+    "jsonresume-theme-compact/handlebars/uglify-js/source-map": ["source-map@0.1.43", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/source-map/-/source-map-0.1.43.tgz", { "dependencies": { "amdefine": ">=0.0.4" } }, "sha512-VtCvB9SIQhk3aF6h+N85EaqIaBFIAfZ9Cu+NJHHVvc8BbEcnvDcFw6sqQ2dQrT6SlOrZq3tIvyD9+EGq/lJryQ=="],
+
+    "jsonresume-theme-flat/handlebars/uglify-js/source-map": ["source-map@0.1.43", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/source-map/-/source-map-0.1.43.tgz", { "dependencies": { "amdefine": ">=0.0.4" } }, "sha512-VtCvB9SIQhk3aF6h+N85EaqIaBFIAfZ9Cu+NJHHVvc8BbEcnvDcFw6sqQ2dQrT6SlOrZq3tIvyD9+EGq/lJryQ=="],
+
+    "pug-filters/uglify-js/yargs/camelcase": ["camelcase@1.2.1", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/camelcase/-/camelcase-1.2.1.tgz", {}, "sha512-wzLkDa4K/mzI1OSITC+DUyjgIl/ETNHE9QvYgy6J6Jvqyyz4C0Xfd+lQhb19sX2jMpZV4IssUn0VDVmglV+s4g=="],
+
+    "pug-filters/uglify-js/yargs/cliui": ["cliui@2.1.0", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/cliui/-/cliui-2.1.0.tgz", { "dependencies": { "center-align": "^0.1.1", "right-align": "^0.1.1", "wordwrap": "0.0.2" } }, "sha512-GIOYRizG+TGoc7Wgc1LiOTLare95R3mzKgoln+Q/lE4ceiYH19gUpl0l0Ffq4lJDEf3FxujMe6IBfOCs7pfqNA=="],
+
+    "swag/handlebars/uglify-js/source-map": ["source-map@0.1.43", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/source-map/-/source-map-0.1.43.tgz", { "dependencies": { "amdefine": ">=0.0.4" } }, "sha512-VtCvB9SIQhk3aF6h+N85EaqIaBFIAfZ9Cu+NJHHVvc8BbEcnvDcFw6sqQ2dQrT6SlOrZq3tIvyD9+EGq/lJryQ=="],
+
+    "pug-filters/uglify-js/yargs/cliui/wordwrap": ["wordwrap@0.0.2", "https://artifacts.apple.com/artifactory/api/npm/npm-apple/wordwrap/-/wordwrap-0.0.2.tgz", {}, "sha512-xSBsCeh+g+dinoBv3GAOWM4LcVVO68wLXRanibtBSdUvkGWQRGeE9P7IwU9EmDDi4jA6L44lz15CGMwdw9N5+Q=="],
+  }
+}

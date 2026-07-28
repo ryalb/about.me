@@ -1,0 +1,48 @@
+# Configuration for `prek`, a Rust reimplementation of pre-commit.
+# https://prek.j178.dev  ·  installed via `uv run prek install`.
+#
+# Local tool hooks use `pass_filenames = false` so ruff/ty discover files
+# themselves (respecting pyproject config) rather than being handed a subset.
+
+[[repos]]
+repo = "local"
+
+[[repos.hooks]]
+id = "ruff-format"
+name = "ruff format"
+description = "Format Python code with ruff"
+entry = "uv run ruff format"
+language = "system"
+types_or = ["python", "pyi"]
+pass_filenames = false
+
+[[repos.hooks]]
+id = "ruff-check"
+name = "ruff check"
+description = "Lint Python code with ruff"
+entry = "uv run ruff check --fix --exit-non-zero-on-fix --output-format=concise"
+language = "system"
+types_or = ["python", "pyi"]
+pass_filenames = false
+
+[[repos.hooks]]
+id = "ty"
+name = "ty check"
+description = "Static type checking with ty"
+entry = "uv run ty check --exit-zero-on-warning"
+language = "system"
+types = ["python"]
+pass_filenames = false
+require_serial = true
+
+[[repos]]
+repo = "builtin"
+hooks = [
+  { id = "trailing-whitespace", args = ["--markdown-linebreak-ext=md"] },
+  { id = "end-of-file-fixer" },
+  { id = "check-yaml", args = ["--allow-multiple-documents"], exclude = '^(helm/|rio\.yml)' },
+  { id = "check-toml" },
+  { id = "check-merge-conflict" },
+  { id = "check-added-large-files", args = ["--maxkb=1000"] },
+  { id = "detect-private-key" },
+]

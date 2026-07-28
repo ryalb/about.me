@@ -1,0 +1,14 @@
+{
+  "name": "resume-generator-node",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "jsonresume-theme-architects-portfolio": "^1.1.4",
+    "jsonresume-theme-caffeine": "^1.2.3",
+    "jsonresume-theme-compact": "^1.0.4",
+    "jsonresume-theme-elegant": "^1.16.1",
+    "jsonresume-theme-even": "^0.26.1",
+    "jsonresume-theme-flat": "^0.3.7",
+    "jsonresume-theme-paper": "^0.5.0"
+  }
+}
