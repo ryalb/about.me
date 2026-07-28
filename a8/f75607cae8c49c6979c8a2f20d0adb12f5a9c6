@@ -1,0 +1,29 @@
+mise.toml
+  s_9a01f857c6db9b::t_c95107903a3167 1-11
+node/bun.lock
+  s_9a01f857c6db9b::t_de524d557a8897 1-469
+node/package.json
+  s_9a01f857c6db9b::t_c7d7cd9ab10f23 1-14
+prek.toml
+  s_9a01f857c6db9b::t_ce6b2549787cb1 1-48
+resume_generator/renderers/text.py
+  s_9a01f857c6db9b::t_24c18ecce97301 1-226
+resume_generator/renderers/word.py
+  s_9a01f857c6db9b::t_abd3b07b72a36c 1-333
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "a8f75607cae8c49c6979c8a2f20d0adb12f5a9c6",
+  "prompts": {},
+  "sessions": {
+    "s_9a01f857c6db9b": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5c3f782e-dd36-49e2-a6ef-4901a9b11134",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
