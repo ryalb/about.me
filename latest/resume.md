@@ -1,0 +1,135 @@
+# Ryan Leite Albuquerque
+**Senior Software Engineer**
+✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
+
+Senior backend engineer with 26 years building production systems, currently designing Python (Django/Flask) services and JSON:API-conformant REST APIs while owning the CI/CD pipeline end to end. Polyglot by necessity rather than preference — has delivered production systems in Java, C, PHP, Ruby and Python, giving strong instincts for which problems are genuinely language-specific and which are architectural. Earlier career spent defining software configuration management practice at institute scale, including leading a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
+
+## Work Experience
+
+### Senior Backend Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2022-10 – Present_
+
+Backend engineering and CI/CD ownership for two concurrent web platforms.
+- Build and maintain backend services for two concurrent web platforms in Python (Django and Flask), enforcing production-grade quality through automated formatting, linting and test gates in CI.
+- Design and implement REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.
+- Own the CI/CD pipeline end to end (Docker, Git/GitFlow, Jenkins), delivering fully automated build, test and deployment cycles.
+
+### Senior Full-Stack Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
+
+Full-stack development, configuration management and technical leadership across four client projects over nine years.
+- Delivered four production web applications using PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).
+- Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.
+- Led technical direction for Scrum teams, running sprint planning, code review practice and delivery commitments.
+
+### Senior Full-Stack Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2009-01 – 2013-06_
+
+Full-stack and configuration management engineering across telephony, enterprise web and mobile projects.
+- Developed a telephony platform in C on Asterisk, covering call flow logic and integration.
+- Built an enterprise web and mobile application end to end using Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle and Apache Tomcat.
+- Implemented a complete CI/CD environment (Subversion/Git, Maven, TeamCity, Tomcat) for automated builds and deployments.
+- Built a Scrum task-board integration for Mantis (PHP) that gave distributed remote teams shared sprint visibility.
+- Maintained a nationwide production web platform while shipping new features against live traffic.
+
+### Senior Software Configuration Management Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2005-01 – 2009-01_
+
+Led the company-wide Software Configuration Management team and drove the organization's CMMI 1.2 Level 3 appraisal.
+- Led a 10-engineer Software Configuration Management team through a successful formal CMMI 1.2 Level 3 appraisal, serving as a trained SCAMPI evaluator.
+- Defined and maintained company-wide SCM processes as SCM lead within the Software Engineering Process Group (SEPG).
+- Rolled out SCM processes across multiple concurrent projects using Rational ClearCase, ClearDDTS, CVS, Subversion, Mantis, Apache Ant and Luntbuild.
+- Built automation tooling and Mantis extensions (PHP, Shell) for defect tracking, requirements traceability and code review reporting, later adopted as company-wide standards.
+
+### Software Configuration Management Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2001-10 – 2005-01_
+
+SCM process definition and rollout for multi-site mobile device development programs.
+- Defined and implemented SCM processes for multi-site mobile device development projects using Rational ClearCase and ClearDDTS, contributing to the organization's CMM Level 2 certification.
+- Raised client evaluation scores for SCM performance by approximately 20% by automating configuration management activities across roughly twelve projects.
+
+### Junior Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2001-01 – 2001-10_
+
+Early-stage mobile application development on Java 2 Micro Edition (J2ME).
+- Pioneered J2ME application development at CESAR, establishing the institute's first mobile development practice.
+- Developed 15+ mobile applications, primarily games, for early Java-enabled handsets.
+- Authored Sea Hunter, awarded Best Application from the Americas at the Asia Java Mobile Challenge.
+
+### Junior Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brazil · 🗓 2000-06 – 2000-12_
+
+Java development on a standard three-tier architecture.
+- Developed a WAP application in J2SE for lottery game management.
+- Built an e-commerce portal used to validate a team member's M.Sc. dissertation research.
+
+
+## Education
+
+### M.Sc. in Computer Science — Federal University of Pernambuco (UFPE)
+_🗓 2000-03 – 2002-08_
+- Artificial Intelligence
+- Multi-Agent Systems
+- Software Engineering
+
+### B.Sc. in Computer Science — Federal University of Ceará (UFC)
+_🗓 1996-01 – 2000-01_
+
+
+## Skills
+
+**Backend** (Expert): `Python`, `Django`, `Flask`, `Falcon`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`, `C`, `REST API`, `JSON:API`
+
+**Frontend** (Advanced): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
+
+**DevOps & CI/CD** (Expert): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Ansible`, `HashiCorp Vault`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
+
+**Cloud & Orchestration** (Intermediate): `Google Cloud`, `AWS`, `Kubernetes`
+
+**Databases** (Advanced): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`
+
+**Process & Leadership** (Expert): `Software Configuration Management`, `CMMI`, `SCAMPI appraisal`, `Scrum`, `Kanban`, `Technical Leadership`, `Code Review`, `Mentoring`
+
+
+## Awards
+
+### Best Application from the Americas — Sea Hunter
+_Asia Java Mobile Challenge · 2001_
+
+Awarded for Sea Hunter, a J2ME mobile game developed for early Java-enabled handsets.
+
+
+## Certifications
+
+- **[Certified ScrumMaster (CSM)](https://bcert.me/sciltuxvg)** · Scrum Alliance · 2017-10
+- **Zend PHP Certified Developer** · Zend Technologies, Ltd. · 2014-10
+
+
+## Publications
+
+### Software Configuration Management Diversity: A Commercial Case Study
+_BCS-CMSG — The CMDB and CMS: the Powerhouse of Service Management · 2008-07_
+
+Authors: T. H. B. Oliveira, R. Albuquerque.
+
+### Desenvolvendo Projeto Conceitual de Jogos Wireless (Developing Conceptual Design for Wireless Games)
+_1st Brazilian Workshop on Games and Digital Entertainment (WJOGOS), SIBGRAPI 2002, Fortaleza, Brazil · 2002-10_
+
+Authors: D. R. Silva, A. Damasceno, E. Perazzo, P. Macedo, R. Albuquerque, G. L. Ramalho.
+
+### Embedding a J2ME-Based Inference Engine in Handheld Devices: The KEOPS Case Study
+_Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Italy · 2002_
+
+Authors: R. Albuquerque, P. Guedes, C. Figueira Filho, J. Robin, G. Ramalho.
+
+### KSACI: A Handheld Device Infrastructure for Agent Communication
+_ATAL 2001 Conference, Seattle, USA · 2001_
+
+Authors: R. Albuquerque, J. Hubner, G. Eliano de Paula, J. Sichman, G. Ramalho.
+
+
+## Languages
+
+- **Portuguese**: Native speaker
+- **English**: Professional working proficiency
+
