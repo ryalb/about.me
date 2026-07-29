@@ -1,24 +1,31 @@
 """Word (.docx) renderer using python-docx."""
+
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Any
+from typing import TYPE_CHECKING, Any
 
 from docx import Document
-from docx.shared import Pt, RGBColor, Inches
-from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.oxml.ns import qn
 from docx.oxml import OxmlElement
+from docx.oxml.ns import qn
+from docx.shared import Inches, Pt, RGBColor
 
+if TYPE_CHECKING:
+    from docx.document import Document as DocxDocument
 
 # ── Colour palette ────────────────────────────────────────────────────────
-_ACCENT = RGBColor(0x25, 0x63, 0xEB)   # #2563EB blue
-_MUTED = RGBColor(0x64, 0x74, 0x8B)    # #64748B slate
-_TEXT = RGBColor(0x1E, 0x29, 0x3B)     # #1E293B dark
+_ACCENT = RGBColor(0x25, 0x63, 0xEB)  # #2563EB blue
+_MUTED = RGBColor(0x64, 0x74, 0x8B)  # #64748B slate
+_TEXT = RGBColor(0x1E, 0x29, 0x3B)  # #1E293B dark
 
 
-def _set_font(run, bold: bool = False, italic: bool = False,
-              size: int | None = None, color: RGBColor | None = None) -> None:
+def _set_font(
+    run,
+    bold: bool = False,
+    italic: bool = False,
+    size: int | None = None,
+    color: RGBColor | None = None,
+) -> None:
     run.bold = bold
     run.italic = italic
     if size:
@@ -27,7 +34,7 @@ def _set_font(run, bold: bool = False, italic: bool = False,
         run.font.color.rgb = color
 
 
-def _add_heading(doc: Document, text: str, level: int = 1) -> None:
+def _add_heading(doc: DocxDocument, text: str, level: int = 1) -> None:
     para = doc.add_paragraph()
     para.paragraph_format.space_before = Pt(12 if level == 1 else 8)
     para.paragraph_format.space_after = Pt(4 if level == 1 else 2)
@@ -49,7 +56,7 @@ def _add_heading(doc: Document, text: str, level: int = 1) -> None:
 
 
 def _add_entry_header(
-    doc: Document,
+    doc: DocxDocument,
     title: str,
     subtitle: str = "",
     date_str: str = "",
@@ -86,7 +93,7 @@ def _add_entry_header(
         pPr.append(tabs)
 
 
-def _add_body_text(doc: Document, text: str) -> None:
+def _add_body_text(doc: DocxDocument, text: str) -> None:
     if not text:
         return
     para = doc.add_paragraph(text)
@@ -98,7 +105,7 @@ def _add_body_text(doc: Document, text: str) -> None:
         run.font.color.rgb = _TEXT
 
 
-def _add_bullet(doc: Document, text: str) -> None:
+def _add_bullet(doc: DocxDocument, text: str) -> None:
     para = doc.add_paragraph(style="List Bullet")
     run = para.add_run(text)
     run.font.size = Pt(9.5)
@@ -200,7 +207,9 @@ def render_word(resume: dict[str, Any], output_path: Path) -> None:
             degree = " in ".join(p for p in degree_parts if p)
             institution = edu.get("institution") or ""
             dr = _date_range(edu.get("startDate"), edu.get("endDate"))
-            _add_entry_header(doc, degree or "Degree", subtitle=institution, date_str=dr)
+            _add_entry_header(
+                doc, degree or "Degree", subtitle=institution, date_str=dr
+            )
             if score := edu.get("score"):
                 _add_body_text(doc, f"Score: {score}")
             for c in edu.get("courses") or []:
@@ -330,4 +339,4 @@ def render_word(resume: dict[str, Any], output_path: Path) -> None:
             if rtext:
                 _add_body_text(doc, f'"{rtext}"')
 
-    doc.save(output_path)
+    doc.save(str(output_path))

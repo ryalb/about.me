@@ -8,4 +8,59 @@
 [tools]
 python = "3.14"
 uv = "latest"
-bun = "1.3.5" 
+bun = "1.3.5"
+ruff = "latest"   # used by prek's local hooks (language = "system")
+prek = "latest"   # git hook runner, see prek.toml
+
+[env]
+# uv owns the venv; make its bin visible to tasks without mise creating one.
+_.path = ["{{config_root}}/.venv/bin"]
+UV_PROJECT_ENVIRONMENT = "{{config_root}}/.venv"
+
+[settings]
+python.uv_venv_auto = false
+
+# ---------------------------------------------------------------- tasks
+
+[tasks.setup]
+description = "Install tools, sync the venv, install git hooks"
+depends = ["sync"]
+run = "prek install"
+
+[tasks.sync]
+description = "uv sync (venv + lockfile)"
+run = "uv sync"
+sources = ["pyproject.toml", "uv.lock"]
+outputs = [".venv/pyvenv.cfg"]
+
+[tasks.lint]
+description = "ruff check"
+run = "ruff check resume_generator"
+
+[tasks.fmt]
+description = "ruff format"
+run = "ruff format resume_generator"
+
+[tasks.typecheck]
+description = "ty type check"
+run = "uvx ty check --output-format=concise"
+
+[tasks.check]
+description = "Run every prek hook on all files"
+run = "prek run --all-files"
+
+[tasks.en]
+description = "Generate the en_US resume (extra args are passed through)"
+run = "uv run resume generate resume-en_us.json --theme base --name full_en_us"
+
+[tasks.pt]
+description = "Generate the pt_BR resume (extra args are passed through)"
+run = "uv run resume generate resume-pt_br.json --theme base --name full_pt_br"
+
+[tasks.build]
+description = "Generate both language versions"
+depends = ["en", "pt"]
+
+[tasks.clean]
+description = "Remove generated output"
+run = "rm -rf .output"

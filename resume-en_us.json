@@ -28,9 +28,9 @@
       "startDate": "2022-10",
       "summary": "Backend engineering and CI/CD ownership for two concurrent web platforms.",
       "highlights": [
-        "Build and maintain backend services for two concurrent web platforms in Python (Django and Flask), enforcing production-grade quality through automated formatting, linting and test gates in CI.",
-        "Design and implement REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.",
-        "Own the CI/CD pipeline end to end (Docker, Git/GitFlow, Jenkins), delivering fully automated build, test and deployment cycles."
+        "Built and maintained backend services for two concurrent web platforms in Python (Django and Flask), enforcing production-grade quality through automated formatting, linting and test gates in CI.",
+        "Designed and implemented REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.",
+        "Owned the CI/CD pipeline end to end (Docker, Git/GitFlow, Jenkins), delivering fully automated build, test and deployment cycles."
       ],
       "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD"]
     },
@@ -73,7 +73,7 @@
       "position": "Senior Software Configuration Management Engineer",
       "startDate": "2005-01",
       "endDate": "2009-01",
-      "summary": "Led the company-wide Software Configuration Management team and drove the organization's CMMI 1.2 Level 3 appraisal.",
+      "summary": "Leadership of the company-wide Software Configuration Management team and of the organization's CMMI 1.2 Level 3 appraisal.",
       "highlights": [
         "Led a 10-engineer Software Configuration Management team through a successful formal CMMI 1.2 Level 3 appraisal, serving as a trained SCAMPI evaluator.",
         "Defined and maintained company-wide SCM processes as SCM lead within the Software Engineering Process Group (SEPG).",

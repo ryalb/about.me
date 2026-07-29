@@ -1,4 +1,5 @@
 """Plain-text renderer for JSON Resume data."""
+
 from __future__ import annotations
 
 import textwrap
@@ -20,7 +21,9 @@ def _date_range(start: str | None, end: str | None) -> str:
 
 def _wrap(text: str, indent: int = 0) -> str:
     prefix = " " * indent
-    return textwrap.fill(text, width=_WIDTH, initial_indent=prefix, subsequent_indent=prefix)
+    return textwrap.fill(
+        text, width=_WIDTH, initial_indent=prefix, subsequent_indent=prefix
+    )
 
 
 def _section(title: str) -> str:

@@ -1,4 +1,5 @@
 """Filtering logic: section selection and date-based cutoff."""
+
 from __future__ import annotations
 
 import copy

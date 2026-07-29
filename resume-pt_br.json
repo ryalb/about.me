@@ -1,0 +1,253 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
+  "basics": {
+    "name": "Ryan Leite Albuquerque",
+    "label": "Engenheiro de Software Sênior",
+    "email": "ryan.leite@gmail.com",
+    "phone": "+55 81 98255-0011",
+    "summary": "Engenheiro backend sênior com 26 anos construindo sistemas em produção, atualmente projetando serviços em Python (Django/Flask) e APIs REST em conformidade com a especificação JSON:API, além de ser responsável pela esteira de CI/CD de ponta a ponta. Poliglota por necessidade e não por preferência — entregou sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+    "location": {
+      "city": "Fortaleza",
+      "region": "Ceará",
+      "countryCode": "BR"
+    },
+    "profiles": [
+      {
+        "network": "LinkedIn",
+        "username": "ryalb",
+        "url": "https://linkedin.com/in/ryalb"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro de Software Backend Sênior",
+      "startDate": "2022-10",
+      "summary": "Engenharia backend e responsabilidade pela esteira de CI/CD de duas plataformas web simultâneas.",
+      "highlights": [
+        "Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask), garantindo qualidade de nível de produção por meio de formatação, análise estática e testes automatizados como gates na CI.",
+        "Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.",
+        "Fui responsável pela esteira de CI/CD de ponta a ponta (Docker, Git/GitFlow, Jenkins), entregando ciclos de build, teste e implantação totalmente automatizados."
+      ],
+      "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro de Software Full-Stack Sênior",
+      "startDate": "2013-06",
+      "endDate": "2022-09",
+      "summary": "Desenvolvimento full-stack, gerência de configuração e liderança técnica em quatro projetos de clientes ao longo de nove anos.",
+      "highlights": [
+        "Entreguei quatro aplicações web em produção utilizando PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).",
+        "Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.",
+        "Conduzi a direção técnica de equipes Scrum, liderando planejamento de sprints, práticas de code review e compromissos de entrega."
+      ],
+      "keywords": ["PHP", "Yii", "Python", "Flask", "Falcon", "Ruby on Rails", "JavaScript", "EmberJS", "VueJS", "Scrum", "Ansible", "HashiCorp Vault"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro de Software Full-Stack Sênior",
+      "startDate": "2009-01",
+      "endDate": "2013-06",
+      "summary": "Engenharia full-stack e gerência de configuração em projetos de telefonia, web corporativa e mobile.",
+      "highlights": [
+        "Desenvolvi uma plataforma de telefonia em C sobre o Asterisk, cobrindo a lógica de fluxo de chamadas e integrações.",
+        "Construí de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.",
+        "Implementei um ambiente completo de CI/CD (Subversion/Git, Maven, TeamCity, Tomcat) para builds e implantações automatizadas.",
+        "Desenvolvi uma integração de task board Scrum para o Mantis (PHP), dando visibilidade compartilhada das sprints a equipes remotas distribuídas.",
+        "Mantive uma plataforma web de abrangência nacional em produção, entregando novas funcionalidades com tráfego ativo."
+      ],
+      "keywords": ["C", "Asterisk", "Java EE", "Java ME", "Android", "Struts 2", "Apache CXF", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Maven", "TeamCity", "Mantis"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro Sênior de Gerência de Configuração de Software",
+      "startDate": "2005-01",
+      "endDate": "2009-01",
+      "summary": "Liderança da equipe corporativa de Gerência de Configuração de Software e condução da avaliação CMMI 1.2 Nível 3 da organização.",
+      "highlights": [
+        "Liderei uma equipe de 10 engenheiros de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3 bem-sucedida, atuando como avaliador SCAMPI treinado.",
+        "Defini e mantive os processos corporativos de GCS como líder de GCS dentro do Grupo de Processos de Engenharia de Software (SEPG).",
+        "Implantei processos de GCS em múltiplos projetos simultâneos utilizando Rational ClearCase, ClearDDTS, CVS, Subversion, Mantis, Apache Ant e Luntbuild.",
+        "Desenvolvi ferramentas de automação e extensões para o Mantis (PHP, Shell) para rastreamento de defeitos, rastreabilidade de requisitos e relatórios de code review, posteriormente adotadas como padrão corporativo."
+      ],
+      "keywords": ["CMMI", "SCAMPI", "SEPG", "SCM", "Rational ClearCase", "ClearDDTS", "CVS", "Subversion", "Mantis", "Apache Ant", "Luntbuild", "PHP", "Shell Script"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro de Gerência de Configuração de Software",
+      "startDate": "2001-10",
+      "endDate": "2005-01",
+      "summary": "Definição e implantação de processos de GCS para programas multi-site de desenvolvimento de dispositivos móveis.",
+      "highlights": [
+        "Defini e implementei processos de GCS para projetos multi-site de desenvolvimento de dispositivos móveis utilizando Rational ClearCase e ClearDDTS, contribuindo para a certificação CMM Nível 2 da organização.",
+        "Elevei em cerca de 20% as notas de avaliação do cliente quanto ao desempenho de GCS, automatizando atividades de gerência de configuração em aproximadamente doze projetos."
+      ],
+      "keywords": ["SCM", "Rational ClearCase", "ClearDDTS", "CMM Level 2", "Multi-site development"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro de Software Júnior",
+      "startDate": "2001-01",
+      "endDate": "2001-10",
+      "summary": "Desenvolvimento inicial de aplicações móveis em Java 2 Micro Edition (J2ME).",
+      "highlights": [
+        "Fui pioneiro no desenvolvimento de aplicações J2ME no CESAR, estabelecendo a primeira prática de desenvolvimento mobile do instituto.",
+        "Desenvolvi mais de 15 aplicações móveis, principalmente jogos, para os primeiros aparelhos com suporte a Java.",
+        "Escrevi o Sea Hunter, premiado como Melhor Aplicação das Américas no Asia Java Mobile Challenge."
+      ],
+      "keywords": ["Java", "J2ME", "Mobile Games"]
+    },
+    {
+      "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
+      "location": "Recife, PE, Brasil",
+      "url": "https://www.cesar.org.br",
+      "position": "Engenheiro de Software Júnior",
+      "startDate": "2000-06",
+      "endDate": "2000-12",
+      "summary": "Desenvolvimento Java em arquitetura padrão de três camadas.",
+      "highlights": [
+        "Desenvolvi uma aplicação WAP em J2SE para gestão de jogos lotéricos.",
+        "Construí um portal de e-commerce utilizado para validar a pesquisa de dissertação de mestrado de um integrante da equipe."
+      ],
+      "keywords": ["Java", "J2SE", "WAP", "E-commerce"]
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade Federal de Pernambuco (UFPE)",
+      "url": "https://portal.cin.ufpe.br",
+      "area": "Ciência da Computação",
+      "studyType": "Mestrado",
+      "startDate": "2000-03",
+      "endDate": "2002-08",
+      "summary": "Especialização em Inteligência Artificial. Dissertação: \"KAGENT — A Java API for Intelligent Agents in Mobile Devices\" (disponível em repositorio.ufpe.br).",
+      "courses": [
+        "Inteligência Artificial",
+        "Sistemas Multiagentes",
+        "Engenharia de Software"
+      ]
+    },
+    {
+      "institution": "Universidade Federal do Ceará (UFC)",
+      "url": "https://centrodeciencias.ufc.br/pt/departamentos/departamento-de-computacao/",
+      "area": "Ciência da Computação",
+      "studyType": "Bacharelado",
+      "startDate": "1996-01",
+      "endDate": "2000-01"
+    }
+  ],
+  "awards": [
+    {
+      "title": "Melhor Aplicação das Américas — Sea Hunter",
+      "date": "2001",
+      "awarder": "Asia Java Mobile Challenge",
+      "summary": "Prêmio concedido ao Sea Hunter, um jogo mobile em J2ME desenvolvido para os primeiros aparelhos com suporte a Java."
+    }
+  ],
+  "certificates": [
+    {
+      "name": "Certified ScrumMaster (CSM)",
+      "date": "2017-10",
+      "issuer": "Scrum Alliance",
+      "url": "https://bcert.me/sciltuxvg"
+    },
+    {
+      "name": "Zend PHP Certified Developer",
+      "date": "2014-10",
+      "issuer": "Zend Technologies, Ltd."
+    }
+  ],
+  "publications": [
+    {
+      "name": "Software Configuration Management Diversity: A Commercial Case Study",
+      "publisher": "BCS-CMSG — The CMDB and CMS: the Powerhouse of Service Management",
+      "releaseDate": "2008-07",
+      "summary": "Autores: T. H. B. Oliveira, R. Albuquerque."
+    },
+    {
+      "name": "Desenvolvendo Projeto Conceitual de Jogos Wireless",
+      "publisher": "I Workshop Brasileiro de Jogos e Entretenimento Digital (WJOGOS), SIBGRAPI 2002, Fortaleza, Brasil",
+      "releaseDate": "2002-10",
+      "summary": "Autores: D. R. Silva, A. Damasceno, E. Perazzo, P. Macedo, R. Albuquerque, G. L. Ramalho."
+    },
+    {
+      "name": "Embedding a J2ME-Based Inference Engine in Handheld Devices: The KEOPS Case Study",
+      "publisher": "Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Itália",
+      "releaseDate": "2002",
+      "summary": "Autores: R. Albuquerque, P. Guedes, C. Figueira Filho, J. Robin, G. Ramalho."
+    },
+    {
+      "name": "KSACI: A Handheld Device Infrastructure for Agent Communication",
+      "publisher": "Conferência ATAL 2001, Seattle, EUA",
+      "releaseDate": "2001",
+      "summary": "Autores: R. Albuquerque, J. Hubner, G. Eliano de Paula, J. Sichman, G. Ramalho."
+    }
+  ],
+  "skills": [
+    {
+      "name": "Backend",
+      "level": "Especialista",
+      "keywords": ["Python", "Django", "Flask", "Falcon", "PHP", "Yii", "Laravel", "Ruby on Rails", "Java", "C", "REST API", "JSON:API"]
+    },
+    {
+      "name": "Frontend",
+      "level": "Avançado",
+      "keywords": ["JavaScript", "TypeScript", "VueJS", "NuxtJS", "EmberJS", "Backbone/Marionette", "HTML", "CSS", "SCSS/SASS", "BEM"]
+    },
+    {
+      "name": "DevOps e CI/CD",
+      "level": "Especialista",
+      "keywords": ["CI/CD", "Jenkins", "TeamCity", "GitLab CI", "Docker", "Ansible", "HashiCorp Vault", "Bash", "Git", "GitFlow", "GitHub", "GitLab"]
+    },
+    {
+      "name": "Cloud e Orquestração",
+      "level": "Intermediário",
+      "keywords": ["Google Cloud", "AWS", "Kubernetes"]
+    },
+    {
+      "name": "Bancos de Dados",
+      "level": "Avançado",
+      "keywords": ["PostgreSQL", "MySQL", "Oracle", "Redis"]
+    },
+    {
+      "name": "Processos e Liderança",
+      "level": "Especialista",
+      "keywords": ["Gerência de Configuração de Software", "CMMI", "Avaliação SCAMPI", "Scrum", "Kanban", "Liderança Técnica", "Code Review", "Mentoria"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Português",
+      "fluency": "Nativo"
+    },
+    {
+      "language": "Inglês",
+      "fluency": "Proficiência profissional"
+    }
+  ],
+  "meta": {
+    "version": "v2.1.0",
+    "lastModified": "2026-07-28T00:00:00",
+    "notes": "Versão em português brasileiro traduzida de resume.json (arquivo mestre em inglês). Edite primeiro o arquivo mestre e depois sincronize esta tradução. Data de nascimento intencionalmente omitida (boa prática contra viés de idade). 'highlights' são bullets com verbos de ação prontos para exportação ATS; 'keywords' servem para etiquetagem/filtragem ao gerar versões específicas por vaga. 'meta.summaries' contém parágrafos de abertura específicos por perfil — selecione um com `resume generate --summary <key>`; o mapa é removido da saída gerada.",
+    "summaries": {
+      "platform": "Engenheiro de software com 25 anos de atuação contínua em build, release e gerência de configuração — atravessando cinco gerações de ferramentas, do Rational ClearCase ao Docker e Jenkins. Liderou uma equipe de 10 engenheiros de gerência de configuração em uma avaliação formal CMMI 1.2 Nível 3 como avaliador SCAMPI treinado, e escreveu processos e automações de GCS adotados como padrão corporativo. Combina essa profundidade em infraestrutura de entrega com engenharia de produto hands-on em seis ecossistemas de linguagens (Python, Java, C, PHP, Ruby, JavaScript/TypeScript), incluindo a manutenção de uma plataforma de abrangência nacional em produção com tráfego ativo. Mestre em Ciência da Computação (Inteligência Artificial), com quatro publicações revisadas por pares em eventos internacionais.",
+      "backend": "Engenheiro backend sênior com 26 anos construindo sistemas em produção, atualmente projetando serviços em Python (Django/Flask) e APIs REST em conformidade com a especificação JSON:API, além de ser responsável pela esteira de CI/CD de ponta a ponta. Poliglota por necessidade e não por preferência — entregou sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+      "lead": "Líder de engenharia com 26 anos de experiência entre entrega hands-on e responsabilidade por processos organizacionais. Liderou uma equipe de 10 engenheiros de gerência de configuração de software em uma avaliação CMMI 1.2 Nível 3 bem-sucedida como avaliador SCAMPI treinado, e definiu padrões corporativos de engenharia como líder de GCS no Grupo de Processos de Engenharia de Software. Desde então, conduziu a direção técnica de equipes Scrum em quatro plataformas em produção, mantendo-se hands-on em Python, PHP, Ruby e JavaScript. Confortável em contextos onde a qualidade de engenharia é um compromisso formal e auditável, e não apenas uma aspiração.",
+      "ats": "Engenheiro de software sênior com 26 anos de experiência em desenvolvimento backend, entrega full-stack e engenharia de release. Especialista em Python (Django, Flask), design de APIs REST e automação de CI/CD com Docker, Jenkins, Ansible e HashiCorp Vault. Liderou uma equipe de 10 engenheiros em uma avaliação formal CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial)."
+    }
+  }
+}

@@ -1,4 +1,5 @@
 """HTML renderer — uses jsonresume Node.js themes with a built-in Jinja2 fallback."""
+
 from __future__ import annotations
 
 import json
@@ -8,7 +9,7 @@ import tempfile
 from pathlib import Path
 from typing import Any
 
-from jinja2 import Environment, BaseLoader
+from jinja2 import BaseLoader, Environment
 
 # ---------------------------------------------------------------------------
 # Node.js theme rendering
@@ -48,9 +49,7 @@ def resolve_theme(theme: str) -> tuple[Path, str]:
     if "/" in theme or "\\" in theme or theme.startswith("."):
         candidate = Path(theme).expanduser().resolve()
         if not (candidate / "package.json").is_file():
-            raise RuntimeError(
-                f"No package.json found in theme directory: {candidate}"
-            )
+            raise RuntimeError(f"No package.json found in theme directory: {candidate}")
         return candidate, "path"
 
     # 2. Custom theme
@@ -63,9 +62,7 @@ def resolve_theme(theme: str) -> tuple[Path, str]:
     if not (pkg / "package.json").is_file():
         _install_theme(theme)
     if not (pkg / "package.json").is_file():
-        raise RuntimeError(
-            f"Theme 'jsonresume-theme-{theme}' could not be installed."
-        )
+        raise RuntimeError(f"Theme 'jsonresume-theme-{theme}' could not be installed.")
     return pkg.resolve(), "npm"
 
 
@@ -81,7 +78,9 @@ def render_with_theme(resume: dict[str, Any], theme: str) -> str:
     """
     bun_bin = _find_bun()
     if not bun_bin:
-        raise RuntimeError("Bun not found — cannot render with theme. Install from https://bun.sh")
+        raise RuntimeError(
+            "Bun not found — cannot render with theme. Install from https://bun.sh"
+        )
 
     theme_dir, _origin = resolve_theme(theme)
 
@@ -97,13 +96,12 @@ def render_with_theme(resume: dict[str, Any], theme: str) -> str:
         [bun_bin, str(_NODE_SCRIPT), str(theme_dir), jf.name, hf.name],
         capture_output=True,
         text=True,
+        check=False,
     )
     Path(jf.name).unlink(missing_ok=True)
 
     if result.returncode != 0:
-        raise RuntimeError(
-            f"Theme rendering failed:\n{result.stderr.strip()}"
-        )
+        raise RuntimeError(f"Theme rendering failed:\n{result.stderr.strip()}")
 
     html = html_path.read_text(encoding="utf-8")
     html_path.unlink(missing_ok=True)
@@ -112,7 +110,7 @@ def render_with_theme(resume: dict[str, Any], theme: str) -> str:
 
 def _find_bun() -> str | None:
     try:
-        r = subprocess.run(["bun", "--version"], capture_output=True)
+        r = subprocess.run(["bun", "--version"], capture_output=True, check=False)
         if r.returncode == 0:
             return "bun"
     except FileNotFoundError:
@@ -124,7 +122,9 @@ def _install_theme(theme: str) -> None:
     node_dir = _NODE_MODULES.parent
     bun_bin = _find_bun()
     if not bun_bin:
-        raise RuntimeError("Bun not found — cannot install theme. Install from https://bun.sh")
+        raise RuntimeError(
+            "Bun not found — cannot install theme. Install from https://bun.sh"
+        )
     env = {**os.environ, "BUN_INSTALL_CACHE_DIR": "/tmp/bun-cache"}
     subprocess.run(
         [bun_bin, "add", f"jsonresume-theme-{theme}"],
@@ -464,7 +464,9 @@ def render_html(
     if theme:
         try:
             return render_with_theme(resume, theme)
-        except Exception as exc:
+        except Exception as exc:  # noqa: BLE001 - any theme failure falls back to the built-in template
             if console:
-                console.print(f"[yellow]⚠ Theme '{theme}' failed ({exc}), using built-in template.[/yellow]")
+                console.print(
+                    f"[yellow]⚠ Theme '{theme}' failed ({exc}), using built-in template.[/yellow]"
+                )
     return render_builtin(resume)

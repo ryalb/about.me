@@ -19,20 +19,20 @@ Usage examples:
   # List valid section names
   resume sections
 """
+
 from __future__ import annotations
 
 import json
-import sys
-from datetime import date, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
+from rich import box
 from rich.console import Console
 from rich.panel import Panel
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
-from rich import box
 
 from .filter import available_summaries, filter_resume
 from .models import ALL_SECTIONS
@@ -53,26 +53,27 @@ console = Console()
 
 # ── Theme catalogue ───────────────────────────────────────────────────────
 KNOWN_THEMES: dict[str, str] = {
-    "even":           "Clean, modern layout with icon accents (ESM)",
-    "elegant":        "Elegant two-column design",
-    "paper":          "Minimal, paper-like style",
-    "flat":           "Flat design with colour sections",
-    "caffeine":       "Bold, dark-accent modern layout",
-    "classy":         "Classic professional look",
-    "spartan":        "Ultra-minimal single-column",
-    "kendall":        "Material-design inspired",
-    "actual":         "Compact one-page format",
-    "stackoverflow":  "StackOverflow Developer Story style",
-    "onepage":        "Optimised single-page printing",
-    "compact":        "Space-efficient dense layout",
-    "sceptile":       "Green-accent clean theme",
-    "straightforward":"No-frills straightforward layout",
+    "even": "Clean, modern layout with icon accents (ESM)",
+    "elegant": "Elegant two-column design",
+    "paper": "Minimal, paper-like style",
+    "flat": "Flat design with colour sections",
+    "caffeine": "Bold, dark-accent modern layout",
+    "classy": "Classic professional look",
+    "spartan": "Ultra-minimal single-column",
+    "kendall": "Material-design inspired",
+    "actual": "Compact one-page format",
+    "stackoverflow": "StackOverflow Developer Story style",
+    "onepage": "Optimised single-page printing",
+    "compact": "Space-efficient dense layout",
+    "sceptile": "Green-accent clean theme",
+    "straightforward": "No-frills straightforward layout",
 }
 
 ALL_FORMATS = ["html", "pdf", "md", "txt", "docx"]
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────
+
 
 def _parse_sections(raw: str | None) -> list[str] | None:
     if not raw:
@@ -93,10 +94,12 @@ def _parse_cut_date(raw: str | None) -> date | None:
         return None
     for fmt in ("%Y-%m-%d", "%Y-%m", "%Y"):
         try:
-            return datetime.strptime(raw, fmt).date()
+            return datetime.strptime(raw, fmt).replace(tzinfo=UTC).date()
         except ValueError:
             pass
-    console.print(f"[red]Invalid cut-date '{raw}'. Expected YYYY-MM-DD, YYYY-MM, or YYYY.[/red]")
+    console.print(
+        f"[red]Invalid cut-date '{raw}'. Expected YYYY-MM-DD, YYYY-MM, or YYYY.[/red]"
+    )
     raise typer.Exit(1)
 
 
@@ -116,7 +119,7 @@ def _parse_formats(raw: str) -> list[str]:
 
 
 def _output_folder(base_dir: Path, name: str | None) -> Path:
-    today = date.today().strftime("%Y-%m-%d")
+    today = datetime.now(UTC).date().strftime("%Y-%m-%d")
     folder_name = today if not name else f"{today}_{name}"
     folder = base_dir / folder_name
     folder.mkdir(parents=True, exist_ok=True)
@@ -124,6 +127,7 @@ def _output_folder(base_dir: Path, name: str | None) -> Path:
 
 
 # ── Commands ─────────────────────────────────────────────────────────────
+
 
 @app.command()
 def generate(
@@ -139,7 +143,8 @@ def generate(
     theme: Annotated[
         str,
         typer.Option(
-            "--theme", "-t",
+            "--theme",
+            "-t",
             help=(
                 "Theme to render with. Resolution order: custom theme in "
                 "[bold]custom/themes/[/bold], explicit directory path, then "
@@ -150,9 +155,10 @@ def generate(
         ),
     ] = "even",
     sections: Annotated[
-        Optional[str],
+        str | None,
         typer.Option(
-            "--sections", "-s",
+            "--sections",
+            "-s",
             help=(
                 "Comma-separated list of sections to include. "
                 "Omit to include all. "
@@ -162,9 +168,10 @@ def generate(
         ),
     ] = None,
     cut_date: Annotated[
-        Optional[str],
+        str | None,
         typer.Option(
-            "--cut-date", "-d",
+            "--cut-date",
+            "-d",
             help=(
                 "Exclude entries whose primary date is before this value. "
                 "Format: YYYY-MM-DD, YYYY-MM, or YYYY. "
@@ -174,9 +181,10 @@ def generate(
         ),
     ] = None,
     summary: Annotated[
-        Optional[str],
+        str | None,
         typer.Option(
-            "--summary", "-S",
+            "--summary",
+            "-S",
             help=(
                 "Use a named summary variant from [bold]meta.summaries[/bold] "
                 "instead of [bold]basics.summary[/bold]. "
@@ -188,7 +196,8 @@ def generate(
     formats: Annotated[
         str,
         typer.Option(
-            "--formats", "-f",
+            "--formats",
+            "-f",
             help=f"Comma-separated output formats. Choices: {', '.join(ALL_FORMATS)}",
             rich_help_panel="Output",
         ),
@@ -196,15 +205,17 @@ def generate(
     output_dir: Annotated[
         Path,
         typer.Option(
-            "--output-dir", "-o",
+            "--output-dir",
+            "-o",
             help="Base output directory. A dated sub-folder is created automatically.",
             rich_help_panel="Output",
         ),
     ] = Path(".output"),
     name: Annotated[
-        Optional[str],
+        str | None,
         typer.Option(
-            "--name", "-n",
+            "--name",
+            "-n",
             help="Optional label appended to the output folder name (e.g. 'frontend').",
             rich_help_panel="Output",
         ),
@@ -233,10 +244,12 @@ def generate(
     Node.js or the requested theme is unavailable.
     """
     # ── Load & validate ───────────────────────────────────────────────────
-    console.print(Panel.fit(
-        f"[bold cyan]resume-generator[/bold cyan]  ·  {resume_file.name}",
-        border_style="cyan",
-    ))
+    console.print(
+        Panel.fit(
+            f"[bold cyan]resume-generator[/bold cyan]  ·  {resume_file.name}",
+            border_style="cyan",
+        )
+    )
 
     try:
         raw = json.loads(resume_file.read_text(encoding="utf-8"))
@@ -307,7 +320,7 @@ def generate(
             try:
                 out_file = _render_format(fmt, filtered, _get_html, out_dir)
                 results.append((fmt, out_file, True, ""))
-            except Exception as exc:
+            except Exception as exc:  # noqa: BLE001 - one bad format must not abort the rest
                 results.append((fmt, out_dir / f"resume.{fmt}", False, str(exc)))
             finally:
                 progress.remove_task(task)
@@ -370,8 +383,9 @@ def _render_format(
 def _validate_schema(resume: dict) -> None:
     """Validate against the official JSON Resume JSON Schema (offline-tolerant)."""
     try:
-        import jsonschema
         import urllib.request
+
+        import jsonschema
 
         schema_url = (
             "https://raw.githubusercontent.com/jsonresume/resume-schema"
@@ -391,6 +405,7 @@ def _validate_schema(resume: dict) -> None:
 
 
 # ── Informational commands ────────────────────────────────────────────────
+
 
 @app.command()
 def themes() -> None:
@@ -508,6 +523,7 @@ def sections() -> None:
 
 
 # ── Entry point ───────────────────────────────────────────────────────────
+
 
 def main() -> None:
     app()

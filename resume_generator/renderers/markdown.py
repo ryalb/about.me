@@ -1,4 +1,5 @@
 """Markdown renderer for JSON Resume data."""
+
 from __future__ import annotations
 
 from typing import Any
@@ -87,7 +88,16 @@ def render_markdown(resume: dict[str, Any]) -> str:
     if education := resume.get("education"):
         lines.append(_section_header("Education"))
         for edu in education:
-            degree = " ".join(filter(None, [edu.get("studyType"), "in" if edu.get("area") else "", edu.get("area")]))
+            degree = " ".join(
+                filter(
+                    None,
+                    [
+                        edu.get("studyType"),
+                        "in" if edu.get("area") else "",
+                        edu.get("area"),
+                    ],
+                )
+            )
             institution = edu.get("institution") or ""
             dr = _date_range(edu.get("startDate"), edu.get("endDate"))
             header = f"### {degree}" if degree else "### Education"

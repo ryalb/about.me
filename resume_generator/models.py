@@ -1,148 +1,148 @@
 """Pydantic models for the JSON Resume schema."""
+
 from __future__ import annotations
 
-from typing import Optional
 from pydantic import BaseModel, Field
 
 
 class Profile(BaseModel):
-    network: Optional[str] = None
-    username: Optional[str] = None
-    url: Optional[str] = None
+    network: str | None = None
+    username: str | None = None
+    url: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Location(BaseModel):
-    address: Optional[str] = None
-    postalCode: Optional[str] = None
-    city: Optional[str] = None
-    countryCode: Optional[str] = None
-    region: Optional[str] = None
+    address: str | None = None
+    postalCode: str | None = None
+    city: str | None = None
+    countryCode: str | None = None
+    region: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Basics(BaseModel):
-    name: Optional[str] = None
-    label: Optional[str] = None
-    image: Optional[str] = None
-    email: Optional[str] = None
-    phone: Optional[str] = None
-    url: Optional[str] = None
-    summary: Optional[str] = None
-    location: Optional[Location] = None
+    name: str | None = None
+    label: str | None = None
+    image: str | None = None
+    email: str | None = None
+    phone: str | None = None
+    url: str | None = None
+    summary: str | None = None
+    location: Location | None = None
     profiles: list[Profile] = Field(default_factory=list)
     model_config = {"extra": "allow"}
 
 
 class Work(BaseModel):
-    name: Optional[str] = None
-    location: Optional[str] = None
-    description: Optional[str] = None
-    position: Optional[str] = None
-    url: Optional[str] = None
-    startDate: Optional[str] = None
-    endDate: Optional[str] = None
-    summary: Optional[str] = None
+    name: str | None = None
+    location: str | None = None
+    description: str | None = None
+    position: str | None = None
+    url: str | None = None
+    startDate: str | None = None
+    endDate: str | None = None
+    summary: str | None = None
     highlights: list[str] = Field(default_factory=list)
     model_config = {"extra": "allow"}
 
 
 class Volunteer(BaseModel):
-    organization: Optional[str] = None
-    position: Optional[str] = None
-    url: Optional[str] = None
-    startDate: Optional[str] = None
-    endDate: Optional[str] = None
-    summary: Optional[str] = None
+    organization: str | None = None
+    position: str | None = None
+    url: str | None = None
+    startDate: str | None = None
+    endDate: str | None = None
+    summary: str | None = None
     highlights: list[str] = Field(default_factory=list)
     model_config = {"extra": "allow"}
 
 
 class Education(BaseModel):
-    institution: Optional[str] = None
-    url: Optional[str] = None
-    area: Optional[str] = None
-    studyType: Optional[str] = None
-    startDate: Optional[str] = None
-    endDate: Optional[str] = None
-    score: Optional[str] = None
+    institution: str | None = None
+    url: str | None = None
+    area: str | None = None
+    studyType: str | None = None
+    startDate: str | None = None
+    endDate: str | None = None
+    score: str | None = None
     courses: list[str] = Field(default_factory=list)
     model_config = {"extra": "allow"}
 
 
 class Award(BaseModel):
-    title: Optional[str] = None
-    date: Optional[str] = None
-    awarder: Optional[str] = None
-    summary: Optional[str] = None
+    title: str | None = None
+    date: str | None = None
+    awarder: str | None = None
+    summary: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Certificate(BaseModel):
-    name: Optional[str] = None
-    date: Optional[str] = None
-    url: Optional[str] = None
-    issuer: Optional[str] = None
+    name: str | None = None
+    date: str | None = None
+    url: str | None = None
+    issuer: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Publication(BaseModel):
-    name: Optional[str] = None
-    publisher: Optional[str] = None
-    releaseDate: Optional[str] = None
-    url: Optional[str] = None
-    summary: Optional[str] = None
+    name: str | None = None
+    publisher: str | None = None
+    releaseDate: str | None = None
+    url: str | None = None
+    summary: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Skill(BaseModel):
-    name: Optional[str] = None
-    level: Optional[str] = None
+    name: str | None = None
+    level: str | None = None
     keywords: list[str] = Field(default_factory=list)
     model_config = {"extra": "allow"}
 
 
 class Language(BaseModel):
-    language: Optional[str] = None
-    fluency: Optional[str] = None
+    language: str | None = None
+    fluency: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Interest(BaseModel):
-    name: Optional[str] = None
+    name: str | None = None
     keywords: list[str] = Field(default_factory=list)
     model_config = {"extra": "allow"}
 
 
 class Reference(BaseModel):
-    name: Optional[str] = None
-    reference: Optional[str] = None
+    name: str | None = None
+    reference: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Project(BaseModel):
-    name: Optional[str] = None
-    description: Optional[str] = None
+    name: str | None = None
+    description: str | None = None
     highlights: list[str] = Field(default_factory=list)
     keywords: list[str] = Field(default_factory=list)
-    startDate: Optional[str] = None
-    endDate: Optional[str] = None
-    url: Optional[str] = None
+    startDate: str | None = None
+    endDate: str | None = None
+    url: str | None = None
     roles: list[str] = Field(default_factory=list)
-    entity: Optional[str] = None
-    type: Optional[str] = None
+    entity: str | None = None
+    type: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Meta(BaseModel):
-    canonical: Optional[str] = None
-    version: Optional[str] = None
-    lastModified: Optional[str] = None
+    canonical: str | None = None
+    version: str | None = None
+    lastModified: str | None = None
     model_config = {"extra": "allow"}
 
 
 class Resume(BaseModel):
-    basics: Optional[Basics] = None
+    basics: Basics | None = None
     work: list[Work] = Field(default_factory=list)
     volunteer: list[Volunteer] = Field(default_factory=list)
     education: list[Education] = Field(default_factory=list)
@@ -154,15 +154,24 @@ class Resume(BaseModel):
     interests: list[Interest] = Field(default_factory=list)
     references: list[Reference] = Field(default_factory=list)
     projects: list[Project] = Field(default_factory=list)
-    meta: Optional[Meta] = None
+    meta: Meta | None = None
     model_config = {"extra": "allow"}
 
 
 # All sections that can be filtered/selected
 ALL_SECTIONS = [
-    "basics", "work", "volunteer", "education", "awards",
-    "certificates", "publications", "skills", "languages",
-    "interests", "references", "projects",
+    "basics",
+    "work",
+    "volunteer",
+    "education",
+    "awards",
+    "certificates",
+    "publications",
+    "skills",
+    "languages",
+    "interests",
+    "references",
+    "projects",
 ]
 
 # Sections that contain date-filterable entries; maps section -> date field

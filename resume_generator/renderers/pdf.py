@@ -1,4 +1,5 @@
 """PDF renderer — converts HTML to PDF using WeasyPrint."""
+
 from __future__ import annotations
 
 import logging
@@ -21,8 +22,8 @@ def _ensure_homebrew_lib_path() -> None:
         return
 
     candidates = [
-        "/opt/homebrew/lib",           # Apple Silicon
-        "/usr/local/lib",              # Intel Homebrew
+        "/opt/homebrew/lib",  # Apple Silicon
+        "/usr/local/lib",  # Intel Homebrew
     ]
     key = "DYLD_LIBRARY_PATH"
     current_paths = [p for p in os.environ.get(key, "").split(":") if p]
@@ -47,7 +48,7 @@ def render_pdf(html: str, output_path: Path) -> None:
     _ensure_homebrew_lib_path()
 
     try:
-        from weasyprint import HTML, CSS
+        from weasyprint import CSS, HTML
         from weasyprint.text.fonts import FontConfiguration
     except ImportError as exc:
         raise ImportError(
