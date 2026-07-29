@@ -47,9 +47,16 @@ def render_markdown(resume: dict[str, Any]) -> str:
         net = profile.get("network", "")
         uname = profile.get("username", "")
         purl = profile.get("url", "")
-        if net and uname:
-            part = f"{net}: [{uname}]({purl})" if purl else f"{net}: {uname}"
-            contact.append(part)
+        label = f"{net}: {uname}" if net and uname else (uname or net)
+        if not label:
+            continue
+        if purl:
+            text = (
+                f"{net}: [{uname}]({purl})" if net and uname else f"[{label}]({purl})"
+            )
+        else:
+            text = label
+        contact.append(f"🔗 {text}")
 
     if contact:
         lines.append(" | ".join(contact) + "\n")

@@ -49,6 +49,10 @@ run = "uvx ty check --output-format=concise"
 description = "Run every prek hook on all files"
 run = "prek run --all-files"
 
+[tasks.icons]
+description = "Refresh the vendored MDI icon subset from @iconify-json/mdi"
+run = "python scripts/fetch_icons.py"
+
 [tasks.en]
 description = "Generate the en_US resume (extra args are passed through)"
 run = "uv run resume generate resume-en_us.json --theme base --name full_en_us"
@@ -68,6 +72,7 @@ run = "rm -rf .output"
 [tasks.build-all]
 description = "Generate both language versions"
 run = [
+    "mise run icons",
     "mise run clean",
     "mise run build",
     "cp ./.output/*full_en_us/* ./latest/en_us/.",

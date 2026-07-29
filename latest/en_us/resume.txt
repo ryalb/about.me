@@ -3,21 +3,46 @@
 ────────────────────────────────────────────────────────────────────────────────
  ryan.leite@gmail.com  +55 81 98255-0011  Fortaleza, Ceará, BR  LinkedIn: ryalb
 
-Senior backend engineer with 26 years building production systems, currently
-designing Python (Django/Flask) services and JSON:API-conformant REST APIs while
-owning the CI/CD pipeline end to end. Polyglot by necessity rather than
-preference — has delivered production systems in Java, C, PHP, Ruby and Python,
-giving strong instincts for which problems are genuinely language-specific and
-which are architectural. Earlier career spent defining software configuration
-management practice at institute scale, including leading a 10-engineer team
-through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in
-Computer Science (Artificial Intelligence).
+Senior backend engineer with 26 years building production systems, currently the
+top contributor to a production ML platform for automated issue triage (FastAPI,
+Kafka, vector search on Kubernetes) while also delivering internal platforms end
+to end on his own — from data model to production deploy. Polyglot by necessity
+rather than preference, with production systems in Java, C, PHP, Ruby and
+Python, giving strong instincts for which problems are genuinely language-
+specific and which are architectural. Earlier career spent defining software
+configuration management practice at institute scale, including leading a
+10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator.
+M.Sc. in Computer Science (Artificial Intelligence).
 
 
 WORK EXPERIENCE
 ────────────────────────────────────────────────────────────────────────────────
 
-Senior Backend Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2022-10 – Present
+Senior Backend Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2026-01 – present
+  Recife, PE, Brazil
+  Backend and platform engineering for ML-driven developer-productivity systems,
+  from APIs and data pipelines to Kubernetes delivery and AI/LLM tooling.
+    • Top 2026 contributor to a production ML platform for automated issue
+    triage and duplicate detection: FastAPI, Kafka, Milvus vector search,
+    Snowflake, Kubernetes on AWS EKS.
+    • Built solo a team onboarding platform (Django 6, GraphQL, Celery,
+    Kubernetes) replacing a manual nine-step process.
+    • Built solo an engineering-metrics platform (Django + GraphQL, Nuxt 4,
+    PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-
+    request and bug-fix data from CI.
+    • Added a self-service web app that triggers metric collection on demand
+    with live log streaming, plus weekly Kubernetes CronJobs covering three
+    repositories.
+    • Shipped AI developer tooling: an autonomous Claude Agent SDK bug-fixer
+    that opens pull requests behind a confidence gate, and an MCP server serving
+    six triage tools to Claude Code, Cursor and Xcode.
+    • Delivered two real-time team apps solo: planning poker on Django Channels
+    WebSockets, and retrospectives on GraphQL with a six-state workflow engine.
+    • Drove test-coverage and toolchain programs across five repositories:
+    thousands of new tests, Poetry to uv, pre-commit to prek, ruff and type-
+    check gates, CI coverage reporting.
+
+Senior Backend Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2022-10 – 2025-12
   Recife, PE, Brazil
   Backend engineering and CI/CD ownership for two concurrent web platforms.
     • Built and maintained backend services for two concurrent web platforms in
@@ -117,14 +142,20 @@ B.Sc., Computer Science — Federal University of Ceará (UFC)    1996-01 – 20
 SKILLS
 ────────────────────────────────────────────────────────────────────────────────
 
-Backend (Expert): Python, Django, Flask, Falcon, PHP, Yii, Laravel, Ruby on
-Rails, Java, C, REST API, JSON:API
-Frontend (Advanced): JavaScript, TypeScript, VueJS, NuxtJS, EmberJS,
-Backbone/Marionette, HTML, CSS, SCSS/SASS, BEM
-DevOps & CI/CD (Expert): CI/CD, Jenkins, TeamCity, GitLab CI, Docker, Ansible,
-HashiCorp Vault, Bash, Git, GitFlow, GitHub, GitLab
-Cloud & Orchestration (Intermediate): Google Cloud, AWS, Kubernetes
-Databases (Advanced): PostgreSQL, MySQL, Oracle, Redis
+Backend (Expert): Python, Django, FastAPI, Flask, Falcon, GraphQL, Strawberry
+GraphQL, REST API, JSON:API, Celery, Kafka, WebSockets, PHP, Yii, Laravel, Ruby
+on Rails, Java
+Frontend (Advanced): JavaScript, TypeScript, VueJS, NuxtJS, PrimeVue, Tailwind
+CSS, Pinia, EmberJS, Backbone/Marionette, HTML, CSS, SCSS/SASS, BEM
+AI & ML Engineering (Advanced): LLM application development, Model Context
+Protocol (MCP), Claude Agent SDK, Agentic tooling, Vector search, Milvus,
+Embeddings, Sentence Transformers, PyTorch, Snowflake
+DevOps & CI/CD (Expert): CI/CD, Jenkins, TeamCity, GitLab CI, Docker, Multi-arch
+builds, Ansible, HashiCorp Vault, Sealed Secrets, uv, mise, prek, ruff, pytest,
+Bash, Git, GitFlow, GitHub, GitLab
+Cloud & Orchestration (Advanced): Kubernetes, Helm, Kustomize, AWS EKS, AWS,
+Google Cloud, mTLS, OAuth 2.0, OpenTelemetry, Sentry
+Databases (Advanced): PostgreSQL, MySQL, Oracle, Redis, Milvus, Snowflake
 Process & Leadership (Expert): Software Configuration Management, CMMI, SCAMPI
 appraisal, Scrum, Kanban, Technical Leadership, Code Review, Mentoring
 
@@ -140,6 +171,7 @@ Best Application from the Americas — Sea Hunter Asia Java Mobile Challenge | 2
 CERTIFICATIONS
 ────────────────────────────────────────────────────────────────────────────────
 
+AI for Developers (54h)                                   CESAR School | 2025-08
 Certified ScrumMaster (CSM)                             Scrum Alliance | 2017-10
 Zend PHP Certified Developer                   Zend Technologies, Ltd. | 2014-10
 

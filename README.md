@@ -93,7 +93,7 @@ resume generate [OPTIONS] RESUME_FILE
 
 | Option | Short | Default | Description |
 |---|---|---|---|
-| `--theme` | `-t` | `even` | Custom theme name, directory path, or `jsonresume-theme-*` package name (prefix omitted). See [Themes](#themes). |
+| `--theme` | `-t` | `base` | Custom theme name, directory path, or `jsonresume-theme-*` package name (prefix omitted). See [Themes](#themes). |
 | `--sections` | `-s` | *(all)* | Comma-separated list of sections to include. |
 | `--cut-date` | `-d` | *(none)* | Exclude entries whose primary date is before this value (`YYYY-MM-DD`, `YYYY-MM`, or `YYYY`). Ongoing roles (no `endDate`) are always kept. |
 | `--summary` | `-S` | *(none)* | Use a named variant from `meta.summaries` instead of `basics.summary`. See [Summary variants](#summary-variants). |
@@ -131,6 +131,8 @@ uv run resume sections
 
 ## Themes
 
+The default is the bundled **`base`** custom theme (drafting-sheet keylines, inline MDI icons, print-tuned). Pass `--theme <name>` to use anything else.
+
 `--theme` accepts three kinds of reference, resolved in this order:
 
 | # | Reference | Example | Resolves to |
@@ -167,14 +169,16 @@ Run `uv run resume themes` for the full curated list.
 
 A custom theme is any folder under `custom/themes/` containing a `package.json` that exports a `render(resume)` function. It becomes available as `--theme <folder-name>` immediately — **no registration and no build step**, since Bun transpiles JSX/TSX natively.
 
-The bundled `base` theme is a good starting point:
+The bundled `base` theme is the default and a good starting point:
 
 ```
 custom/themes/base/
-├── src/tokens.js     # colours, type scale, spacing — edit this first
-├── src/Resume.jsx    # component tree (styled-components)
-├── src/index.jsx     # SSR entry: exports render(), sets fonts and @page rules
-├── package.json      # declares the "." export → src/index.jsx
+├── src/tokens.js       # colours, type scale, spacing — edit this first
+├── src/Resume.jsx      # component tree (styled-components) + contact line
+├── src/Icon.jsx        # inline MDI icon component
+├── src/mdi-icons.json  # vendored MDI subset — refresh: mise run icons
+├── src/index.jsx       # SSR entry: exports render(), sets fonts and @page rules
+├── package.json        # declares the "." export → src/index.jsx
 └── README.md
 ```
 
@@ -191,6 +195,32 @@ Edit `src/tokens.js` for colours and spacing; edit `src/Resume.jsx` to change st
 See [`custom/themes/base/README.md`](custom/themes/base/README.md) for the full field-coverage table and customization notes.
 
 **Built-in fallback:** if Bun is unavailable or the theme fails to render, the app falls back to a clean, print-ready built-in Jinja2 template and prints a warning. Use `--no-theme` to force it.
+
+### Icons (Material Design Icons via Iconify)
+
+The built-in template (and therefore PDF output) uses [MDI](https://icon-sets.iconify.design/mdi/) icons for the contact line — email, phone, location, LinkedIn/GitHub, website. So does the default `base` theme (`src/Icon.jsx`). They are **inlined as SVG**, not fetched at render time, because WeasyPrint would otherwise need network access for every PDF.
+
+The subset is vendored twice — `resume_generator/assets/mdi-icons.json` for the Python renderers and `custom/themes/base/src/mdi-icons.json` for the JSX theme (Apache 2.0, from [`@iconify-json/mdi`](https://www.npmjs.com/package/@iconify-json/mdi)); `mise run icons` writes both. To add or change an icon:
+
+1. Find the name you want at <https://icon-sets.iconify.design/mdi/> (e.g. `mdi:map-marker-outline`).
+2. Add it to `WANTED` in `scripts/fetch_icons.py`, mapped to a semantic key:
+   ```python
+   WANTED = {
+       "email": "email-outline",
+       "phone": "phone-outline",
+       "location": "map-marker-outline",
+       ...
+   }
+   ```
+3. Refresh the vendored asset and re-render:
+   ```bash
+   mise run icons     # npm pack @iconify-json/mdi → extract → write the JSON asset
+   mise run en -f pdf
+   ```
+
+In templates the icons are available as `{{ icon('email') }}`; in Python via `resume_generator.icons.icon_svg("email")`; in the JSX theme via `<Icon name="email" />`. Icons use `fill="currentColor"`, so they inherit the surrounding text colour automatically. Profile entries resolve by network name (`"network": "LinkedIn"` → `mdi:linkedin`) and fall back to the website icon for unknown networks.
+
+Markdown, plain-text and Word output intentionally stay icon-free or emoji-only — inline SVG is meaningless there, and ATS parsers prefer plain text.
 
 ---
 
@@ -347,6 +377,9 @@ about.me/
 │   ├── main.py                # Typer CLI (generate / themes / summaries / sections)
 │   ├── models.py              # Pydantic models for JSON Resume schema
 │   ├── filter.py              # Section filtering, date cutoff, summary variants
+│   ├── icons.py               # Inline MDI (Iconify) SVG icons for HTML/PDF
+│   ├── assets/
+│   │   └── mdi-icons.json     # Vendored MDI icon subset — refresh: mise run icons
 │   └── renderers/
 │       ├── html.py            # HTML — theme resolution + built-in Jinja2 template
 │       ├── pdf.py             # PDF — WeasyPrint
@@ -355,15 +388,18 @@ about.me/
 │       └── word.py            # Word .docx — python-docx
 ├── custom/
 │   └── themes/
-│       └── base/              # Custom theme (React/JSX, no build step)
+│       └── base/              # Default theme (React/JSX, no build step)
 │           ├── src/tokens.js  # Design tokens — edit for restyling
-│           ├── src/Resume.jsx # Component tree
+│           ├── src/Resume.jsx # Component tree + MDI contact line
+│           ├── src/Icon.jsx   # Inline MDI icon component
 │           └── src/index.jsx  # SSR entry
 ├── node/
 │   ├── render_theme.mjs       # Bun script — loads & invokes a resolved theme dir
 │   ├── package.json           # Bun manifest
 │   ├── bun.lock               # Bun lockfile
 │   └── node_modules/          # npm themes (even, elegant, paper, flat, caffeine…)
+├── scripts/
+│   └── fetch_icons.py         # Regenerates the vendored MDI icon subset
 ├── pyproject.toml
 ├── uv.lock
 └── resume.json                # Your master resume

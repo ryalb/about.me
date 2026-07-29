@@ -1,13 +1,25 @@
 # Ryan Leite Albuquerque
 **Engenheiro de Software Sênior**
-✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
+✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
 
-Engenheiro backend sênior com 26 anos construindo sistemas em produção, atualmente projetando serviços em Python (Django/Flask) e APIs REST em conformidade com a especificação JSON:API, além de ser responsável pela esteira de CI/CD de ponta a ponta. Poliglota por necessidade e não por preferência — entregou sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
+Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, atualmente o maior contribuidor de uma plataforma de ML em produção para triagem automática de issues (FastAPI, Kafka, busca vetorial em Kubernetes) e também entregando plataformas internas de ponta a ponta sozinho — do modelo de dados à implantação em produção. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
 
 ## Work Experience
 
 ### Engenheiro de Software Backend Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2022-10 – Present_
+_📍 Recife, PE, Brasil · 🗓 2026-01 – Present_
+
+Engenharia de backend e de plataforma para sistemas de produtividade de desenvolvimento baseados em ML, de APIs e pipelines de dados à entrega em Kubernetes e ferramentas com IA/LLM.
+- Maior contribuidor de 2026 em uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
+- Construí sozinho uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que substituiu um processo manual de nove etapas.
+- Construí sozinho uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.
+- Criei um app web self-service que dispara a coleta de métricas sob demanda com streaming de log ao vivo, além de CronJobs semanais no Kubernetes cobrindo três repositórios.
+- Entreguei ferramentas de desenvolvimento com IA: um corretor de bugs autônomo sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança, e um servidor MCP que serve seis ferramentas de triagem ao Claude Code, Cursor e Xcode.
+- Entreguei sozinho dois apps de tempo real: planning poker com WebSockets em Django Channels, e retrospectivas em GraphQL com máquina de estados de seis fases.
+- Conduzi programas de cobertura de testes e de toolchain em cinco repositórios: milhares de novos testes, Poetry para uv, pre-commit para prek, gates de ruff e tipos, relatórios de cobertura na CI.
+
+### Engenheiro de Software Backend Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+_📍 Recife, PE, Brasil · 🗓 2022-10 – 2025-12_
 
 Engenharia backend e responsabilidade pela esteira de CI/CD de duas plataformas web simultâneas.
 - Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask), garantindo qualidade de nível de produção por meio de formatação, análise estática e testes automatizados como gates na CI.
@@ -78,15 +90,17 @@ _🗓 1996-01 – 2000-01_
 
 ## Skills
 
-**Backend** (Especialista): `Python`, `Django`, `Flask`, `Falcon`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`, `C`, `REST API`, `JSON:API`
+**Backend** (Especialista): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`, `C`
 
-**Frontend** (Avançado): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
+**Frontend** (Avançado): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
 
-**DevOps e CI/CD** (Especialista): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Ansible`, `HashiCorp Vault`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
+**Engenharia de IA e ML** (Avançado): `Desenvolvimento de aplicações com LLM`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Ferramentas agentivas`, `Busca vetorial`, `Milvus`, `Embeddings`, `Sentence Transformers`, `PyTorch`, `Snowflake`
 
-**Cloud e Orquestração** (Intermediário): `Google Cloud`, `AWS`, `Kubernetes`
+**DevOps e CI/CD** (Especialista): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Builds multi-arquitetura`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `mise`, `prek`, `ruff`, `pytest`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
 
-**Bancos de Dados** (Avançado): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`
+**Cloud e Orquestração** (Avançado): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `OpenTelemetry`, `Sentry`
+
+**Bancos de Dados** (Avançado): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
 
 **Processos e Liderança** (Especialista): `Gerência de Configuração de Software`, `CMMI`, `Avaliação SCAMPI`, `Scrum`, `Kanban`, `Liderança Técnica`, `Code Review`, `Mentoria`
 
@@ -101,6 +115,7 @@ Prêmio concedido ao Sea Hunter, um jogo mobile em J2ME desenvolvido para os pri
 
 ## Certifications
 
+- **IA para Devs (54h)** · CESAR School · 2025-08
 - **[Certified ScrumMaster (CSM)](https://bcert.me/sciltuxvg)** · Scrum Alliance · 2017-10
 - **Zend PHP Certified Developer** · Zend Technologies, Ltd. · 2014-10
 

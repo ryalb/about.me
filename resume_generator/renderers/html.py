@@ -11,6 +11,8 @@ from typing import Any
 
 from jinja2 import BaseLoader, Environment
 
+from ..icons import icon_svg
+
 # ---------------------------------------------------------------------------
 # Node.js theme rendering
 # ---------------------------------------------------------------------------
@@ -164,6 +166,9 @@ _BUILTIN_TEMPLATE = """\
     header h1 { font-size: 2rem; font-weight: 700; letter-spacing: -.5px; }
     header .label { font-size: 1.1rem; color: var(--accent); font-weight: 500; margin: .2rem 0 .6rem; }
     header .contact { display: flex; flex-wrap: wrap; gap: .4rem 1.2rem; font-size: .875rem; color: var(--muted); }
+    header .contact span { display: inline-flex; align-items: center; gap: .3rem; }
+    /* Inline MDI (Iconify) icons inherit text colour via fill="currentColor" */
+    .icon { flex: none; vertical-align: -.125em; }
 
     /* Sections */
     section { margin-bottom: 1.75rem; }
@@ -200,15 +205,15 @@ _BUILTIN_TEMPLATE = """\
   <h1>{{ basics.name or '' }}</h1>
   {% if basics.label %}<div class="label">{{ basics.label }}</div>{% endif %}
   <div class="contact">
-    {% if basics.email %}<span>✉ <a href="mailto:{{ basics.email }}">{{ basics.email }}</a></span>{% endif %}
-    {% if basics.phone %}<span>📞 {{ basics.phone }}</span>{% endif %}
-    {% if basics.url %}<span>🌐 <a href="{{ basics.url }}">{{ basics.url }}</a></span>{% endif %}
+    {% if basics.email %}<span>{{ icon('email') }}<a href="mailto:{{ basics.email }}">{{ basics.email }}</a></span>{% endif %}
+    {% if basics.phone %}<span>{{ icon('phone') }}{{ basics.phone }}</span>{% endif %}
+    {% if basics.url %}<span>{{ icon('website') }}<a href="{{ basics.url }}">{{ basics.url }}</a></span>{% endif %}
     {% if basics.location %}
       {% set loc = basics.location %}
-      <span>📍 {{ [loc.city, loc.region, loc.countryCode] | select | join(', ') }}</span>
+      <span>{{ icon('location') }}{{ [loc.city, loc.region, loc.countryCode] | select | join(', ') }}</span>
     {% endif %}
     {% for p in basics.profiles or [] %}
-      <span>{{ p.network }}: <a href="{{ p.url or '#' }}">{{ p.username }}</a></span>
+      <span>{{ icon(p.network | lower if p.network else 'website') }}{% if p.network %}{{ p.network }}: {% endif %}<a href="{{ p.url or '#' }}">{{ p.username or p.url }}</a></span>
     {% endfor %}
   </div>
 </header>
@@ -439,6 +444,7 @@ def render_builtin(resume: dict[str, Any]) -> str:
     name = basics.get("name", "Resume")
 
     return tmpl.render(
+        icon=icon_svg,
         name=name,
         basics=basics,
         work=resume.get("work", []),

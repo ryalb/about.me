@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section as CoreSection, DateRange, ContactInfo } from '@jsonresume/core';
+import { Section as CoreSection, DateRange } from '@jsonresume/core';
 import { colors, fonts, type, space, layout } from './tokens.js';
+import { Icon, networkIcon } from './Icon.jsx';
 
 /* ────────────────────────────────────────────────────────────────────────
    Section wrapper
@@ -69,9 +70,24 @@ const Label = styled.div`
   text-align: center;
 `;
 
-const StyledContactInfo = styled(ContactInfo)`
+/* ────────────────────────────────────────────────────────────────────────
+   Contact line
+
+   Replaces @jsonresume/core's <ContactInfo>, which renders text-only items
+   and drops a profile when `network` is missing.  This version prefixes each
+   item with an inline MDI icon (see Icon.jsx) and keeps the username visible
+   alongside the network name.
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* Inline layout, not flex: WeasyPrint's flexbox support does not honour
+   align-items reliably, which left the separators floating above the text
+   baseline in PDF output.  Inline-block + vertical-align is exact in both
+   browsers and WeasyPrint. */
+const ContactRow = styled.div`
+  text-align: center;
   font-size: ${type.body};
   color: ${colors.muted};
+  line-height: 1.9;
 
   a {
     font-size: ${type.body};
@@ -84,11 +100,110 @@ const StyledContactInfo = styled(ContactInfo)`
       border-bottom-color: ${colors.muted};
     }
   }
-
-  span {
-    color: ${colors.faint};
-  }
 `;
+
+const ContactItem = styled.span`
+  white-space: nowrap;
+`;
+
+/* Drawn as a CSS circle rather than the '•' character: the theme font
+   (IosevkaTermSlab, a terminal face) places U+2022 high in the em box, so a
+   text bullet floats above the contact line instead of centring on it. */
+const Separator = styled.span`
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  margin: 0 9px;
+  border-radius: 50%;
+  background: ${colors.faint};
+  vertical-align: 0.25em;
+`;
+
+const ContactInfo = ({ basics = {} }) => {
+  const { email, phone, url, location, profiles = [] } = basics;
+  const items = [];
+
+  if (email) {
+    items.push(
+      <ContactItem key="email">
+        <Icon name="email" />
+        <a href={`mailto:${email}`} aria-label="Email">
+          {email}
+        </a>
+      </ContactItem>
+    );
+  }
+
+  if (phone) {
+    items.push(
+      <ContactItem key="phone">
+        <Icon name="phone" />
+        <a href={`tel:${phone.replace(/\s+/g, '')}`} aria-label="Phone">
+          {phone}
+        </a>
+      </ContactItem>
+    );
+  }
+
+  const locationStr = location
+    ? [location.city, location.region, location.countryCode]
+        .filter(Boolean)
+        .join(', ')
+    : '';
+  if (locationStr) {
+    items.push(
+      <ContactItem key="location" aria-label="Location">
+        <Icon name="location" />
+        {locationStr}
+      </ContactItem>
+    );
+  }
+
+  if (url) {
+    items.push(
+      <ContactItem key="url">
+        <Icon name="website" />
+        <a href={url} target="_blank" rel="noopener noreferrer" aria-label="Website">
+          {url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
+        </a>
+      </ContactItem>
+    );
+  }
+
+  profiles.forEach((profile, index) => {
+    const text = profile.username || profile.network || profile.url;
+    if (!text) return;
+    items.push(
+      <ContactItem key={`profile-${index}`}>
+        <Icon name={networkIcon(profile.network)} />
+        {profile.url ? (
+          <a
+            href={profile.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={profile.network || 'Profile'}
+          >
+            {text}
+          </a>
+        ) : (
+          text
+        )}
+      </ContactItem>
+    );
+  });
+
+  if (items.length === 0) return null;
+  return (
+    <ContactRow className="resume-contact">
+      {items.map((item, index) => (
+        <React.Fragment key={item.key ?? index}>
+          {index > 0 && <Separator aria-hidden="true" />}
+          {item}
+        </React.Fragment>
+      ))}
+    </ContactRow>
+  );
+};
 
 const Summary = styled.p`
   font-size: ${type.summary};
@@ -372,7 +487,7 @@ function Resume({ resume }) {
       <Header>
         <Name>{basics.name}</Name>
         {basics.label && <Label>{basics.label}</Label>}
-        <StyledContactInfo basics={basics} />
+        <ContactInfo basics={basics} />
         {basics.summary && <Summary>{basics.summary}</Summary>}
       </Header>
 

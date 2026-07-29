@@ -146,14 +146,16 @@ def generate(
             "--theme",
             "-t",
             help=(
-                "Theme to render with. Resolution order: custom theme in "
+                "Theme to render with. Defaults to the bundled "
+                "[bold]base[/bold] custom theme (MDI icons, print-tuned). "
+                "Resolution order: custom theme in "
                 "[bold]custom/themes/[/bold], explicit directory path, then "
                 "[bold]jsonresume-theme-*[/bold] npm package (installed on "
                 "demand). Run [bold]resume themes[/bold] to list options."
             ),
             rich_help_panel="Content",
         ),
-    ] = "even",
+    ] = "base",
     sections: Annotated[
         str | None,
         typer.Option(
@@ -426,7 +428,10 @@ def themes() -> None:
                 desc = json.loads(pkg.read_text()).get("description", "")
             except (OSError, json.JSONDecodeError):
                 pass
-            ctable.add_row(name, desc or "[dim]—[/dim]")
+            ctable.add_row(
+                f"{name} [dim](default)[/dim]" if name == "base" else name,
+                desc or "[dim]—[/dim]",
+            )
         console.print(ctable)
         console.print(
             "[dim]Custom themes take precedence over npm packages "
