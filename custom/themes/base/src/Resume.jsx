@@ -403,6 +403,15 @@ const CardGrid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
   margin-top: 22px;
+
+  /* WeasyPrint implements CSS Grid but does not resolve auto-fill / auto-fit
+     repeat() into a track count, so every card was laid out in a single
+     full-width column in the PDF while the browser showed two.  At A4 minus
+     page margins the screen rule resolves to two tracks anyway, so state that
+     explicitly for print to keep PDF and HTML identical. */
+  @media print {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 `;
 
 const Card = styled.div`
