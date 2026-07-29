@@ -64,3 +64,13 @@ depends = ["en", "pt"]
 [tasks.clean]
 description = "Remove generated output"
 run = "rm -rf .output"
+
+[tasks.build-all]
+description = "Generate both language versions"
+run = [
+    "mise run clean",
+    "mise run build",
+    "cp ./.output/*full_en_us/* ./latest/en_us/.",
+    "cp ./.output/*full_pt_br/* ./latest/pt_br/.",
+    "mise run check || true",
+]
