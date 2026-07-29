@@ -182,9 +182,11 @@ def render_markdown(resume: dict[str, Any]) -> str:
         lines.append(_section_header("Awards"))
         for a in awards:
             title = a.get("title") or ""
+            aurl = a.get("url") or ""
             awarder = a.get("awarder") or ""
             adate = a.get("date") or ""
-            lines.append(f"### {title}\n")
+            title_str = f"[{title}]({aurl})" if aurl else title
+            lines.append(f"### {title_str}\n")
             meta = []
             if awarder:
                 meta.append(awarder)

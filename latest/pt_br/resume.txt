@@ -175,6 +175,7 @@ Melhor Aplicação das Américas — Sea Hunter Asia Java Mobile Challenge (Sing
   O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os
   primeiros aparelhos com suporte a Java, foi selecionado entre os 20
   finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
+  https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge
 
 
 CERTIFICATIONS
@@ -182,6 +183,7 @@ CERTIFICATIONS
 
 IA para Devs (54h)                                        CESAR School | 2025-08
 Certified ScrumMaster (CSM)                             Scrum Alliance | 2017-10
+  https://bcert.me/sciltuxvg
 Zend PHP Certified Developer                   Zend Technologies, Ltd. | 2014-10
 
 

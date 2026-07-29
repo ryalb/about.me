@@ -77,5 +77,4 @@ run = [
     "mise run build",
     "cp ./.output/*full_en_us/* ./latest/en_us/.",
     "cp ./.output/*full_pt_br/* ./latest/pt_br/.",
-    "mise run check || true",
 ]

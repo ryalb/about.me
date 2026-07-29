@@ -708,7 +708,11 @@ function Resume({ resume }) {
             <Item key={i}>
               <ItemHeader>
                 <div>
-                  {award.title && <ItemTitle>{award.title}</ItemTitle>}
+                  {award.title && (
+                    <ItemTitle>
+                      <MaybeLink url={award.url}>{award.title}</MaybeLink>
+                    </ItemTitle>
+                  )}
                   {award.awarder && <ItemSubtitle>{award.awarder}</ItemSubtitle>}
                 </div>
                 {award.date && <MetaText>{award.date}</MetaText>}

@@ -165,6 +165,8 @@ def render_text(resume: dict[str, Any]) -> str:
             lines.append(title + " " * max(1, pad) + right)
             if s := a.get("summary"):
                 lines.append(_wrap(s, indent=2))
+            if aurl := a.get("url"):
+                lines.append(f"  {aurl}")
             lines.append("")
 
     # ── Certificates ──────────────────────────────────────────────────────
@@ -177,6 +179,8 @@ def render_text(resume: dict[str, Any]) -> str:
             right = " | ".join(filter(None, [issuer, cdate]))
             pad = _WIDTH - len(cname) - len(right)
             lines.append(cname + " " * max(1, pad) + right)
+            if curl := c.get("url"):
+                lines.append(f"  {curl}")
         lines.append("")
 
     # ── Publications ──────────────────────────────────────────────────────
@@ -191,6 +195,8 @@ def render_text(resume: dict[str, Any]) -> str:
             lines.append(pname + " " * max(1, pad) + right)
             if s := pub.get("summary"):
                 lines.append(_wrap(s, indent=2))
+            if purl := pub.get("url"):
+                lines.append(f"  {purl}")
             lines.append("")
 
     # ── Languages ─────────────────────────────────────────────────────────

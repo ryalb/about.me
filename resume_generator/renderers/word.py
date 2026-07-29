@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import TYPE_CHECKING, Any
 
 from docx import Document
+from docx.opc.constants import RELATIONSHIP_TYPE as RT
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
@@ -55,6 +56,40 @@ def _add_heading(doc: DocxDocument, text: str, level: int = 1) -> None:
         pPr.append(pBdr)
 
 
+def _add_hyperlink(
+    para, url: str, text: str, size: float = 10.5, bold: bool = True
+) -> None:
+    """Append *text* to *para* as a real Word hyperlink pointing at *url*.
+
+    python-docx has no public hyperlink API, so the relationship and the
+    ``w:hyperlink`` element are created by hand.
+    """
+    r_id = para.part.relate_to(url, RT.HYPERLINK, is_external=True)
+    link = OxmlElement("w:hyperlink")
+    link.set(qn("r:id"), r_id)
+
+    run = OxmlElement("w:r")
+    rPr = OxmlElement("w:rPr")
+    if bold:
+        rPr.append(OxmlElement("w:b"))
+    color = OxmlElement("w:color")
+    color.set(qn("w:val"), "2563EB")
+    rPr.append(color)
+    underline = OxmlElement("w:u")
+    underline.set(qn("w:val"), "single")
+    rPr.append(underline)
+    sz = OxmlElement("w:sz")
+    sz.set(qn("w:val"), str(int(size * 2)))  # half-points
+    rPr.append(sz)
+    run.append(rPr)
+
+    t = OxmlElement("w:t")
+    t.text = text
+    run.append(t)
+    link.append(run)
+    para._p.append(link)
+
+
 def _add_entry_header(
     doc: DocxDocument,
     title: str,
@@ -66,11 +101,14 @@ def _add_entry_header(
     para.paragraph_format.space_before = Pt(6)
     para.paragraph_format.space_after = Pt(0)
 
-    # Title
-    r = para.add_run(title)
-    r.bold = True
-    r.font.size = Pt(10.5)
-    r.font.color.rgb = _TEXT
+    # Title — hyperlinked when the entry carries a url
+    if url:
+        _add_hyperlink(para, url, title)
+    else:
+        r = para.add_run(title)
+        r.bold = True
+        r.font.size = Pt(10.5)
+        r.font.color.rgb = _TEXT
 
     if subtitle:
         r2 = para.add_run(f"  {subtitle}")
@@ -274,7 +312,9 @@ def render_word(resume: dict[str, Any], output_path: Path) -> None:
             awarder = a.get("awarder") or ""
             adate = a.get("date") or ""
             dr = adate
-            _add_entry_header(doc, title, subtitle=awarder, date_str=dr)
+            _add_entry_header(
+                doc, title, subtitle=awarder, date_str=dr, url=a.get("url") or ""
+            )
             if s := a.get("summary"):
                 _add_body_text(doc, s)
 
@@ -285,7 +325,9 @@ def render_word(resume: dict[str, Any], output_path: Path) -> None:
             cname = c.get("name") or ""
             issuer = c.get("issuer") or ""
             cdate = c.get("date") or ""
-            _add_entry_header(doc, cname, subtitle=issuer, date_str=cdate)
+            _add_entry_header(
+                doc, cname, subtitle=issuer, date_str=cdate, url=c.get("url") or ""
+            )
 
     # ── Publications ──────────────────────────────────────────────────────
     if pubs := resume.get("publications"):
@@ -294,7 +336,9 @@ def render_word(resume: dict[str, Any], output_path: Path) -> None:
             pname = pub.get("name") or ""
             publisher = pub.get("publisher") or ""
             pdate = pub.get("releaseDate") or ""
-            _add_entry_header(doc, pname, subtitle=publisher, date_str=pdate)
+            _add_entry_header(
+                doc, pname, subtitle=publisher, date_str=pdate, url=pub.get("url") or ""
+            )
             if s := pub.get("summary"):
                 _add_body_text(doc, s)
 

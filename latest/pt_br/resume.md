@@ -107,7 +107,7 @@ _🗓 1996-01 – 2000-01_
 
 ## Awards
 
-### Melhor Aplicação das Américas — Sea Hunter
+### [Melhor Aplicação das Américas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
 _Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
 
 O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.

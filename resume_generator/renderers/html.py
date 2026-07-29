@@ -349,7 +349,7 @@ _BUILTIN_TEMPLATE = """\
   {% for a in awards %}
   <div class="entry">
     <div class="entry-header">
-      <span class="entry-title">{{ a.title }}</span>
+      <span class="entry-title">{% if a.url %}<a href="{{ a.url }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</span>
       <span class="entry-date">{{ a.date or '' }}</span>
     </div>
     {% if a.awarder %}<div class="entry-subtitle">{{ a.awarder }}</div>{% endif %}
