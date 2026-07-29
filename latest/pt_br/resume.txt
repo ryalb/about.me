@@ -171,9 +171,10 @@ CMMI, Avaliação SCAMPI, Scrum, Kanban, Liderança Técnica, Code Review, Mento
 AWARDS
 ────────────────────────────────────────────────────────────────────────────────
 
-Melhor Aplicação das Américas — Sea Hunter     Asia Java Mobile Challenge | 2001
-  Prêmio concedido ao Sea Hunter, um jogo mobile em J2ME desenvolvido para os
-  primeiros aparelhos com suporte a Java.
+Melhor Aplicação das Américas — Sea Hunter Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) | 2002
+  O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os
+  primeiros aparelhos com suporte a Java, foi selecionado entre os 20
+  finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
 
 
 CERTIFICATIONS
