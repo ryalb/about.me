@@ -108,6 +108,19 @@ def apply_summary_variant(resume: dict[str, Any], key: str) -> dict[str, Any]:
     return result
 
 
+def drop_basics_summary(resume: dict[str, Any]) -> dict[str, Any]:
+    """Return a copy of resume with ``basics.summary`` removed.
+
+    Every renderer emits the summary only when the field is truthy, so removing
+    it here is enough to omit the opening paragraph from all output formats.
+    """
+    result = copy.deepcopy(resume)
+    basics = result.get("basics")
+    if isinstance(basics, dict):
+        basics.pop("summary", None)
+    return result
+
+
 def strip_summary_map(resume: dict[str, Any]) -> dict[str, Any]:
     """Remove ``meta.summaries`` so the variant map never leaks into output."""
     result = copy.deepcopy(resume)
@@ -122,12 +135,16 @@ def filter_resume(
     sections: list[str] | None,
     cut_date: date | None,
     summary: str | None = None,
+    hide_summary: bool = False,
 ) -> dict[str, Any]:
     """Apply summary variant, section filter and date cutoff in sequence."""
     result = copy.deepcopy(resume)
 
     if summary is not None:
         result = apply_summary_variant(result, summary)
+
+    if hide_summary:
+        result = drop_basics_summary(result)
 
     if sections is not None:
         result = apply_section_filter(result, sections)

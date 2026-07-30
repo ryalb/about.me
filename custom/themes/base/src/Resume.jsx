@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Section as CoreSection, DateRange } from '@jsonresume/core';
-import { colors, fonts, type, space, layout } from './tokens.js';
+import { colors, fonts, type, space, layout, scale } from './tokens.js';
 import { Icon, networkIcon } from './Icon.jsx';
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -46,16 +46,16 @@ const Layout = styled.div`
 
 const Header = styled.header`
   margin-bottom: ${space.headerGap};
-  padding-bottom: 28px;
+  padding-bottom: ${scale(28)};
   // border-bottom: 2px solid ${colors.rule};
 `;
 
 const Name = styled.h1`
   font-size: ${type.name};
-  font-weight: 300;
+  font-weight: ${fonts.weights.bold};
   color: ${colors.ink};
-  margin: 0 0 10px 0;
-  letter-spacing: 0.5px;
+  margin: 0 0 ${scale(10)} 0;
+  letter-spacing: ${scale(0.5)};
   text-transform: uppercase;
   text-align: center;
 `;
@@ -63,9 +63,9 @@ const Name = styled.h1`
 const Label = styled.div`
   font-size: ${type.meta};
   color: ${colors.subtle};
-  margin-bottom: 20px;
+  margin-bottom: ${scale(20)};
   font-weight: 400;
-  letter-spacing: 2px;
+  letter-spacing: ${scale(2)};
   text-transform: uppercase;
   text-align: center;
 `;
@@ -111,9 +111,9 @@ const ContactItem = styled.span`
    text bullet floats above the contact line instead of centring on it. */
 const Separator = styled.span`
   display: inline-block;
-  width: 3px;
-  height: 3px;
-  margin: 0 9px;
+  width: ${scale(3)};
+  height: ${scale(3)};
+  margin: 0 ${scale(9)};
   border-radius: 50%;
   background: ${colors.faint};
   vertical-align: 0.25em;
@@ -209,7 +209,7 @@ const Summary = styled.p`
   font-size: ${type.summary};
   line-height: 1.8;
   color: ${colors.body};
-  margin: 20px 0 0 0;
+  margin: ${scale(20)} 0 0 0;
   font-weight: 300;
 `;
 
@@ -217,15 +217,15 @@ const SectionTitle = styled.h2`
   font-size: ${type.sectionTitle};
   font-weight: 500;
   color: ${colors.muted};
-  margin: ${space.sectionGap} 0 26px 0;
-  letter-spacing: 3px;
+  margin: ${space.sectionGap} 0 ${scale(26)} 0;
+  letter-spacing: ${scale(3)};
   text-transform: uppercase;
   position: relative;
 
   &::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: -${scale(10)};
     left: 0;
     right: 0;
     height: 1px;
@@ -274,7 +274,7 @@ const Item = styled.div`
 
 /** Short, atomic entries that genuinely should never split. */
 const CompactItem = styled(Item)`
-  padding: 16px 0;
+  padding: ${scale(16)} 0;
 
   @media print {
     break-inside: avoid;
@@ -285,13 +285,13 @@ const CompactItem = styled(Item)`
 const ItemHeader = styled.div`
   display: grid;
   grid-template-columns: 1fr auto;
-  gap: 24px;
-  margin-bottom: 10px;
+  gap: ${scale(24)};
+  margin-bottom: ${scale(10)};
   align-items: baseline;
 
   @media (max-width: 640px) {
     grid-template-columns: 1fr;
-    gap: 6px;
+    gap: ${scale(6)};
   }
 
   /* Never split the title/company/date block itself. */
@@ -308,7 +308,7 @@ const ItemTitle = styled.h3`
   font-weight: 400;
   color: ${colors.ink};
   margin: 0;
-  letter-spacing: 0.5px;
+  letter-spacing: ${scale(0.5)};
 
   a {
     color: inherit;
@@ -325,7 +325,7 @@ const ItemSubtitle = styled.div`
   font-size: ${type.itemSubtitle};
   color: ${colors.subtle};
   font-weight: 300;
-  margin-top: 4px;
+  margin-top: ${scale(4)};
 
   a {
     color: inherit;
@@ -343,7 +343,7 @@ const MetaText = styled.div`
   color: ${colors.faint};
   font-weight: 300;
   white-space: nowrap;
-  letter-spacing: 0.5px;
+  letter-spacing: ${scale(0.5)};
   text-align: right;
 `;
 
@@ -357,7 +357,7 @@ const Location = styled.span`
 `;
 
 const BodyText = styled.p`
-  margin: 10px 0;
+  margin: ${scale(10)} 0;
   color: ${colors.muted};
   line-height: 1.8;
   font-size: ${type.body};
@@ -365,12 +365,12 @@ const BodyText = styled.p`
 `;
 
 const Highlights = styled.ul`
-  margin: 10px 0 0 0;
-  padding-left: 20px;
+  margin: ${scale(10)} 0 0 0;
+  padding-left: ${scale(20)};
   list-style-type: none;
 
   li {
-    margin: 7px 0;
+    margin: ${scale(7)} 0;
     color: ${colors.muted};
     line-height: 1.75;
     font-size: ${type.body};
@@ -380,18 +380,18 @@ const Highlights = styled.ul`
     &::before {
       content: '—';
       position: absolute;
-      left: -20px;
+      left: -${scale(20)};
       color: ${colors.subtle};
     }
   }
 `;
 
 const KeywordRow = styled.div`
-  margin-top: 10px;
+  margin-top: ${scale(10)};
   font-size: ${type.small};
   color: ${colors.subtle};
   font-weight: 300;
-  letter-spacing: 0.3px;
+  letter-spacing: ${scale(0.3)};
 `;
 
 /* ────────────────────────────────────────────────────────────────────────
@@ -400,9 +400,9 @@ const KeywordRow = styled.div`
 
 const CardGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
-  margin-top: 22px;
+  grid-template-columns: repeat(auto-fill, minmax(${scale(260)}, 1fr));
+  gap: ${scale(16)};
+  margin-top: ${scale(22)};
 
   /* WeasyPrint implements CSS Grid but does not resolve auto-fill / auto-fit
      repeat() into a track count, so every card was laid out in a single
@@ -415,7 +415,7 @@ const CardGrid = styled.div`
 `;
 
 const Card = styled.div`
-  padding: 20px;
+  padding: ${scale(20)};
   background: ${colors.surface};
   border: 1px solid ${colors.rule};
   border-radius: 2px;
@@ -430,20 +430,20 @@ const CardTitle = styled.h4`
   font-size: ${type.body};
   font-weight: 500;
   color: ${colors.ink};
-  margin: 0 0 8px 0;
-  letter-spacing: 1px;
+  margin: 0 0 ${scale(8)} 0;
+  letter-spacing: ${scale(1)};
   text-transform: uppercase;
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  gap: 8px;
+  gap: ${scale(8)};
 `;
 
 const CardLevel = styled.span`
   font-size: ${type.small};
   font-weight: 300;
   color: ${colors.faint};
-  letter-spacing: 0.5px;
+  letter-spacing: ${scale(0.5)};
   text-transform: none;
 `;
 
@@ -472,6 +472,39 @@ const MaybeLink = ({ url, children }) =>
 const join = (parts, sep = ' · ') => parts.filter(Boolean).join(sep);
 
 /* ────────────────────────────────────────────────────────────────────────
+   Ongoing entries
+
+   JSON Resume marks work that hasn't finished by omitting `endDate`.
+   @jsonresume/utils treats an *undefined* endDate as a single point in time
+   (correct for award/certificate dates) and only appends the "Present" label
+   when endDate is explicitly `null` — so every date *range* passes
+   `endDate ?? null` to opt into the label.
+
+   The label is passed as `presentLabel` rather than through DateRange's
+   `locale` prop: `locale` would also localise month names, changing every
+   date in the document.  Keep this table in step with
+   `resume_generator/i18n.py`, which resolves the same label for md/txt/docx.
+   ──────────────────────────────────────────────────────────────────────── */
+
+const PRESENT_LABELS = {
+  en: 'Present',
+  pt: 'Presente',
+  es: 'Presente',
+  fr: 'Présent',
+  it: 'Presente',
+  de: 'Heute',
+};
+
+const presentLabelFor = (language) => {
+  const tag = (language || 'en-US').trim();
+  return (
+    PRESENT_LABELS[tag] ||
+    PRESENT_LABELS[tag.split('-')[0].toLowerCase()] ||
+    PRESENT_LABELS.en
+  );
+};
+
+/* ────────────────────────────────────────────────────────────────────────
    Resume
    ──────────────────────────────────────────────────────────────────────── */
 
@@ -489,7 +522,10 @@ function Resume({ resume }) {
     languages = [],
     interests = [],
     references = [],
+    meta = {},
   } = resume;
+
+  const presentLabel = presentLabelFor(meta.language);
 
   return (
     <Layout>
@@ -516,7 +552,11 @@ function Resume({ resume }) {
                   )}
                 </div>
                 <MetaText>
-                  <DateRange startDate={job.startDate} endDate={job.endDate} />
+                  <DateRange
+                    startDate={job.startDate}
+                    endDate={job.endDate ?? null}
+                    presentLabel={presentLabel}
+                  />
                 </MetaText>
               </ItemHeader>
               {job.summary && <BodyText>{job.summary}</BodyText>}
@@ -583,7 +623,8 @@ function Resume({ resume }) {
                   <MetaText>
                     <DateRange
                       startDate={edu.startDate}
-                      endDate={edu.endDate}
+                      endDate={edu.endDate ?? null}
+                      presentLabel={presentLabel}
                     />
                   </MetaText>
                 )}
@@ -623,7 +664,8 @@ function Resume({ resume }) {
                   <MetaText>
                     <DateRange
                       startDate={project.startDate}
-                      endDate={project.endDate}
+                      endDate={project.endDate ?? null}
+                      presentLabel={presentLabel}
                     />
                   </MetaText>
                 )}
@@ -660,7 +702,11 @@ function Resume({ resume }) {
                 </div>
                 {(vol.startDate || vol.endDate) && (
                   <MetaText>
-                    <DateRange startDate={vol.startDate} endDate={vol.endDate} />
+                    <DateRange
+                      startDate={vol.startDate}
+                      endDate={vol.endDate ?? null}
+                      presentLabel={presentLabel}
+                    />
                   </MetaText>
                 )}
               </ItemHeader>

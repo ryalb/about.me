@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import icons from './mdi-icons.json';
+import { scale } from './tokens.js';
 
 /**
  * Inline Material Design Icons (https://icon-sets.iconify.design/mdi/).
@@ -18,7 +19,7 @@ const Svg = styled.svg`
   display: inline-block;
   width: 1em;
   height: 1em;
-  margin-right: 5px;
+  margin-right: ${scale(5)};
   vertical-align: -0.15em;
 `;
 

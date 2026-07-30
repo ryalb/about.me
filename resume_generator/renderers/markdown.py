@@ -4,14 +4,16 @@ from __future__ import annotations
 
 from typing import Any
 
+from ..i18n import present_label
 
-def _date_range(start: str | None, end: str | None) -> str:
+
+def _date_range(start: str | None, end: str | None, present: str) -> str:
     if not start and not end:
         return ""
     if start and end:
         return f"{start} – {end}"
     if start:
-        return f"{start} – Present"
+        return f"{start} – {present}"
     return end or ""
 
 
@@ -22,6 +24,7 @@ def _section_header(title: str) -> str:
 def render_markdown(resume: dict[str, Any]) -> str:
     """Render a JSON Resume dict to a Markdown string."""
     lines: list[str] = []
+    present = present_label(resume)
 
     # ── Basics ────────────────────────────────────────────────────────────
     basics = resume.get("basics") or {}
@@ -72,7 +75,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
             company = job.get("name") or ""
             location = job.get("location") or ""
             url = job.get("url") or ""
-            dr = _date_range(job.get("startDate"), job.get("endDate"))
+            dr = _date_range(job.get("startDate"), job.get("endDate"), present)
             company_str = f"[{company}]({url})" if url else company
             header = f"### {title}"
             if company_str:
@@ -106,7 +109,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
                 )
             )
             institution = edu.get("institution") or ""
-            dr = _date_range(edu.get("startDate"), edu.get("endDate"))
+            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
             header = f"### {degree}" if degree else "### Education"
             if institution:
                 header += f" — {institution}"
@@ -139,7 +142,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
         for proj in projects:
             pname = proj.get("name") or ""
             purl = proj.get("url") or ""
-            dr = _date_range(proj.get("startDate"), proj.get("endDate"))
+            dr = _date_range(proj.get("startDate"), proj.get("endDate"), present)
             title_str = f"[{pname}]({purl})" if purl else pname
             lines.append(f"### {title_str}\n")
             meta_parts = []
@@ -164,7 +167,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
         for v in volunteer:
             pos = v.get("position") or ""
             org = v.get("organization") or ""
-            dr = _date_range(v.get("startDate"), v.get("endDate"))
+            dr = _date_range(v.get("startDate"), v.get("endDate"), present)
             header = f"### {pos}"
             if org:
                 header += f" — {org}"

@@ -5,17 +5,19 @@ from __future__ import annotations
 import textwrap
 from typing import Any
 
+from ..i18n import present_label
+
 _WIDTH = 80
 _SEP = "─" * _WIDTH
 
 
-def _date_range(start: str | None, end: str | None) -> str:
+def _date_range(start: str | None, end: str | None, present: str) -> str:
     if not start and not end:
         return ""
     if start and end:
         return f"{start} – {end}"
     if start:
-        return f"{start} – Present"
+        return f"{start} – {present}"
     return end or ""
 
 
@@ -32,6 +34,7 @@ def _section(title: str) -> str:
 
 def render_text(resume: dict[str, Any]) -> str:
     lines: list[str] = []
+    present = present_label(resume)
 
     # ── Basics ────────────────────────────────────────────────────────────
     basics = resume.get("basics") or {}
@@ -73,7 +76,7 @@ def render_text(resume: dict[str, Any]) -> str:
             pos = job.get("position") or ""
             company = job.get("name") or ""
             loc = job.get("location") or ""
-            dr = _date_range(job.get("startDate"), job.get("endDate"))
+            dr = _date_range(job.get("startDate"), job.get("endDate"), present)
             left = f"{pos}" + (f" @ {company}" if company else "")
             right = dr
             pad = _WIDTH - len(left) - len(right)
@@ -93,7 +96,7 @@ def render_text(resume: dict[str, Any]) -> str:
             degree_parts = [edu.get("studyType"), edu.get("area")]
             degree = ", ".join(p for p in degree_parts if p)
             institution = edu.get("institution") or ""
-            dr = _date_range(edu.get("startDate"), edu.get("endDate"))
+            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
             left = degree + (f" — {institution}" if institution else "")
             pad = _WIDTH - len(left) - len(dr)
             lines.append(left + " " * max(1, pad) + dr)
@@ -123,7 +126,7 @@ def render_text(resume: dict[str, Any]) -> str:
         lines.append(_section("Projects"))
         for proj in projects:
             pname = proj.get("name") or ""
-            dr = _date_range(proj.get("startDate"), proj.get("endDate"))
+            dr = _date_range(proj.get("startDate"), proj.get("endDate"), present)
             ptype = proj.get("type") or ""
             right = " | ".join(filter(None, [ptype, dr]))
             pad = _WIDTH - len(pname) - len(right)
@@ -143,7 +146,7 @@ def render_text(resume: dict[str, Any]) -> str:
         for v in volunteer:
             pos = v.get("position") or ""
             org = v.get("organization") or ""
-            dr = _date_range(v.get("startDate"), v.get("endDate"))
+            dr = _date_range(v.get("startDate"), v.get("endDate"), present)
             left = pos + (f" @ {org}" if org else "")
             pad = _WIDTH - len(left) - len(dr)
             lines.append(left + " " * max(1, pad) + dr)

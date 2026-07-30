@@ -138,6 +138,7 @@ class Meta(BaseModel):
     canonical: str | None = None
     version: str | None = None
     lastModified: str | None = None
+    language: str | None = None  # BCP 47 tag; drives renderer labels (see i18n)
     model_config = {"extra": "allow"}
 
 

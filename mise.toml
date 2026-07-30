@@ -55,11 +55,11 @@ run = "python scripts/fetch_icons.py"
 
 [tasks.en]
 description = "Generate the en_US resume (extra args are passed through)"
-run = "uv run resume generate resume-en_us.json --theme base --name full_en_us"
+run = "uv run resume generate resume-en_us.json --theme base --name full_en_us --zoom 85%"
 
 [tasks.pt]
 description = "Generate the pt_BR resume (extra args are passed through)"
-run = "uv run resume generate resume-pt_br.json --theme base --name full_pt_br"
+run = "uv run resume generate resume-pt_br.json --theme base --name full_pt_br --zoom 85%"
 
 [tasks.build]
 description = "Generate both language versions"
@@ -77,4 +77,6 @@ run = [
     "mise run build",
     "cp ./.output/*full_en_us/* ./latest/en_us/.",
     "cp ./.output/*full_pt_br/* ./latest/pt_br/.",
+    "mise run check",
+    "mise run check"
 ]

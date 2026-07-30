@@ -5,7 +5,7 @@
     "label": "Engenheiro de Software Sênior",
     "email": "ryan.leite@gmail.com",
     "phone": "+55 81 98255-0011",
-    "summary": "Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, atualmente o maior contribuidor de uma plataforma de ML em produção para triagem automática de issues (FastAPI, Kafka, busca vetorial em Kubernetes) e também entregando plataformas internas de ponta a ponta sozinho — do modelo de dados à implantação em produção. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+    "summary": "Engenheiro backend sênior com 26 anos de experiência em produção, atualmente o maior contribuidor de 2026 de uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI, Kafka, busca vetorial com Milvus e Snowflake em Kubernetes. Entrega plataformas internas sozinho, do modelo de dados à implantação em produção: onboarding de times em Django/GraphQL/Celery, uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI, dois apps de colaboração em tempo real e ferramentas de desenvolvimento com IA — um corretor autônomo de bugs sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança e um servidor MCP que serve ferramentas de triagem ao Claude Code, Cursor e Xcode. A automação de entrega atravessa todos os cargos, do ClearCase e Ant ao Jenkins, Docker e Kubernetes, além de programas de cobertura de testes e de toolchain em cinco repositórios. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python. No início da carreira, uniu desenvolvimento full-stack e liderança técnica de equipes Scrum à definição da prática de gerência de configuração de software em escala institucional, liderando uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
     "location": {
       "city": "Fortaleza",
       "region": "Ceará",
@@ -26,7 +26,7 @@
       "url": "https://www.cesar.org.br",
       "position": "Engenheiro de Software Backend Sênior",
       "startDate": "2026-01",
-      "summary": "Engenharia de backend e de plataforma para sistemas de produtividade de desenvolvimento baseados em ML, de APIs e pipelines de dados à entrega em Kubernetes e ferramentas com IA/LLM.",
+      "summary": "Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos construídos sozinho, ferramentas com IA/LLM e programas de qualidade em cinco repositórios.",
       "highlights": [
         "Maior contribuidor de 2026 em uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.",
         "Construí sozinho uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que substituiu um processo manual de nove etapas.",
@@ -45,7 +45,7 @@
       "position": "Engenheiro de Software Backend Sênior",
       "startDate": "2022-10",
       "endDate": "2025-12",
-      "summary": "Engenharia backend e responsabilidade pela esteira de CI/CD de duas plataformas web simultâneas.",
+      "summary": "Serviços de backend em Python para duas plataformas web simultâneas, padronizados em contratos JSON:API, com responsabilidade de ponta a ponta pela esteira de CI/CD e gates automatizados de qualidade.",
       "highlights": [
         "Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask), garantindo qualidade de nível de produção por meio de formatação, análise estática e testes automatizados como gates na CI.",
         "Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.",
@@ -60,7 +60,7 @@
       "position": "Engenheiro de Software Full-Stack Sênior",
       "startDate": "2013-06",
       "endDate": "2022-09",
-      "summary": "Desenvolvimento full-stack, gerência de configuração e liderança técnica em quatro projetos de clientes ao longo de nove anos.",
+      "summary": "Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum.",
       "highlights": [
         "Entreguei quatro aplicações web em produção utilizando PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).",
         "Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.",
@@ -75,7 +75,7 @@
       "position": "Engenheiro de Software Full-Stack Sênior",
       "startDate": "2009-01",
       "endDate": "2013-06",
-      "summary": "Engenharia full-stack e gerência de configuração em projetos de telefonia, web corporativa e mobile.",
+      "summary": "Telefonia em C sobre o Asterisk, uma aplicação corporativa web e mobile em Java de ponta a ponta, e as ferramentas de CI/CD e de Scrum por trás delas — além de uma plataforma nacional mantida com tráfego ativo.",
       "highlights": [
         "Desenvolvi uma plataforma de telefonia em C sobre o Asterisk, cobrindo a lógica de fluxo de chamadas e integrações.",
         "Construí de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.",
@@ -92,7 +92,7 @@
       "position": "Engenheiro Sênior de Gerência de Configuração de Software",
       "startDate": "2005-01",
       "endDate": "2009-01",
-      "summary": "Liderança da equipe corporativa de Gerência de Configuração de Software e condução da avaliação CMMI 1.2 Nível 3 da organização.",
+      "summary": "Liderança da equipe corporativa de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3, definindo os processos, ferramentas e automações de GCS adotados como padrão da empresa.",
       "highlights": [
         "Liderei uma equipe de 10 engenheiros de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3 bem-sucedida, atuando como avaliador SCAMPI treinado.",
         "Defini e mantive os processos corporativos de GCS como líder de GCS dentro do Grupo de Processos de Engenharia de Software (SEPG).",
@@ -108,7 +108,7 @@
       "position": "Engenheiro de Gerência de Configuração de Software",
       "startDate": "2001-10",
       "endDate": "2005-01",
-      "summary": "Definição e implantação de processos de GCS para programas multi-site de desenvolvimento de dispositivos móveis.",
+      "summary": "Definição e automação de processos de GCS para programas multi-site de dispositivos móveis, contribuindo para a certificação CMM Nível 2 e para uma alta de ~20% nas notas de avaliação do cliente.",
       "highlights": [
         "Defini e implementei processos de GCS para projetos multi-site de desenvolvimento de dispositivos móveis utilizando Rational ClearCase e ClearDDTS, contribuindo para a certificação CMM Nível 2 da organização.",
         "Elevei em cerca de 20% as notas de avaliação do cliente quanto ao desempenho de GCS, automatizando atividades de gerência de configuração em aproximadamente doze projetos."
@@ -122,7 +122,7 @@
       "position": "Engenheiro de Software Júnior",
       "startDate": "2001-01",
       "endDate": "2001-10",
-      "summary": "Desenvolvimento inicial de aplicações móveis em Java 2 Micro Edition (J2ME).",
+      "summary": "Primeira prática de desenvolvimento mobile em J2ME do instituto: mais de 15 aplicações entregues, incluindo um jogo premiado internacionalmente.",
       "highlights": [
         "Fui pioneiro no desenvolvimento de aplicações J2ME no CESAR, estabelecendo a primeira prática de desenvolvimento mobile do instituto.",
         "Desenvolvi mais de 15 aplicações móveis, principalmente jogos, para os primeiros aparelhos com suporte a Java.",
@@ -137,7 +137,7 @@
       "position": "Engenheiro de Software Júnior",
       "startDate": "2000-06",
       "endDate": "2000-12",
-      "summary": "Desenvolvimento Java em arquitetura padrão de três camadas.",
+      "summary": "Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos lotéricos e um portal de e-commerce que apoiou uma pesquisa de mestrado.",
       "highlights": [
         "Desenvolvi uma aplicação WAP em J2SE para gestão de jogos lotéricos.",
         "Construí um portal de e-commerce utilizado para validar a pesquisa de dissertação de mestrado de um integrante da equipe."
@@ -271,6 +271,7 @@
   ],
   "meta": {
     "version": "v2.1.0",
+    "language": "pt-BR",
     "lastModified": "2026-07-28T00:00:00",
     "notes": "Versão em português brasileiro traduzida de resume.json (arquivo mestre em inglês). Edite primeiro o arquivo mestre e depois sincronize esta tradução. Data de nascimento intencionalmente omitida (boa prática contra viés de idade). 'highlights' são bullets com verbos de ação prontos para exportação ATS; 'keywords' servem para etiquetagem/filtragem ao gerar versões específicas por vaga. 'meta.summaries' contém parágrafos de abertura específicos por perfil — selecione um com `resume generate --summary <key>`; o mapa é removido da saída gerada.",
     "summaries": {

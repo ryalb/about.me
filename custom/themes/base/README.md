@@ -68,10 +68,10 @@ The `@font-face` block in `src/index.jsx` binds each weight explicitly so neithe
 
 | CSS weight | Face | Used for |
 |---|---|---|
-| 300 | Light | Name, body copy, highlights |
+| 300 | Light | Body copy, highlights |
 | 400 | Regular | Item titles, contact line |
 | 500 | Medium | Section titles, card titles |
-| 700 | Bold | Available, currently unused |
+| 700 | Bold | Name |
 | 400 italic | Italic | Available |
 
 ExtraBold (800), Oblique and the Medium/Bold italics are installed and can be bound the same way if needed.
@@ -144,6 +144,17 @@ export const colors = {
 ```
 
 For a denser PDF, reduce `space.sectionGap` and `space.itemGap`.
+
+### Zoom
+
+Every length in this theme goes through `scale()` in `src/tokens.js`, which multiplies by the factor in the `RESUME_ZOOM` environment variable — how `resume generate --zoom` reaches the theme, since `render()` only receives the resume itself:
+
+```bash
+RESUME_ZOOM=1.15 bun ../../../node/render_theme.mjs . resume.json out.html
+uv run resume generate resume.json --zoom 115%   # the same thing via the CLI
+```
+
+`scale()` emits pre-multiplied px rather than `calc()` over a CSS variable, so the browser and WeasyPrint resolve identical values. 1px keylines and the `@page` margins in `src/index.jsx` deliberately stay fixed — the page geometry holds while the content scales. New styles should use `scale(n)` instead of a raw `npx` literal, or they will not respond to zoom.
 
 ## Available `@jsonresume/core` helpers
 

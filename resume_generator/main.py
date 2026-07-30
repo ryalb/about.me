@@ -13,6 +13,9 @@ Usage examples:
       --sections work,education,skills,projects \\
       --formats html,pdf,md
 
+  # Scale html/pdf/docx down to 90% to fit more on a page
+  resume generate resume.json --zoom 90%
+
   # List available themes
   resume themes
 
@@ -71,6 +74,15 @@ KNOWN_THEMES: dict[str, str] = {
 
 ALL_FORMATS = ["html", "pdf", "md", "txt", "docx"]
 
+# Zoom bounds, and the value at or above which a bare number is read as a
+# percentage rather than a multiplier.
+ZOOM_MIN = 0.5
+ZOOM_MAX = 2.0
+ZOOM_PERCENT_THRESHOLD = 10.0
+
+# Formats whose layout is scalable; md and txt carry no sizing information.
+ZOOMABLE_FORMATS = ("html", "pdf", "docx")
+
 
 # ── Helpers ───────────────────────────────────────────────────────────────
 
@@ -116,6 +128,34 @@ def _parse_formats(raw: str) -> list[str]:
         )
         raise typer.Exit(1)
     return parts
+
+
+def _parse_zoom(raw: str) -> float:
+    """Parse a zoom level given as a multiplier (``1.1``) or percent (``110%``).
+
+    A bare number of ``ZOOM_PERCENT_THRESHOLD`` or more is read as a percentage
+    too, so ``--zoom 110`` and ``--zoom 110%`` agree.
+    """
+    text = raw.strip().rstrip("%").strip()
+    try:
+        value = float(text)
+    except ValueError:
+        console.print(
+            f"[red]Invalid zoom '{raw}'. Expected a multiplier (1.1) "
+            f"or a percentage (110%).[/red]"
+        )
+        raise typer.Exit(1)
+
+    if raw.strip().endswith("%") or value >= ZOOM_PERCENT_THRESHOLD:
+        value /= 100
+
+    if not ZOOM_MIN <= value <= ZOOM_MAX:
+        console.print(
+            f"[red]Zoom {value:g} is out of range "
+            f"({ZOOM_MIN:g}–{ZOOM_MAX:g}, i.e. {ZOOM_MIN:.0%}–{ZOOM_MAX:.0%}).[/red]"
+        )
+        raise typer.Exit(1)
+    return value
 
 
 def _output_folder(base_dir: Path, name: str | None) -> Path:
@@ -195,6 +235,18 @@ def generate(
             rich_help_panel="Content",
         ),
     ] = None,
+    no_summary: Annotated[
+        bool,
+        typer.Option(
+            "--no-summary",
+            help=(
+                "Omit [bold]basics.summary[/bold] from every format — for "
+                "variants that should open straight into the work history. "
+                "Cannot be combined with [bold]--summary[/bold]."
+            ),
+            rich_help_panel="Content",
+        ),
+    ] = False,
     formats: Annotated[
         str,
         typer.Option(
@@ -204,6 +256,21 @@ def generate(
             rich_help_panel="Output",
         ),
     ] = ",".join(ALL_FORMATS),
+    zoom: Annotated[
+        str,
+        typer.Option(
+            "--zoom",
+            "-z",
+            help=(
+                "Content scale for [bold]html[/bold], [bold]pdf[/bold] and "
+                "[bold]docx[/bold], as a multiplier ([bold]1.15[/bold]) or a "
+                "percentage ([bold]115%[/bold]). Type and spacing scale; page "
+                "size and margins do not, so a higher zoom fits less on a "
+                "page. md and txt are unaffected."
+            ),
+            rich_help_panel="Output",
+        ),
+    ] = "1.0",
     output_dir: Annotated[
         Path,
         typer.Option(
@@ -266,11 +333,21 @@ def generate(
     selected_sections = _parse_sections(sections)
     cutoff = _parse_cut_date(cut_date)
     output_formats = _parse_formats(formats)
+    zoom_factor = _parse_zoom(zoom)
     effective_theme = None if no_theme else theme
+
+    if summary is not None and no_summary:
+        console.print(
+            "[red]--summary and --no-summary are mutually exclusive:[/red] "
+            "one selects a summary, the other removes it."
+        )
+        raise typer.Exit(1)
 
     # ── Apply filters ─────────────────────────────────────────────────────
     try:
-        filtered = filter_resume(raw, selected_sections, cutoff, summary)
+        filtered = filter_resume(
+            raw, selected_sections, cutoff, summary, hide_summary=no_summary
+        )
     except KeyError as exc:
         key, available = exc.args
         console.print(f"[red]Unknown summary variant '{key}'.[/red]")
@@ -290,8 +367,24 @@ def generate(
     table.add_row("Theme", effective_theme or "[dim](built-in)[/dim]")
     table.add_row("Sections", ", ".join(selected_sections or ALL_SECTIONS))
     table.add_row("Cut date", str(cutoff) if cutoff else "[dim]none[/dim]")
-    table.add_row("Summary", summary or "[dim]basics.summary[/dim]")
+    table.add_row(
+        "Summary",
+        "[dim]hidden (--no-summary)[/dim]"
+        if no_summary
+        else (summary or "[dim]basics.summary[/dim]"),
+    )
     table.add_row("Formats", ", ".join(output_formats))
+    if zoom_factor != 1.0:
+        scaled = [f for f in output_formats if f in ZOOMABLE_FORMATS]
+        table.add_row(
+            "Zoom",
+            f"{zoom_factor:g}× ({zoom_factor:.0%})"
+            + (
+                f"  [dim]{', '.join(scaled)}[/dim]"
+                if scaled
+                else "  [dim](no effect on the selected formats)[/dim]"
+            ),
+        )
     console.print(table)
 
     # ── Output folder ─────────────────────────────────────────────────────
@@ -304,7 +397,9 @@ def generate(
     def _get_html() -> str:
         nonlocal html_content
         if html_content is None:
-            html_content = render_html(filtered, effective_theme, console=console)
+            html_content = render_html(
+                filtered, effective_theme, zoom=zoom_factor, console=console
+            )
         return html_content
 
     # ── Render each format ────────────────────────────────────────────────
@@ -320,7 +415,9 @@ def generate(
             task = progress.add_task(f"Generating [bold]{fmt}[/bold]…", total=None)
 
             try:
-                out_file = _render_format(fmt, filtered, _get_html, out_dir)
+                out_file = _render_format(
+                    fmt, filtered, _get_html, out_dir, zoom_factor
+                )
                 results.append((fmt, out_file, True, ""))
             except Exception as exc:  # noqa: BLE001 - one bad format must not abort the rest
                 results.append((fmt, out_dir / f"resume.{fmt}", False, str(exc)))
@@ -347,6 +444,7 @@ def _render_format(
     resume: dict,
     get_html,
     out_dir: Path,
+    zoom: float = 1.0,
 ) -> Path:
     """Render a single format and write the file. Returns the output path."""
     if fmt == "html":
@@ -358,7 +456,7 @@ def _render_format(
     elif fmt == "pdf":
         html = get_html()
         path = out_dir / "resume.pdf"
-        render_pdf(html, path)
+        render_pdf(html, path, zoom=zoom)
         return path
 
     elif fmt == "md":
@@ -375,7 +473,7 @@ def _render_format(
 
     elif fmt == "docx":
         path = out_dir / "resume.docx"
-        render_word(resume, path)
+        render_word(resume, path, zoom=zoom)
         return path
 
     else:

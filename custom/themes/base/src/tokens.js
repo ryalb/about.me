@@ -6,6 +6,28 @@
  * touching for visual changes.
  */
 
+/**
+ * Content zoom — a multiplier applied to every length the theme emits.
+ *
+ * `resume generate --zoom` passes the factor in through RESUME_ZOOM: a theme's
+ * `render()` only receives the resume itself, so the environment is the one
+ * channel available to the Python caller.  Unset or unparseable means 1.
+ */
+const zoom = (() => {
+  const raw = Number.parseFloat(globalThis.process?.env?.RESUME_ZOOM ?? '');
+  return Number.isFinite(raw) && raw > 0 ? raw : 1;
+})();
+
+/**
+ * Scale a px length by the zoom factor.
+ *
+ * Sizes are emitted as pre-multiplied px rather than `calc()` over a CSS
+ * variable so that the browser and WeasyPrint — which builds the PDF from this
+ * same HTML — resolve every length identically.  Rounded to 2dp: enough
+ * precision to keep the type scale smooth, short enough to keep the CSS terse.
+ */
+export const scale = (value) => `${Math.round(value * zoom * 100) / 100}px`;
+
 export const colors = {
   ink: '#111827',        // headings, name
   body: '#374151',       // body copy
@@ -51,27 +73,28 @@ export const fonts = {
 };
 
 export const type = {
-  name: '44px',
-  sectionTitle: '12px',
-  itemTitle: '17px',
-  itemSubtitle: '14px',
-  body: '14px',
-  summary: '15px',
-  meta: '13px',
-  small: '12px',
+  name: scale(44),
+  sectionTitle: scale(12),
+  itemTitle: scale(17),
+  itemSubtitle: scale(14),
+  body: scale(14),
+  summary: scale(15),
+  meta: scale(13),
+  small: scale(12),
 };
 
 export const space = {
-  pagePaddingY: '64px',
-  pagePaddingX: '48px',
+  pagePaddingY: scale(64),
+  pagePaddingX: scale(48),
   printPadding: '0',
-  headerGap: '48px',
-  sectionGap: '48px',
-  itemGap: '24px',
+  headerGap: scale(48),
+  sectionGap: scale(48),
+  itemGap: scale(24),
 };
 
 export const layout = {
-  maxWidth: '900px',
+  // Scales with the zoom so the measure (characters per line) stays constant.
+  maxWidth: scale(900),
   // Tighten these two for a denser, more page-efficient PDF.
   printPagePaddingY: '0',
   printPagePaddingX: '0',

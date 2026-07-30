@@ -38,8 +38,12 @@ logging.getLogger("weasyprint.progress").setLevel(logging.ERROR)
 logging.getLogger("fontTools").setLevel(logging.ERROR)
 
 
-def render_pdf(html: str, output_path: Path) -> None:
+def render_pdf(html: str, output_path: Path, zoom: float = 1.0) -> None:
     """Convert an HTML string to a PDF file at *output_path* using WeasyPrint.
+
+    *zoom* scales the inherited base font size to match the zoom already baked
+    into *html* by the HTML renderer.  Page size and margins deliberately do
+    not scale: zoom controls how much content fits on a fixed A4 page.
 
     Raises ``ImportError`` if WeasyPrint is not installed and
     ``weasyprint.document.DocumentError`` (or similar) on render failure.
@@ -59,18 +63,18 @@ def render_pdf(html: str, output_path: Path) -> None:
     font_config = FontConfiguration()
 
     print_css = CSS(
-        string="""
-        @page {
+        string=f"""
+        @page {{
             size: A4;
             margin: 15mm 15mm 18mm 15mm;
-        }
-        body {
-            font-size: 10pt;
-        }
-        a {
+        }}
+        body {{
+            font-size: {10 * zoom:g}pt;
+        }}
+        a {{
             color: inherit;
             text-decoration: none;
-        }
+        }}
         """,
         font_config=font_config,
     )

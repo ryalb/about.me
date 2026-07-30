@@ -11,6 +11,7 @@ from typing import Any
 
 from jinja2 import BaseLoader, Environment
 
+from ..i18n import present_label
 from ..icons import icon_svg
 
 # ---------------------------------------------------------------------------
@@ -68,13 +69,24 @@ def resolve_theme(theme: str) -> tuple[Path, str]:
     return pkg.resolve(), "npm"
 
 
-def render_with_theme(resume: dict[str, Any], theme: str) -> str:
+def render_with_theme(
+    resume: dict[str, Any],
+    theme: str,
+    zoom: float = 1.0,
+    console=None,
+) -> str:
     """Render HTML using a jsonresume theme via Bun.
 
     Accepts a custom theme name (``custom/themes/<name>/``), an explicit
     filesystem path, or an npm package name (installed on demand with
     ``bun add``).  Runs the render script with Bun, which supports
     JSX/TSX natively.
+
+    *zoom* is a content-scale multiplier handed to the theme in the
+    ``RESUME_ZOOM`` environment variable — a theme's ``render()`` receives only
+    the resume, so the environment is the one channel available.  The bundled
+    ``base`` theme scales every length by it (see ``custom/themes/base/src/
+    tokens.js``); third-party themes ignore it.
 
     Raises RuntimeError if Bun is unavailable or rendering fails.
     """
@@ -84,7 +96,13 @@ def render_with_theme(resume: dict[str, Any], theme: str) -> str:
             "Bun not found — cannot render with theme. Install from https://bun.sh"
         )
 
-    theme_dir, _origin = resolve_theme(theme)
+    theme_dir, origin = resolve_theme(theme)
+
+    if zoom != 1.0 and origin == "npm" and console:
+        console.print(
+            f"[yellow]⚠ Theme '{theme}' is an npm package and does not read "
+            f"--zoom; html/pdf will render unscaled.[/yellow]"
+        )
 
     with (
         tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as jf,
@@ -99,6 +117,7 @@ def render_with_theme(resume: dict[str, Any], theme: str) -> str:
         capture_output=True,
         text=True,
         check=False,
+        env={**os.environ, "RESUME_ZOOM": f"{zoom:g}"},
     )
     Path(jf.name).unlink(missing_ok=True)
 
@@ -149,6 +168,10 @@ _BUILTIN_TEMPLATE = """\
   <title>{{ name }}</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    /* Content zoom.  Sizes below are rem/em-relative, so scaling the root font
+       size scales the whole document.  Expressed as a percentage of the
+       reader's own default rather than an absolute px value. */
+    html { font-size: {{ root_font_size }}; }
     :root {
       --accent: #2563eb;
       --text: #1e293b;
@@ -227,7 +250,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% macro date_range(start, end) %}
   {%- if start or end -%}
-    {{ start or '' }}{% if end %} – {{ end }}{% elif start %} – Present{% endif %}
+    {{ start or '' }}{% if end %} – {{ end }}{% elif start %} – {{ present }}{% endif %}
   {%- endif -%}
 {% endmacro %}
 
@@ -434,7 +457,7 @@ _BUILTIN_TEMPLATE = """\
 """
 
 
-def render_builtin(resume: dict[str, Any]) -> str:
+def render_builtin(resume: dict[str, Any], zoom: float = 1.0) -> str:
     """Render HTML using the built-in Jinja2 template (no Node.js required)."""
     env = Environment(loader=BaseLoader(), autoescape=False)
     env.filters["select"] = lambda seq: [x for x in seq if x]
@@ -446,6 +469,8 @@ def render_builtin(resume: dict[str, Any]) -> str:
     return tmpl.render(
         icon=icon_svg,
         name=name,
+        root_font_size=f"{zoom * 100:g}%",
+        present=present_label(resume),
         basics=basics,
         work=resume.get("work", []),
         volunteer=resume.get("volunteer", []),
@@ -464,15 +489,20 @@ def render_builtin(resume: dict[str, Any]) -> str:
 def render_html(
     resume: dict[str, Any],
     theme: str | None,
+    zoom: float = 1.0,
     console=None,
 ) -> str:
-    """Render HTML, preferring the requested theme with fallback to built-in."""
+    """Render HTML, preferring the requested theme with fallback to built-in.
+
+    *zoom* scales every length in the document (1.0 = unscaled); see
+    ``render_with_theme``.
+    """
     if theme:
         try:
-            return render_with_theme(resume, theme)
+            return render_with_theme(resume, theme, zoom=zoom, console=console)
         except Exception as exc:  # noqa: BLE001 - any theme failure falls back to the built-in template
             if console:
                 console.print(
                     f"[yellow]⚠ Theme '{theme}' failed ({exc}), using built-in template.[/yellow]"
                 )
-    return render_builtin(resume)
+    return render_builtin(resume, zoom=zoom)

@@ -19,6 +19,7 @@ resume generate resume.json --theme even --cut-date 2018 --sections work,educati
 | **Section filtering** | Include only the sections you need per variant |
 | **Date cutoff** | Trim entries older than a given date; ongoing roles are always kept |
 | **Summary variants** | Role-specific opening paragraphs selected with `--summary` |
+| **Zoom** | Scale type and spacing in HTML/PDF/Word with `--zoom` to control page density |
 | **Dated output folders** | Files land in `.output/YYYY-MM-DD[_name]/` automatically |
 | **Schema validation** | Validates against the official JSON Resume JSON Schema |
 
@@ -97,7 +98,9 @@ resume generate [OPTIONS] RESUME_FILE
 | `--sections` | `-s` | *(all)* | Comma-separated list of sections to include. |
 | `--cut-date` | `-d` | *(none)* | Exclude entries whose primary date is before this value (`YYYY-MM-DD`, `YYYY-MM`, or `YYYY`). Ongoing roles (no `endDate`) are always kept. |
 | `--summary` | `-S` | *(none)* | Use a named variant from `meta.summaries` instead of `basics.summary`. See [Summary variants](#summary-variants). |
+| `--no-summary` | | `false` | Omit `basics.summary` from every format. Mutually exclusive with `--summary`. |
 | `--formats` | `-f` | `html,pdf,md,txt,docx` | Comma-separated output formats. |
+| `--zoom` | `-z` | `1.0` | Content scale for `html`, `pdf` and `docx` — a multiplier (`1.15`) or a percentage (`115%`), between 50% and 200%. See [Zoom](#zoom). |
 | `--output-dir` | `-o` | `.output` | Base directory; a dated sub-folder is created automatically. |
 | `--name` | `-n` | *(none)* | Label appended to the output folder name (e.g. `frontend`). |
 | `--no-theme` | | `false` | Skip theme rendering; use the built-in HTML template. |
@@ -173,7 +176,7 @@ The bundled `base` theme is the default and a good starting point:
 
 ```
 custom/themes/base/
-├── src/tokens.js       # colours, type scale, spacing — edit this first
+├── src/tokens.js       # colours, type scale, spacing, scale() zoom helper — edit this first
 ├── src/Resume.jsx      # component tree (styled-components) + contact line
 ├── src/Icon.jsx        # inline MDI icon component
 ├── src/mdi-icons.json  # vendored MDI subset — refresh: mise run icons
@@ -190,7 +193,7 @@ cd custom/themes/mytheme && BUN_INSTALL_CACHE_DIR=/tmp/bun-cache bun install
 uv run resume generate resume.json --theme mytheme
 ```
 
-Edit `src/tokens.js` for colours and spacing; edit `src/Resume.jsx` to change structure. Re-run to see changes.
+Edit `src/tokens.js` for colours and spacing; edit `src/Resume.jsx` to change structure. Re-run to see changes. Express lengths through `scale()` from `tokens.js` so the theme honours [`--zoom`](#zoom).
 
 See [`custom/themes/base/README.md`](custom/themes/base/README.md) for the full field-coverage table and customization notes.
 
@@ -224,6 +227,39 @@ Markdown, plain-text and Word output intentionally stay icon-free or emoji-only 
 
 ---
 
+## Zoom
+
+`--zoom` scales the *content* of the sized formats — HTML, PDF and Word. Type sizes, spacing and gaps all scale; page size, page margins and 1px keylines do not. Because the page stays A4, zoom is the dial for page density: turn it down to fit more on a page, up for readability.
+
+```bash
+# Denser — six pages instead of seven
+uv run resume generate resume-en_us.json --zoom 90%
+
+# Larger type, equivalent to a multiplier
+uv run resume generate resume-en_us.json --zoom 1.15
+```
+
+| Value | Read as |
+|---|---|
+| `1.15` | multiplier |
+| `115%` | percentage |
+| `115` | percentage (bare numbers ≥ 10 are percentages) |
+
+Accepted range is **50%–200%**; anything outside it is rejected rather than clamped. `md` and `txt` carry no sizing information and are unaffected.
+
+**How it reaches each format**
+
+| Format | Mechanism |
+|---|---|
+| HTML (`base` theme) | The generator exports `RESUME_ZOOM`; `custom/themes/base/src/tokens.js` multiplies every length through its `scale()` helper and emits plain px — so the browser and WeasyPrint resolve identical values |
+| HTML (built-in template) | Root `font-size` percentage; the template's sizes are all rem/em-relative |
+| PDF | Inherited from the zoomed HTML, plus a scaled base font size for the print stylesheet |
+| Word | Font sizes and paragraph spacing are multiplied (rounded to Word's half-point grid) |
+
+A theme only honours zoom if it reads `RESUME_ZOOM`. The bundled `base` theme does; third-party `jsonresume-theme-*` packages do not, and the generator warns when you combine one with `--zoom`. Custom themes can opt in by importing `scale()` the way `base` does.
+
+---
+
 ## Summary variants
 
 Section filters change *what* appears; the opening summary changes *how you're positioned* — and it's usually the only paragraph a reviewer reads in full. Store role-specific versions under `meta.summaries` and select one at generation time.
@@ -243,9 +279,12 @@ Section filters change *what* appears; the opening summary changes *how you're p
 uv run resume summaries resume.json                              # list variants
 uv run resume generate resume.json --summary lead --name mgmt    # apply one
 uv run resume generate resume.json                               # basics.summary
+uv run resume generate resume.json --no-summary                  # no summary at all
 ```
 
 With no `--summary` flag, `basics.summary` is used unchanged. `meta.summaries` is **always stripped from generated output**, so the variant map never leaks into a rendered resume.
+
+`--no-summary` drops the opening paragraph from every format, so the document goes straight from the contact line into the work history — useful when the covering letter already carries the pitch, or to reclaim the space. It is rejected alongside `--summary`, since one selects a summary and the other removes it.
 
 An unknown key fails fast and lists what's available:
 
@@ -441,6 +480,7 @@ uv run resume generate resume.json \
     --name onepage \
     --theme base \
     --cut-date 2021 \
+    --zoom 85% \
     --formats pdf
 ```
 

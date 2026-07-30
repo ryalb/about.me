@@ -2,14 +2,14 @@
 **Senior Software Engineer**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
 
-Senior backend engineer with 26 years building production systems, currently the top contributor to a production ML platform for automated issue triage (FastAPI, Kafka, vector search on Kubernetes) while also delivering internal platforms end to end on his own — from data model to production deploy. Polyglot by necessity rather than preference, with production systems in Java, C, PHP, Ruby and Python, giving strong instincts for which problems are genuinely language-specific and which are architectural. Earlier career spent defining software configuration management practice at institute scale, including leading a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
+Senior backend engineer with 26 years of production experience, currently the top 2026 contributor to a production ML platform for automated issue triage and duplicate detection — FastAPI, Kafka, Milvus vector search and Snowflake on Kubernetes. Regularly delivers internal platforms solo, from data model to production deploy: team onboarding on Django/GraphQL/Celery, an engineering-metrics platform with nine CI-fed dashboards, two real-time collaboration apps, and AI developer tooling — an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving triage tools to Claude Code, Cursor and Xcode. Delivery automation runs through every role, from ClearCase and Ant to Jenkins, Docker and Kubernetes, alongside test-coverage and toolchain programs across five repositories. Polyglot by necessity rather than preference, with production systems in Java, C, PHP, Ruby and Python. Earlier career paired full-stack delivery and Scrum technical leadership with defining software configuration management practice at institute scale, leading a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
 
 ## Work Experience
 
 ### Senior Backend Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brazil · 🗓 2026-01 – present_
+_📍 Recife, PE, Brazil · 🗓 2026-01 – Present_
 
-Backend and platform engineering for ML-driven developer-productivity systems, from APIs and data pipelines to Kubernetes delivery and AI/LLM tooling.
+Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, four internal platforms and real-time apps built solo, AI/LLM developer tooling, and quality programs across five repositories.
 - Top 2026 contributor to a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
 - Built solo a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) replacing a manual nine-step process.
 - Built solo an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
@@ -21,7 +21,7 @@ Backend and platform engineering for ML-driven developer-productivity systems, f
 ### Senior Backend Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2022-10 – 2025-12_
 
-Backend engineering and CI/CD ownership for two concurrent web platforms.
+Python backend services for two concurrent web platforms, standardized on JSON:API response contracts and backed by end-to-end CI/CD ownership with automated quality gates.
 - Built and maintained backend services for two concurrent web platforms in Python (Django and Flask), enforcing production-grade quality through automated formatting, linting and test gates in CI.
 - Designed and implemented REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.
 - Owned the CI/CD pipeline end to end (Docker, Git/GitFlow, Jenkins), delivering fully automated build, test and deployment cycles.
@@ -29,7 +29,7 @@ Backend engineering and CI/CD ownership for two concurrent web platforms.
 ### Senior Full-Stack Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
 
-Full-stack development, configuration management and technical leadership across four client projects over nine years.
+Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them.
 - Delivered four production web applications using PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.
 - Led technical direction for Scrum teams, running sprint planning, code review practice and delivery commitments.
@@ -37,7 +37,7 @@ Full-stack development, configuration management and technical leadership across
 ### Senior Full-Stack Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2009-01 – 2013-06_
 
-Full-stack and configuration management engineering across telephony, enterprise web and mobile projects.
+Telephony in C on Asterisk, an enterprise Java web and mobile application built end to end, and the CI/CD and Scrum tooling behind them — including a nationwide platform maintained against live traffic.
 - Developed a telephony platform in C on Asterisk, covering call flow logic and integration.
 - Built an enterprise web and mobile application end to end using Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle and Apache Tomcat.
 - Implemented a complete CI/CD environment (Subversion/Git, Maven, TeamCity, Tomcat) for automated builds and deployments.
@@ -47,7 +47,7 @@ Full-stack and configuration management engineering across telephony, enterprise
 ### Senior Software Configuration Management Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2005-01 – 2009-01_
 
-Leadership of the company-wide Software Configuration Management team and of the organization's CMMI 1.2 Level 3 appraisal.
+Led the company-wide Software Configuration Management team through a formal CMMI 1.2 Level 3 appraisal, defining the SCM processes, tooling and automation adopted as company standards.
 - Led a 10-engineer Software Configuration Management team through a successful formal CMMI 1.2 Level 3 appraisal, serving as a trained SCAMPI evaluator.
 - Defined and maintained company-wide SCM processes as SCM lead within the Software Engineering Process Group (SEPG).
 - Rolled out SCM processes across multiple concurrent projects using Rational ClearCase, ClearDDTS, CVS, Subversion, Mantis, Apache Ant and Luntbuild.
@@ -56,14 +56,14 @@ Leadership of the company-wide Software Configuration Management team and of the
 ### Software Configuration Management Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2001-10 – 2005-01_
 
-SCM process definition and rollout for multi-site mobile device development programs.
+SCM process definition and automation for multi-site mobile device programs, contributing to CMM Level 2 certification and to a ~20% rise in client evaluation scores.
 - Defined and implemented SCM processes for multi-site mobile device development projects using Rational ClearCase and ClearDDTS, contributing to the organization's CMM Level 2 certification.
 - Raised client evaluation scores for SCM performance by approximately 20% by automating configuration management activities across roughly twelve projects.
 
 ### Junior Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2001-01 – 2001-10_
 
-Early-stage mobile application development on Java 2 Micro Edition (J2ME).
+The institute's first J2ME mobile development practice: 15+ applications shipped, including an internationally awarded game.
 - Pioneered J2ME application development at CESAR, establishing the institute's first mobile development practice.
 - Developed 15+ mobile applications, primarily games, for early Java-enabled handsets.
 - Authored Sea Hunter, awarded Best Application from the Americas at the Asia Java Mobile Challenge.
@@ -71,7 +71,7 @@ Early-stage mobile application development on Java 2 Micro Edition (J2ME).
 ### Junior Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2000-06 – 2000-12_
 
-Java development on a standard three-tier architecture.
+Java web development: a J2SE WAP application for lottery game management, and an e-commerce portal supporting M.Sc. dissertation research.
 - Developed a WAP application in J2SE for lottery game management.
 - Built an e-commerce portal used to validate a team member's M.Sc. dissertation research.
 

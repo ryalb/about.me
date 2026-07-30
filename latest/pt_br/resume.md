@@ -2,14 +2,14 @@
 **Engenheiro de Software Sênior**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
 
-Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, atualmente o maior contribuidor de uma plataforma de ML em produção para triagem automática de issues (FastAPI, Kafka, busca vetorial em Kubernetes) e também entregando plataformas internas de ponta a ponta sozinho — do modelo de dados à implantação em produção. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
+Engenheiro backend sênior com 26 anos de experiência em produção, atualmente o maior contribuidor de 2026 de uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI, Kafka, busca vetorial com Milvus e Snowflake em Kubernetes. Entrega plataformas internas sozinho, do modelo de dados à implantação em produção: onboarding de times em Django/GraphQL/Celery, uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI, dois apps de colaboração em tempo real e ferramentas de desenvolvimento com IA — um corretor autônomo de bugs sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança e um servidor MCP que serve ferramentas de triagem ao Claude Code, Cursor e Xcode. A automação de entrega atravessa todos os cargos, do ClearCase e Ant ao Jenkins, Docker e Kubernetes, além de programas de cobertura de testes e de toolchain em cinco repositórios. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python. No início da carreira, uniu desenvolvimento full-stack e liderança técnica de equipes Scrum à definição da prática de gerência de configuração de software em escala institucional, liderando uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
 
 ## Work Experience
 
 ### Engenheiro de Software Backend Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2026-01 – Present_
+_📍 Recife, PE, Brasil · 🗓 2026-01 – Presente_
 
-Engenharia de backend e de plataforma para sistemas de produtividade de desenvolvimento baseados em ML, de APIs e pipelines de dados à entrega em Kubernetes e ferramentas com IA/LLM.
+Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos construídos sozinho, ferramentas com IA/LLM e programas de qualidade em cinco repositórios.
 - Maior contribuidor de 2026 em uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
 - Construí sozinho uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que substituiu um processo manual de nove etapas.
 - Construí sozinho uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.
@@ -21,7 +21,7 @@ Engenharia de backend e de plataforma para sistemas de produtividade de desenvol
 ### Engenheiro de Software Backend Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2022-10 – 2025-12_
 
-Engenharia backend e responsabilidade pela esteira de CI/CD de duas plataformas web simultâneas.
+Serviços de backend em Python para duas plataformas web simultâneas, padronizados em contratos JSON:API, com responsabilidade de ponta a ponta pela esteira de CI/CD e gates automatizados de qualidade.
 - Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask), garantindo qualidade de nível de produção por meio de formatação, análise estática e testes automatizados como gates na CI.
 - Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.
 - Fui responsável pela esteira de CI/CD de ponta a ponta (Docker, Git/GitFlow, Jenkins), entregando ciclos de build, teste e implantação totalmente automatizados.
@@ -29,7 +29,7 @@ Engenharia backend e responsabilidade pela esteira de CI/CD de duas plataformas 
 ### Engenheiro de Software Full-Stack Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2013-06 – 2022-09_
 
-Desenvolvimento full-stack, gerência de configuração e liderança técnica em quatro projetos de clientes ao longo de nove anos.
+Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum.
 - Entreguei quatro aplicações web em produção utilizando PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.
 - Conduzi a direção técnica de equipes Scrum, liderando planejamento de sprints, práticas de code review e compromissos de entrega.
@@ -37,7 +37,7 @@ Desenvolvimento full-stack, gerência de configuração e liderança técnica em
 ### Engenheiro de Software Full-Stack Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2009-01 – 2013-06_
 
-Engenharia full-stack e gerência de configuração em projetos de telefonia, web corporativa e mobile.
+Telefonia em C sobre o Asterisk, uma aplicação corporativa web e mobile em Java de ponta a ponta, e as ferramentas de CI/CD e de Scrum por trás delas — além de uma plataforma nacional mantida com tráfego ativo.
 - Desenvolvi uma plataforma de telefonia em C sobre o Asterisk, cobrindo a lógica de fluxo de chamadas e integrações.
 - Construí de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.
 - Implementei um ambiente completo de CI/CD (Subversion/Git, Maven, TeamCity, Tomcat) para builds e implantações automatizadas.
@@ -47,7 +47,7 @@ Engenharia full-stack e gerência de configuração em projetos de telefonia, we
 ### Engenheiro Sênior de Gerência de Configuração de Software — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2005-01 – 2009-01_
 
-Liderança da equipe corporativa de Gerência de Configuração de Software e condução da avaliação CMMI 1.2 Nível 3 da organização.
+Liderança da equipe corporativa de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3, definindo os processos, ferramentas e automações de GCS adotados como padrão da empresa.
 - Liderei uma equipe de 10 engenheiros de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3 bem-sucedida, atuando como avaliador SCAMPI treinado.
 - Defini e mantive os processos corporativos de GCS como líder de GCS dentro do Grupo de Processos de Engenharia de Software (SEPG).
 - Implantei processos de GCS em múltiplos projetos simultâneos utilizando Rational ClearCase, ClearDDTS, CVS, Subversion, Mantis, Apache Ant e Luntbuild.
@@ -56,14 +56,14 @@ Liderança da equipe corporativa de Gerência de Configuração de Software e co
 ### Engenheiro de Gerência de Configuração de Software — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2001-10 – 2005-01_
 
-Definição e implantação de processos de GCS para programas multi-site de desenvolvimento de dispositivos móveis.
+Definição e automação de processos de GCS para programas multi-site de dispositivos móveis, contribuindo para a certificação CMM Nível 2 e para uma alta de ~20% nas notas de avaliação do cliente.
 - Defini e implementei processos de GCS para projetos multi-site de desenvolvimento de dispositivos móveis utilizando Rational ClearCase e ClearDDTS, contribuindo para a certificação CMM Nível 2 da organização.
 - Elevei em cerca de 20% as notas de avaliação do cliente quanto ao desempenho de GCS, automatizando atividades de gerência de configuração em aproximadamente doze projetos.
 
 ### Engenheiro de Software Júnior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2001-01 – 2001-10_
 
-Desenvolvimento inicial de aplicações móveis em Java 2 Micro Edition (J2ME).
+Primeira prática de desenvolvimento mobile em J2ME do instituto: mais de 15 aplicações entregues, incluindo um jogo premiado internacionalmente.
 - Fui pioneiro no desenvolvimento de aplicações J2ME no CESAR, estabelecendo a primeira prática de desenvolvimento mobile do instituto.
 - Desenvolvi mais de 15 aplicações móveis, principalmente jogos, para os primeiros aparelhos com suporte a Java.
 - Escrevi o Sea Hunter, premiado como Melhor Aplicação das Américas no Asia Java Mobile Challenge.
@@ -71,7 +71,7 @@ Desenvolvimento inicial de aplicações móveis em Java 2 Micro Edition (J2ME).
 ### Engenheiro de Software Júnior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2000-06 – 2000-12_
 
-Desenvolvimento Java em arquitetura padrão de três camadas.
+Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos lotéricos e um portal de e-commerce que apoiou uma pesquisa de mestrado.
 - Desenvolvi uma aplicação WAP em J2SE para gestão de jogos lotéricos.
 - Construí um portal de e-commerce utilizado para validar a pesquisa de dissertação de mestrado de um integrante da equipe.
 
