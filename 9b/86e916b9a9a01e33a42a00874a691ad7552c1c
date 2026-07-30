@@ -1,0 +1,72 @@
+latest/pt_br/resume.html
+  s_15a6586dcd4a27::t_96edda8b662672 162
+latest/en_us/resume.html
+  s_15a6586dcd4a27::t_96edda8b662672 162
+latest/pt_br/resume.md
+  s_15a6586dcd4a27::t_79309feae6a198 36
+  s_15a6586dcd4a27::t_c38ae17066b749 9,22,30,38
+  s_15a6586dcd4a27::t_b383f99e551bfd 19
+  s_15a6586dcd4a27::t_e23bdac0d150e2 12
+  s_15a6586dcd4a27::t_7e29fdbb107351 18
+  s_15a6586dcd4a27::t_da06d1b8c8675a 3,122-124
+  s_15a6586dcd4a27::t_08363990fd2fe0 102
+  s_15a6586dcd4a27::t_878b44d17ead2d 34
+  s_15a6586dcd4a27::t_b65fbbf7606f3d 14-15
+  s_15a6586dcd4a27::t_a5b04721faf66a 94,98
+  s_15a6586dcd4a27::t_3f1d5990c6499f 145
+latest/pt_br/resume.txt
+  s_15a6586dcd4a27::t_b65fbbf7606f3d 31,35-37
+  s_15a6586dcd4a27::t_c38ae17066b749 21,53,68,84
+  s_15a6586dcd4a27::t_e23bdac0d150e2 26-27
+  s_15a6586dcd4a27::t_79309feae6a198 80-82
+  s_15a6586dcd4a27::t_da06d1b8c8675a 4,199-201
+  s_15a6586dcd4a27::t_1372b2afcd8f25 32-34
+  s_15a6586dcd4a27::t_a5b04721faf66a 166,171
+  s_15a6586dcd4a27::t_08363990fd2fe0 176
+  s_15a6586dcd4a27::t_b383f99e551bfd 47-49
+  s_15a6586dcd4a27::t_878b44d17ead2d 73-76
+  s_15a6586dcd4a27::t_7e29fdbb107351 45-46
+  s_15a6586dcd4a27::t_3f1d5990c6499f 220
+latest/en_us/resume.md
+  s_15a6586dcd4a27::t_08363990fd2fe0 102
+  s_15a6586dcd4a27::t_b383f99e551bfd 19
+  s_15a6586dcd4a27::t_c38ae17066b749 9,22,30,38
+  s_15a6586dcd4a27::t_7e29fdbb107351 18
+  s_15a6586dcd4a27::t_da06d1b8c8675a 3,122-124
+  s_15a6586dcd4a27::t_b65fbbf7606f3d 14-15
+  s_15a6586dcd4a27::t_a5b04721faf66a 94,98
+  s_15a6586dcd4a27::t_878b44d17ead2d 34
+  s_15a6586dcd4a27::t_79309feae6a198 36
+  s_15a6586dcd4a27::t_3f1d5990c6499f 145
+  s_15a6586dcd4a27::t_e23bdac0d150e2 12
+latest/en_us/resume.txt
+  s_15a6586dcd4a27::t_79309feae6a198 76-77
+  s_15a6586dcd4a27::t_b65fbbf7606f3d 30,33
+  s_15a6586dcd4a27::t_7e29fdbb107351 42
+  s_15a6586dcd4a27::t_a5b04721faf66a 162,167
+  s_15a6586dcd4a27::t_878b44d17ead2d 69-72
+  s_15a6586dcd4a27::t_3f1d5990c6499f 216
+  s_15a6586dcd4a27::t_08363990fd2fe0 172
+  s_15a6586dcd4a27::t_c38ae17066b749 20,50,64,80
+  s_15a6586dcd4a27::t_b383f99e551bfd 44-46
+  s_15a6586dcd4a27::t_2c1c637602ecfc 78
+  s_15a6586dcd4a27::t_e23bdac0d150e2 25-26
+  s_15a6586dcd4a27::t_da06d1b8c8675a 4,195-197
+  s_15a6586dcd4a27::t_1372b2afcd8f25 31-32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "9b86e916b9a9a01e33a42a00874a691ad7552c1c",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
