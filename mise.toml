@@ -61,6 +61,21 @@ run = "uv run resume generate resume-en_us.json --theme base --name full_en_us -
 description = "Generate the pt_BR resume (extra args are passed through)"
 run = "uv run resume generate resume-pt_br.json --theme base --name full_pt_br --zoom 85%"
 
+# Condensed variants for portal submissions: keyword-dense `ats` summary, roles
+# from 2013 on, and only the sections a screen actually reads.  ~3 pages against
+# the 6-page master.  Degrees survive the cutoff (see CUTOFF_EXEMPT_SECTIONS).
+[tasks.short-en]
+description = "Generate a condensed en_US variant for portal submissions"
+run = "uv run resume generate resume-en_us.json --theme base --summary ats --cut-date 2013 --sections basics,work,skills,education,certificates --zoom 85% --name short_en_us"
+
+[tasks.short-pt]
+description = "Generate a condensed pt_BR variant for portal submissions"
+run = "uv run resume generate resume-pt_br.json --theme base --summary ats --cut-date 2013 --sections basics,work,skills,education,certificates --zoom 85% --name short_pt_br"
+
+[tasks.short]
+description = "Generate both condensed variants"
+depends = ["short-en", "short-pt"]
+
 [tasks.build]
 description = "Generate both language versions"
 depends = ["en", "pt"]
