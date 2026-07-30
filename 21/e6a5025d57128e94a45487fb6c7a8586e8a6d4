@@ -1,0 +1,34 @@
+.claude/skills/resume-review/references/pipeline.md
+  s_dfe61d6278f56e::t_75d8d4d83862b3 37-43
+  s_dfe61d6278f56e::t_6a3d3cef39335e 34-36
+  s_dfe61d6278f56e::t_0e8a22413cc33b 44-46
+  s_dfe61d6278f56e::t_5fe18d51567f28 1-33,47-142
+.claude/skills/resume-review/SKILL.md
+  s_443b6b7a4f7a54::t_cac0421661cde2 1-121
+.claude/skills/resume-review/references/review-rubric.md
+  s_443b6b7a4f7a54::t_d22d05894ae324 1-115
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.16",
+  "base_commit_sha": "21e6a5025d57128e94a45487fb6c7a8586e8a6d4",
+  "prompts": {},
+  "sessions": {
+    "s_443b6b7a4f7a54": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "ba6ea435-6ad9-4231-8e51-dd6da30439f4",
+        "model": "unknown"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    },
+    "s_dfe61d6278f56e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "80124666-4266-4f87-8ebd-571f32be0fd1",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
