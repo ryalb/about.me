@@ -5,7 +5,7 @@
     "label": "Engenheiro de Software Sênior",
     "email": "ryan.leite@gmail.com",
     "phone": "+55 81 98255-0011",
-    "summary": "Engenheiro backend sênior com 26 anos de experiência em produção, atualmente o maior contribuidor de 2026 de uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI, Kafka, busca vetorial com Milvus e Snowflake em Kubernetes. Entrega plataformas internas sozinho, do modelo de dados à implantação em produção: onboarding de times em Django/GraphQL/Celery, uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI, dois apps de colaboração em tempo real e ferramentas de desenvolvimento com IA — um corretor autônomo de bugs sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança e um servidor MCP que serve ferramentas de triagem ao Claude Code, Cursor e Xcode. A automação de entrega atravessa todos os cargos, do ClearCase e Ant ao Jenkins, Docker e Kubernetes, além de programas de cobertura de testes e de toolchain em cinco repositórios. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python. No início da carreira, uniu desenvolvimento full-stack e liderança técnica de equipes Scrum à definição da prática de gerência de configuração de software em escala institucional, liderando uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+    "summary": "Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, C, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
     "location": {
       "city": "Fortaleza",
       "region": "Ceará",
@@ -28,13 +28,14 @@
       "startDate": "2026-01",
       "summary": "Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos construídos sozinho, ferramentas com IA/LLM e programas de qualidade em cinco repositórios.",
       "highlights": [
-        "Maior contribuidor de 2026 em uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.",
+        "Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.",
         "Construí sozinho uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que substituiu um processo manual de nove etapas.",
         "Construí sozinho uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.",
         "Criei um app web self-service que dispara a coleta de métricas sob demanda com streaming de log ao vivo, além de CronJobs semanais no Kubernetes cobrindo três repositórios.",
         "Entreguei ferramentas de desenvolvimento com IA: um corretor de bugs autônomo sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança, e um servidor MCP que serve seis ferramentas de triagem ao Claude Code, Cursor e Xcode.",
         "Entreguei sozinho dois apps de tempo real: planning poker com WebSockets em Django Channels, e retrospectivas em GraphQL com máquina de estados de seis fases.",
-        "Conduzi programas de cobertura de testes e de toolchain em cinco repositórios: milhares de novos testes, Poetry para uv, pre-commit para prek, gates de ruff e tipos, relatórios de cobertura na CI."
+        "Elevei a cobertura de testes em cinco repositórios, adicionando milhares de testes e integrando o relatório de cobertura à CI.",
+        "Padronizei o toolchain Python nos mesmos cinco repositórios: Poetry para uv, pre-commit para prek, além de gates de ruff e de tipos."
       ],
       "keywords": ["Python", "Django", "FastAPI", "GraphQL", "Celery", "Kafka", "PostgreSQL", "Milvus", "Snowflake", "Docker", "Kubernetes", "Helm", "AWS EKS", "CI/CD", "LLM", "MCP", "Nuxt"]
     },
@@ -47,9 +48,9 @@
       "endDate": "2025-12",
       "summary": "Serviços de backend em Python para duas plataformas web simultâneas, padronizados em contratos JSON:API, com responsabilidade de ponta a ponta pela esteira de CI/CD e gates automatizados de qualidade.",
       "highlights": [
-        "Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask), garantindo qualidade de nível de produção por meio de formatação, análise estática e testes automatizados como gates na CI.",
+        "Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask).",
         "Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.",
-        "Fui responsável pela esteira de CI/CD de ponta a ponta (Docker, Git/GitFlow, Jenkins), entregando ciclos de build, teste e implantação totalmente automatizados."
+        "Fui responsável pela esteira de CI/CD de ponta a ponta nas duas plataformas (Docker, Git/GitFlow, Jenkins) — build, teste e implantação automatizados, com gates de formatação, análise estática e testes aplicados na CI."
       ],
       "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD"]
     },
@@ -62,7 +63,7 @@
       "endDate": "2022-09",
       "summary": "Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum.",
       "highlights": [
-        "Entreguei quatro aplicações web em produção utilizando PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).",
+        "Entreguei quatro aplicações web em produção ao longo de nove anos e quatro projetos de clientes, cada uma em uma stack de linguagem diferente — PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).",
         "Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.",
         "Conduzi a direção técnica de equipes Scrum, liderando planejamento de sprints, práticas de code review e compromissos de entrega."
       ],
@@ -201,25 +202,26 @@
       "name": "Software Configuration Management Diversity: A Commercial Case Study",
       "publisher": "BCS-CMSG — The CMDB and CMS: the Powerhouse of Service Management",
       "releaseDate": "2008-07",
-      "summary": "Autores: T. H. B. Oliveira, R. Albuquerque."
+      "summary": "Segundo de dois autores. Estudo de caso comercial sobre sustentar práticas diversas de gerência de configuração de software dentro de uma mesma organização, publicado enquanto liderava a equipe corporativa de GCS do CESAR."
     },
     {
-      "name": "Desenvolvendo Projeto Conceitual de Jogos Wireless",
-      "publisher": "I Workshop Brasileiro de Jogos e Entretenimento Digital (WJOGOS), SIBGRAPI 2002, Fortaleza, Brasil",
+      "name": "Desenvolvendo o Projeto Conceitual de Jogos Wireless",
+      "publisher": "I Workshop Brasileiro de Jogos e Entretenimento Digital (WJOGOS), SIBGRAPI 2002, Fortaleza, Brasil — p. 141–144",
       "releaseDate": "2002-10",
-      "summary": "Autores: D. R. Silva, A. Damasceno, E. Perazzo, P. Macedo, R. Albuquerque, G. L. Ramalho."
+      "summary": "Quinto de seis autores. Métodos de projeto conceitual para jogos wireless, a partir do trabalho inicial do CESAR com jogos móveis em J2ME."
     },
     {
-      "name": "Embedding a J2ME-Based Inference Engine in Handheld Devices: The KEOPS Case Study",
-      "publisher": "Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Itália",
+      "name": "Embedding J2ME-based Inference Engine in Handheld Devices: The KEOPS Case Study",
+      "publisher": "Proceedings of the First International Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Bologna, Itália",
       "releaseDate": "2002",
-      "summary": "Autores: R. Albuquerque, P. Guedes, C. Figueira Filho, J. Robin, G. Ramalho."
+      "summary": "Primeiro autor. Estudo de caso sobre embarcar um motor de inferência em J2ME em dispositivos de mão com recursos restritos."
     },
     {
-      "name": "KSACI: A Handheld Device Infrastructure for Agent Communication",
-      "publisher": "Conferência ATAL 2001, Seattle, EUA",
+      "name": "KSACI: A Handheld Device Infrastructure for Agents Communication",
+      "publisher": "Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, EUA — Springer, p. 423–435",
       "releaseDate": "2001",
-      "summary": "Autores: R. Albuquerque, J. Hubner, G. Eliano de Paula, J. Sichman, G. Ramalho."
+      "url": "https://link.springer.com/chapter/10.1007/3-540-45448-9_32",
+      "summary": "Primeiro autor. Infraestrutura de comunicação para agentes executando em dispositivos de mão — construída sobre o framework SACI, com KQML como linguagem externa e XML como interna, demonstrada em emuladores de celular J2ME da época."
     }
   ],
   "skills": [
@@ -276,8 +278,8 @@
     "notes": "Versão em português brasileiro traduzida de resume.json (arquivo mestre em inglês). Edite primeiro o arquivo mestre e depois sincronize esta tradução. Data de nascimento intencionalmente omitida (boa prática contra viés de idade). 'highlights' são bullets com verbos de ação prontos para exportação ATS; 'keywords' servem para etiquetagem/filtragem ao gerar versões específicas por vaga. 'meta.summaries' contém parágrafos de abertura específicos por perfil — selecione um com `resume generate --summary <key>`; o mapa é removido da saída gerada.",
     "summaries": {
       "platform": "Engenheiro de software com 25 anos de atuação contínua em build, release e gerência de configuração — atravessando cinco gerações de ferramentas, do Rational ClearCase ao Docker, Kubernetes e Helm na AWS EKS. Liderou uma equipe de 10 engenheiros de gerência de configuração em uma avaliação formal CMMI 1.2 Nível 3 como avaliador SCAMPI treinado, e escreveu processos e automações de GCS adotados como padrão corporativo. Recentemente construiu uma plataforma de métricas de engenharia que extrai cobertura, linhas de código, pull requests e correções de bugs direto das esteiras de CI para nove dashboards, e padronizou o toolchain Python (uv, prek, ruff, verificação de tipos) em cinco repositórios. Mestre em Ciência da Computação (Inteligência Artificial), com quatro publicações revisadas por pares em eventos internacionais.",
-      "backend": "Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, atualmente o maior contribuidor de uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — serviços FastAPI sobre pipelines Kafka, busca vetorial com Milvus e Snowflake, rodando em Kubernetes. Também entrega plataformas internas completas sozinho: backends de workflow em GraphQL e Celery, dashboards em Nuxt e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o Model Context Protocol. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python, o que gerou forte percepção sobre quais problemas são realmente específicos de linguagem e quais são arquiteturais. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
-      "lead": "Líder de engenharia com 26 anos de experiência entre entrega hands-on e responsabilidade por processos organizacionais. Liderou uma equipe de 10 engenheiros de gerência de configuração de software em uma avaliação CMMI 1.2 Nível 3 bem-sucedida como avaliador SCAMPI treinado, e definiu padrões corporativos de engenharia como líder de GCS no Grupo de Processos de Engenharia de Software. Desde então, conduziu a direção técnica de equipes Scrum em quatro plataformas em produção e, em 2026, foi o maior contribuidor de uma plataforma de ML compartilhada, conduzindo programas de cobertura de testes e de toolchain em cinco repositórios — o tipo de trabalho de qualidade que só acontece quando alguém assume a responsabilidade. Segue hands-on: entregou três plataformas internas sozinho no mesmo período. Confortável em contextos onde a qualidade de engenharia é um compromisso formal e auditável, e não apenas uma aspiração.",
+      "backend": "Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — serviços FastAPI sobre pipelines Kafka, busca vetorial com Milvus e Snowflake, rodando em Kubernetes. Também entrega plataformas internas completas sozinho: backends de workflow em GraphQL e Celery, dashboards em Nuxt e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o Model Context Protocol. Sistemas em produção em Java, C, PHP, Ruby e Python. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+      "lead": "Líder de engenharia com 26 anos de experiência entre entrega hands-on e responsabilidade por processos organizacionais. Liderou uma equipe de 10 engenheiros de gerência de configuração de software em uma avaliação CMMI 1.2 Nível 3 bem-sucedida como avaliador SCAMPI treinado, e definiu padrões corporativos de engenharia como líder de GCS no Grupo de Processos de Engenharia de Software. Desde então, conduziu a direção técnica de equipes Scrum em quatro plataformas em produção e hoje é co-responsável por uma plataforma de ML em produção, conduzindo programas de cobertura de testes e de toolchain em cinco repositórios. Segue hands-on: quatro plataformas e apps internos construídos sozinho no mesmo período. Mestre em Ciência da Computação (Inteligência Artificial).",
       "ats": "Engenheiro de software sênior com 26 anos de experiência em desenvolvimento backend, entrega full-stack e engenharia de release. Especialista em Python (Django, FastAPI, Flask), design de APIs GraphQL e REST, pipelines com Celery e Kafka, PostgreSQL, Docker, Kubernetes e Helm na AWS EKS, e automação de CI/CD; o trabalho recente inclui busca vetorial com Milvus, pipelines de dados no Snowflake e ferramentas de desenvolvimento com LLM/MCP. Liderou uma equipe de 10 engenheiros em uma avaliação formal CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial)."
     }
   }
