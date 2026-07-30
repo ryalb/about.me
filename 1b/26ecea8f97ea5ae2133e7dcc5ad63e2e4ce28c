@@ -1,0 +1,46 @@
+latest/en_us/resume.txt
+  s_15a6586dcd4a27::t_6ec188d86e76d4 210-213
+  s_15a6586dcd4a27::t_e8e71445c770f1 201,209
+  s_15a6586dcd4a27::t_c1a9d364439574 197-199,202-203
+  s_15a6586dcd4a27::t_64b713ddc33939 4-14,26-28,42-45,53,57-59,66-67,158
+  s_15a6586dcd4a27::t_a60c3ef040b70f 205-207
+  s_15a6586dcd4a27::t_d8b2b44255e8fb 200,204,208
+latest/pt_br/resume.html
+  s_15a6586dcd4a27::t_a60c3ef040b70f 162
+latest/en_us/resume.md
+  s_15a6586dcd4a27::t_a60c3ef040b70f 136-137,139
+  s_15a6586dcd4a27::t_c1a9d364439574 129,134
+  s_15a6586dcd4a27::t_64b713ddc33939 3,5,13,19-20,26,28,34,94
+  s_15a6586dcd4a27::t_6ec188d86e76d4 141,144
+  s_15a6586dcd4a27::t_e8e71445c770f1 131-132,142
+latest/en_us/resume.html
+  s_15a6586dcd4a27::t_a60c3ef040b70f 162
+latest/pt_br/resume.txt
+  s_15a6586dcd4a27::t_c1a9d364439574 201-203,206-207,210
+  s_15a6586dcd4a27::t_a60c3ef040b70f 209,211
+  s_15a6586dcd4a27::t_64b713ddc33939 4-18,27-28,45-48,56,60-63,70-73,146,157,178,188,197,221
+  s_15a6586dcd4a27::t_e8e71445c770f1 205,213
+  s_15a6586dcd4a27::t_6ec188d86e76d4 214-218
+latest/pt_br/resume.md
+  s_15a6586dcd4a27::t_a60c3ef040b70f 136-137,139
+  s_15a6586dcd4a27::t_e8e71445c770f1 131-132,142
+  s_15a6586dcd4a27::t_6ec188d86e76d4 141,144
+  s_15a6586dcd4a27::t_c1a9d364439574 129,134
+  s_15a6586dcd4a27::t_64b713ddc33939 3,5,7,13,19-20,26,28,34,80,92,109,117,124,147
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "1b26ecea8f97ea5ae2133e7dcc5ad63e2e4ce28c",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
