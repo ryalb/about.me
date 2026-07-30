@@ -11,7 +11,8 @@ from typing import Any
 
 from jinja2 import BaseLoader, Environment
 
-from ..i18n import present_label
+from ..contact import profile_display
+from ..i18n import present_label, section_labels, work_cutoff_notice
 from ..icons import icon_svg
 
 # ---------------------------------------------------------------------------
@@ -206,6 +207,7 @@ _BUILTIN_TEMPLATE = """\
     .entry-title { font-weight: 600; font-size: 1rem; }
     .entry-subtitle { color: var(--muted); font-size: .9rem; }
     .entry-date { font-size: .82rem; color: var(--muted); white-space: nowrap; }
+    .cutoff-notice { font-size: .82rem; color: var(--muted); font-style: italic; margin-top: .8rem; }
     .entry-body { margin-top: .4rem; font-size: .9rem; line-height: 1.6; color: #334155; }
     ul.highlights { margin: .4rem 0 0 1.1rem; }
     ul.highlights li { margin-bottom: .2rem; font-size: .875rem; }
@@ -236,13 +238,13 @@ _BUILTIN_TEMPLATE = """\
       <span>{{ icon('location') }}{{ [loc.city, loc.region, loc.countryCode] | select | join(', ') }}</span>
     {% endif %}
     {% for p in basics.profiles or [] %}
-      <span>{{ icon(p.network | lower if p.network else 'website') }}{% if p.network %}{{ p.network }}: {% endif %}<a href="{{ p.url or '#' }}">{{ p.username or p.url }}</a></span>
+      <span>{{ icon(p.network | lower if p.network else 'website') }}<a href="{{ p.url or '#' }}">{{ p | profile_text }}</a></span>
     {% endfor %}
   </div>
 </header>
 {% if basics.summary %}
 <section>
-  <h2>Summary</h2>
+  <h2>{{ labels.summary }}</h2>
   <p class="summary">{{ basics.summary }}</p>
 </section>
 {% endif %}
@@ -256,7 +258,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if work %}
 <section>
-  <h2>Work Experience</h2>
+  <h2>{{ labels.work }}</h2>
   {% for job in work %}
   <div class="entry">
     <div class="entry-header">
@@ -275,12 +277,13 @@ _BUILTIN_TEMPLATE = """\
     {% endif %}
   </div>
   {% endfor %}
+  {% if work_notice %}<p class="cutoff-notice">{{ work_notice }}</p>{% endif %}
 </section>
 {% endif %}
 
 {% if education %}
 <section>
-  <h2>Education</h2>
+  <h2>{{ labels.education }}</h2>
   {% for edu in education %}
   <div class="entry">
     <div class="entry-header">
@@ -303,7 +306,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if skills %}
 <section>
-  <h2>Skills</h2>
+  <h2>{{ labels.skills }}</h2>
   {% for skill in skills %}
   <div class="entry" style="margin-bottom:.75rem">
     <strong>{{ skill.name }}</strong>{% if skill.level %} <span class="entry-subtitle">({{ skill.level }})</span>{% endif %}
@@ -319,7 +322,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if projects %}
 <section>
-  <h2>Projects</h2>
+  <h2>{{ labels.projects }}</h2>
   {% for proj in projects %}
   <div class="entry">
     <div class="entry-header">
@@ -347,7 +350,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if volunteer %}
 <section>
-  <h2>Volunteer</h2>
+  <h2>{{ labels.volunteer }}</h2>
   {% for v in volunteer %}
   <div class="entry">
     <div class="entry-header">
@@ -368,7 +371,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if awards %}
 <section>
-  <h2>Awards</h2>
+  <h2>{{ labels.awards }}</h2>
   {% for a in awards %}
   <div class="entry">
     <div class="entry-header">
@@ -384,7 +387,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if certificates %}
 <section>
-  <h2>Certifications</h2>
+  <h2>{{ labels.certificates }}</h2>
   {% for c in certificates %}
   <div class="entry">
     <div class="entry-header">
@@ -399,7 +402,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if publications %}
 <section>
-  <h2>Publications</h2>
+  <h2>{{ labels.publications }}</h2>
   {% for pub in publications %}
   <div class="entry">
     <div class="entry-header">
@@ -415,7 +418,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if languages %}
 <section>
-  <h2>Languages</h2>
+  <h2>{{ labels.languages }}</h2>
   <div class="skills-grid">
     {% for lang in languages %}
     <span class="skill-tag"><strong>{{ lang.language }}</strong>{% if lang.fluency %} · {{ lang.fluency }}{% endif %}</span>
@@ -426,7 +429,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if interests %}
 <section>
-  <h2>Interests</h2>
+  <h2>{{ labels.interests }}</h2>
   {% for interest in interests %}
   <div style="margin-bottom:.5rem">
     <strong>{{ interest.name }}</strong>
@@ -442,7 +445,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% if references %}
 <section>
-  <h2>References</h2>
+  <h2>{{ labels.references }}</h2>
   {% for ref in references %}
   <div class="entry">
     <div class="entry-title">{{ ref.name }}</div>
@@ -461,6 +464,7 @@ def render_builtin(resume: dict[str, Any], zoom: float = 1.0) -> str:
     """Render HTML using the built-in Jinja2 template (no Node.js required)."""
     env = Environment(loader=BaseLoader(), autoescape=False)
     env.filters["select"] = lambda seq: [x for x in seq if x]
+    env.filters["profile_text"] = profile_display
     tmpl = env.from_string(_BUILTIN_TEMPLATE)
 
     basics = resume.get("basics", {}) or {}
@@ -471,6 +475,8 @@ def render_builtin(resume: dict[str, Any], zoom: float = 1.0) -> str:
         name=name,
         root_font_size=f"{zoom * 100:g}%",
         present=present_label(resume),
+        labels=section_labels(resume),
+        work_notice=work_cutoff_notice(resume),
         basics=basics,
         work=resume.get("work", []),
         volunteer=resume.get("volunteer", []),

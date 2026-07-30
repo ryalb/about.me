@@ -6,7 +6,7 @@ import copy
 from datetime import date
 from typing import Any
 
-from .models import ALL_SECTIONS, DATE_FIELD_MAP
+from .models import ALL_SECTIONS, CUTOFF_EXEMPT_SECTIONS, DATE_FIELD_MAP
 
 
 def _parse_iso_date(value: str | None) -> date | None:
@@ -50,23 +50,32 @@ def apply_date_cutoff(resume: dict[str, Any], cut_date: date) -> dict[str, Any]:
     """Return a copy of resume with entries older than cut_date removed.
 
     An entry is kept when:
+    - Its section is in ``CUTOFF_EXEMPT_SECTIONS``, OR
     - It has no date field, OR
     - Its primary date field is on or after cut_date.
 
     For sections that track employment/projects (work, volunteer, education,
     projects) a position that *started* before the cut date but is *still
     ongoing* (no endDate) is kept, because the person is still in that role.
+
+    What the cutoff removed is recorded under ``meta.filtered`` so the renderers
+    can disclose it in the document itself — a reader cannot otherwise tell a
+    trimmed history from a short one.
     """
     result = copy.deepcopy(resume)
+    hidden: dict[str, int] = {}
 
     for section, date_field in DATE_FIELD_MAP.items():
+        if section in CUTOFF_EXEMPT_SECTIONS:
+            continue
         if section not in result or not isinstance(result[section], list):
             continue
 
         keep_ongoing = date_field == "startDate"
+        entries = result[section]
         filtered = []
 
-        for entry in result[section]:
+        for entry in entries:
             entry_date = _parse_iso_date(entry.get(date_field))
 
             if entry_date is None:
@@ -80,9 +89,38 @@ def apply_date_cutoff(resume: dict[str, Any], cut_date: date) -> dict[str, Any]:
                 # Ongoing role that started before cut_date — keep it
                 filtered.append(entry)
 
+        if (removed := len(entries) - len(filtered)) > 0:
+            hidden[section] = removed
         result[section] = filtered
 
+    if hidden:
+        meta = result.setdefault("meta", {})
+        if isinstance(meta, dict):
+            meta["filtered"] = {"cutDate": cut_date.isoformat(), "hidden": hidden}
+
     return result
+
+
+def emptied_sections(before: dict[str, Any], after: dict[str, Any]) -> list[str]:
+    """Return sections the *date cutoff* emptied, ignoring deliberate exclusions.
+
+    A cutoff that wipes a whole section is almost always a mistake rather than
+    an intention, and it is invisible in the output — the section simply is not
+    there.  Callers surface this as a warning.
+
+    ``apply_section_filter`` drops an excluded section's *key*, while
+    ``apply_date_cutoff`` leaves the key behind with an empty list.  Requiring
+    the key to still be present is what separates "you asked for this" from
+    "the cutoff ate it".
+    """
+    dropped = []
+    for section in DATE_FIELD_MAP:
+        had = before.get(section)
+        if not (isinstance(had, list) and had):
+            continue
+        if section in after and not after[section]:
+            dropped.append(section)
+    return dropped
 
 
 def available_summaries(resume: dict[str, Any]) -> dict[str, str]:

@@ -11,7 +11,8 @@ from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Length, Pt, RGBColor
 
-from ..i18n import present_label
+from ..contact import profile_display
+from ..i18n import present_label, section_labels, work_cutoff_notice
 
 if TYPE_CHECKING:
     from docx.document import Document as DocxDocument
@@ -194,6 +195,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
     """
     doc = Document()
     present = present_label(resume)
+    labels = section_labels(resume)
 
     # ── Page margins ──────────────────────────────────────────────────────
     for section in doc.sections:
@@ -230,10 +232,8 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
         if loc_str:
             contact_parts.append(loc_str)
     for profile in basics.get("profiles") or []:
-        net = profile.get("network", "")
-        uname = profile.get("username", "")
-        if net and uname:
-            contact_parts.append(f"{net}: {uname}")
+        if shown := profile_display(profile):
+            contact_parts.append(shown)
 
     if contact_parts:
         p = doc.add_paragraph(" | ".join(contact_parts))
@@ -252,7 +252,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Work ──────────────────────────────────────────────────────────────
     if work := resume.get("work"):
-        _add_heading(doc, "Work Experience", level=2, zoom=zoom)
+        _add_heading(doc, labels["work"], level=2, zoom=zoom)
         for job in work:
             pos = job.get("position") or ""
             company = job.get("name") or ""
@@ -264,10 +264,18 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
                 _add_body_text(doc, s, zoom=zoom)
             for h in job.get("highlights") or []:
                 _add_bullet(doc, h, zoom=zoom)
+        if notice := work_cutoff_notice(resume):
+            para = doc.add_paragraph()
+            para.paragraph_format.space_before = _pt(6, zoom)
+            para.paragraph_format.space_after = _pt(2, zoom)
+            run = para.add_run(notice)
+            run.italic = True
+            run.font.size = _pt(9, zoom)
+            run.font.color.rgb = _MUTED
 
     # ── Education ─────────────────────────────────────────────────────────
     if education := resume.get("education"):
-        _add_heading(doc, "Education", level=2, zoom=zoom)
+        _add_heading(doc, labels["education"], level=2, zoom=zoom)
         for edu in education:
             degree_parts = [edu.get("studyType"), edu.get("area")]
             degree = " in ".join(p for p in degree_parts if p)
@@ -283,7 +291,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Skills ────────────────────────────────────────────────────────────
     if skills := resume.get("skills"):
-        _add_heading(doc, "Skills", level=2, zoom=zoom)
+        _add_heading(doc, labels["skills"], level=2, zoom=zoom)
         for skill in skills:
             sname = skill.get("name") or ""
             level = skill.get("level") or ""
@@ -305,7 +313,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Projects ──────────────────────────────────────────────────────────
     if projects := resume.get("projects"):
-        _add_heading(doc, "Projects", level=2, zoom=zoom)
+        _add_heading(doc, labels["projects"], level=2, zoom=zoom)
         for proj in projects:
             pname = proj.get("name") or ""
             ptype = proj.get("type") or ""
@@ -321,7 +329,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Volunteer ─────────────────────────────────────────────────────────
     if volunteer := resume.get("volunteer"):
-        _add_heading(doc, "Volunteer", level=2, zoom=zoom)
+        _add_heading(doc, labels["volunteer"], level=2, zoom=zoom)
         for v in volunteer:
             pos = v.get("position") or ""
             org = v.get("organization") or ""
@@ -334,7 +342,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Awards ────────────────────────────────────────────────────────────
     if awards := resume.get("awards"):
-        _add_heading(doc, "Awards", level=2, zoom=zoom)
+        _add_heading(doc, labels["awards"], level=2, zoom=zoom)
         for a in awards:
             title = a.get("title") or ""
             awarder = a.get("awarder") or ""
@@ -353,7 +361,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Certificates ──────────────────────────────────────────────────────
     if certs := resume.get("certificates"):
-        _add_heading(doc, "Certifications", level=2, zoom=zoom)
+        _add_heading(doc, labels["certificates"], level=2, zoom=zoom)
         for c in certs:
             cname = c.get("name") or ""
             issuer = c.get("issuer") or ""
@@ -369,7 +377,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Publications ──────────────────────────────────────────────────────
     if pubs := resume.get("publications"):
-        _add_heading(doc, "Publications", level=2, zoom=zoom)
+        _add_heading(doc, labels["publications"], level=2, zoom=zoom)
         for pub in pubs:
             pname = pub.get("name") or ""
             publisher = pub.get("publisher") or ""
@@ -387,7 +395,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Languages ─────────────────────────────────────────────────────────
     if langs := resume.get("languages"):
-        _add_heading(doc, "Languages", level=2, zoom=zoom)
+        _add_heading(doc, labels["languages"], level=2, zoom=zoom)
         p = doc.add_paragraph()
         p.paragraph_format.space_before = _pt(2, zoom)
         parts = []
@@ -400,7 +408,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Interests ─────────────────────────────────────────────────────────
     if interests := resume.get("interests"):
-        _add_heading(doc, "Interests", level=2, zoom=zoom)
+        _add_heading(doc, labels["interests"], level=2, zoom=zoom)
         for interest in interests:
             iname = interest.get("name") or ""
             kws = interest.get("keywords") or []
@@ -415,7 +423,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── References ────────────────────────────────────────────────────────
     if refs := resume.get("references"):
-        _add_heading(doc, "References", level=2, zoom=zoom)
+        _add_heading(doc, labels["references"], level=2, zoom=zoom)
         for ref in refs:
             rname = ref.get("name") or ""
             rtext = ref.get("reference") or ""

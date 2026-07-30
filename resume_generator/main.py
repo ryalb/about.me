@@ -37,7 +37,7 @@ from rich.panel import Panel
 from rich.progress import Progress, SpinnerColumn, TextColumn
 from rich.table import Table
 
-from .filter import available_summaries, filter_resume
+from .filter import available_summaries, emptied_sections, filter_resume
 from .models import ALL_SECTIONS
 from .renderers.html import list_custom_themes, render_html
 from .renderers.markdown import render_markdown
@@ -359,6 +359,12 @@ def generate(
                 "in your resume file.[/dim]"
             )
         raise typer.Exit(1)
+
+    if dropped := emptied_sections(raw, filtered):
+        console.print(
+            "[yellow]⚠ Filters removed every entry from:[/yellow] "
+            f"{', '.join(dropped)}  [dim](section omitted from output)[/dim]"
+        )
 
     # ── Summary ───────────────────────────────────────────────────────────
     table = Table(box=box.SIMPLE, show_header=False, padding=(0, 1))

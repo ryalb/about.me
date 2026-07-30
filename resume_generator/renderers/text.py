@@ -5,7 +5,8 @@ from __future__ import annotations
 import textwrap
 from typing import Any
 
-from ..i18n import present_label
+from ..contact import profile_display
+from ..i18n import present_label, section_labels, work_cutoff_notice
 
 _WIDTH = 80
 _SEP = "─" * _WIDTH
@@ -35,6 +36,7 @@ def _section(title: str) -> str:
 def render_text(resume: dict[str, Any]) -> str:
     lines: list[str] = []
     present = present_label(resume)
+    labels = section_labels(resume)
 
     # ── Basics ────────────────────────────────────────────────────────────
     basics = resume.get("basics") or {}
@@ -57,10 +59,8 @@ def render_text(resume: dict[str, Any]) -> str:
         if loc_str:
             contact.append(loc_str)
     for profile in basics.get("profiles") or []:
-        net = profile.get("network", "")
-        uname = profile.get("username", "")
-        if net and uname:
-            contact.append(f"{net}: {uname}")
+        if shown := profile_display(profile):
+            contact.append(shown)
     if contact:
         lines.append("  ".join(contact).center(_WIDTH))
     lines.append("")
@@ -71,7 +71,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Work ──────────────────────────────────────────────────────────────
     if work := resume.get("work"):
-        lines.append(_section("Work Experience"))
+        lines.append(_section(labels["work"]))
         for job in work:
             pos = job.get("position") or ""
             company = job.get("name") or ""
@@ -88,10 +88,13 @@ def render_text(resume: dict[str, Any]) -> str:
             for h in job.get("highlights") or []:
                 lines.append(_wrap(f"• {h}", indent=4))
             lines.append("")
+        if notice := work_cutoff_notice(resume):
+            lines.append(_wrap(f"[ {notice} ]", indent=2))
+            lines.append("")
 
     # ── Education ─────────────────────────────────────────────────────────
     if education := resume.get("education"):
-        lines.append(_section("Education"))
+        lines.append(_section(labels["education"]))
         for edu in education:
             degree_parts = [edu.get("studyType"), edu.get("area")]
             degree = ", ".join(p for p in degree_parts if p)
@@ -108,7 +111,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Skills ────────────────────────────────────────────────────────────
     if skills := resume.get("skills"):
-        lines.append(_section("Skills"))
+        lines.append(_section(labels["skills"]))
         for skill in skills:
             sname = skill.get("name") or ""
             level = skill.get("level") or ""
@@ -123,7 +126,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Projects ──────────────────────────────────────────────────────────
     if projects := resume.get("projects"):
-        lines.append(_section("Projects"))
+        lines.append(_section(labels["projects"]))
         for proj in projects:
             pname = proj.get("name") or ""
             dr = _date_range(proj.get("startDate"), proj.get("endDate"), present)
@@ -142,7 +145,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Volunteer ─────────────────────────────────────────────────────────
     if volunteer := resume.get("volunteer"):
-        lines.append(_section("Volunteer"))
+        lines.append(_section(labels["volunteer"]))
         for v in volunteer:
             pos = v.get("position") or ""
             org = v.get("organization") or ""
@@ -158,7 +161,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Awards ────────────────────────────────────────────────────────────
     if awards := resume.get("awards"):
-        lines.append(_section("Awards"))
+        lines.append(_section(labels["awards"]))
         for a in awards:
             title = a.get("title") or ""
             awarder = a.get("awarder") or ""
@@ -174,7 +177,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Certificates ──────────────────────────────────────────────────────
     if certs := resume.get("certificates"):
-        lines.append(_section("Certifications"))
+        lines.append(_section(labels["certificates"]))
         for c in certs:
             cname = c.get("name") or ""
             issuer = c.get("issuer") or ""
@@ -188,7 +191,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Publications ──────────────────────────────────────────────────────
     if pubs := resume.get("publications"):
-        lines.append(_section("Publications"))
+        lines.append(_section(labels["publications"]))
         for pub in pubs:
             pname = pub.get("name") or ""
             publisher = pub.get("publisher") or ""
@@ -204,7 +207,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Languages ─────────────────────────────────────────────────────────
     if langs := resume.get("languages"):
-        lines.append(_section("Languages"))
+        lines.append(_section(labels["languages"]))
         parts = []
         for lang in langs:
             lname = lang.get("language") or ""
@@ -215,7 +218,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── Interests ─────────────────────────────────────────────────────────
     if interests := resume.get("interests"):
-        lines.append(_section("Interests"))
+        lines.append(_section(labels["interests"]))
         for interest in interests:
             iname = interest.get("name") or ""
             kws = interest.get("keywords") or []
@@ -227,7 +230,7 @@ def render_text(resume: dict[str, Any]) -> str:
 
     # ── References ────────────────────────────────────────────────────────
     if refs := resume.get("references"):
-        lines.append(_section("References"))
+        lines.append(_section(labels["references"]))
         for ref in refs:
             rname = ref.get("name") or ""
             rtext = ref.get("reference") or ""

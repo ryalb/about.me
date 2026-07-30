@@ -119,6 +119,21 @@ const Separator = styled.span`
   vertical-align: 0.25em;
 `;
 
+/* Profile display text — prefer the URL with its scheme and trailing slash
+   removed ("linkedin.com/in/ryalb").  PDF text extraction and ATS parsers read
+   the rendered text, never the href, so a bare username leaves no route back
+   to the profile.  Mirrors profile_display() in resume_generator/contact.py. */
+const profileDisplay = (profile = {}) => {
+  const url = (profile.url || '').trim();
+  if (url) {
+    return url.replace(/^[a-z][a-z0-9+.-]*:\/\//i, '').replace(/\/$/, '');
+  }
+  const network = (profile.network || '').trim();
+  const username = (profile.username || '').trim();
+  if (network && username) return `${network}: ${username}`;
+  return username || network;
+};
+
 const ContactInfo = ({ basics = {} }) => {
   const { email, phone, url, location, profiles = [] } = basics;
   const items = [];
@@ -171,7 +186,7 @@ const ContactInfo = ({ basics = {} }) => {
   }
 
   profiles.forEach((profile, index) => {
-    const text = profile.username || profile.network || profile.url;
+    const text = profileDisplay(profile);
     if (!text) return;
     items.push(
       <ContactItem key={`profile-${index}`}>
@@ -504,6 +519,85 @@ const presentLabelFor = (language) => {
   );
 };
 
+/* Section headings.  This theme uses shorter wording than md/txt/docx
+   ("Experience", not "Work Experience"), so it keeps its own table rather than
+   sharing one with resume_generator/i18n.py — but the set of *languages* must
+   stay in step with the _SECTION_LABELS table there. */
+
+const SECTION_LABELS = {
+  en: {
+    work: 'Experience',
+    skills: 'Skills',
+    education: 'Education',
+    projects: 'Projects',
+    volunteer: 'Volunteer',
+    publications: 'Publications',
+    awards: 'Awards',
+    certificates: 'Certificates',
+    languages: 'Languages',
+    interests: 'Interests',
+    references: 'References',
+  },
+  pt: {
+    work: 'Experiência',
+    skills: 'Competências',
+    education: 'Formação',
+    projects: 'Projetos',
+    volunteer: 'Voluntariado',
+    publications: 'Publicações',
+    awards: 'Prêmios',
+    certificates: 'Certificações',
+    languages: 'Idiomas',
+    interests: 'Interesses',
+    references: 'Referências',
+  },
+};
+
+const sectionLabelsFor = (language) => {
+  const tag = (language || 'en-US').trim();
+  const table =
+    SECTION_LABELS[tag] || SECTION_LABELS[tag.split('-')[0].toLowerCase()];
+  return { ...SECTION_LABELS.en, ...(table || {}) };
+};
+
+/* Disclosure for a date-trimmed work history.  Without it a reader cannot tell
+   a filtered résumé from a short career.  `meta.filtered` is written by
+   apply_date_cutoff() in resume_generator/filter.py.  Keep these strings in
+   step with _WORK_CUTOFF_NOTICES in resume_generator/i18n.py. */
+
+const CUTOFF_NOTICES = {
+  en: {
+    one: 'Filtered view — 1 earlier role starting before {date} is not shown. Full history available on request.',
+    many:
+      'Filtered view — {count} earlier roles starting before {date} are not shown. Full history available on request.',
+  },
+  pt: {
+    one: 'Visão filtrada — 1 cargo anterior, iniciado antes de {date}, não está sendo exibido. Histórico completo disponível sob solicitação.',
+    many:
+      'Visão filtrada — {count} cargos anteriores, iniciados antes de {date}, não estão sendo exibidos. Histórico completo disponível sob solicitação.',
+  },
+};
+
+const workCutoffNotice = (meta = {}) => {
+  const count = meta.filtered?.hidden?.work ?? 0;
+  if (!count) return null;
+  const tag = (meta.language || 'en-US').trim();
+  const table =
+    CUTOFF_NOTICES[tag] ||
+    CUTOFF_NOTICES[tag.split('-')[0].toLowerCase()] ||
+    CUTOFF_NOTICES.en;
+  return (count === 1 ? table.one : table.many)
+    .replace('{count}', String(count))
+    .replace('{date}', meta.filtered?.cutDate ?? '');
+};
+
+const CutoffNotice = styled.p`
+  font-size: ${type.meta};
+  font-style: italic;
+  color: ${colors.muted};
+  margin: ${scale(10)} 0 0 0;
+`;
+
 /* ────────────────────────────────────────────────────────────────────────
    Resume
    ──────────────────────────────────────────────────────────────────────── */
@@ -526,6 +620,8 @@ function Resume({ resume }) {
   } = resume;
 
   const presentLabel = presentLabelFor(meta.language);
+  const labels = sectionLabelsFor(meta.language);
+  const cutoffNotice = workCutoffNotice(meta);
 
   return (
     <Layout>
@@ -538,7 +634,7 @@ function Resume({ resume }) {
 
       {work.length > 0 && (
         <Section>
-          <SectionTitle>Experience</SectionTitle>
+          <SectionTitle>{labels.work}</SectionTitle>
           {work.map((job, i) => (
             <Item key={i}>
               <ItemHeader>
@@ -569,12 +665,13 @@ function Resume({ resume }) {
               )}
             </Item>
           ))}
+          {cutoffNotice && <CutoffNotice>{cutoffNotice}</CutoffNotice>}
         </Section>
       )}
 
       {skills.length > 0 && (
         <Section>
-          <SectionTitle>Skills</SectionTitle>
+          <SectionTitle>{labels.skills}</SectionTitle>
           <CardGrid>
             {skills.map((skill, i) => (
               <Card key={i}>
@@ -595,7 +692,7 @@ function Resume({ resume }) {
 
       {education.length > 0 && (
         <Section>
-          <SectionTitle>Education</SectionTitle>
+          <SectionTitle>{labels.education}</SectionTitle>
           {education.map((edu, i) => (
             <Item key={i}>
               <ItemHeader>
@@ -640,7 +737,7 @@ function Resume({ resume }) {
 
       {projects.length > 0 && (
         <Section>
-          <SectionTitle>Projects</SectionTitle>
+          <SectionTitle>{labels.projects}</SectionTitle>
           {projects.map((project, i) => (
             <Item key={i}>
               <ItemHeader>
@@ -688,7 +785,7 @@ function Resume({ resume }) {
 
       {volunteer.length > 0 && (
         <Section>
-          <SectionTitle>Volunteer</SectionTitle>
+          <SectionTitle>{labels.volunteer}</SectionTitle>
           {volunteer.map((vol, i) => (
             <Item key={i}>
               <ItemHeader>
@@ -725,7 +822,7 @@ function Resume({ resume }) {
 
       {publications.length > 0 && (
         <Section>
-          <SectionTitle>Publications</SectionTitle>
+          <SectionTitle>{labels.publications}</SectionTitle>
           {publications.map((pub, i) => (
             <Item key={i}>
               <ItemHeader>
@@ -749,7 +846,7 @@ function Resume({ resume }) {
 
       {awards.length > 0 && (
         <Section>
-          <SectionTitle>Awards</SectionTitle>
+          <SectionTitle>{labels.awards}</SectionTitle>
           {awards.map((award, i) => (
             <Item key={i}>
               <ItemHeader>
@@ -771,7 +868,7 @@ function Resume({ resume }) {
 
       {certificates.length > 0 && (
         <Section>
-          <SectionTitle>Certificates</SectionTitle>
+          <SectionTitle>{labels.certificates}</SectionTitle>
           {certificates.map((cert, i) => (
             <CompactItem key={i}>
               <ItemHeader>
@@ -792,7 +889,7 @@ function Resume({ resume }) {
 
       {languages.length > 0 && (
         <Section>
-          <SectionTitle>Languages</SectionTitle>
+          <SectionTitle>{labels.languages}</SectionTitle>
           <CardGrid>
             {languages.map((lang, i) => (
               <Card key={i}>
@@ -810,7 +907,7 @@ function Resume({ resume }) {
 
       {interests.length > 0 && (
         <Section>
-          <SectionTitle>Interests</SectionTitle>
+          <SectionTitle>{labels.interests}</SectionTitle>
           <CardGrid>
             {interests.map((interest, i) => (
               <Card key={i}>
@@ -830,7 +927,7 @@ function Resume({ resume }) {
 
       {references.length > 0 && (
         <Section>
-          <SectionTitle>References</SectionTitle>
+          <SectionTitle>{labels.references}</SectionTitle>
           {references.map((ref, i) => (
             <Item key={i}>
               {ref.name && <ItemTitle>{ref.name}</ItemTitle>}

@@ -185,3 +185,9 @@ DATE_FIELD_MAP: dict[str, str] = {
     "certificates": "date",
     "publications": "releaseDate",
 }
+
+# Sections --cut-date leaves alone.  A degree is a credential, not a timeline
+# entry: it is dated by when study *started*, so any cutoff later than the
+# enrolment year would silently delete it while trimming old work history —
+# the flag's usual purpose.  Drop these explicitly with --sections instead.
+CUTOFF_EXEMPT_SECTIONS: frozenset[str] = frozenset({"education"})

@@ -4,7 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from ..i18n import present_label
+from ..contact import profile_display
+from ..i18n import present_label, section_labels, work_cutoff_notice
 
 
 def _date_range(start: str | None, end: str | None, present: str) -> str:
@@ -25,6 +26,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
     """Render a JSON Resume dict to a Markdown string."""
     lines: list[str] = []
     present = present_label(resume)
+    labels = section_labels(resume)
 
     # ── Basics ────────────────────────────────────────────────────────────
     basics = resume.get("basics") or {}
@@ -47,18 +49,11 @@ def render_markdown(resume: dict[str, Any]) -> str:
         if loc_str:
             contact.append(f"📍 {loc_str}")
     for profile in basics.get("profiles") or []:
-        net = profile.get("network", "")
-        uname = profile.get("username", "")
-        purl = profile.get("url", "")
-        label = f"{net}: {uname}" if net and uname else (uname or net)
-        if not label:
+        shown = profile_display(profile)
+        if not shown:
             continue
-        if purl:
-            text = (
-                f"{net}: [{uname}]({purl})" if net and uname else f"[{label}]({purl})"
-            )
-        else:
-            text = label
+        purl = profile.get("url", "")
+        text = f"[{shown}]({purl})" if purl else shown
         contact.append(f"🔗 {text}")
 
     if contact:
@@ -69,7 +64,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Work ──────────────────────────────────────────────────────────────
     if work := resume.get("work"):
-        lines.append(_section_header("Work Experience"))
+        lines.append(_section_header(labels["work"]))
         for job in work:
             title = job.get("position") or ""
             company = job.get("name") or ""
@@ -93,10 +88,12 @@ def render_markdown(resume: dict[str, Any]) -> str:
             for h in job.get("highlights") or []:
                 lines.append(f"- {h}\n")
             lines.append("\n")
+        if notice := work_cutoff_notice(resume):
+            lines.append(f"> _{notice}_\n\n")
 
     # ── Education ─────────────────────────────────────────────────────────
     if education := resume.get("education"):
-        lines.append(_section_header("Education"))
+        lines.append(_section_header(labels["education"]))
         for edu in education:
             degree = " ".join(
                 filter(
@@ -110,7 +107,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
             )
             institution = edu.get("institution") or ""
             dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
-            header = f"### {degree}" if degree else "### Education"
+            header = f"### {degree}" if degree else f"### {labels['education']}"
             if institution:
                 header += f" — {institution}"
             lines.append(f"{header}\n")
@@ -124,7 +121,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Skills ────────────────────────────────────────────────────────────
     if skills := resume.get("skills"):
-        lines.append(_section_header("Skills"))
+        lines.append(_section_header(labels["skills"]))
         for skill in skills:
             sname = skill.get("name") or ""
             level = skill.get("level") or ""
@@ -138,7 +135,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Projects ──────────────────────────────────────────────────────────
     if projects := resume.get("projects"):
-        lines.append(_section_header("Projects"))
+        lines.append(_section_header(labels["projects"]))
         for proj in projects:
             pname = proj.get("name") or ""
             purl = proj.get("url") or ""
@@ -163,7 +160,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Volunteer ─────────────────────────────────────────────────────────
     if volunteer := resume.get("volunteer"):
-        lines.append(_section_header("Volunteer"))
+        lines.append(_section_header(labels["volunteer"]))
         for v in volunteer:
             pos = v.get("position") or ""
             org = v.get("organization") or ""
@@ -182,7 +179,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Awards ────────────────────────────────────────────────────────────
     if awards := resume.get("awards"):
-        lines.append(_section_header("Awards"))
+        lines.append(_section_header(labels["awards"]))
         for a in awards:
             title = a.get("title") or ""
             aurl = a.get("url") or ""
@@ -203,7 +200,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Certificates ──────────────────────────────────────────────────────
     if certs := resume.get("certificates"):
-        lines.append(_section_header("Certifications"))
+        lines.append(_section_header(labels["certificates"]))
         for c in certs:
             cname = c.get("name") or ""
             curl = c.get("url") or ""
@@ -223,7 +220,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Publications ──────────────────────────────────────────────────────
     if pubs := resume.get("publications"):
-        lines.append(_section_header("Publications"))
+        lines.append(_section_header(labels["publications"]))
         for pub in pubs:
             pname = pub.get("name") or ""
             purl = pub.get("url") or ""
@@ -244,7 +241,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Languages ─────────────────────────────────────────────────────────
     if langs := resume.get("languages"):
-        lines.append(_section_header("Languages"))
+        lines.append(_section_header(labels["languages"]))
         for lang in langs:
             lname = lang.get("language") or ""
             fluency = lang.get("fluency") or ""
@@ -256,7 +253,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── Interests ─────────────────────────────────────────────────────────
     if interests := resume.get("interests"):
-        lines.append(_section_header("Interests"))
+        lines.append(_section_header(labels["interests"]))
         for interest in interests:
             iname = interest.get("name") or ""
             kws = interest.get("keywords") or []
@@ -268,7 +265,7 @@ def render_markdown(resume: dict[str, Any]) -> str:
 
     # ── References ────────────────────────────────────────────────────────
     if refs := resume.get("references"):
-        lines.append(_section_header("References"))
+        lines.append(_section_header(labels["references"]))
         for ref in refs:
             rname = ref.get("name") or ""
             rtext = ref.get("reference") or ""

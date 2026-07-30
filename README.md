@@ -316,11 +316,17 @@ Removes entries whose primary date field is **before** the cutoff. The date fiel
 
 | Section | Date field |
 |---|---|
-| `work`, `volunteer`, `education`, `projects` | `startDate` |
+| `work`, `volunteer`, `projects` | `startDate` |
 | `awards`, `certificates` | `date` |
 | `publications` | `releaseDate` |
 
 **Ongoing roles** (entries with a `startDate` but no `endDate`) are always kept even if `startDate` is before the cutoff — you're still in that role.
+
+**`education` is exempt** and never filtered by `--cut-date`. A degree is dated by when study *started*, so any cutoff later than the enrolment year would silently delete it while you were only trying to trim old work history. Use `--sections` to drop education deliberately.
+
+If a cutoff empties a section entirely, the build prints a warning — that section is simply absent from the output, which is otherwise easy to miss.
+
+**Trimmed work history is disclosed in the document.** When a cutoff removes one or more `work` entries, every format renders a note at the end of the work section — e.g. *"Filtered view — 5 earlier roles starting before 2013-01-01 are not shown. Full history available on request."* A reader cannot otherwise tell a filtered résumé from a short career, so the note keeps a tailored variant honest. It is localised off `meta.language` and appears only when work entries were actually removed.
 
 ```bash
 # Only positions started in the last ~7 years
