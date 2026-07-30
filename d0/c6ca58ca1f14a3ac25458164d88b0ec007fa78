@@ -1,0 +1,45 @@
+docs/resume-review-2026-07-30.pt_br.md
+  s_15a6586dcd4a27::t_bb8bf9f47c268b 59-63,65,67-70,72-73,75-79,81-83
+  s_15a6586dcd4a27::t_129cfc4c55207c 91,97
+  s_15a6586dcd4a27::t_79309feae6a198 95-96
+  s_15a6586dcd4a27::t_576f271c941feb 100
+  s_15a6586dcd4a27::t_c266c56f9f2123 57,99
+  s_15a6586dcd4a27::t_1372b2afcd8f25 34-38,93
+  s_15a6586dcd4a27::t_960dcb770ff01e 92
+  s_15a6586dcd4a27::t_03aae6fde5b85b 102,115
+  s_15a6586dcd4a27::t_7808e2c534b9d2 98
+  s_15a6586dcd4a27::t_624a04171798cc 24-33
+  s_15a6586dcd4a27::t_e23bdac0d150e2 94
+  s_15a6586dcd4a27::t_da6a0cd22d41ca 103-104
+  s_15a6586dcd4a27::t_bf5e92298c564c 101,112-114
+docs/resume-review-2026-07-30.md
+  s_15a6586dcd4a27::t_48252e2525e73d 32-36,90
+  s_15a6586dcd4a27::t_bb8bf9f47c268b 57-60,62,64-67,69-70,72-76,78-80
+  s_15a6586dcd4a27::t_79309feae6a198 92-93
+  s_15a6586dcd4a27::t_da6a0cd22d41ca 100-101
+  s_15a6586dcd4a27::t_bf5e92298c564c 98,109-111
+  s_15a6586dcd4a27::t_c266c56f9f2123 55,96
+  s_15a6586dcd4a27::t_03aae6fde5b85b 99,112
+  s_15a6586dcd4a27::t_624a04171798cc 22-31
+  s_15a6586dcd4a27::t_7808e2c534b9d2 95
+  s_15a6586dcd4a27::t_e23bdac0d150e2 91
+  s_15a6586dcd4a27::t_576f271c941feb 97
+  s_15a6586dcd4a27::t_960dcb770ff01e 89
+  s_15a6586dcd4a27::t_129cfc4c55207c 88,94
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "d0c6ca58ca1f14a3ac25458164d88b0ec007fa78",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
