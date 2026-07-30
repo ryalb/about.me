@@ -452,6 +452,46 @@ about.me/
 
 ---
 
+## Which format to submit
+
+All five formats carry the same content, but they are not equally machine-readable. Pick by audience.
+
+| Audience | Use | Why |
+|---|---|---|
+| Applicant tracking systems, strict job portals | **`txt`** or **`docx`** | Single-column throughout. Every keyword survives text extraction. |
+| Human readers — recruiters, hiring managers, your own site | **`pdf`** or **`html`** | Two-column skill cards, icons, print-tuned typography. |
+
+### The one deliberate trade-off
+
+The `pdf`/`html` skills section is a two-column card grid. It reads well for humans, but **plain
+text extraction interleaves the two columns** — and plain extraction is how many ATS parsers
+read a PDF. Running `pdftotext` *without* `-layout` on the skills page produces:
+
+```
+AI & ML ENGINEERING
+DEVOPS & CI/CD
+Advanced
+Expert
+```
+
+Two consequences: the proficiency levels detach from their categories and can be read in the
+wrong order, and hyphenated keywords can split across the interleave (`Multi-arch builds` →
+`Multi-` / `arch builds`).
+
+**This is accepted, not fixed.** The grid is worth keeping for human readers, and `txt`/`docx`
+are already single-column and unaffected — so the mitigation is choosing the right artifact
+rather than redesigning the theme. If a posting demands a PDF *and* you know the portal parses
+strictly, submit the `docx`.
+
+Verify any layout change in the PDF, never in the HTML:
+
+```bash
+pdftotext -layout latest/en_us/resume.pdf - | grep -A16 '^SKILLS'   # as laid out
+pdftotext latest/en_us/resume.pdf -         | grep -A16 'SKILLS'    # as an ATS reads it
+```
+
+---
+
 ## Generating multiple resume variants
 
 A common workflow is to maintain one master `resume.json` and generate tailored variants — combining `--sections`, `--cut-date` and `--summary`:
