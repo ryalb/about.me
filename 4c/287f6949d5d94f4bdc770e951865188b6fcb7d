@@ -1,0 +1,19 @@
+mise.toml
+  s_15a6586dcd4a27::t_438eed80ad37c5 64-78
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "4c287f6949d5d94f4bdc770e951865188b6fcb7d",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
