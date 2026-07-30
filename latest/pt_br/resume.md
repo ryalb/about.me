@@ -1,36 +1,37 @@
 # Ryan Leite Albuquerque
 **Engenheiro de Software Sênior**
-✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
+✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb)
 
-Engenheiro backend sênior com 26 anos de experiência em produção, atualmente o maior contribuidor de 2026 de uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI, Kafka, busca vetorial com Milvus e Snowflake em Kubernetes. Entrega plataformas internas sozinho, do modelo de dados à implantação em produção: onboarding de times em Django/GraphQL/Celery, uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI, dois apps de colaboração em tempo real e ferramentas de desenvolvimento com IA — um corretor autônomo de bugs sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança e um servidor MCP que serve ferramentas de triagem ao Claude Code, Cursor e Xcode. A automação de entrega atravessa todos os cargos, do ClearCase e Ant ao Jenkins, Docker e Kubernetes, além de programas de cobertura de testes e de toolchain em cinco repositórios. Poliglota por necessidade e não por preferência, com sistemas em produção em Java, C, PHP, Ruby e Python. No início da carreira, uniu desenvolvimento full-stack e liderança técnica de equipes Scrum à definição da prática de gerência de configuração de software em escala institucional, liderando uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
+Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, C, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
 
-## Work Experience
+## Experiência Profissional
 
 ### Engenheiro de Software Backend Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2026-01 – Presente_
 
 Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos construídos sozinho, ferramentas com IA/LLM e programas de qualidade em cinco repositórios.
-- Maior contribuidor de 2026 em uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
+- Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
 - Construí sozinho uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que substituiu um processo manual de nove etapas.
 - Construí sozinho uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.
 - Criei um app web self-service que dispara a coleta de métricas sob demanda com streaming de log ao vivo, além de CronJobs semanais no Kubernetes cobrindo três repositórios.
 - Entreguei ferramentas de desenvolvimento com IA: um corretor de bugs autônomo sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança, e um servidor MCP que serve seis ferramentas de triagem ao Claude Code, Cursor e Xcode.
 - Entreguei sozinho dois apps de tempo real: planning poker com WebSockets em Django Channels, e retrospectivas em GraphQL com máquina de estados de seis fases.
-- Conduzi programas de cobertura de testes e de toolchain em cinco repositórios: milhares de novos testes, Poetry para uv, pre-commit para prek, gates de ruff e tipos, relatórios de cobertura na CI.
+- Elevei a cobertura de testes em cinco repositórios, adicionando milhares de testes e integrando o relatório de cobertura à CI.
+- Padronizei o toolchain Python nos mesmos cinco repositórios: Poetry para uv, pre-commit para prek, além de gates de ruff e de tipos.
 
 ### Engenheiro de Software Backend Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2022-10 – 2025-12_
 
 Serviços de backend em Python para duas plataformas web simultâneas, padronizados em contratos JSON:API, com responsabilidade de ponta a ponta pela esteira de CI/CD e gates automatizados de qualidade.
-- Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask), garantindo qualidade de nível de produção por meio de formatação, análise estática e testes automatizados como gates na CI.
+- Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask).
 - Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.
-- Fui responsável pela esteira de CI/CD de ponta a ponta (Docker, Git/GitFlow, Jenkins), entregando ciclos de build, teste e implantação totalmente automatizados.
+- Fui responsável pela esteira de CI/CD de ponta a ponta nas duas plataformas (Docker, Git/GitFlow, Jenkins) — build, teste e implantação automatizados, com gates de formatação, análise estática e testes aplicados na CI.
 
 ### Engenheiro de Software Full-Stack Sênior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2013-06 – 2022-09_
 
 Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum.
-- Entreguei quatro aplicações web em produção utilizando PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).
+- Entreguei quatro aplicações web em produção ao longo de nove anos e quatro projetos de clientes, cada uma em uma stack de linguagem diferente — PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.
 - Conduzi a direção técnica de equipes Scrum, liderando planejamento de sprints, práticas de code review e compromissos de entrega.
 
@@ -76,7 +77,7 @@ Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos l
 - Construí um portal de e-commerce utilizado para validar a pesquisa de dissertação de mestrado de um integrante da equipe.
 
 
-## Education
+## Formação Acadêmica
 
 ### Mestrado in Ciência da Computação — Universidade Federal de Pernambuco (UFPE)
 _🗓 2000-03 – 2002-08_
@@ -88,7 +89,7 @@ _🗓 2000-03 – 2002-08_
 _🗓 1996-01 – 2000-01_
 
 
-## Skills
+## Competências
 
 **Backend** (Especialista): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`, `C`
 
@@ -105,7 +106,7 @@ _🗓 1996-01 – 2000-01_
 **Processos e Liderança** (Especialista): `Gerência de Configuração de Software`, `CMMI`, `Avaliação SCAMPI`, `Scrum`, `Kanban`, `Liderança Técnica`, `Code Review`, `Mentoria`
 
 
-## Awards
+## Prêmios
 
 ### [Melhor Aplicação das Américas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
 _Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
@@ -113,37 +114,37 @@ _Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
 O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
 
 
-## Certifications
+## Certificações
 
 - **IA para Devs (54h)** · CESAR School · 2025-08
 - **[Certified ScrumMaster (CSM)](https://bcert.me/sciltuxvg)** · Scrum Alliance · 2017-10
 - **Zend PHP Certified Developer** · Zend Technologies, Ltd. · 2014-10
 
 
-## Publications
+## Publicações
 
 ### Software Configuration Management Diversity: A Commercial Case Study
 _BCS-CMSG — The CMDB and CMS: the Powerhouse of Service Management · 2008-07_
 
-Autores: T. H. B. Oliveira, R. Albuquerque.
+Segundo de dois autores. Estudo de caso comercial sobre sustentar práticas diversas de gerência de configuração de software dentro de uma mesma organização, publicado enquanto liderava a equipe corporativa de GCS do CESAR.
 
-### Desenvolvendo Projeto Conceitual de Jogos Wireless
-_I Workshop Brasileiro de Jogos e Entretenimento Digital (WJOGOS), SIBGRAPI 2002, Fortaleza, Brasil · 2002-10_
+### Desenvolvendo o Projeto Conceitual de Jogos Wireless
+_I Workshop Brasileiro de Jogos e Entretenimento Digital (WJOGOS), SIBGRAPI 2002, Fortaleza, Brasil — p. 141–144 · 2002-10_
 
-Autores: D. R. Silva, A. Damasceno, E. Perazzo, P. Macedo, R. Albuquerque, G. L. Ramalho.
+Quinto de seis autores. Métodos de projeto conceitual para jogos wireless, a partir do trabalho inicial do CESAR com jogos móveis em J2ME.
 
-### Embedding a J2ME-Based Inference Engine in Handheld Devices: The KEOPS Case Study
-_Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Itália · 2002_
+### Embedding J2ME-based Inference Engine in Handheld Devices: The KEOPS Case Study
+_Proceedings of the First International Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Bologna, Itália · 2002_
 
-Autores: R. Albuquerque, P. Guedes, C. Figueira Filho, J. Robin, G. Ramalho.
+Primeiro autor. Estudo de caso sobre embarcar um motor de inferência em J2ME em dispositivos de mão com recursos restritos.
 
-### KSACI: A Handheld Device Infrastructure for Agent Communication
-_Conferência ATAL 2001, Seattle, EUA · 2001_
+### [KSACI: A Handheld Device Infrastructure for Agents Communication](https://link.springer.com/chapter/10.1007/3-540-45448-9_32)
+_Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, EUA — Springer, p. 423–435 · 2001_
 
-Autores: R. Albuquerque, J. Hubner, G. Eliano de Paula, J. Sichman, G. Ramalho.
+Primeiro autor. Infraestrutura de comunicação para agentes executando em dispositivos de mão — construída sobre o framework SACI, com KQML como linguagem externa e XML como interna, demonstrada em emuladores de celular J2ME da época.
 
 
-## Languages
+## Idiomas
 
 - **Português**: Nativo
 - **Inglês**: Proficiência profissional

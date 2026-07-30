@@ -1,8 +1,8 @@
 # Ryan Leite Albuquerque
 **Senior Software Engineer**
-✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 LinkedIn: [ryalb](https://linkedin.com/in/ryalb)
+✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb)
 
-Senior backend engineer with 26 years of production experience, currently the top 2026 contributor to a production ML platform for automated issue triage and duplicate detection — FastAPI, Kafka, Milvus vector search and Snowflake on Kubernetes. Regularly delivers internal platforms solo, from data model to production deploy: team onboarding on Django/GraphQL/Celery, an engineering-metrics platform with nine CI-fed dashboards, two real-time collaboration apps, and AI developer tooling — an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving triage tools to Claude Code, Cursor and Xcode. Delivery automation runs through every role, from ClearCase and Ant to Jenkins, Docker and Kubernetes, alongside test-coverage and toolchain programs across five repositories. Polyglot by necessity rather than preference, with production systems in Java, C, PHP, Ruby and Python. Earlier career paired full-stack delivery and Scrum technical leadership with defining software configuration management practice at institute scale, leading a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
+Senior backend engineer, 26 years in production. Shares ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and ships internal platforms solo, from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production systems in Java, C, PHP, Ruby and Python. Earlier, led a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
 
 ## Work Experience
 
@@ -10,27 +10,28 @@ Senior backend engineer with 26 years of production experience, currently the to
 _📍 Recife, PE, Brazil · 🗓 2026-01 – Present_
 
 Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, four internal platforms and real-time apps built solo, AI/LLM developer tooling, and quality programs across five repositories.
-- Top 2026 contributor to a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
+- Shared ownership of a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
 - Built solo a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) replacing a manual nine-step process.
 - Built solo an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
 - Added a self-service web app that triggers metric collection on demand with live log streaming, plus weekly Kubernetes CronJobs covering three repositories.
 - Shipped AI developer tooling: an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving six triage tools to Claude Code, Cursor and Xcode.
 - Delivered two real-time team apps solo: planning poker on Django Channels WebSockets, and retrospectives on GraphQL with a six-state workflow engine.
-- Drove test-coverage and toolchain programs across five repositories: thousands of new tests, Poetry to uv, pre-commit to prek, ruff and type-check gates, CI coverage reporting.
+- Raised test coverage across five repositories, adding thousands of tests and wiring coverage reporting into CI.
+- Standardized the Python toolchain across the same five repositories: Poetry to uv, pre-commit to prek, plus ruff and type-check gates.
 
 ### Senior Backend Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2022-10 – 2025-12_
 
 Python backend services for two concurrent web platforms, standardized on JSON:API response contracts and backed by end-to-end CI/CD ownership with automated quality gates.
-- Built and maintained backend services for two concurrent web platforms in Python (Django and Flask), enforcing production-grade quality through automated formatting, linting and test gates in CI.
+- Built and maintained backend services for two concurrent web platforms in Python (Django and Flask).
 - Designed and implemented REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.
-- Owned the CI/CD pipeline end to end (Docker, Git/GitFlow, Jenkins), delivering fully automated build, test and deployment cycles.
+- Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) — automated build, test and deploy, with formatting, lint and test gates enforced in CI.
 
 ### Senior Full-Stack Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
 
 Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them.
-- Delivered four production web applications using PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).
+- Delivered four production web applications across nine years and four client engagements, each in a different language stack — PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.
 - Led technical direction for Scrum teams, running sprint planning, code review practice and delivery commitments.
 
@@ -90,7 +91,7 @@ _🗓 1996-01 – 2000-01_
 
 ## Skills
 
-**Backend** (Expert): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
+**Backend** (Expert): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`, `C`
 
 **Frontend** (Advanced): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
 
@@ -125,22 +126,22 @@ Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at CESAR 
 ### Software Configuration Management Diversity: A Commercial Case Study
 _BCS-CMSG — The CMDB and CMS: the Powerhouse of Service Management · 2008-07_
 
-Authors: T. H. B. Oliveira, R. Albuquerque.
+Second of two authors. Commercial case study on sustaining diverse software configuration management practices inside one organization, published while leading CESAR's company-wide SCM team.
 
-### Desenvolvendo Projeto Conceitual de Jogos Wireless (Developing Conceptual Design for Wireless Games)
-_1st Brazilian Workshop on Games and Digital Entertainment (WJOGOS), SIBGRAPI 2002, Fortaleza, Brazil · 2002-10_
+### Desenvolvendo o Projeto Conceitual de Jogos Wireless (Developing the Conceptual Design for Wireless Games)
+_1st Brazilian Workshop in Games and Digital Entertainment (WJOGOS), SIBGRAPI 2002, Fortaleza, Brazil — pp. 141–144 · 2002-10_
 
-Authors: D. R. Silva, A. Damasceno, E. Perazzo, P. Macedo, R. Albuquerque, G. L. Ramalho.
+Fifth of six authors. Conceptual design methods for wireless games, drawn from CESAR's early J2ME mobile game development.
 
-### Embedding a J2ME-Based Inference Engine in Handheld Devices: The KEOPS Case Study
-_Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Italy · 2002_
+### Embedding J2ME-based Inference Engine in Handheld Devices: The KEOPS Case Study
+_Proceedings of the First International Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Bologna, Italy · 2002_
 
-Authors: R. Albuquerque, P. Guedes, C. Figueira Filho, J. Robin, G. Ramalho.
+First author. Case study on embedding an inference engine in J2ME for resource-constrained handheld devices.
 
-### KSACI: A Handheld Device Infrastructure for Agent Communication
-_ATAL 2001 Conference, Seattle, USA · 2001_
+### [KSACI: A Handheld Device Infrastructure for Agents Communication](https://link.springer.com/chapter/10.1007/3-540-45448-9_32)
+_Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, USA — Springer, pp. 423–435 · 2001_
 
-Authors: R. Albuquerque, J. Hubner, G. Eliano de Paula, J. Sichman, G. Ramalho.
+First author. Communication infrastructure for agents running on handheld devices — built on the SACI framework, using KQML as the outer language and XML as the inner one, and demonstrated on early J2ME cell-phone emulators.
 
 
 ## Languages
