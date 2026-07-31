@@ -1,5 +1,5 @@
 # Ryan Leite Albuquerque
-**Senior Software Engineer**
+**Principal Technical Manager · Senior Software Engineer**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
 Backend and platform engineer, 26 years in production. Co-owns a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and delivers internal platforms from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Earlier: Python backend services on JSON:API contracts with CI/CD and Sentry ownership, and technical lead for Scrum teams of 6 to 15 engineers. M.Sc. in Computer Science (Artificial Intelligence).
@@ -87,7 +87,7 @@ _📍 Recife, PE, Brazil · 🗓 2001-01 – 2001-10_
 The institute's first J2ME mobile development practice: 15+ applications shipped, including an internationally awarded game.
 - Pioneered J2ME application development at CESAR, establishing the institute's first mobile development practice.
 - Built 15+ mobile applications, primarily games, for early Java-enabled handsets.
-- Authored Sea Hunter, awarded Best Application from the Americas at the Asia Java Mobile Challenge.
+- Authored Sea Hunter, recognized as one of the top 20 applications at the Asia Java Mobile Challenge.
 
 ### Junior Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2000-06 – 2000-12_
@@ -144,7 +144,7 @@ First author. Communication infrastructure for agents running on handheld device
 
 ## Awards
 
-### [Best Application from the Americas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
+### [Sea Hunter — One of the top 20 applications at the Asia Java Mobile Challenge](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
 _Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) · 2002_
 
 Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at CESAR (Brazil), was named one of the Top 20 finalists selected from more than 1,000 entrants across 23 countries.

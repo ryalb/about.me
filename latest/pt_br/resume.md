@@ -1,5 +1,5 @@
 # Ryan Leite Albuquerque
-**Engenheiro de Software Sênior**
+**Principal Technical Manager · Engenheiro de Software Sênior**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
 Engenheiro de backend e plataforma, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Antes: serviços de backend em Python com contratos JSON:API, responsabilidade pela CI/CD e pelo Sentry, e liderança técnica de equipes Scrum de 6 a 15 engenheiros. Mestre em Ciência da Computação (Inteligência Artificial).
@@ -87,7 +87,7 @@ _📍 Recife, PE, Brasil · 🗓 2001-01 – 2001-10_
 Primeira prática de desenvolvimento mobile em J2ME do instituto: mais de 15 aplicações entregues, incluindo um jogo premiado internacionalmente.
 - Fui pioneiro no desenvolvimento de aplicações J2ME no CESAR, estabelecendo a primeira prática de desenvolvimento mobile do instituto.
 - Desenvolvi mais de 15 aplicações móveis, principalmente jogos, para os primeiros aparelhos com suporte a Java.
-- Escrevi o Sea Hunter, premiado como Melhor Aplicação das Américas no Asia Java Mobile Challenge.
+- Escrevi o Sea Hunter, premiado como uma das 20 melhores aplicações no Asia Java Mobile Challenge.
 
 ### Engenheiro de Software Júnior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2000-06 – 2000-12_
@@ -144,7 +144,7 @@ Primeiro autor. Infraestrutura de comunicação para agentes executando em dispo
 
 ## Prêmios
 
-### [Melhor Aplicação das Américas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
+### [Sea Hunter — Uma das 20 melhores aplicações do Asia Java Mobile Challenge](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
 _Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
 
 O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.

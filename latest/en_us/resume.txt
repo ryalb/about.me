@@ -1,5 +1,5 @@
                              RYAN LEITE ALBUQUERQUE
-                            Senior Software Engineer
+             Principal Technical Manager · Senior Software Engineer
 ────────────────────────────────────────────────────────────────────────────────
 ryan.leite@gmail.com  +55 81 98255-0011  Fortaleza, Ceará, BR  linkedin.com/in/ryalb  lattes.cnpq.br/3280302693405113
 
@@ -164,7 +164,7 @@ Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Rec
     institute's first mobile development practice.
     • Built 15+ mobile applications, primarily games, for early Java-enabled
     handsets.
-    • Authored Sea Hunter, awarded Best Application from the Americas at the
+    • Authored Sea Hunter, recognized as one of the top 20 applications at the
     Asia Java Mobile Challenge.
 
 Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2000-06 – 2000-12
@@ -225,7 +225,7 @@ KSACI: A Handheld Device Infrastructure for Agents Communication Intelligent Age
 AWARDS
 ────────────────────────────────────────────────────────────────────────────────
 
-Best Application from the Americas — Sea Hunter Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) | 2002
+Sea Hunter — One of the top 20 applications at the Asia Java Mobile Challenge Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) | 2002
   Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at
   CESAR (Brazil), was named one of the Top 20 finalists selected from more than
   1,000 entrants across 23 countries.
