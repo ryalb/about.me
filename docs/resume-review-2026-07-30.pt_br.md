@@ -39,18 +39,15 @@ plataforma de onboarding ainda não foi medida em produção (veja abaixo). Revi
 
 ---
 
-## Bloqueando — depende da sua resposta
+## Aberto — sua decisão, nada bloqueante
 
-### Fatos que eu não consigo inferir
+Todos os dezenove itens numerados (P1–P19) estão encerrados. Restam três decisões de julgamento.
 
-| # | Pergunta | Por que importa |
+| # | Item | Observações |
 |---|---|---|
-| **P6** | Você foi responsável por **observabilidade** — OpenTelemetry, Sentry? | Estão apenas em `skills.keywords` (en `:260`, pt `:250`) e nunca aparecem em um highlight. Parsers de ATS leem a prosa do documento, não o seu esquema de etiquetas, então como está hoje eles são efetivamente ausentes. Se foi você, merece um bullet; se era ambiente, provavelmente deveria sair das palavras-chave. |
-
-### Decisões
-
-| # | Decisão | Observações |
-|---|---|---|
+| **O1** | **Quatro afirmações de trabalho solo ainda acima dos bullets.** `basics.summary`, `work[0].summary`, `meta.summaries.backend` e `meta.summaries.lead` ainda dizem que plataformas foram construídas/entregues **sozinho**, mas nenhum bullet afirma isso — os três foram alterados a pedido. | A página 1 afirma entrega solo sem nada abaixo sustentando: a alegação continua, agora sem evidência. O estado consistente é remover as quatro. Contra-argumento para manter: propriedade ponta a ponta é um sinal raro e genuíno de nível Principal, e sem ela os bullets soam como contribuição de time comum. Se o incômodo era o tom e não o fato, "único desenvolvedor de…" dito **uma vez** no `work[0].summary` preserva o sinal sem repetir três vezes. |
+| **O2** | **Data de conclusão do bacharelado.** O currículo diz `2000-01`; seu Lattes diz **1996–1999**, em dois lugares distintos. | O PDF da dissertação não trata disso. Depende da sua confirmação — não vou sobrescrever a data de um diploma com base em um auto-preenchimento de 2014. |
+| **O3** | **A contagem de páginas do pt_BR é instável na fronteira 6/7.** | Oscilou 6→7→6→7 em quatro edições de conteúdo hoje. A causa é conhecida (veja a nota de paginação abaixo), não é defeito. O `--zoom 82%` fixou em 6 no teste. O en_US está estável em 6. Aceitar a oscilação, ou fixar o zoom. |
 
 ---
 
@@ -102,6 +99,12 @@ cópia vendorada do npm; o `$schema` aponta para a branch master no GitHub, que 
 | **Três publicações nunca terão URL — encerrado** | Só o KSACI tem (capítulo na Springer, verificado). KEOPS, WJogos e o artigo da BCS-CMSG não têm DOI, não têm registro em índice, e você não tem os PDFs. Os **registros bibliográficos agora estão corretos e completos** — títulos, veículos, faixas de página, posição de autoria — que é o que um leitor pode de fato conferir. Uma citação sem link é normal para artigos de workshop de 2001–2008 em eventos pequenos. Não levantar de novo. |
 | **Cabeçalho e títulos — resolvido** | O `basics.label` fica como **"Engenheiro de Software Sênior"** e as entradas de trabalho levam os títulos oficiais (`work[0]` = "Principal Technical Manager · Engenharia de Backend e Plataforma"). Cabeçalho = cargo-alvo, entradas = títulos reais: uma separação normal e amigável a ATS. Consequência a aceitar: o `basics.summary` abre com "Engenheiro backend sênior" e as quatro variantes de `meta.summaries` abrem com "engenheiro"/"líder de engenharia", concordando agora com o cabeçalho e não com o `work[0]`. Isso é coerente nesta escolha. |
 | **Títulos pré-2009 estão corretos** | As entradas 4–7 (2000-06 → 2009-01) mantêm Engenheiro de Software Júnior ×2, Engenheiro de GCS, Engenheiro Sênior de GCS — confirmados como os títulos reais. Com os títulos de 2009 em diante, a progressão fica Júnior → Engenheiro de GCS → Engenheiro Sênior de GCS → Technical Manager → Senior Technical Manager → Principal Technical Manager. Não levantar de novo. |
+| **Sentry — posicionado, P6 encerrada** | Usado em todos os projetos depois de 2022, então o bullet foi para o `work[1]` (2022-10 – 2025-12), onde a prática começa: "Configurei e operei o monitoramento de erros com Sentry nas duas plataformas — criando projetos por ambiente e instrumentando as aplicações de frontend e backend." Não duplicado no `work[0]`; repetir um bullet em blocos adjacentes traz de volta a aparência de enchimento. `Sentry` está nas `keywords` dos dois cargos, então o cargo atual segue etiquetado. O OpenTelemetry foi removido antes — nunca usado. |
+| **C e Asterisk removidos por completo** | A pedido, toda referência saiu dos dois idiomas e dos dez artefatos (verificado: 0 ocorrências de C como palavra, `Asterisk`, `telephony`/`telefonia`). Isso foi além das duas palavras: o `work[3].h[0]` foi apagado (5 → 4 bullets, era inteiramente sobre a plataforma de telefonia), o `work[3].summary` foi reescrito, o `work[3].keywords` perdeu as duas entradas, e o qualificador de cargo teve de ser refeito a partir do que sobrou — agora **"Technical Manager · Java Corporativo e Mobile"** (en: "Enterprise Java & Mobile"), substituindo o aprovado "Telefonia e Java Corporativo", que ficara meio falso. A linha poliglota no `basics.summary` e no `meta.summaries.backend` caiu para "Java, PHP, Ruby e Python". Consequência a aceitar: aquele cargo agora soa como Java corporativo puro, e o currículo não contém mais nenhum trabalho de baixo nível. |
+| **Paginação: WeasyPrint e Chrome divergem, e isso é esperado** | Salvar o `resume.html` pelo Chrome dá ~5 páginas onde o WeasyPrint dá 6. **Não reproduzido** — não foi possível rodar o Chrome headless neste ambiente. Duas causas candidatas, distinguíveis ajustando o diálogo de impressão do Chrome para Margens **Padrão** e Escala **100%** e salvando de novo: se continuar 5, é diferença de engine (a fragmentação de grid do WeasyPrint 69 é mais fraca que a do Blink — o `references/pipeline.md` já documenta a falha em resolver `repeat(auto-fill, …)`); se der 6, o diálogo estava sobrepondo o `@page { margin: 14mm 14mm 16mm 14mm }`. **Descartado:** substituição de fonte — o IosevkaTermSlab está instalado localmente (207 resultados no `fc-list`), então os dois engines usam as mesmas métricas. As 5 páginas do Chrome não são automaticamente "certas": se vierem de margens menores, o PDF tem menos respiro do que o tema pretende, e a saída do WeasyPrint é a que o build entrega. |
+| **Por que seções deixam espaço em branco antes de quebrar** | O `Section` já é forçado a `break-inside: auto` (`Resume.jsx:20-25`), sobrepondo o `avoid` fixo do `@jsonresume/core`, e o `Item` omite `break-inside: avoid` de propósito — o comentário na linha `~271` registra que proibir isso somava ~2 páginas. As regras `avoid` que restam são estreitas e intencionais: `CompactItem` (~291), `ItemHeader` (~314, mais `break-after`), `Card` (~439) e o `break-after: avoid` do `SectionTitle` (~252), para um título nunca ficar sozinho no pé da página. Quando um título mais sua primeira entrada indivisível não cabem, os dois vão juntos — é esse o espaço vazio. É também por isso que a contagem de páginas oscila com mudanças pequenas de conteúdo. |
+| **Corrigido: seções pulavam de página deixando espaço em branco** | O `ItemHeader` tinha um `break-after: avoid` sem condição. Uma entrada de formação sem summary e sem courses tem o header como *único* filho, então a regra não tinha irmão seguinte dentro do `Item` e se propagava para a próxima caixa em fluxo — o `SectionTitle` de `PUBLICAÇÕES`, que carrega o seu próprio `break-after: avoid` — encadeando até o grupo inteiro se mover. Isso deixava cerca de meia página vazia. Agora está restrito com `&:not(:last-child)`, então um header só se recusa a separar de um corpo que ele de fato tem. Resultado: os dois diplomas ficam na mesma página, `CERTIFICAÇÕES` saiu da página 6 para a 5, e as páginas 4–5 ganharam 2 linhas cada. **A contagem total de páginas não mudou** (6 nos dois idiomas) — o espaço recuperado é cerca de meia página, não uma inteira. O conteúdo é idêntico; só as posições de quebra de linha mudaram. |
+| **Chrome vs WeasyPrint: ainda é hipótese** | O save-as-PDF do Chrome dá ~5 páginas contra 6 do WeasyPrint. **Não reproduzido** — não foi possível rodar o Chrome headless aqui (travou e foi encerrado). Descartado: substituição de fonte (o IosevkaTermSlab está instalado, 207 resultados no `fc-list`, então as métricas coincidem). Provavelmente diferença de engine — o WeasyPrint propaga `break-after: avoid` de um header último-filho de forma mais agressiva que o Blink, o mesmo mecanismo do bug acima, então o Chrome talvez nunca tenha pagado esse custo. Para descartar a explicação mais simples, ajuste o diálogo do Chrome para Margens **Padrão** e Escala **100%** e salve de novo: se continuar 5, é engine; se der 6, o diálogo estava sobrepondo o `@page { margin: 14mm 14mm 16mm 14mm }`. |
 | **Competências caem na página 4 de 6** no PDF do mestre | Consequência da contagem de páginas. Na variante enxuta elas ficam na página 1. |
 | **A ordem das seções difere entre formatos** | `md`/`txt`: Work → Education → Skills → Awards → Certifications → Publications → Languages. `pdf`/`html`: Experience → Skills → Education → Publications → Awards → Languages → Certificates. Nenhuma está errada, mas "o que o recrutador vê primeiro" precisa ser ajustado duas vezes. Unificar é uma mudança pequena, se você quiser. |
 
@@ -109,7 +112,7 @@ cópia vendorada do npm; o `$schema` aponta para a branch master no GitHub, que 
 
 ## Ordem recomendada
 
-1. **P6** — a última pergunta que depende de um fato: qual(is) cargo(s) levam o trabalho com Sentry.
-2. **P13** — a decisão de senioridade/título.
-3. **P18** — opcional; torna escaneável a sua razão para os blocos separados.
-4. **P15–P16** — detalhes dos registros das publicações; nenhum é bloqueante.
+1. **O1** — as afirmações de trabalho solo. A página 1 hoje faz uma alegação que nenhum
+   bullet sustenta; é o único item restante que muda como o documento é lido.
+2. **O2** — uma data, uma resposta.
+3. **O3** — cosmético; aceitar a oscilação ou fixar `--zoom 82%` na task do pt.

@@ -37,18 +37,15 @@ has not been measured in production yet (see below). Revisit when it has.
 
 ---
 
-## Blocking — needs your answer
+## Open — your call, none blocking
 
-### Facts I can't infer
+All nineteen numbered items (P1–P19) are closed. What remains is three judgement calls.
 
-| # | Question | Why it matters |
+| # | Item | Notes |
 |---|---|---|
-| **P6** | Did you personally own **observability** work — OpenTelemetry, Sentry? | They sit in `skills.keywords` only (en `:260`, pt `:250`) and never appear in a highlight. ATS parsers read document prose, not your tagging scheme, so as written they are effectively absent. If you owned it, it needs a bullet; if it was ambient, it should probably leave the keywords. |
-
-### Decisions
-
-| # | Decision | Notes |
-|---|---|---|
+| **O1** | **Four solo claims still above the bullets.** `basics.summary`, `work[0].summary`, `meta.summaries.backend`, `meta.summaries.lead` all still say platforms were built/shipped **solo**, but no bullet claims it any more — all three were changed on request. | Page 1 therefore asserts solo delivery with nothing below supporting it: the claim is still made, now unevidenced. The consistent end state is removing all four. Counter-argument for keeping them: end-to-end sole ownership is a rare and genuine Principal-level signal, and without it those bullets read as ordinary team contributions. If the discomfort was tone rather than fact, "sole developer of…" stated **once** in `work[0].summary` keeps the signal without repeating it three times. |
+| **O2** | **B.Sc. end date.** Resume says `2000-01`; your Lattes says **1996–1999**, in two separate places. | The dissertation PDF does not address it. Needs your confirmation — I will not overwrite a degree date on the strength of a 2014 self-entry. |
+| **O3** | **pt_BR page count is unstable at the 6/7 boundary.** | It flipped 6→7→6→7 across four content edits tonight. Cause is understood (see the pagination note below), not a defect. `--zoom 82%` pinned it at 6 when tested. en_US is stable at 6. Accept the drift, or pin the zoom. |
 
 ---
 
@@ -99,6 +96,12 @@ the vendored npm copy; `$schema` points at the master branch on GitHub, which ma
 | **Three publications will never have a URL — closed** | Only KSACI has one (Springer chapter, verified). KEOPS, WJogos and the BCS-CMSG paper have no DOI, no index record, and you do not have the PDFs. Their **bibliographic records are now correct and complete** — titles, venues, page ranges, authorship position — which is what a reader can actually check. A citation without a link is normal for 2001–2008 workshop papers from small venues. Do not re-raise. |
 | **Headline and titles — settled** | `basics.label` stays **"Senior Software Engineer"** while the work entries carry the official titles (`work[0]` = "Principal Technical Manager · Backend & Platform Engineering"). Headline = target role, entries = actual titles: a normal, ATS-friendly split. Consequence to accept: `basics.summary` opens "Senior backend engineer" and the four `meta.summaries` variants open with "engineer"/"engineering leader", which now agree with the headline rather than with `work[0]`. That is coherent under this choice. |
 | **Pre-2009 titles are correct as written** | Entries 4–7 (2000-06 → 2009-01) keep Junior Software Engineer ×2, Software Configuration Management Engineer, Senior Software Configuration Management Engineer — confirmed as the real titles. Together with the 2009+ titles the progression reads Junior SWE → SCM Engineer → Senior SCM Engineer → Technical Manager → Senior Technical Manager → Principal Technical Manager. Do not re-raise. |
+| **Sentry — placed, P6 closed** | Used on every project after 2022, so the bullet went to `work[1]` (2022-10 – 2025-12) where the practice starts: "Set up and ran Sentry error monitoring for both platforms — creating projects per environment and instrumenting the frontend and backend applications." Not duplicated into `work[0]`; repeating a bullet across adjacent blocks reintroduces the padded look. `Sentry` is in both roles' `keywords` so the current role stays tagged. OpenTelemetry was removed earlier — never used. |
+| **C and Asterisk removed entirely** | On request, every reference is gone from both locales and all ten artifacts (verified 0 occurrences of C-as-a-word, `Asterisk`, `telephony`/`telefonia`). This cascaded further than the two words: `work[3].h[0]` was deleted outright (5 → 4 bullets, it was wholly about the telephony platform), `work[3].summary` was rewritten, `work[3].keywords` lost both entries, and the position qualifier had to be re-derived from what remained — now **"Technical Manager · Enterprise Java & Mobile"** (pt: "Java Corporativo e Mobile"), replacing the approved "Telephony & Enterprise Java", which had become half false. The polyglot line in `basics.summary` and `meta.summaries.backend` dropped to "Java, PHP, Ruby and Python". Consequence to accept: that role now reads as pure enterprise Java, and the resume no longer contains any low-level systems work. |
+| **Pagination: WeasyPrint vs Chrome differ, and that is expected** | Saving `resume.html` from Chrome gives ~5 pages where WeasyPrint gives 6. **Not reproduced** — headless Chrome could not be driven in this environment. Two candidate causes, distinguishable by setting Chrome's print dialog to Margins **Default** and Scale **100%** and re-saving: if still 5, it is an engine difference (WeasyPrint 69's grid fragmentation is weaker than Blink's — `references/pipeline.md` already documents it failing to resolve `repeat(auto-fill, …)`); if 6, the dialog was overriding `@page { margin: 14mm 14mm 16mm 14mm }`. **Ruled out:** font substitution — IosevkaTermSlab is installed locally (207 `fc-list` matches), so both engines share metrics. Note Chrome's 5 pages are not automatically "right": if they come from tighter margins the PDF has less whitespace than the theme intends, and WeasyPrint's output is what the build ships. |
+| **Why sections leave blank space before a break** | `Section` is already forced to `break-inside: auto` (`Resume.jsx:20-25`), overriding `@jsonresume/core`'s hard-coded `avoid`, and `Item` deliberately omits `break-inside: avoid` — the comment at `~271` records that forbidding it added ~2 pages. The remaining `avoid` rules are narrow and intentional: `CompactItem` (~291), `ItemHeader` (~314, plus `break-after`), `Card` (~439), and `SectionTitle`'s `break-after: avoid` (~252) so a heading is never stranded at a page foot. When a heading plus its first unbreakable entry will not fit, both move together — that is the gap. It is also why the page count flips with small content changes. |
+| **Fixed: sections jumped a page leaving whitespace** | `ItemHeader` carried an unconditional `break-after: avoid`. An education entry with no summary and no courses has a header as its *only* child, so the rule had no next sibling inside the `Item` and propagated to the following in-flow box — `PUBLICATIONS`'s `SectionTitle`, which carries its own `break-after: avoid` — chaining until the whole group moved. That stranded roughly half a page. Now scoped with `&:not(:last-child)`, so a header only refuses to break away from a body it actually has. Result: both degrees sit on one page, `CERTIFICATES` moved from page 6 to 5, and pages 4–5 gained 2 lines each. **Total page count did not change** (6 in both locales) — the reclaimed space is about half a page, not a full one. Content is byte-identical; only line-wrap positions moved. |
+| **Chrome vs WeasyPrint: still a hypothesis** | Chrome's save-as-PDF gives ~5 pages against WeasyPrint's 6. **Not reproduced** — headless Chrome could not be driven here (it hung and was killed). Ruled out: font substitution (IosevkaTermSlab is installed, 207 `fc-list` matches, so metrics match). Most likely an engine difference — WeasyPrint propagates `break-after: avoid` from a last-child header more aggressively than Blink, which is the same mechanism as the bug above, so Chrome may simply never have paid that cost. To rule out the cheaper explanation, set Chrome's print dialog to Margins **Default** and Scale **100%** and re-save: if still 5, engine; if 6, the dialog was overriding `@page { margin: 14mm 14mm 16mm 14mm }`. |
 | **Skills render on page 4 of 6** in the master PDF | Follows from the page count. The short variant puts them on page 1. |
 | **Section order differs between formats** | `md`/`txt`: Work → Education → Skills → Awards → Certifications → Publications → Languages. `pdf`/`html`: Experience → Skills → Education → Publications → Awards → Languages → Certificates. Neither is wrong, but "what a recruiter sees first" has to be tuned twice. Small change to unify if you want it. |
 
@@ -106,7 +109,7 @@ the vendored npm copy; `$schema` points at the master branch on GitHub, which ma
 
 ## Recommended order
 
-1. **P6** — the last question needing a fact: which role(s) carry the Sentry work.
-2. **P13** — the seniority/title call.
-3. **P18** — optional; makes your reason for the separate blocks scannable.
-4. **P15–P16** — publication record details; neither is blocking.
+1. **O1** — the solo claims. Page 1 currently makes a claim no bullet supports; this is the
+   only remaining item that affects how the document reads.
+2. **O2** — one date, one answer.
+3. **O3** — cosmetic; accept the drift or pin `--zoom 82%` on the pt task.
