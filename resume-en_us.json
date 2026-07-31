@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
   "basics": {
     "name": "Ryan Leite Albuquerque",
-    "label": "Senior Software Engineer",
+    "label": "Principal Technical Manager · Senior Software Engineer",
     "email": "ryan.leite@gmail.com",
     "phone": "+55 81 98255-0011",
     "summary": "Backend and platform engineer, 26 years in production. Co-owns a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and delivers internal platforms from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Earlier: Python backend services on JSON:API contracts with CI/CD and Sentry ownership, and technical lead for Scrum teams of 6 to 15 engineers. M.Sc. in Computer Science (Artificial Intelligence).",
@@ -135,7 +135,7 @@
       "highlights": [
         "Pioneered J2ME application development at CESAR, establishing the institute's first mobile development practice.",
         "Built 15+ mobile applications, primarily games, for early Java-enabled handsets.",
-        "Authored Sea Hunter, awarded Best Application from the Americas at the Asia Java Mobile Challenge."
+        "Authored Sea Hunter, recognized as one of the top 20 applications at the Asia Java Mobile Challenge."
       ],
       "keywords": ["Java", "J2ME", "Mobile Games"]
     },
@@ -180,7 +180,7 @@
   ],
   "awards": [
     {
-      "title": "Best Application from the Americas — Sea Hunter",
+      "title": "Sea Hunter — One of the top 20 applications at the Asia Java Mobile Challenge",
       "date": "2002",
       "awarder": "Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems)",
       "summary": "Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at CESAR (Brazil), was named one of the Top 20 finalists selected from more than 1,000 entrants across 23 countries.",

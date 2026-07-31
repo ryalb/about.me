@@ -2,7 +2,7 @@
   "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
   "basics": {
     "name": "Ryan Leite Albuquerque",
-    "label": "Engenheiro de Software Sênior",
+    "label": "Principal Technical Manager · Engenheiro de Software Sênior",
     "email": "ryan.leite@gmail.com",
     "phone": "+55 81 98255-0011",
     "summary": "Engenheiro de backend e plataforma, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Antes: serviços de backend em Python com contratos JSON:API, responsabilidade pela CI/CD e pelo Sentry, e liderança técnica de equipes Scrum de 6 a 15 engenheiros. Mestre em Ciência da Computação (Inteligência Artificial).",
@@ -135,7 +135,7 @@
       "highlights": [
         "Fui pioneiro no desenvolvimento de aplicações J2ME no CESAR, estabelecendo a primeira prática de desenvolvimento mobile do instituto.",
         "Desenvolvi mais de 15 aplicações móveis, principalmente jogos, para os primeiros aparelhos com suporte a Java.",
-        "Escrevi o Sea Hunter, premiado como Melhor Aplicação das Américas no Asia Java Mobile Challenge."
+        "Escrevi o Sea Hunter, premiado como uma das 20 melhores aplicações no Asia Java Mobile Challenge."
       ],
       "keywords": ["Java", "J2ME", "Mobile Games"]
     },
@@ -180,7 +180,7 @@
   ],
   "awards": [
     {
-      "title": "Melhor Aplicação das Américas — Sea Hunter",
+      "title": "Sea Hunter — Uma das 20 melhores aplicações do Asia Java Mobile Challenge",
       "date": "2002",
       "awarder": "Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems)",
       "summary": "O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.",
