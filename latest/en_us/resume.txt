@@ -8,10 +8,9 @@ platform for automated issue triage and duplicate detection — FastAPI over
 Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and delivers
 internal platforms from data model to deploy: team onboarding
 (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed
-dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Previously
-ran Python backend services for two concurrent web platforms on JSON:API
-contracts, owning CI/CD and Sentry end to end, and was technical lead for Scrum
-teams of 6 to 15 engineers across four client projects. M.Sc. in Computer
+dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Earlier:
+Python backend services on JSON:API contracts with CI/CD and Sentry ownership,
+and technical lead for Scrum teams of 6 to 15 engineers. M.Sc. in Computer
 Science (Artificial Intelligence).
 
 
@@ -22,15 +21,15 @@ Backend (Expert): Python, Django, FastAPI, Flask, Falcon, GraphQL, Strawberry
 GraphQL, REST API, JSON:API, Celery, Kafka, WebSockets, PHP, Yii, Laravel, Ruby
 on Rails, Java
 Frontend (Advanced): JavaScript, TypeScript, VueJS, NuxtJS, PrimeVue, Tailwind
-CSS, Pinia, EmberJS, Backbone/Marionette, HTML, CSS, SCSS/SASS, BEM
+CSS, Pinia, EmberJS, Backbone/Marionette, SCSS/SASS
 AI & ML Engineering (Advanced): LLM application development, Model Context
 Protocol (MCP), Claude Agent SDK, Agentic tooling, Vector search, Milvus,
 Snowflake
 DevOps & CI/CD (Expert): CI/CD, Jenkins, TeamCity, GitLab CI, Docker, Multi-arch
-builds, Ansible, HashiCorp Vault, Sealed Secrets, uv, mise, prek, ruff, pytest,
-Bash, Git, GitFlow, GitHub, GitLab
+builds, Ansible, HashiCorp Vault, Sealed Secrets, uv, prek, ruff, pytest, Git,
+GitFlow
 Cloud & Orchestration (Advanced): Kubernetes, Helm, Kustomize, AWS EKS, AWS,
-Google Cloud, mTLS, OAuth 2.0, Sentry, Error monitoring
+Google Cloud, mTLS, OAuth 2.0, Sentry
 Databases (Advanced): PostgreSQL, MySQL, Oracle, Redis, Milvus, Snowflake
 Process & Leadership (Expert): Software Configuration Management, CMMI, SCAMPI
 appraisal, Scrum, Kanban, Technical Leadership, Code Review, Mentoring
@@ -55,10 +54,10 @@ Principal Technical Manager · Backend & Platform Engineering @ CESAR (Centro de
     • Developed an engineering-metrics platform (Django + GraphQL, Nuxt 4,
     PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-
     request and bug-fix data from CI.
-    • Added a self-service web app that triggers metric collection on demand
+    • Developed a self-service web app that triggers metric collection on demand
     with live log streaming, plus weekly Kubernetes CronJobs covering three
     repositories.
-    • Shipped AI developer tooling: an autonomous Claude Agent SDK bug-fixer
+    • Delivered AI developer tooling: an autonomous Claude Agent SDK bug-fixer
     that opens pull requests behind a confidence gate, and an MCP server serving
     six triage tools to Claude Code, Cursor and Xcode.
     • Delivered two real-time team apps: planning poker on Django Channels
@@ -69,22 +68,29 @@ Principal Technical Manager · Backend & Platform Engineering @ CESAR (Centro de
     • Standardized the Python toolchain across the same five repositories:
     Poetry to uv, pre-commit to prek, plus ruff and type-check gates.
 
-Senior Technical Manager · Python Backend Services @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2022-10 – 2025-12
+Senior Technical Manager · PHP & Python Backend Services @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2022-10 – 2025-12
   Recife, PE, Brazil
-  Python backend services for two concurrent web platforms, standardized on
-  JSON:API response contracts and backed by end-to-end CI/CD ownership with
-  automated quality gates.
-    • Built and maintained backend services for two concurrent web platforms in
+  Backend services for four concurrent web platforms — two client applications
+  and CESAR's two institutional systems — standardized on JSON:API response
+  contracts and backed by end-to-end CI/CD ownership with automated quality
+  gates.
+    • Built and maintained backend services for two client web applications in
     Python (Django and Flask).
-    • Designed and implemented REST APIs to the JSON:API specification,
-    standardizing response contracts across teams and reducing integration
+    • Built and maintained CESAR's two institutional platforms alongside them:
+    the portfolio system (Laravel 9 API, Nuxt 2 front end) and, from 2024, the
+    surveys system (Flask 3 API with SQLAlchemy, Redis caching, scheduled jobs
+    and Swagger docs, Nuxt 3 front end).
+    • Designed and implemented REST APIs to the JSON:API specification across
+    both stacks, standardizing response contracts and reducing integration
     rework between backend and frontend squads.
-    • Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) —
-    automated build, test and deploy, with formatting, lint and test gates
-    enforced in CI.
-    • Set up and ran Sentry error monitoring for both platforms — creating
-    projects per environment and instrumenting the frontend and backend
-    applications.
+    • Owned CI/CD end to end for all four platforms (Docker, Git/GitFlow,
+    Jenkins) — automated build, test and deploy, with formatting, lint and test
+    gates enforced in CI.
+    • Ran Sentry error monitoring across three of the four platforms, on two
+    separate instances — a client's and CESAR's — creating projects per
+    environment and instrumenting both frontend and backend applications.
+    • Authored the entire backend unit and integration test suites for the two
+    client applications, reaching ~50% coverage on one and ~98% on the other.
 
 Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2013-06 – 2022-09
   Recife, PE, Brazil
@@ -98,6 +104,9 @@ Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (
     • Built and maintained CI/CD environments with Git/GitFlow, TeamCity,
     Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully
     automated deployments.
+    • Built and maintained the portfolio platform from 2020 — a Laravel 9 API
+    exposing JSON:API contracts, with a Nuxt 2 front end added in 2022 — carried
+    forward into the following roles.
     • Served as technical lead across four client projects with Scrum teams of 6
     to 15 engineers, running sprint planning, code review practice and delivery
     commitments.

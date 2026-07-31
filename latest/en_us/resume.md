@@ -2,19 +2,19 @@
 **Senior Software Engineer**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
-Backend and platform engineer, 26 years in production. Co-owns a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and delivers internal platforms from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Previously ran Python backend services for two concurrent web platforms on JSON:API contracts, owning CI/CD and Sentry end to end, and was technical lead for Scrum teams of 6 to 15 engineers across four client projects. M.Sc. in Computer Science (Artificial Intelligence).
+Backend and platform engineer, 26 years in production. Co-owns a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and delivers internal platforms from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Earlier: Python backend services on JSON:API contracts with CI/CD and Sentry ownership, and technical lead for Scrum teams of 6 to 15 engineers. M.Sc. in Computer Science (Artificial Intelligence).
 
 ## Skills
 
 **Backend** (Expert): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
 
-**Frontend** (Advanced): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
+**Frontend** (Advanced): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `SCSS/SASS`
 
 **AI & ML Engineering** (Advanced): `LLM application development`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Agentic tooling`, `Vector search`, `Milvus`, `Snowflake`
 
-**DevOps & CI/CD** (Expert): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Multi-arch builds`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `mise`, `prek`, `ruff`, `pytest`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
+**DevOps & CI/CD** (Expert): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Multi-arch builds`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `prek`, `ruff`, `pytest`, `Git`, `GitFlow`
 
-**Cloud & Orchestration** (Advanced): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`, `Error monitoring`
+**Cloud & Orchestration** (Advanced): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`
 
 **Databases** (Advanced): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
 
@@ -30,20 +30,22 @@ Backend and platform engineering for ML-driven developer-productivity systems: s
 - Shared ownership of a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
 - Developed a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) that automates a manual nine-step process, with progress tracking, user notifications and update triggers.
 - Developed an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
-- Added a self-service web app that triggers metric collection on demand with live log streaming, plus weekly Kubernetes CronJobs covering three repositories.
-- Shipped AI developer tooling: an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving six triage tools to Claude Code, Cursor and Xcode.
+- Developed a self-service web app that triggers metric collection on demand with live log streaming, plus weekly Kubernetes CronJobs covering three repositories.
+- Delivered AI developer tooling: an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving six triage tools to Claude Code, Cursor and Xcode.
 - Delivered two real-time team apps: planning poker on Django Channels WebSockets, and retrospectives on GraphQL with a six-state workflow engine.
 - Raised test coverage across five repositories — one from 0% to ~80% by authoring its entire test suite, the other four from roughly 50% to ~80% — and wired coverage reporting into CI.
 - Standardized the Python toolchain across the same five repositories: Poetry to uv, pre-commit to prek, plus ruff and type-check gates.
 
-### Senior Technical Manager · Python Backend Services — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+### Senior Technical Manager · PHP & Python Backend Services — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2022-10 – 2025-12_
 
-Python backend services for two concurrent web platforms, standardized on JSON:API response contracts and backed by end-to-end CI/CD ownership with automated quality gates.
-- Built and maintained backend services for two concurrent web platforms in Python (Django and Flask).
-- Designed and implemented REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.
-- Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) — automated build, test and deploy, with formatting, lint and test gates enforced in CI.
-- Set up and ran Sentry error monitoring for both platforms — creating projects per environment and instrumenting the frontend and backend applications.
+Backend services for four concurrent web platforms — two client applications and CESAR's two institutional systems — standardized on JSON:API response contracts and backed by end-to-end CI/CD ownership with automated quality gates.
+- Built and maintained backend services for two client web applications in Python (Django and Flask).
+- Built and maintained CESAR's two institutional platforms alongside them: the portfolio system (Laravel 9 API, Nuxt 2 front end) and, from 2024, the surveys system (Flask 3 API with SQLAlchemy, Redis caching, scheduled jobs and Swagger docs, Nuxt 3 front end).
+- Designed and implemented REST APIs to the JSON:API specification across both stacks, standardizing response contracts and reducing integration rework between backend and frontend squads.
+- Owned CI/CD end to end for all four platforms (Docker, Git/GitFlow, Jenkins) — automated build, test and deploy, with formatting, lint and test gates enforced in CI.
+- Ran Sentry error monitoring across three of the four platforms, on two separate instances — a client's and CESAR's — creating projects per environment and instrumenting both frontend and backend applications.
+- Authored the entire backend unit and integration test suites for the two client applications, reaching ~50% coverage on one and ~98% on the other.
 
 ### Senior Technical Manager · Full-Stack Delivery & Technical Leadership — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
@@ -51,6 +53,7 @@ _📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
 Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them.
 - Contributed to the development of four production web applications across nine years and four client engagements, each in a different language stack — PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.
+- Built and maintained the portfolio platform from 2020 — a Laravel 9 API exposing JSON:API contracts, with a Nuxt 2 front end added in 2022 — carried forward into the following roles.
 - Served as technical lead across four client projects with Scrum teams of 6 to 15 engineers, running sprint planning, code review practice and delivery commitments.
 
 ### Technical Manager · Enterprise Java & Mobile — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
