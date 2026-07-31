@@ -41,10 +41,10 @@ WORK EXPERIENCE
 Principal Technical Manager · Backend & Platform Engineering @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2026-01 – Present
   Recife, PE, Brazil
   Backend and platform engineering for ML-driven developer-productivity systems:
-  shared ownership of a production ML platform, four internal platforms and
-  real-time apps, AI/LLM developer tooling, and quality programs across five
-  repositories. Kubernetes deployments authored as Helm charts, with Kustomize
-  overlays.
+  shared ownership of a production ML platform, two internal platforms and two
+  real-time team apps, AI/LLM developer tooling, and quality programs across
+  five repositories. Kubernetes deployments authored as Helm charts, with
+  Kustomize overlays.
     • Shared ownership of a production ML platform for automated issue triage
     and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake,
     Kubernetes on AWS EKS.
@@ -96,7 +96,8 @@ Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (
   Recife, PE, Brazil
   Nine years across four client projects: four production web applications in
   four language stacks, the CI/CD environments behind them, and technical
-  direction for the Scrum teams delivering them.
+  direction for the Scrum teams delivering them — plus CESAR's own portfolio
+  platform from 2020.
     • Contributed to the development of four production web applications across
     nine years and four client engagements, each in a different language stack —
     PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript

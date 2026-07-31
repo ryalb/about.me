@@ -26,7 +26,7 @@ Engenheiro de backend e plataforma, 26 anos em produção. Co-responsável por u
 ### Principal Technical Manager · Engenharia de Backend e Plataforma — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2026-01 – Presente_
 
-Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos, ferramentas com IA/LLM e programas de qualidade em cinco repositórios. Implantações em Kubernetes escritas como Helm charts, com overlays de Kustomize.
+Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, duas plataformas internas e dois apps de tempo real, ferramentas com IA/LLM e programas de qualidade em cinco repositórios. Implantações em Kubernetes escritas como Helm charts, com overlays de Kustomize.
 - Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
 - Desenvolvi uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que automatiza um processo manual de nove etapas, com acompanhamento de progresso, notificações aos usuários e triggers de atualização.
 - Desenvolvi uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.
@@ -50,7 +50,7 @@ Serviços de backend para quatro plataformas web simultâneas — duas aplicaç�
 ### Senior Technical Manager · Entrega Full-Stack e Liderança Técnica — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2013-06 – 2022-09_
 
-Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum.
+Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum — além da plataforma de portfólio do próprio CESAR a partir de 2020.
 - Participei do desenvolvimento de quatro aplicações web em produção ao longo de nove anos e quatro projetos de clientes, cada uma em uma stack de linguagem diferente — PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.
 - Construí e mantive a plataforma de portfólio desde 2020 — uma API em Laravel 9 expondo contratos JSON:API, com front-end em Nuxt 2 adicionado em 2022 — levada adiante nos cargos seguintes.

@@ -42,10 +42,10 @@ EXPERIÊNCIA PROFISSIONAL
 Principal Technical Manager · Engenharia de Backend e Plataforma @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2026-01 – Presente
   Recife, PE, Brasil
   Engenharia de backend e de plataforma para sistemas de produtividade baseados
-  em ML: co-responsabilidade por uma plataforma de ML em produção, quatro
-  plataformas e apps internos, ferramentas com IA/LLM e programas de qualidade
-  em cinco repositórios. Implantações em Kubernetes escritas como Helm charts,
-  com overlays de Kustomize.
+  em ML: co-responsabilidade por uma plataforma de ML em produção, duas
+  plataformas internas e dois apps de tempo real, ferramentas com IA/LLM e
+  programas de qualidade em cinco repositórios. Implantações em Kubernetes
+  escritas como Helm charts, com overlays de Kustomize.
     • Co-responsável por uma plataforma de ML em produção para triagem
     automática de issues e detecção de duplicatas: FastAPI, Kafka, busca
     vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
@@ -102,7 +102,8 @@ Senior Technical Manager · Entrega Full-Stack e Liderança Técnica @ CESAR (Ce
   Recife, PE, Brasil
   Nove anos em quatro projetos de clientes: quatro aplicações web em produção em
   quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção
-  técnica das equipes Scrum.
+  técnica das equipes Scrum — além da plataforma de portfólio do próprio CESAR a
+  partir de 2020.
     • Participei do desenvolvimento de quatro aplicações web em produção ao
     longo de nove anos e quatro projetos de clientes, cada uma em uma stack de
     linguagem diferente — PHP (Yii), Python (Flask/Falcon), Ruby on Rails e

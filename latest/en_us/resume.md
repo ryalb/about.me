@@ -26,7 +26,7 @@ Backend and platform engineer, 26 years in production. Co-owns a production ML p
 ### Principal Technical Manager · Backend & Platform Engineering — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2026-01 – Present_
 
-Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, four internal platforms and real-time apps, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.
+Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, two internal platforms and two real-time team apps, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.
 - Shared ownership of a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
 - Developed a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) that automates a manual nine-step process, with progress tracking, user notifications and update triggers.
 - Developed an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
@@ -50,7 +50,7 @@ Backend services for four concurrent web platforms — two client applications a
 ### Senior Technical Manager · Full-Stack Delivery & Technical Leadership — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
 
-Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them.
+Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them — plus CESAR's own portfolio platform from 2020.
 - Contributed to the development of four production web applications across nine years and four client engagements, each in a different language stack — PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).
 - Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.
 - Built and maintained the portfolio platform from 2020 — a Laravel 9 API exposing JSON:API contracts, with a Nuxt 2 front end added in 2022 — carried forward into the following roles.
