@@ -309,12 +309,25 @@ const ItemHeader = styled.div`
     gap: ${scale(6)};
   }
 
-  /* Never split the title/company/date block itself. */
+  /*
+   * Never split the title/company/date block itself.
+   *
+   * break-after is scoped to headers that actually have a body after them.
+   * On an entry whose header is its only child (an education entry with no
+   * summary and no courses) the rule has no next sibling inside the Item, so
+   * it propagates to the following in-flow box -- the next SectionTitle,
+   * which carries its own break-after: avoid -- and the chain drags that
+   * heading and its whole section to the next page, stranding most of a page
+   * of whitespace.
+   */
   @media print {
     break-inside: avoid;
     page-break-inside: avoid;
-    break-after: avoid;
-    page-break-after: avoid;
+
+    &:not(:last-child) {
+      break-after: avoid;
+      page-break-after: avoid;
+    }
   }
 `;
 
@@ -430,7 +443,7 @@ const CardGrid = styled.div`
 `;
 
 const Card = styled.div`
-  padding: ${scale(20)};
+  padding: ${scale(10)};
   background: ${colors.surface};
   border: 1px solid ${colors.rule};
   border-radius: 2px;
