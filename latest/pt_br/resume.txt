@@ -10,7 +10,7 @@ Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dado
 à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de
 métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de
 desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em
-Java, C, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma
+Java, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma
 avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da
 Computação (Inteligência Artificial).
 
@@ -64,6 +64,9 @@ Senior Technical Manager · Serviços de Backend em Python @ CESAR (Centro de Es
     plataformas (Docker, Git/GitFlow, Jenkins) — build, teste e implantação
     automatizados, com gates de formatação, análise estática e testes aplicados
     na CI.
+    • Configurei e operei o monitoramento de erros com Sentry nas duas
+    plataformas — criando projetos por ambiente e instrumentando as aplicações
+    de frontend e backend.
 
 Senior Technical Manager · Entrega Full-Stack e Liderança Técnica @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2013-06 – 2022-09
   Recife, PE, Brasil
@@ -81,13 +84,11 @@ Senior Technical Manager · Entrega Full-Stack e Liderança Técnica @ CESAR (Ce
     equipes Scrum de 6 a 15 engenheiros, conduzindo planejamento de sprints,
     práticas de code review e compromissos de entrega.
 
-Technical Manager · Telefonia e Java Corporativo @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2009-01 – 2013-06
+Technical Manager · Java Corporativo e Mobile @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2009-01 – 2013-06
   Recife, PE, Brasil
-  Telefonia em C sobre o Asterisk, uma aplicação corporativa web e mobile em
-  Java de ponta a ponta, e as ferramentas de CI/CD e de Scrum por trás delas —
-  além de uma plataforma nacional mantida com tráfego ativo.
-    • Desenvolvi uma plataforma de telefonia em C sobre o Asterisk, cobrindo a
-    lógica de fluxo de chamadas e integrações.
+  Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, as
+  ferramentas de CI/CD e de Scrum por trás dela, e uma plataforma nacional em
+  produção mantida com tráfego ativo.
     • Construí de ponta a ponta uma aplicação corporativa web e mobile
     utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring,
     Hibernate, Oracle e Apache Tomcat.
@@ -155,7 +156,7 @@ Mestrado, Ciência da Computação — Universidade Federal de Pernambuco (UFPE)
   • Sistemas Multiagentes
   • Engenharia de Software
 
-Bacharelado, Ciência da Computação — Universidade Federal do Ceará (UFC) 1996-01 – 2000-01
+Bacharelado, Ciência da Computação — Universidade Federal do Ceará (UFC) 1996-01 – 1999-12
 
 
 COMPETÊNCIAS

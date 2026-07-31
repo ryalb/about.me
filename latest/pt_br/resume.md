@@ -2,7 +2,7 @@
 **Engenheiro de Software Sênior**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
-Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, C, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
+Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
 
 ## Experiência Profissional
 
@@ -26,6 +26,7 @@ Serviços de backend em Python para duas plataformas web simultâneas, padroniza
 - Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask).
 - Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.
 - Fui responsável pela esteira de CI/CD de ponta a ponta nas duas plataformas (Docker, Git/GitFlow, Jenkins) — build, teste e implantação automatizados, com gates de formatação, análise estática e testes aplicados na CI.
+- Configurei e operei o monitoramento de erros com Sentry nas duas plataformas — criando projetos por ambiente e instrumentando as aplicações de frontend e backend.
 
 ### Senior Technical Manager · Entrega Full-Stack e Liderança Técnica — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2013-06 – 2022-09_
@@ -35,11 +36,10 @@ Nove anos em quatro projetos de clientes: quatro aplicações web em produção 
 - Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.
 - Exerci o papel de liderança técnica em quatro projetos de clientes, com equipes Scrum de 6 a 15 engenheiros, conduzindo planejamento de sprints, práticas de code review e compromissos de entrega.
 
-### Technical Manager · Telefonia e Java Corporativo — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+### Technical Manager · Java Corporativo e Mobile — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2009-01 – 2013-06_
 
-Telefonia em C sobre o Asterisk, uma aplicação corporativa web e mobile em Java de ponta a ponta, e as ferramentas de CI/CD e de Scrum por trás delas — além de uma plataforma nacional mantida com tráfego ativo.
-- Desenvolvi uma plataforma de telefonia em C sobre o Asterisk, cobrindo a lógica de fluxo de chamadas e integrações.
+Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, as ferramentas de CI/CD e de Scrum por trás dela, e uma plataforma nacional em produção mantida com tráfego ativo.
 - Construí de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.
 - Implementei um ambiente completo de CI/CD (Subversion/Git, Maven, TeamCity, Tomcat) para builds e implantações automatizadas.
 - Desenvolvi uma integração de task board Scrum para o Mantis (PHP), dando visibilidade compartilhada das sprints a equipes remotas distribuídas.
@@ -86,7 +86,7 @@ _🗓 2000-03 – 2002-08_
 - Engenharia de Software
 
 ### Bacharelado in Ciência da Computação — Universidade Federal do Ceará (UFC)
-_🗓 1996-01 – 2000-01_
+_🗓 1996-01 – 1999-12_
 
 
 ## Competências

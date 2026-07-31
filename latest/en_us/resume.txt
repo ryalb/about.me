@@ -9,9 +9,9 @@ FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS —
 and ships internal platforms solo, from data model to deploy: team onboarding
 (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed
 dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production
-systems in Java, C, PHP, Ruby and Python. Earlier, led a 10-engineer team
-through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in
-Computer Science (Artificial Intelligence).
+systems in Java, PHP, Ruby and Python. Earlier, led a 10-engineer team through a
+CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science
+(Artificial Intelligence).
 
 
 WORK EXPERIENCE
@@ -60,6 +60,9 @@ Senior Technical Manager · Python Backend Services @ CESAR (Centro de Estudos e
     • Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) —
     automated build, test and deploy, with formatting, lint and test gates
     enforced in CI.
+    • Set up and ran Sentry error monitoring for both platforms — creating
+    projects per environment and instrumenting the frontend and backend
+    applications.
 
 Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2013-06 – 2022-09
   Recife, PE, Brazil
@@ -77,13 +80,11 @@ Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (
     to 15 engineers, running sprint planning, code review practice and delivery
     commitments.
 
-Technical Manager · Telephony & Enterprise Java @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2009-01 – 2013-06
+Technical Manager · Enterprise Java & Mobile @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2009-01 – 2013-06
   Recife, PE, Brazil
-  Telephony in C on Asterisk, an enterprise Java web and mobile application
-  built end to end, and the CI/CD and Scrum tooling behind them — including a
-  nationwide platform maintained against live traffic.
-    • Developed a telephony platform in C on Asterisk, covering call flow logic
-    and integration.
+  An enterprise Java web and mobile application built end to end, the CI/CD and
+  Scrum tooling behind it, and a nationwide production platform maintained
+  against live traffic.
     • Built an enterprise web and mobile application end to end using Java
     EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle and
     Apache Tomcat.
@@ -151,7 +152,7 @@ M.Sc., Computer Science — Federal University of Pernambuco (UFPE) 2000-03 – 
   • Multi-Agent Systems
   • Software Engineering
 
-B.Sc., Computer Science — Federal University of Ceará (UFC)    1996-01 – 2000-01
+B.Sc., Computer Science — Federal University of Ceará (UFC)    1996-01 – 1999-12
 
 
 SKILLS

@@ -2,7 +2,7 @@
 **Senior Software Engineer**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
-Senior backend engineer, 26 years in production. Shares ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and ships internal platforms solo, from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production systems in Java, C, PHP, Ruby and Python. Earlier, led a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
+Senior backend engineer, 26 years in production. Shares ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and ships internal platforms solo, from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production systems in Java, PHP, Ruby and Python. Earlier, led a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
 
 ## Work Experience
 
@@ -26,6 +26,7 @@ Python backend services for two concurrent web platforms, standardized on JSON:A
 - Built and maintained backend services for two concurrent web platforms in Python (Django and Flask).
 - Designed and implemented REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.
 - Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) — automated build, test and deploy, with formatting, lint and test gates enforced in CI.
+- Set up and ran Sentry error monitoring for both platforms — creating projects per environment and instrumenting the frontend and backend applications.
 
 ### Senior Technical Manager · Full-Stack Delivery & Technical Leadership — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2013-06 – 2022-09_
@@ -35,11 +36,10 @@ Nine years across four client projects: four production web applications in four
 - Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.
 - Served as technical lead across four client projects with Scrum teams of 6 to 15 engineers, running sprint planning, code review practice and delivery commitments.
 
-### Technical Manager · Telephony & Enterprise Java — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
+### Technical Manager · Enterprise Java & Mobile — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2009-01 – 2013-06_
 
-Telephony in C on Asterisk, an enterprise Java web and mobile application built end to end, and the CI/CD and Scrum tooling behind them — including a nationwide platform maintained against live traffic.
-- Developed a telephony platform in C on Asterisk, covering call flow logic and integration.
+An enterprise Java web and mobile application built end to end, the CI/CD and Scrum tooling behind it, and a nationwide production platform maintained against live traffic.
 - Built an enterprise web and mobile application end to end using Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle and Apache Tomcat.
 - Implemented a complete CI/CD environment (Subversion/Git, Maven, TeamCity, Tomcat) for automated builds and deployments.
 - Built a Scrum task-board integration for Mantis (PHP) that gave distributed remote teams shared sprint visibility.
@@ -86,7 +86,7 @@ _🗓 2000-03 – 2002-08_
 - Software Engineering
 
 ### B.Sc. in Computer Science — Federal University of Ceará (UFC)
-_🗓 1996-01 – 2000-01_
+_🗓 1996-01 – 1999-12_
 
 
 ## Skills
