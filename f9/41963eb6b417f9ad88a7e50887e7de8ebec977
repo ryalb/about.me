@@ -1,0 +1,25 @@
+docs/resume-review-2026-07-30.pt_br.md
+  s_15a6586dcd4a27::t_e27baf7f8b7ded 49,107-108,117-130
+  s_15a6586dcd4a27::t_f81882d6680a8f 24,28,32,110-111
+  s_15a6586dcd4a27::t_12797537b5caa3 109
+docs/resume-review-2026-07-30.md
+  s_15a6586dcd4a27::t_f81882d6680a8f 22,26,30,107-108
+  s_15a6586dcd4a27::t_e27baf7f8b7ded 47,104-105,114-126
+  s_15a6586dcd4a27::t_12797537b5caa3 106
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "f941963eb6b417f9ad88a7e50887e7de8ebec977",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
