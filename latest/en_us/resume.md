@@ -27,12 +27,12 @@ Backend and platform engineer, 26 years in production. Co-owns a production ML p
 _📍 Recife, PE, Brazil · 🗓 2026-01 – Present_
 
 Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, two internal platforms and two real-time team apps, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.
-- Shared ownership of a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
-- Developed a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) that automates a manual nine-step process, with progress tracking, user notifications and update triggers.
-- Developed an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
-- Developed a self-service web app that triggers metric collection on demand with live log streaming, plus weekly Kubernetes CronJobs covering three repositories.
-- Delivered AI developer tooling: an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving six triage tools to Claude Code, Cursor and Xcode.
-- Delivered two real-time team apps: planning poker on Django Channels WebSockets, and retrospectives on GraphQL with a six-state workflow engine.
+- Co-owned a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
+- Built a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) that automates a manual nine-step process, with progress tracking, user notifications and update triggers.
+- Built an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
+- Built a self-service web app that triggers metric collection on demand with live log streaming, plus weekly Kubernetes CronJobs covering three repositories.
+- Built AI developer tooling: an autonomous Claude Agent SDK bug-fixer that opens pull requests behind a confidence gate, and an MCP server serving six triage tools to Claude Code, Cursor and Xcode.
+- Built two real-time team apps: planning poker on Django Channels WebSockets, and retrospectives on GraphQL with a six-state workflow engine.
 - Raised test coverage across five repositories — one from 0% to ~80% by authoring its entire test suite, the other four from roughly 50% to ~80% — and wired coverage reporting into CI.
 - Standardized the Python toolchain across the same five repositories: Poetry to uv, pre-commit to prek, plus ruff and type-check gates.
 
@@ -61,7 +61,7 @@ _📍 Recife, PE, Brazil · 🗓 2009-01 – 2013-06_
 
 An enterprise Java web and mobile application built end to end, the CI/CD and Scrum tooling behind it, and a nationwide production platform maintained against live traffic.
 - Built an enterprise web and mobile application end to end using Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle and Apache Tomcat.
-- Implemented a complete CI/CD environment (Subversion/Git, Maven, TeamCity, Tomcat) for automated builds and deployments.
+- Built a complete CI/CD environment (Subversion/Git, Maven, TeamCity, Tomcat) for automated builds and deployments.
 - Built a Scrum task-board integration for Mantis (PHP) that gave distributed remote teams shared sprint visibility.
 - Maintained a nationwide production web platform while shipping new features against live traffic.
 
@@ -86,14 +86,14 @@ _📍 Recife, PE, Brazil · 🗓 2001-01 – 2001-10_
 
 The institute's first J2ME mobile development practice: 15+ applications shipped, including an internationally awarded game.
 - Pioneered J2ME application development at CESAR, establishing the institute's first mobile development practice.
-- Developed 15+ mobile applications, primarily games, for early Java-enabled handsets.
+- Built 15+ mobile applications, primarily games, for early Java-enabled handsets.
 - Authored Sea Hunter, awarded Best Application from the Americas at the Asia Java Mobile Challenge.
 
 ### Junior Software Engineer — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2000-06 – 2000-12_
 
 Java web development: a J2SE WAP application for lottery game management, and an e-commerce portal supporting M.Sc. dissertation research.
-- Developed a WAP application in J2SE for lottery game management.
+- Built a WAP application in J2SE for lottery game management.
 - Built an e-commerce portal used to validate a team member's M.Sc. dissertation research.
 
 

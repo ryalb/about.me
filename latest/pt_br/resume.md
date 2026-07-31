@@ -27,12 +27,12 @@ Engenheiro de backend e plataforma, 26 anos em produção. Co-responsável por u
 _📍 Recife, PE, Brasil · 🗓 2026-01 – Presente_
 
 Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, duas plataformas internas e dois apps de tempo real, ferramentas com IA/LLM e programas de qualidade em cinco repositórios. Implantações em Kubernetes escritas como Helm charts, com overlays de Kustomize.
-- Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
+- Fui co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
 - Desenvolvi uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que automatiza um processo manual de nove etapas, com acompanhamento de progresso, notificações aos usuários e triggers de atualização.
 - Desenvolvi uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.
 - Desenvolvi um app web self-service que dispara a coleta de métricas sob demanda com streaming de log ao vivo, além de CronJobs semanais no Kubernetes cobrindo três repositórios.
-- Entreguei ferramentas de desenvolvimento com IA: um corretor de bugs autônomo sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança, e um servidor MCP que serve seis ferramentas de triagem ao Claude Code, Cursor e Xcode.
-- Entreguei dois apps de tempo real: planning poker com WebSockets em Django Channels, e retrospectivas em GraphQL com máquina de estados de seis fases.
+- Desenvolvi ferramentas de IA para desenvolvedores: um corretor de bugs autônomo sobre o Claude Agent SDK que abre pull requests sob um limiar de confiança, e um servidor MCP que serve seis ferramentas de triagem ao Claude Code, Cursor e Xcode.
+- Desenvolvi dois apps de tempo real: planning poker com WebSockets em Django Channels, e retrospectivas em GraphQL com máquina de estados de seis fases.
 - Elevei a cobertura de testes em cinco repositórios — um de 0% para ~80%, escrevendo toda a suíte de testes, e os outros quatro de cerca de 50% para ~80% — e integrei o relatório de cobertura à CI.
 - Padronizei o toolchain Python nos mesmos cinco repositórios: Poetry para uv, pre-commit para prek, além de gates de ruff e de tipos.
 
@@ -52,16 +52,16 @@ _📍 Recife, PE, Brasil · 🗓 2013-06 – 2022-09_
 
 Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum — além da plataforma de portfólio do próprio CESAR a partir de 2020.
 - Participei do desenvolvimento de quatro aplicações web em produção ao longo de nove anos e quatro projetos de clientes, cada uma em uma stack de linguagem diferente — PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).
-- Construí e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.
-- Construí e mantive a plataforma de portfólio desde 2020 — uma API em Laravel 9 expondo contratos JSON:API, com front-end em Nuxt 2 adicionado em 2022 — levada adiante nos cargos seguintes.
+- Desenvolvi e mantive ambientes de CI/CD com Git/GitFlow, TeamCity, Jenkins, Ansible e HashiCorp Vault, viabilizando implantações seguras, reprodutíveis e totalmente automatizadas.
+- Desenvolvi e mantive a plataforma de portfólio desde 2020 — uma API em Laravel 9 expondo contratos JSON:API, com front-end em Nuxt 2 adicionado em 2022 — levada adiante nos cargos seguintes.
 - Exerci o papel de liderança técnica em quatro projetos de clientes, com equipes Scrum de 6 a 15 engenheiros, conduzindo planejamento de sprints, práticas de code review e compromissos de entrega.
 
 ### Technical Manager · Java Corporativo e Mobile — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2009-01 – 2013-06_
 
 Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, as ferramentas de CI/CD e de Scrum por trás dela, e uma plataforma nacional em produção mantida com tráfego ativo.
-- Construí de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.
-- Implementei um ambiente completo de CI/CD (Subversion/Git, Maven, TeamCity, Tomcat) para builds e implantações automatizadas.
+- Desenvolvi de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.
+- Desenvolvi um ambiente completo de CI/CD (Subversion/Git, Maven, TeamCity, Tomcat) para builds e implantações automatizadas.
 - Desenvolvi uma integração de task board Scrum para o Mantis (PHP), dando visibilidade compartilhada das sprints a equipes remotas distribuídas.
 - Mantive uma plataforma web de abrangência nacional em produção, entregando novas funcionalidades com tráfego ativo.
 
@@ -94,7 +94,7 @@ _📍 Recife, PE, Brasil · 🗓 2000-06 – 2000-12_
 
 Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos lotéricos e um portal de e-commerce que apoiou uma pesquisa de mestrado.
 - Desenvolvi uma aplicação WAP em J2SE para gestão de jogos lotéricos.
-- Construí um portal de e-commerce utilizado para validar a pesquisa de dissertação de mestrado de um integrante da equipe.
+- Desenvolvi um portal de e-commerce utilizado para validar a pesquisa de dissertação de mestrado de um integrante da equipe.
 
 
 ## Formação Acadêmica
