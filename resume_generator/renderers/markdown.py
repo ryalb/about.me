@@ -62,6 +62,20 @@ def render_markdown(resume: dict[str, Any]) -> str:
     if summary := basics.get("summary"):
         lines.append(f"\n{summary}\n")
 
+    # ── Skills ────────────────────────────────────────────────────────────
+    if skills := resume.get("skills"):
+        lines.append(_section_header(labels["skills"]))
+        for skill in skills:
+            sname = skill.get("name") or ""
+            level = skill.get("level") or ""
+            kws = skill.get("keywords") or []
+            skill_line = f"**{sname}**"
+            if level:
+                skill_line += f" ({level})"
+            if kws:
+                skill_line += ": " + ", ".join(f"`{k}`" for k in kws)
+            lines.append(f"{skill_line}\n\n")
+
     # ── Work ──────────────────────────────────────────────────────────────
     if work := resume.get("work"):
         lines.append(_section_header(labels["work"]))
@@ -90,48 +104,6 @@ def render_markdown(resume: dict[str, Any]) -> str:
             lines.append("\n")
         if notice := work_cutoff_notice(resume):
             lines.append(f"> _{notice}_\n\n")
-
-    # ── Education ─────────────────────────────────────────────────────────
-    if education := resume.get("education"):
-        lines.append(_section_header(labels["education"]))
-        for edu in education:
-            degree = " ".join(
-                filter(
-                    None,
-                    [
-                        edu.get("studyType"),
-                        "in" if edu.get("area") else "",
-                        edu.get("area"),
-                    ],
-                )
-            )
-            institution = edu.get("institution") or ""
-            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
-            header = f"### {degree}" if degree else f"### {labels['education']}"
-            if institution:
-                header += f" — {institution}"
-            lines.append(f"{header}\n")
-            if dr:
-                lines.append(f"_🗓 {dr}_\n")
-            if score := edu.get("score"):
-                lines.append(f"Score: {score}\n")
-            for c in edu.get("courses") or []:
-                lines.append(f"- {c}\n")
-            lines.append("\n")
-
-    # ── Skills ────────────────────────────────────────────────────────────
-    if skills := resume.get("skills"):
-        lines.append(_section_header(labels["skills"]))
-        for skill in skills:
-            sname = skill.get("name") or ""
-            level = skill.get("level") or ""
-            kws = skill.get("keywords") or []
-            skill_line = f"**{sname}**"
-            if level:
-                skill_line += f" ({level})"
-            if kws:
-                skill_line += ": " + ", ".join(f"`{k}`" for k in kws)
-            lines.append(f"{skill_line}\n\n")
 
     # ── Projects ──────────────────────────────────────────────────────────
     if projects := resume.get("projects"):
@@ -177,25 +149,32 @@ def render_markdown(resume: dict[str, Any]) -> str:
                 lines.append(f"- {h}\n")
             lines.append("\n")
 
-    # ── Awards ────────────────────────────────────────────────────────────
-    if awards := resume.get("awards"):
-        lines.append(_section_header(labels["awards"]))
-        for a in awards:
-            title = a.get("title") or ""
-            aurl = a.get("url") or ""
-            awarder = a.get("awarder") or ""
-            adate = a.get("date") or ""
-            title_str = f"[{title}]({aurl})" if aurl else title
-            lines.append(f"### {title_str}\n")
-            meta = []
-            if awarder:
-                meta.append(awarder)
-            if adate:
-                meta.append(adate)
-            if meta:
-                lines.append("_" + " · ".join(meta) + "_\n")
-            if s := a.get("summary"):
-                lines.append(f"\n{s}\n")
+    # ── Education ─────────────────────────────────────────────────────────
+    if education := resume.get("education"):
+        lines.append(_section_header(labels["education"]))
+        for edu in education:
+            degree = " ".join(
+                filter(
+                    None,
+                    [
+                        edu.get("studyType"),
+                        "in" if edu.get("area") else "",
+                        edu.get("area"),
+                    ],
+                )
+            )
+            institution = edu.get("institution") or ""
+            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
+            header = f"### {degree}" if degree else f"### {labels['education']}"
+            if institution:
+                header += f" — {institution}"
+            lines.append(f"{header}\n")
+            if dr:
+                lines.append(f"_🗓 {dr}_\n")
+            if score := edu.get("score"):
+                lines.append(f"Score: {score}\n")
+            for c in edu.get("courses") or []:
+                lines.append(f"- {c}\n")
             lines.append("\n")
 
     # ── Certificates ──────────────────────────────────────────────────────
@@ -236,6 +215,27 @@ def render_markdown(resume: dict[str, Any]) -> str:
             if meta:
                 lines.append("_" + " · ".join(meta) + "_\n")
             if s := pub.get("summary"):
+                lines.append(f"\n{s}\n")
+            lines.append("\n")
+
+    # ── Awards ────────────────────────────────────────────────────────────
+    if awards := resume.get("awards"):
+        lines.append(_section_header(labels["awards"]))
+        for a in awards:
+            title = a.get("title") or ""
+            aurl = a.get("url") or ""
+            awarder = a.get("awarder") or ""
+            adate = a.get("date") or ""
+            title_str = f"[{title}]({aurl})" if aurl else title
+            lines.append(f"### {title_str}\n")
+            meta = []
+            if awarder:
+                meta.append(awarder)
+            if adate:
+                meta.append(adate)
+            if meta:
+                lines.append("_" + " · ".join(meta) + "_\n")
+            if s := a.get("summary"):
                 lines.append(f"\n{s}\n")
             lines.append("\n")
 

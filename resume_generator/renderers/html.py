@@ -256,6 +256,21 @@ _BUILTIN_TEMPLATE = """\
   {%- endif -%}
 {% endmacro %}
 
+{% if skills %}
+<section>
+  <h2>{{ labels.skills }}</h2>
+  {% for skill in skills %}
+  <div class="entry" style="margin-bottom:.75rem">
+    <strong>{{ skill.name }}</strong>{% if skill.level %} <span class="entry-subtitle">({{ skill.level }})</span>{% endif %}
+    {% if skill.keywords %}
+    <div class="skills-grid" style="margin-top:.4rem">
+      {% for kw in skill.keywords %}<span class="skill-tag">{{ kw }}</span>{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
 {% if work %}
 <section>
   <h2>{{ labels.work }}</h2>
@@ -280,46 +295,6 @@ _BUILTIN_TEMPLATE = """\
   {% if work_notice %}<p class="cutoff-notice">{{ work_notice }}</p>{% endif %}
 </section>
 {% endif %}
-
-{% if education %}
-<section>
-  <h2>{{ labels.education }}</h2>
-  {% for edu in education %}
-  <div class="entry">
-    <div class="entry-header">
-      <div>
-        <span class="entry-title">{{ edu.studyType or '' }}{% if edu.area %} in {{ edu.area }}{% endif %}</span>
-        {% if edu.institution %} — {{ edu.institution }}{% endif %}
-      </div>
-      <span class="entry-date">{{ date_range(edu.startDate, edu.endDate) }}</span>
-    </div>
-    {% if edu.score %}<div class="entry-subtitle">Score: {{ edu.score }}</div>{% endif %}
-    {% if edu.courses %}
-    <ul class="highlights">
-      {% for c in edu.courses %}<li>{{ c }}</li>{% endfor %}
-    </ul>
-    {% endif %}
-  </div>
-  {% endfor %}
-</section>
-{% endif %}
-
-{% if skills %}
-<section>
-  <h2>{{ labels.skills }}</h2>
-  {% for skill in skills %}
-  <div class="entry" style="margin-bottom:.75rem">
-    <strong>{{ skill.name }}</strong>{% if skill.level %} <span class="entry-subtitle">({{ skill.level }})</span>{% endif %}
-    {% if skill.keywords %}
-    <div class="skills-grid" style="margin-top:.4rem">
-      {% for kw in skill.keywords %}<span class="skill-tag">{{ kw }}</span>{% endfor %}
-    </div>
-    {% endif %}
-  </div>
-  {% endfor %}
-</section>
-{% endif %}
-
 {% if projects %}
 <section>
   <h2>{{ labels.projects }}</h2>
@@ -347,7 +322,6 @@ _BUILTIN_TEMPLATE = """\
   {% endfor %}
 </section>
 {% endif %}
-
 {% if volunteer %}
 <section>
   <h2>{{ labels.volunteer }}</h2>
@@ -368,23 +342,28 @@ _BUILTIN_TEMPLATE = """\
   {% endfor %}
 </section>
 {% endif %}
-
-{% if awards %}
+{% if education %}
 <section>
-  <h2>{{ labels.awards }}</h2>
-  {% for a in awards %}
+  <h2>{{ labels.education }}</h2>
+  {% for edu in education %}
   <div class="entry">
     <div class="entry-header">
-      <span class="entry-title">{% if a.url %}<a href="{{ a.url }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</span>
-      <span class="entry-date">{{ a.date or '' }}</span>
+      <div>
+        <span class="entry-title">{{ edu.studyType or '' }}{% if edu.area %} in {{ edu.area }}{% endif %}</span>
+        {% if edu.institution %} — {{ edu.institution }}{% endif %}
+      </div>
+      <span class="entry-date">{{ date_range(edu.startDate, edu.endDate) }}</span>
     </div>
-    {% if a.awarder %}<div class="entry-subtitle">{{ a.awarder }}</div>{% endif %}
-    {% if a.summary %}<div class="entry-body">{{ a.summary }}</div>{% endif %}
+    {% if edu.score %}<div class="entry-subtitle">Score: {{ edu.score }}</div>{% endif %}
+    {% if edu.courses %}
+    <ul class="highlights">
+      {% for c in edu.courses %}<li>{{ c }}</li>{% endfor %}
+    </ul>
+    {% endif %}
   </div>
   {% endfor %}
 </section>
 {% endif %}
-
 {% if certificates %}
 <section>
   <h2>{{ labels.certificates }}</h2>
@@ -399,7 +378,6 @@ _BUILTIN_TEMPLATE = """\
   {% endfor %}
 </section>
 {% endif %}
-
 {% if publications %}
 <section>
   <h2>{{ labels.publications }}</h2>
@@ -415,7 +393,21 @@ _BUILTIN_TEMPLATE = """\
   {% endfor %}
 </section>
 {% endif %}
-
+{% if awards %}
+<section>
+  <h2>{{ labels.awards }}</h2>
+  {% for a in awards %}
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-title">{% if a.url %}<a href="{{ a.url }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</span>
+      <span class="entry-date">{{ a.date or '' }}</span>
+    </div>
+    {% if a.awarder %}<div class="entry-subtitle">{{ a.awarder }}</div>{% endif %}
+    {% if a.summary %}<div class="entry-body">{{ a.summary }}</div>{% endif %}
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
 {% if languages %}
 <section>
   <h2>{{ labels.languages }}</h2>
@@ -426,7 +418,6 @@ _BUILTIN_TEMPLATE = """\
   </div>
 </section>
 {% endif %}
-
 {% if interests %}
 <section>
   <h2>{{ labels.interests }}</h2>
@@ -442,7 +433,6 @@ _BUILTIN_TEMPLATE = """\
   {% endfor %}
 </section>
 {% endif %}
-
 {% if references %}
 <section>
   <h2>{{ labels.references }}</h2>

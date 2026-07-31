@@ -69,6 +69,21 @@ def render_text(resume: dict[str, Any]) -> str:
         lines.append(_wrap(summary))
         lines.append("")
 
+    # ── Skills ────────────────────────────────────────────────────────────
+    if skills := resume.get("skills"):
+        lines.append(_section(labels["skills"]))
+        for skill in skills:
+            sname = skill.get("name") or ""
+            level = skill.get("level") or ""
+            kws = skill.get("keywords") or []
+            header = sname + (f" ({level})" if level else "")
+            kw_str = ", ".join(kws)
+            if kw_str:
+                lines.append(_wrap(f"{header}: {kw_str}", indent=0))
+            else:
+                lines.append(header)
+        lines.append("")
+
     # ── Work ──────────────────────────────────────────────────────────────
     if work := resume.get("work"):
         lines.append(_section(labels["work"]))
@@ -91,38 +106,6 @@ def render_text(resume: dict[str, Any]) -> str:
         if notice := work_cutoff_notice(resume):
             lines.append(_wrap(f"[ {notice} ]", indent=2))
             lines.append("")
-
-    # ── Education ─────────────────────────────────────────────────────────
-    if education := resume.get("education"):
-        lines.append(_section(labels["education"]))
-        for edu in education:
-            degree_parts = [edu.get("studyType"), edu.get("area")]
-            degree = ", ".join(p for p in degree_parts if p)
-            institution = edu.get("institution") or ""
-            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
-            left = degree + (f" — {institution}" if institution else "")
-            pad = _WIDTH - len(left) - len(dr)
-            lines.append(left + " " * max(1, pad) + dr)
-            if score := edu.get("score"):
-                lines.append(f"  GPA/Score: {score}")
-            for c in edu.get("courses") or []:
-                lines.append(f"  • {c}")
-            lines.append("")
-
-    # ── Skills ────────────────────────────────────────────────────────────
-    if skills := resume.get("skills"):
-        lines.append(_section(labels["skills"]))
-        for skill in skills:
-            sname = skill.get("name") or ""
-            level = skill.get("level") or ""
-            kws = skill.get("keywords") or []
-            header = sname + (f" ({level})" if level else "")
-            kw_str = ", ".join(kws)
-            if kw_str:
-                lines.append(_wrap(f"{header}: {kw_str}", indent=0))
-            else:
-                lines.append(header)
-        lines.append("")
 
     # ── Projects ──────────────────────────────────────────────────────────
     if projects := resume.get("projects"):
@@ -159,20 +142,21 @@ def render_text(resume: dict[str, Any]) -> str:
                 lines.append(_wrap(f"• {h}", indent=4))
             lines.append("")
 
-    # ── Awards ────────────────────────────────────────────────────────────
-    if awards := resume.get("awards"):
-        lines.append(_section(labels["awards"]))
-        for a in awards:
-            title = a.get("title") or ""
-            awarder = a.get("awarder") or ""
-            adate = a.get("date") or ""
-            right = " | ".join(filter(None, [awarder, adate]))
-            pad = _WIDTH - len(title) - len(right)
-            lines.append(title + " " * max(1, pad) + right)
-            if s := a.get("summary"):
-                lines.append(_wrap(s, indent=2))
-            if aurl := a.get("url"):
-                lines.append(f"  {aurl}")
+    # ── Education ─────────────────────────────────────────────────────────
+    if education := resume.get("education"):
+        lines.append(_section(labels["education"]))
+        for edu in education:
+            degree_parts = [edu.get("studyType"), edu.get("area")]
+            degree = ", ".join(p for p in degree_parts if p)
+            institution = edu.get("institution") or ""
+            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
+            left = degree + (f" — {institution}" if institution else "")
+            pad = _WIDTH - len(left) - len(dr)
+            lines.append(left + " " * max(1, pad) + dr)
+            if score := edu.get("score"):
+                lines.append(f"  GPA/Score: {score}")
+            for c in edu.get("courses") or []:
+                lines.append(f"  • {c}")
             lines.append("")
 
     # ── Certificates ──────────────────────────────────────────────────────
@@ -203,6 +187,22 @@ def render_text(resume: dict[str, Any]) -> str:
                 lines.append(_wrap(s, indent=2))
             if purl := pub.get("url"):
                 lines.append(f"  {purl}")
+            lines.append("")
+
+    # ── Awards ────────────────────────────────────────────────────────────
+    if awards := resume.get("awards"):
+        lines.append(_section(labels["awards"]))
+        for a in awards:
+            title = a.get("title") or ""
+            awarder = a.get("awarder") or ""
+            adate = a.get("date") or ""
+            right = " | ".join(filter(None, [awarder, adate]))
+            pad = _WIDTH - len(title) - len(right)
+            lines.append(title + " " * max(1, pad) + right)
+            if s := a.get("summary"):
+                lines.append(_wrap(s, indent=2))
+            if aurl := a.get("url"):
+                lines.append(f"  {aurl}")
             lines.append("")
 
     # ── Languages ─────────────────────────────────────────────────────────

@@ -607,7 +607,8 @@ const workCutoffNotice = (meta = {}) => {
 const CutoffNotice = styled.p`
   font-size: ${type.meta};
   font-style: italic;
-  color: ${colors.muted};
+  text-align: center;
+  color: ${colors.faint};
   margin: ${scale(10)} 0 0 0;
 `;
 
@@ -645,6 +646,26 @@ function Resume({ resume }) {
         {basics.summary && <Summary>{basics.summary}</Summary>}
       </Header>
 
+      {skills.length > 0 && (
+        <Section>
+          <SectionTitle>{labels.skills}</SectionTitle>
+          <CardGrid>
+            {skills.map((skill, i) => (
+              <Card key={i}>
+                {skill.name && (
+                  <CardTitle>
+                    <span>{skill.name}</span>
+                    {skill.level && <CardLevel>{skill.level}</CardLevel>}
+                  </CardTitle>
+                )}
+                {skill.keywords?.length > 0 && (
+                  <CardBody>{skill.keywords.join(', ')}</CardBody>
+                )}
+              </Card>
+            ))}
+          </CardGrid>
+        </Section>
+      )}
       {work.length > 0 && (
         <Section>
           <SectionTitle>{labels.work}</SectionTitle>
@@ -681,73 +702,6 @@ function Resume({ resume }) {
           {cutoffNotice && <CutoffNotice>{cutoffNotice}</CutoffNotice>}
         </Section>
       )}
-
-      {skills.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.skills}</SectionTitle>
-          <CardGrid>
-            {skills.map((skill, i) => (
-              <Card key={i}>
-                {skill.name && (
-                  <CardTitle>
-                    <span>{skill.name}</span>
-                    {skill.level && <CardLevel>{skill.level}</CardLevel>}
-                  </CardTitle>
-                )}
-                {skill.keywords?.length > 0 && (
-                  <CardBody>{skill.keywords.join(', ')}</CardBody>
-                )}
-              </Card>
-            ))}
-          </CardGrid>
-        </Section>
-      )}
-
-      {education.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.education}</SectionTitle>
-          {education.map((edu, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {edu.institution && (
-                    <ItemTitle>
-                      <MaybeLink url={edu.url}>{edu.institution}</MaybeLink>
-                    </ItemTitle>
-                  )}
-                  {(edu.studyType || edu.area) && (
-                    <ItemSubtitle>
-                      {join(
-                        [
-                          edu.studyType && edu.area
-                            ? `${edu.studyType} in ${edu.area}`
-                            : edu.studyType || edu.area,
-                          edu.score && `Score: ${edu.score}`,
-                        ],
-                        ' · '
-                      )}
-                    </ItemSubtitle>
-                  )}
-                </div>
-                {(edu.startDate || edu.endDate) && (
-                  <MetaText>
-                    <DateRange
-                      startDate={edu.startDate}
-                      endDate={edu.endDate ?? null}
-                      presentLabel={presentLabel}
-                    />
-                  </MetaText>
-                )}
-              </ItemHeader>
-              {edu.summary && <BodyText>{edu.summary}</BodyText>}
-              {edu.courses?.length > 0 && (
-                <KeywordRow>{edu.courses.join(' · ')}</KeywordRow>
-              )}
-            </Item>
-          ))}
-        </Section>
-      )}
-
       {projects.length > 0 && (
         <Section>
           <SectionTitle>{labels.projects}</SectionTitle>
@@ -795,7 +749,6 @@ function Resume({ resume }) {
           ))}
         </Section>
       )}
-
       {volunteer.length > 0 && (
         <Section>
           <SectionTitle>{labels.volunteer}</SectionTitle>
@@ -832,7 +785,70 @@ function Resume({ resume }) {
           ))}
         </Section>
       )}
-
+      {education.length > 0 && (
+        <Section>
+          <SectionTitle>{labels.education}</SectionTitle>
+          {education.map((edu, i) => (
+            <Item key={i}>
+              <ItemHeader>
+                <div>
+                  {edu.institution && (
+                    <ItemTitle>
+                      <MaybeLink url={edu.url}>{edu.institution}</MaybeLink>
+                    </ItemTitle>
+                  )}
+                  {(edu.studyType || edu.area) && (
+                    <ItemSubtitle>
+                      {join(
+                        [
+                          edu.studyType && edu.area
+                            ? `${edu.studyType} in ${edu.area}`
+                            : edu.studyType || edu.area,
+                          edu.score && `Score: ${edu.score}`,
+                        ],
+                        ' · '
+                      )}
+                    </ItemSubtitle>
+                  )}
+                </div>
+                {(edu.startDate || edu.endDate) && (
+                  <MetaText>
+                    <DateRange
+                      startDate={edu.startDate}
+                      endDate={edu.endDate ?? null}
+                      presentLabel={presentLabel}
+                    />
+                  </MetaText>
+                )}
+              </ItemHeader>
+              {edu.summary && <BodyText>{edu.summary}</BodyText>}
+              {edu.courses?.length > 0 && (
+                <KeywordRow>{edu.courses.join(' · ')}</KeywordRow>
+              )}
+            </Item>
+          ))}
+        </Section>
+      )}
+      {certificates.length > 0 && (
+        <Section>
+          <SectionTitle>{labels.certificates}</SectionTitle>
+          {certificates.map((cert, i) => (
+            <CompactItem key={i}>
+              <ItemHeader>
+                <div>
+                  {cert.name && (
+                    <ItemTitle>
+                      <MaybeLink url={cert.url}>{cert.name}</MaybeLink>
+                    </ItemTitle>
+                  )}
+                  {cert.issuer && <ItemSubtitle>{cert.issuer}</ItemSubtitle>}
+                </div>
+                {cert.date && <MetaText>{cert.date}</MetaText>}
+              </ItemHeader>
+            </CompactItem>
+          ))}
+        </Section>
+      )}
       {publications.length > 0 && (
         <Section>
           <SectionTitle>{labels.publications}</SectionTitle>
@@ -856,7 +872,6 @@ function Resume({ resume }) {
           ))}
         </Section>
       )}
-
       {awards.length > 0 && (
         <Section>
           <SectionTitle>{labels.awards}</SectionTitle>
@@ -878,28 +893,6 @@ function Resume({ resume }) {
           ))}
         </Section>
       )}
-
-      {certificates.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.certificates}</SectionTitle>
-          {certificates.map((cert, i) => (
-            <CompactItem key={i}>
-              <ItemHeader>
-                <div>
-                  {cert.name && (
-                    <ItemTitle>
-                      <MaybeLink url={cert.url}>{cert.name}</MaybeLink>
-                    </ItemTitle>
-                  )}
-                  {cert.issuer && <ItemSubtitle>{cert.issuer}</ItemSubtitle>}
-                </div>
-                {cert.date && <MetaText>{cert.date}</MetaText>}
-              </ItemHeader>
-            </CompactItem>
-          ))}
-        </Section>
-      )}
-
       {languages.length > 0 && (
         <Section>
           <SectionTitle>{labels.languages}</SectionTitle>
@@ -917,7 +910,6 @@ function Resume({ resume }) {
           </CardGrid>
         </Section>
       )}
-
       {interests.length > 0 && (
         <Section>
           <SectionTitle>{labels.interests}</SectionTitle>
@@ -937,7 +929,6 @@ function Resume({ resume }) {
           </CardGrid>
         </Section>
       )}
-
       {references.length > 0 && (
         <Section>
           <SectionTitle>{labels.references}</SectionTitle>

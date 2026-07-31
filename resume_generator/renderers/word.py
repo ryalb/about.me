@@ -250,6 +250,28 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
             r.font.size = _pt(10, zoom)
             r.font.color.rgb = _TEXT
 
+    # ── Skills ────────────────────────────────────────────────────────────
+    if skills := resume.get("skills"):
+        _add_heading(doc, labels["skills"], level=2, zoom=zoom)
+        for skill in skills:
+            sname = skill.get("name") or ""
+            level = skill.get("level") or ""
+            kws = skill.get("keywords") or []
+            p = doc.add_paragraph()
+            p.paragraph_format.space_before = _pt(2, zoom)
+            p.paragraph_format.space_after = _pt(2, zoom)
+            r = p.add_run(sname)
+            r.bold = True
+            r.font.size = _pt(10, zoom)
+            if level:
+                r2 = p.add_run(f" ({level})")
+                r2.font.size = _pt(9.5, zoom)
+                r2.font.color.rgb = _MUTED
+            if kws:
+                r3 = p.add_run(": " + ", ".join(kws))
+                r3.font.size = _pt(9.5, zoom)
+                r3.font.color.rgb = _TEXT
+
     # ── Work ──────────────────────────────────────────────────────────────
     if work := resume.get("work"):
         _add_heading(doc, labels["work"], level=2, zoom=zoom)
@@ -272,44 +294,6 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
             run.italic = True
             run.font.size = _pt(9, zoom)
             run.font.color.rgb = _MUTED
-
-    # ── Education ─────────────────────────────────────────────────────────
-    if education := resume.get("education"):
-        _add_heading(doc, labels["education"], level=2, zoom=zoom)
-        for edu in education:
-            degree_parts = [edu.get("studyType"), edu.get("area")]
-            degree = " in ".join(p for p in degree_parts if p)
-            institution = edu.get("institution") or ""
-            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
-            _add_entry_header(
-                doc, degree or "Degree", subtitle=institution, date_str=dr, zoom=zoom
-            )
-            if score := edu.get("score"):
-                _add_body_text(doc, f"Score: {score}", zoom=zoom)
-            for c in edu.get("courses") or []:
-                _add_bullet(doc, c, zoom=zoom)
-
-    # ── Skills ────────────────────────────────────────────────────────────
-    if skills := resume.get("skills"):
-        _add_heading(doc, labels["skills"], level=2, zoom=zoom)
-        for skill in skills:
-            sname = skill.get("name") or ""
-            level = skill.get("level") or ""
-            kws = skill.get("keywords") or []
-            p = doc.add_paragraph()
-            p.paragraph_format.space_before = _pt(2, zoom)
-            p.paragraph_format.space_after = _pt(2, zoom)
-            r = p.add_run(sname)
-            r.bold = True
-            r.font.size = _pt(10, zoom)
-            if level:
-                r2 = p.add_run(f" ({level})")
-                r2.font.size = _pt(9.5, zoom)
-                r2.font.color.rgb = _MUTED
-            if kws:
-                r3 = p.add_run(": " + ", ".join(kws))
-                r3.font.size = _pt(9.5, zoom)
-                r3.font.color.rgb = _TEXT
 
     # ── Projects ──────────────────────────────────────────────────────────
     if projects := resume.get("projects"):
@@ -340,24 +324,21 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
             for h in v.get("highlights") or []:
                 _add_bullet(doc, h, zoom=zoom)
 
-    # ── Awards ────────────────────────────────────────────────────────────
-    if awards := resume.get("awards"):
-        _add_heading(doc, labels["awards"], level=2, zoom=zoom)
-        for a in awards:
-            title = a.get("title") or ""
-            awarder = a.get("awarder") or ""
-            adate = a.get("date") or ""
-            dr = adate
+    # ── Education ─────────────────────────────────────────────────────────
+    if education := resume.get("education"):
+        _add_heading(doc, labels["education"], level=2, zoom=zoom)
+        for edu in education:
+            degree_parts = [edu.get("studyType"), edu.get("area")]
+            degree = " in ".join(p for p in degree_parts if p)
+            institution = edu.get("institution") or ""
+            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
             _add_entry_header(
-                doc,
-                title,
-                subtitle=awarder,
-                date_str=dr,
-                url=a.get("url") or "",
-                zoom=zoom,
+                doc, degree or "Degree", subtitle=institution, date_str=dr, zoom=zoom
             )
-            if s := a.get("summary"):
-                _add_body_text(doc, s, zoom=zoom)
+            if score := edu.get("score"):
+                _add_body_text(doc, f"Score: {score}", zoom=zoom)
+            for c in edu.get("courses") or []:
+                _add_bullet(doc, c, zoom=zoom)
 
     # ── Certificates ──────────────────────────────────────────────────────
     if certs := resume.get("certificates"):
@@ -391,6 +372,25 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
                 zoom=zoom,
             )
             if s := pub.get("summary"):
+                _add_body_text(doc, s, zoom=zoom)
+
+    # ── Awards ────────────────────────────────────────────────────────────
+    if awards := resume.get("awards"):
+        _add_heading(doc, labels["awards"], level=2, zoom=zoom)
+        for a in awards:
+            title = a.get("title") or ""
+            awarder = a.get("awarder") or ""
+            adate = a.get("date") or ""
+            dr = adate
+            _add_entry_header(
+                doc,
+                title,
+                subtitle=awarder,
+                date_str=dr,
+                url=a.get("url") or "",
+                zoom=zoom,
+            )
+            if s := a.get("summary"):
                 _add_body_text(doc, s, zoom=zoom)
 
     # ── Languages ─────────────────────────────────────────────────────────
