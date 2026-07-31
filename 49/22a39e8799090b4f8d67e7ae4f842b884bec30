@@ -1,0 +1,27 @@
+.claude/skills/resume-review/references/pipeline.md
+  s_15a6586dcd4a27::t_4a4e613a9166cf 45-59
+resume_generator/main.py
+  s_15a6586dcd4a27::t_1f81f64944aec1 469-487
+  s_15a6586dcd4a27::t_0500946e8eed19 499,511,517
+.claude/skills/resume-review/SKILL.md
+  s_15a6586dcd4a27::t_4a4e613a9166cf 91-93,120
+mise.toml
+  s_15a6586dcd4a27::t_1a4dda83121116 100,110
+  s_15a6586dcd4a27::t_3ea5322669982e 89-93
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "4922a39e8799090b4f8d67e7ae4f842b884bec30",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
