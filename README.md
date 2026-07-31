@@ -99,6 +99,7 @@ resume generate [OPTIONS] RESUME_FILE
 | `--cut-date` | `-d` | *(none)* | Exclude entries whose primary date is before this value (`YYYY-MM-DD`, `YYYY-MM`, or `YYYY`). Ongoing roles (no `endDate`) are always kept. |
 | `--summary` | `-S` | *(none)* | Use a named variant from `meta.summaries` instead of `basics.summary`. See [Summary variants](#summary-variants). |
 | `--no-summary` | | `false` | Omit `basics.summary` from every format. Mutually exclusive with `--summary`. |
+| `--no-highlights` | | `false` | Omit every `work[].highlights` bullet list, keeping each role's title, employer, dates and summary. |
 | `--formats` | `-f` | `html,pdf,md,txt,docx` | Comma-separated output formats. |
 | `--zoom` | `-z` | `1.0` | Content scale for `html`, `pdf` and `docx` — a multiplier (`1.15`) or a percentage (`115%`), between 50% and 200%. See [Zoom](#zoom). |
 | `--output-dir` | `-o` | `.output` | Base directory; a dated sub-folder is created automatically. |
@@ -285,6 +286,21 @@ uv run resume generate resume.json --no-summary                  # no summary at
 With no `--summary` flag, `basics.summary` is used unchanged. `meta.summaries` is **always stripped from generated output**, so the variant map never leaks into a rendered resume.
 
 `--no-summary` drops the opening paragraph from every format, so the document goes straight from the contact line into the work history — useful when the covering letter already carries the pitch, or to reclaim the space. It is rejected alongside `--summary`, since one selects a summary and the other removes it.
+
+### Hiding work highlights (`--no-highlights`)
+
+`--no-highlights` removes every bullet list under `work`, leaving each role's title, employer, dates and `summary`. The history still reads as a career arc — the role summaries carry the substance — but without the per-role detail.
+
+```bash
+# Compact two-page-ish variant: arc only, no per-role bullets
+uv run resume generate resume.json --no-highlights
+```
+
+On the master resume in this repo it takes the PDF from **6 pages to 4**. Combine it with `--cut-date` and `--summary ats` for the shortest defensible version.
+
+Only `work` is affected. `projects` and `volunteer` also carry `highlights` and are deliberately left alone, since trimming is almost always about the depth of the work history.
+
+No renderer changes were needed: all five output paths emit highlights only when the list is non-empty, so removing the key is enough.
 
 An unknown key fails fast and lists what's available:
 

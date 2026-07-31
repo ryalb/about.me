@@ -159,6 +159,29 @@ def drop_basics_summary(resume: dict[str, Any]) -> dict[str, Any]:
     return result
 
 
+def drop_work_highlights(resume: dict[str, Any]) -> dict[str, Any]:
+    """Return a copy of resume with every ``work[].highlights`` list removed.
+
+    Leaves each role's position, employer, dates and ``summary`` intact, so the
+    history still reads as a career arc rather than a bare list of titles — the
+    role summaries carry the substance a reader needs at a glance.
+
+    Only ``work`` is touched.  ``projects`` and ``volunteer`` also carry
+    ``highlights``; they are left alone because trimming a résumé is almost
+    always about the work history's depth.
+
+    Every renderer emits highlights only when the list is non-empty, so
+    removing the key here is enough for all five output formats.
+    """
+    result = copy.deepcopy(resume)
+    work = result.get("work")
+    if isinstance(work, list):
+        for entry in work:
+            if isinstance(entry, dict):
+                entry.pop("highlights", None)
+    return result
+
+
 def strip_summary_map(resume: dict[str, Any]) -> dict[str, Any]:
     """Remove ``meta.summaries`` so the variant map never leaks into output."""
     result = copy.deepcopy(resume)
@@ -174,6 +197,7 @@ def filter_resume(
     cut_date: date | None,
     summary: str | None = None,
     hide_summary: bool = False,
+    hide_highlights: bool = False,
 ) -> dict[str, Any]:
     """Apply summary variant, section filter and date cutoff in sequence."""
     result = copy.deepcopy(resume)
@@ -183,6 +207,9 @@ def filter_resume(
 
     if hide_summary:
         result = drop_basics_summary(result)
+
+    if hide_highlights:
+        result = drop_work_highlights(result)
 
     if sections is not None:
         result = apply_section_filter(result, sections)

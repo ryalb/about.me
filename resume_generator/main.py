@@ -247,6 +247,18 @@ def generate(
             rich_help_panel="Content",
         ),
     ] = False,
+    no_highlights: Annotated[
+        bool,
+        typer.Option(
+            "--no-highlights",
+            help=(
+                "Omit every [bold]work[].highlights[/bold] bullet list, keeping "
+                "each role's title, employer, dates and summary — for a compact "
+                "variant where the history is an arc rather than a full account."
+            ),
+            rich_help_panel="Content",
+        ),
+    ] = False,
     formats: Annotated[
         str,
         typer.Option(
@@ -346,7 +358,12 @@ def generate(
     # ── Apply filters ─────────────────────────────────────────────────────
     try:
         filtered = filter_resume(
-            raw, selected_sections, cutoff, summary, hide_summary=no_summary
+            raw,
+            selected_sections,
+            cutoff,
+            summary,
+            hide_summary=no_summary,
+            hide_highlights=no_highlights,
         )
     except KeyError as exc:
         key, available = exc.args
@@ -378,6 +395,10 @@ def generate(
         "[dim]hidden (--no-summary)[/dim]"
         if no_summary
         else (summary or "[dim]basics.summary[/dim]"),
+    )
+    table.add_row(
+        "Highlights",
+        "[dim]hidden (--no-highlights)[/dim]" if no_highlights else "[dim]shown[/dim]",
     )
     table.add_row("Formats", ", ".join(output_formats))
     if zoom_factor != 1.0:
