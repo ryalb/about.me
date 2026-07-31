@@ -19,15 +19,15 @@ ownership (from `2001-10`, 24.8 yrs) and career length (from `2000-06`, 26.2 yrs
 
 ## Where the score actually stands
 
-**Score: 65 → 72/100.** Two components moved, both from answers you supplied:
+**Score: 65 → 75/100.** Four components have moved — two from answers you supplied, two from layout work:
 
 | Component | Weight | Was | Now | Why |
 |---|---|---|---|---|
-| Hard-skill / keyword coverage | 30 | 25 | 25 | unchanged |
+| Hard-skill / keyword coverage | 30 | 25 | **27** | The skills block moved from page 4 to page 1, so the keywords are now where a screen actually reads. Still short of full marks because of the two-column linearisation, which is accepted and documented rather than fixed. |
 | Evidence of impact | 25 | 9 | **13** | P4 gave the first quantified *recent* outcome — coverage 0% → ~80% on one repository and ~50% → ~80% on four more. Before this, the document's only number was from a role that ended in 2005. |
 | Seniority & scope fit | 20 | 15 | **16** | P2 put team size on the page (6–15 engineers across four projects), so the leadership claim now has scope. |
 | Domain / industry fit | 15 | 13 | 13 | unchanged |
-| Screen readability | 10 | 3 | **5** | The 172-word opener is gone and pt_BR headings are localised; still 6 pages with skills on page 4. |
+| Screen readability | 10 | 3 | **6** | Opener down from 172 words, pt_BR headings localised, skills on page 1, one section order across all formats. Held back by two things: the master is still 6 pages, and refocusing the summary on three roles pushed it back up to 105 words (en) / 130 (pt), above the ~70 where readers stop. |
 
 **All four metric questions are now closed, and 13/25 is the ceiling for the moment.** The
 coverage bullet is the only recent quantified outcome; everywhere else the recent work still
@@ -39,13 +39,12 @@ has not been measured in production yet (see below). Revisit when it has.
 
 ## Open — your call, none blocking
 
-All nineteen numbered items (P1–P19) are closed. What remains is three judgement calls.
+All nineteen numbered items (P1–P19) are closed, and so are the three judgement calls that
+followed them. One cosmetic item remains.
 
 | # | Item | Notes |
 |---|---|---|
-| **O1** | **Four solo claims still above the bullets.** `basics.summary`, `work[0].summary`, `meta.summaries.backend`, `meta.summaries.lead` all still say platforms were built/shipped **solo**, but no bullet claims it any more — all three were changed on request. | Page 1 therefore asserts solo delivery with nothing below supporting it: the claim is still made, now unevidenced. The consistent end state is removing all four. Counter-argument for keeping them: end-to-end sole ownership is a rare and genuine Principal-level signal, and without it those bullets read as ordinary team contributions. If the discomfort was tone rather than fact, "sole developer of…" stated **once** in `work[0].summary` keeps the signal without repeating it three times. |
-| **O2** | **B.Sc. end date.** Resume says `2000-01`; your Lattes says **1996–1999**, in two separate places. | The dissertation PDF does not address it. Needs your confirmation — I will not overwrite a degree date on the strength of a 2014 self-entry. |
-| **O3** | **pt_BR page count is unstable at the 6/7 boundary.** | It flipped 6→7→6→7 across four content edits tonight. Cause is understood (see the pagination note below), not a defect. `--zoom 82%` pinned it at 6 when tested. en_US is stable at 6. Accept the drift, or pin the zoom. |
+| **O1** | **pt_BR page count is unstable at the 6/7 boundary.** | It flipped 6→7→6→7 across four content edits tonight. Cause is understood (see the pagination note below), not a defect. `--zoom 82%` pinned it at 6 when tested. en_US is stable at 6. Accept the drift, or pin the zoom. |
 
 ---
 
@@ -102,14 +101,26 @@ the vendored npm copy; `$schema` points at the master branch on GitHub, which ma
 | **Why sections leave blank space before a break** | `Section` is already forced to `break-inside: auto` (`Resume.jsx:20-25`), overriding `@jsonresume/core`'s hard-coded `avoid`, and `Item` deliberately omits `break-inside: avoid` — the comment at `~271` records that forbidding it added ~2 pages. The remaining `avoid` rules are narrow and intentional: `CompactItem` (~291), `ItemHeader` (~314, plus `break-after`), `Card` (~439), and `SectionTitle`'s `break-after: avoid` (~252) so a heading is never stranded at a page foot. When a heading plus its first unbreakable entry will not fit, both move together — that is the gap. It is also why the page count flips with small content changes. |
 | **Fixed: sections jumped a page leaving whitespace** | `ItemHeader` carried an unconditional `break-after: avoid`. An education entry with no summary and no courses has a header as its *only* child, so the rule had no next sibling inside the `Item` and propagated to the following in-flow box — `PUBLICATIONS`'s `SectionTitle`, which carries its own `break-after: avoid` — chaining until the whole group moved. That stranded roughly half a page. Now scoped with `&:not(:last-child)`, so a header only refuses to break away from a body it actually has. Result: both degrees sit on one page, `CERTIFICATES` moved from page 6 to 5, and pages 4–5 gained 2 lines each. **Total page count did not change** (6 in both locales) — the reclaimed space is about half a page, not a full one. Content is byte-identical; only line-wrap positions moved. |
 | **Chrome vs WeasyPrint: still a hypothesis** | Chrome's save-as-PDF gives ~5 pages against WeasyPrint's 6. **Not reproduced** — headless Chrome could not be driven here (it hung and was killed). Ruled out: font substitution (IosevkaTermSlab is installed, 207 `fc-list` matches, so metrics match). Most likely an engine difference — WeasyPrint propagates `break-after: avoid` from a last-child header more aggressively than Blink, which is the same mechanism as the bug above, so Chrome may simply never have paid that cost. To rule out the cheaper explanation, set Chrome's print dialog to Margins **Default** and Scale **100%** and re-save: if still 5, engine; if 6, the dialog was overriding `@page { margin: 14mm 14mm 16mm 14mm }`. |
-| **Skills render on page 4 of 6** in the master PDF | Follows from the page count. The short variant puts them on page 1. |
-| **Section order differs between formats** | `md`/`txt`: Work → Education → Skills → Awards → Certifications → Publications → Languages. `pdf`/`html`: Experience → Skills → Education → Publications → Awards → Languages → Certificates. Neither is wrong, but "what a recruiter sees first" has to be tuned twice. Small change to unify if you want it. |
+| **Solo claims removed everywhere — closed** | All four remaining claims (`basics.summary`, `work[0].summary`, `meta.summaries.backend`, `meta.summaries.lead`) went out with the summary rewrite. Verified: zero occurrences of "solo" in either source file. Replaced with "delivers internal platforms from data model to deploy", which states the breadth of the work without claiming headcount and is supported by the bullets. Cost accepted: end-to-end sole ownership is a rare Principal-level signal and the document no longer makes it anywhere. |
+| **B.Sc. end date corrected — closed** | Now `1996-01..1999-12` in both locales, matching the two places Lattes states 1999. Fixed by the owner. |
+| **New lever: `--no-highlights`** | Omits every `work[].highlights` list while keeping each role's title, employer, dates and summary. Takes the master PDF from **6 pages to 4**, and combines with `--summary ats --cut-date 2013` for **3**. Both `mise run short` tasks now pass it. This means the master can be shortened without deleting anything from the source — which is the answer to the page-count pressure that ran through this review. Only `work` is affected; `projects` and `volunteer` keep theirs. |
+| **Fixed: skills now render on page 1** | Sections were reordered so `skills` leads the document, directly under the summary — it was on page 4 of 6, behind eight work entries, which is where a keyword screener and an ATS never reach. Experience now begins on page 2; that is the deliberate trade. |
+| **Fixed: all five render paths share one section order** | They had drifted — md/txt/docx and the Jinja fallback put education before skills, the theme put skills before education. Now uniformly `skills → work → projects → volunteer → education → certificates → publications → awards → languages → interests → references`. Verified by comparing the extracted word multiset before and after: identical, so the change was pure reordering. |
 
 ---
 
 ## Recommended order
 
-1. **O1** — the solo claims. Page 1 currently makes a claim no bullet supports; this is the
-   only remaining item that affects how the document reads.
-2. **O2** — one date, one answer.
-3. **O3** — cosmetic; accept the drift or pin `--zoom 82%` on the pt task.
+Nothing is blocking. The single open item is cosmetic:
+
+1. **O1** — pt_BR page-count drift. Both locales currently sit at 6 pages, and
+   `--no-highlights` gives a 4-page master and a 3-page submission variant on demand, so this
+   matters less than it did. Accept the drift, or pin `--zoom 82%` on the pt task.
+
+Two things I could not settle and left for you:
+
+- **Chrome vs WeasyPrint pagination** — unreproduced. Set Chrome's print dialog to Margins
+  **Default** and Scale **100%** and re-save: still 5 pages means an engine difference, 6 means
+  the dialog was overriding `@page`.
+- **A 5-page master** — page 6 holds only two ClearCase certificates and Languages. Trimming
+  slightly there, or dropping the three 2002 certificates, gets you to 5 without `--no-highlights`.

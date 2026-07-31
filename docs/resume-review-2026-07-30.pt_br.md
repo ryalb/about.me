@@ -21,15 +21,15 @@ em build/release/GCS (desde `2001-10`, 24,8 anos) e o tempo de carreira (desde `
 
 ## Onde a pontuação realmente está
 
-**Pontuação: 65 → 72/100.** Dois componentes se moveram, ambos por respostas suas:
+**Pontuação: 65 → 75/100.** Quatro componentes se moveram — dois por respostas suas, dois por trabalho de layout:
 
 | Componente | Peso | Era | Agora | Por quê |
 |---|---|---|---|---|
-| Cobertura de hard skills / palavras-chave | 30 | 25 | 25 | sem alteração |
+| Cobertura de hard skills / palavras-chave | 30 | 25 | **27** | O bloco de competências saiu da página 4 para a 1, então as palavras-chave estão onde a triagem de fato lê. Ainda não é nota cheia por causa da linearização em duas colunas, que foi aceita e documentada, não corrigida. |
 | Evidência de impacto | 25 | 9 | **13** | A P4 trouxe o primeiro resultado *recente* quantificado — cobertura de 0% para ~80% em um repositório e de ~50% para ~80% em outros quatro. Antes disso, o único número do documento era de um cargo encerrado em 2005. |
 | Aderência de senioridade e escopo | 20 | 15 | **16** | A P2 colocou o tamanho das equipes no papel (6 a 15 engenheiros em quatro projetos), então a afirmação de liderança agora tem escopo. |
 | Aderência de domínio | 15 | 13 | 13 | sem alteração |
-| Legibilidade em triagem | 10 | 3 | **5** | A abertura de 172 palavras acabou e os cabeçalhos do pt_BR estão localizados; ainda são 6 páginas com competências na página 4. |
+| Legibilidade em triagem | 10 | 3 | **6** | Abertura caiu de 172 palavras, cabeçalhos do pt_BR localizados, competências na página 1, uma única ordem de seções em todos os formatos. Freada por duas coisas: o mestre ainda tem 6 páginas, e refocar o resumo em três cargos o levou de volta a 105 palavras (en) / 130 (pt), acima das ~70 em que o leitor para. |
 
 **As quatro perguntas de métrica estão encerradas, e 13/25 é o teto por agora.** O bullet de
 cobertura é o único resultado recente quantificado; em todo o resto, o trabalho recente ainda
@@ -41,13 +41,12 @@ plataforma de onboarding ainda não foi medida em produção (veja abaixo). Revi
 
 ## Aberto — sua decisão, nada bloqueante
 
-Todos os dezenove itens numerados (P1–P19) estão encerrados. Restam três decisões de julgamento.
+Todos os dezenove itens numerados (P1–P19) estão encerrados, e também as três decisões de
+julgamento que vieram depois. Resta um item cosmético.
 
 | # | Item | Observações |
 |---|---|---|
-| **O1** | **Quatro afirmações de trabalho solo ainda acima dos bullets.** `basics.summary`, `work[0].summary`, `meta.summaries.backend` e `meta.summaries.lead` ainda dizem que plataformas foram construídas/entregues **sozinho**, mas nenhum bullet afirma isso — os três foram alterados a pedido. | A página 1 afirma entrega solo sem nada abaixo sustentando: a alegação continua, agora sem evidência. O estado consistente é remover as quatro. Contra-argumento para manter: propriedade ponta a ponta é um sinal raro e genuíno de nível Principal, e sem ela os bullets soam como contribuição de time comum. Se o incômodo era o tom e não o fato, "único desenvolvedor de…" dito **uma vez** no `work[0].summary` preserva o sinal sem repetir três vezes. |
-| **O2** | **Data de conclusão do bacharelado.** O currículo diz `2000-01`; seu Lattes diz **1996–1999**, em dois lugares distintos. | O PDF da dissertação não trata disso. Depende da sua confirmação — não vou sobrescrever a data de um diploma com base em um auto-preenchimento de 2014. |
-| **O3** | **A contagem de páginas do pt_BR é instável na fronteira 6/7.** | Oscilou 6→7→6→7 em quatro edições de conteúdo hoje. A causa é conhecida (veja a nota de paginação abaixo), não é defeito. O `--zoom 82%` fixou em 6 no teste. O en_US está estável em 6. Aceitar a oscilação, ou fixar o zoom. |
+| **O1** | **A contagem de páginas do pt_BR é instável na fronteira 6/7.** | Oscilou 6→7→6→7 em quatro edições de conteúdo hoje. A causa é conhecida (veja a nota de paginação abaixo), não é defeito. O `--zoom 82%` fixou em 6 no teste. O en_US está estável em 6. Aceitar a oscilação, ou fixar o zoom. |
 
 ---
 
@@ -105,14 +104,27 @@ cópia vendorada do npm; o `$schema` aponta para a branch master no GitHub, que 
 | **Por que seções deixam espaço em branco antes de quebrar** | O `Section` já é forçado a `break-inside: auto` (`Resume.jsx:20-25`), sobrepondo o `avoid` fixo do `@jsonresume/core`, e o `Item` omite `break-inside: avoid` de propósito — o comentário na linha `~271` registra que proibir isso somava ~2 páginas. As regras `avoid` que restam são estreitas e intencionais: `CompactItem` (~291), `ItemHeader` (~314, mais `break-after`), `Card` (~439) e o `break-after: avoid` do `SectionTitle` (~252), para um título nunca ficar sozinho no pé da página. Quando um título mais sua primeira entrada indivisível não cabem, os dois vão juntos — é esse o espaço vazio. É também por isso que a contagem de páginas oscila com mudanças pequenas de conteúdo. |
 | **Corrigido: seções pulavam de página deixando espaço em branco** | O `ItemHeader` tinha um `break-after: avoid` sem condição. Uma entrada de formação sem summary e sem courses tem o header como *único* filho, então a regra não tinha irmão seguinte dentro do `Item` e se propagava para a próxima caixa em fluxo — o `SectionTitle` de `PUBLICAÇÕES`, que carrega o seu próprio `break-after: avoid` — encadeando até o grupo inteiro se mover. Isso deixava cerca de meia página vazia. Agora está restrito com `&:not(:last-child)`, então um header só se recusa a separar de um corpo que ele de fato tem. Resultado: os dois diplomas ficam na mesma página, `CERTIFICAÇÕES` saiu da página 6 para a 5, e as páginas 4–5 ganharam 2 linhas cada. **A contagem total de páginas não mudou** (6 nos dois idiomas) — o espaço recuperado é cerca de meia página, não uma inteira. O conteúdo é idêntico; só as posições de quebra de linha mudaram. |
 | **Chrome vs WeasyPrint: ainda é hipótese** | O save-as-PDF do Chrome dá ~5 páginas contra 6 do WeasyPrint. **Não reproduzido** — não foi possível rodar o Chrome headless aqui (travou e foi encerrado). Descartado: substituição de fonte (o IosevkaTermSlab está instalado, 207 resultados no `fc-list`, então as métricas coincidem). Provavelmente diferença de engine — o WeasyPrint propaga `break-after: avoid` de um header último-filho de forma mais agressiva que o Blink, o mesmo mecanismo do bug acima, então o Chrome talvez nunca tenha pagado esse custo. Para descartar a explicação mais simples, ajuste o diálogo do Chrome para Margens **Padrão** e Escala **100%** e salve de novo: se continuar 5, é engine; se der 6, o diálogo estava sobrepondo o `@page { margin: 14mm 14mm 16mm 14mm }`. |
-| **Competências caem na página 4 de 6** no PDF do mestre | Consequência da contagem de páginas. Na variante enxuta elas ficam na página 1. |
-| **A ordem das seções difere entre formatos** | `md`/`txt`: Work → Education → Skills → Awards → Certifications → Publications → Languages. `pdf`/`html`: Experience → Skills → Education → Publications → Awards → Languages → Certificates. Nenhuma está errada, mas "o que o recrutador vê primeiro" precisa ser ajustado duas vezes. Unificar é uma mudança pequena, se você quiser. |
+| **Afirmações de trabalho solo removidas — encerrado** | As quatro que restavam (`basics.summary`, `work[0].summary`, `meta.summaries.backend`, `meta.summaries.lead`) saíram na reescrita dos resumos. Verificado: zero ocorrências de "sozinho" nos dois arquivos-fonte. Substituídas por "entrega plataformas internas do modelo de dados à implantação", que declara a amplitude do trabalho sem alegar tamanho de equipe e é sustentada pelos bullets. Custo aceito: propriedade ponta a ponta é um sinal raro de nível Principal, e o documento não o faz mais em lugar nenhum. |
+| **Data de conclusão do bacharelado corrigida — encerrado** | Agora `1996-01..1999-12` nos dois idiomas, coincidindo com os dois lugares em que o Lattes diz 1999. Corrigido pelo dono do repositório. |
+| **Nova alavanca: `--no-highlights`** | Omite todas as listas de `work[].highlights` mantendo título, empregador, datas e resumo de cada cargo. Leva o PDF do mestre de **6 páginas para 4**, e combinado com `--summary ats --cut-date 2013` chega a **3**. As duas tasks `mise run short` já usam a flag. Isso significa que o mestre pode encurtar sem apagar nada da fonte — que é a resposta à pressão de páginas que atravessou esta revisão. Só o `work` é afetado; `projects` e `volunteer` mantêm os seus. |
+| **Corrigido: competências agora na página 1** | As seções foram reordenadas para o `skills` abrir o documento, logo abaixo do resumo — estava na página 4 de 6, atrás de oito entradas de trabalho, exatamente onde um filtro por palavra-chave e um ATS nunca chegam. A experiência agora começa na página 2; essa é a troca deliberada. |
+| **Corrigido: os cinco caminhos de renderização compartilham uma ordem** | Eles tinham divergido — md/txt/docx e o fallback Jinja punham formação antes de competências, o tema punha competências antes de formação. Agora é uniformemente `skills → work → projects → volunteer → education → certificates → publications → awards → languages → interests → references`. Verificado comparando o multiconjunto de palavras extraídas antes e depois: idêntico, então a mudança foi só de ordem. |
 
 ---
 
 ## Ordem recomendada
 
-1. **O1** — as afirmações de trabalho solo. A página 1 hoje faz uma alegação que nenhum
-   bullet sustenta; é o único item restante que muda como o documento é lido.
-2. **O2** — uma data, uma resposta.
-3. **O3** — cosmético; aceitar a oscilação ou fixar `--zoom 82%` na task do pt.
+Nada está bloqueando. O único item aberto é cosmético:
+
+1. **O1** — oscilação na contagem de páginas do pt_BR. Os dois idiomas estão hoje em 6 páginas,
+   e o `--no-highlights` entrega um mestre de 4 páginas e uma variante de submissão de 3 sob
+   demanda, então isso pesa menos do que antes. Aceitar a oscilação, ou fixar `--zoom 82%` na
+   task do pt.
+
+Duas coisas que não consegui resolver e deixo para você:
+
+- **Paginação Chrome vs WeasyPrint** — não reproduzida. Ajuste o diálogo do Chrome para Margens
+  **Padrão** e Escala **100%** e salve de novo: continuar em 5 páginas indica diferença de
+  engine; dar 6 indica que o diálogo estava sobrepondo o `@page`.
+- **Um mestre de 5 páginas** — a página 6 só tem duas certificações ClearCase e Idiomas. Enxugar
+  um pouco ali, ou remover as três certificações de 2002, chega a 5 sem o `--no-highlights`.
