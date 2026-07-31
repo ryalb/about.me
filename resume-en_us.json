@@ -5,7 +5,7 @@
     "label": "Senior Software Engineer",
     "email": "ryan.leite@gmail.com",
     "phone": "+55 81 98255-0011",
-    "summary": "Senior backend engineer, 26 years in production. Shares ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and ships internal platforms solo, from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production systems in Java, C, PHP, Ruby and Python. Earlier, led a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).",
+    "summary": "Senior backend engineer, 26 years in production. Shares ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and ships internal platforms solo, from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production systems in Java, PHP, Ruby and Python. Earlier, led a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).",
     "location": {
       "city": "Fortaleza",
       "region": "Ceará",
@@ -42,7 +42,7 @@
         "Raised test coverage across five repositories — one from 0% to ~80% by authoring its entire test suite, the other four from roughly 50% to ~80% — and wired coverage reporting into CI.",
         "Standardized the Python toolchain across the same five repositories: Poetry to uv, pre-commit to prek, plus ruff and type-check gates."
       ],
-      "keywords": ["Python", "Django", "FastAPI", "GraphQL", "Celery", "Kafka", "PostgreSQL", "Milvus", "Snowflake", "Docker", "Kubernetes", "Helm", "AWS EKS", "CI/CD", "LLM", "MCP", "Nuxt"]
+      "keywords": ["Python", "Django", "FastAPI", "GraphQL", "Celery", "Kafka", "PostgreSQL", "Milvus", "Snowflake", "Docker", "Kubernetes", "Helm", "AWS EKS", "CI/CD", "LLM", "MCP", "Nuxt", "Sentry"]
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -55,9 +55,10 @@
       "highlights": [
         "Built and maintained backend services for two concurrent web platforms in Python (Django and Flask).",
         "Designed and implemented REST APIs to the JSON:API specification, standardizing response contracts across teams and reducing integration rework between backend and frontend squads.",
-        "Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) — automated build, test and deploy, with formatting, lint and test gates enforced in CI."
+        "Owned CI/CD end to end for both platforms (Docker, Git/GitFlow, Jenkins) — automated build, test and deploy, with formatting, lint and test gates enforced in CI.",
+        "Set up and ran Sentry error monitoring for both platforms — creating projects per environment and instrumenting the frontend and backend applications."
       ],
-      "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD"]
+      "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD", "Sentry"]
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -78,18 +79,17 @@
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
       "location": "Recife, PE, Brazil",
       "url": "https://www.cesar.org.br",
-      "position": "Technical Manager · Telephony & Enterprise Java",
+      "position": "Technical Manager · Enterprise Java & Mobile",
       "startDate": "2009-01",
       "endDate": "2013-06",
-      "summary": "Telephony in C on Asterisk, an enterprise Java web and mobile application built end to end, and the CI/CD and Scrum tooling behind them — including a nationwide platform maintained against live traffic.",
+      "summary": "An enterprise Java web and mobile application built end to end, the CI/CD and Scrum tooling behind it, and a nationwide production platform maintained against live traffic.",
       "highlights": [
-        "Developed a telephony platform in C on Asterisk, covering call flow logic and integration.",
         "Built an enterprise web and mobile application end to end using Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle and Apache Tomcat.",
         "Implemented a complete CI/CD environment (Subversion/Git, Maven, TeamCity, Tomcat) for automated builds and deployments.",
         "Built a Scrum task-board integration for Mantis (PHP) that gave distributed remote teams shared sprint visibility.",
         "Maintained a nationwide production web platform while shipping new features against live traffic."
       ],
-      "keywords": ["C", "Asterisk", "Java EE", "Java ME", "Android", "Struts 2", "Apache CXF", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Maven", "TeamCity", "Mantis"]
+      "keywords": ["Java EE", "Java ME", "Android", "Struts 2", "Apache CXF", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Maven", "TeamCity", "Mantis"]
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -172,7 +172,7 @@
       "area": "Computer Science",
       "studyType": "B.Sc.",
       "startDate": "1996-01",
-      "endDate": "2000-01"
+      "endDate": "1999-12"
     }
   ],
   "awards": [
@@ -308,7 +308,7 @@
     "notes": "Master resume file — single source of truth. Edit here first, then regenerate tailored versions from this file. Birthdate intentionally omitted (age-bias best practice). 'highlights' are action-verb bullets ready for ATS export; 'keywords' are for tagging/filtering when generating role-specific versions. 'meta.summaries' holds role-specific opening paragraphs — select one with `resume generate --summary <key>`; the map is stripped from generated output. 'awards[].links' is deliberate reference-only data: kept in the source for future use, rendered by no format (renderers read only title/date/awarder/summary/url). Schema-legal — awards items allow additional properties.",
     "summaries": {
       "platform": "Software engineer with 25 years of unbroken ownership of build, release and configuration management — spanning five tooling generations from Rational ClearCase to Docker, Kubernetes and Helm on AWS EKS. Led a 10-engineer configuration management team through a formal CMMI 1.2 Level 3 appraisal as a trained SCAMPI evaluator, and authored SCM processes and automation adopted as company-wide standards. Recently built an engineering-metrics platform that pulls coverage, LOC, pull-request and bug-fix data straight out of CI pipelines into nine dashboards, and standardized the Python toolchain (uv, prek, ruff, type checking) across five repositories. M.Sc. in Computer Science (Artificial Intelligence), with four peer-reviewed publications at international venues.",
-      "backend": "Senior backend engineer with 26 years building production systems, sharing ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI services over Kafka pipelines, Milvus vector search and Snowflake, running on Kubernetes. Also ships whole internal platforms solo: GraphQL and Celery workflow backends, Nuxt dashboards, and AI developer tooling built on the Claude Agent SDK and the Model Context Protocol. Production systems in Java, C, PHP, Ruby and Python. Earlier career spent defining software configuration management practice at institute scale, including leading a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).",
+      "backend": "Senior backend engineer with 26 years building production systems, sharing ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI services over Kafka pipelines, Milvus vector search and Snowflake, running on Kubernetes. Also ships whole internal platforms solo: GraphQL and Celery workflow backends, Nuxt dashboards, and AI developer tooling built on the Claude Agent SDK and the Model Context Protocol. Production systems in Java, PHP, Ruby and Python. Earlier career spent defining software configuration management practice at institute scale, including leading a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).",
       "lead": "Engineering leader with 26 years spanning hands-on delivery and organizational process ownership. Led a 10-engineer software configuration management team through a successful CMMI 1.2 Level 3 appraisal as a trained SCAMPI evaluator, and set company-wide engineering standards as SCM lead within the Software Engineering Process Group. Has since led technical direction for Scrum teams of 6 to 15 engineers across four production platforms, and now shares ownership of a production ML platform while driving test-coverage and toolchain programs across five repositories, taking one from 0% to ~80% coverage. Still hands-on: four internal platforms and real-time apps built solo in the same period. M.Sc. in Computer Science (Artificial Intelligence).",
       "ats": "Senior software engineer with 26 years of experience across backend development, full-stack delivery and release engineering. Specializes in Python (Django, FastAPI, Flask), GraphQL and REST API design, Celery and Kafka pipelines, PostgreSQL, Docker, Kubernetes and Helm on AWS EKS, and CI/CD automation; recent work includes vector search with Milvus, Snowflake data pipelines, and LLM/MCP developer tooling. Led a 10-engineer team through a formal CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence)."
     }

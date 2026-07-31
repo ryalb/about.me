@@ -5,7 +5,7 @@
     "label": "Engenheiro de Software Sênior",
     "email": "ryan.leite@gmail.com",
     "phone": "+55 81 98255-0011",
-    "summary": "Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, C, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+    "summary": "Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
     "location": {
       "city": "Fortaleza",
       "region": "Ceará",
@@ -42,7 +42,7 @@
         "Elevei a cobertura de testes em cinco repositórios — um de 0% para ~80%, escrevendo toda a suíte de testes, e os outros quatro de cerca de 50% para ~80% — e integrei o relatório de cobertura à CI.",
         "Padronizei o toolchain Python nos mesmos cinco repositórios: Poetry para uv, pre-commit para prek, além de gates de ruff e de tipos."
       ],
-      "keywords": ["Python", "Django", "FastAPI", "GraphQL", "Celery", "Kafka", "PostgreSQL", "Milvus", "Snowflake", "Docker", "Kubernetes", "Helm", "AWS EKS", "CI/CD", "LLM", "MCP", "Nuxt"]
+      "keywords": ["Python", "Django", "FastAPI", "GraphQL", "Celery", "Kafka", "PostgreSQL", "Milvus", "Snowflake", "Docker", "Kubernetes", "Helm", "AWS EKS", "CI/CD", "LLM", "MCP", "Nuxt", "Sentry"]
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -55,9 +55,10 @@
       "highlights": [
         "Desenvolvi e mantive serviços de backend para duas plataformas web simultâneas em Python (Django e Flask).",
         "Projetei e implementei APIs REST seguindo a especificação JSON:API, padronizando os contratos de resposta entre equipes e reduzindo retrabalho de integração entre os times de backend e frontend.",
-        "Fui responsável pela esteira de CI/CD de ponta a ponta nas duas plataformas (Docker, Git/GitFlow, Jenkins) — build, teste e implantação automatizados, com gates de formatação, análise estática e testes aplicados na CI."
+        "Fui responsável pela esteira de CI/CD de ponta a ponta nas duas plataformas (Docker, Git/GitFlow, Jenkins) — build, teste e implantação automatizados, com gates de formatação, análise estática e testes aplicados na CI.",
+        "Configurei e operei o monitoramento de erros com Sentry nas duas plataformas — criando projetos por ambiente e instrumentando as aplicações de frontend e backend."
       ],
-      "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD"]
+      "keywords": ["Python", "Django", "Flask", "REST API", "JSON:API", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD", "Sentry"]
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -78,18 +79,17 @@
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
       "location": "Recife, PE, Brasil",
       "url": "https://www.cesar.org.br",
-      "position": "Technical Manager · Telefonia e Java Corporativo",
+      "position": "Technical Manager · Java Corporativo e Mobile",
       "startDate": "2009-01",
       "endDate": "2013-06",
-      "summary": "Telefonia em C sobre o Asterisk, uma aplicação corporativa web e mobile em Java de ponta a ponta, e as ferramentas de CI/CD e de Scrum por trás delas — além de uma plataforma nacional mantida com tráfego ativo.",
+      "summary": "Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, as ferramentas de CI/CD e de Scrum por trás dela, e uma plataforma nacional em produção mantida com tráfego ativo.",
       "highlights": [
-        "Desenvolvi uma plataforma de telefonia em C sobre o Asterisk, cobrindo a lógica de fluxo de chamadas e integrações.",
         "Construí de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.",
         "Implementei um ambiente completo de CI/CD (Subversion/Git, Maven, TeamCity, Tomcat) para builds e implantações automatizadas.",
         "Desenvolvi uma integração de task board Scrum para o Mantis (PHP), dando visibilidade compartilhada das sprints a equipes remotas distribuídas.",
         "Mantive uma plataforma web de abrangência nacional em produção, entregando novas funcionalidades com tráfego ativo."
       ],
-      "keywords": ["C", "Asterisk", "Java EE", "Java ME", "Android", "Struts 2", "Apache CXF", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Maven", "TeamCity", "Mantis"]
+      "keywords": ["Java EE", "Java ME", "Android", "Struts 2", "Apache CXF", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Maven", "TeamCity", "Mantis"]
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -172,7 +172,7 @@
       "area": "Ciência da Computação",
       "studyType": "Bacharelado",
       "startDate": "1996-01",
-      "endDate": "2000-01"
+      "endDate": "1999-12"
     }
   ],
   "awards": [
@@ -308,7 +308,7 @@
     "notes": "Versão em português brasileiro traduzida de resume.json (arquivo mestre em inglês). Edite primeiro o arquivo mestre e depois sincronize esta tradução. Data de nascimento intencionalmente omitida (boa prática contra viés de idade). 'highlights' são bullets com verbos de ação prontos para exportação ATS; 'keywords' servem para etiquetagem/filtragem ao gerar versões específicas por vaga. 'meta.summaries' contém parágrafos de abertura específicos por perfil — selecione um com `resume generate --summary <key>`; o mapa é removido da saída gerada. 'awards[].links' é dado de referência deliberado: mantido na fonte para uso futuro, não renderizado por nenhum formato (os renderers leem apenas title/date/awarder/summary/url). Válido no schema — itens de awards aceitam propriedades extras.",
     "summaries": {
       "platform": "Engenheiro de software com 25 anos de atuação contínua em build, release e gerência de configuração — atravessando cinco gerações de ferramentas, do Rational ClearCase ao Docker, Kubernetes e Helm na AWS EKS. Liderou uma equipe de 10 engenheiros de gerência de configuração em uma avaliação formal CMMI 1.2 Nível 3 como avaliador SCAMPI treinado, e escreveu processos e automações de GCS adotados como padrão corporativo. Recentemente construiu uma plataforma de métricas de engenharia que extrai cobertura, linhas de código, pull requests e correções de bugs direto das esteiras de CI para nove dashboards, e padronizou o toolchain Python (uv, prek, ruff, verificação de tipos) em cinco repositórios. Mestre em Ciência da Computação (Inteligência Artificial), com quatro publicações revisadas por pares em eventos internacionais.",
-      "backend": "Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — serviços FastAPI sobre pipelines Kafka, busca vetorial com Milvus e Snowflake, rodando em Kubernetes. Também entrega plataformas internas completas sozinho: backends de workflow em GraphQL e Celery, dashboards em Nuxt e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o Model Context Protocol. Sistemas em produção em Java, C, PHP, Ruby e Python. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
+      "backend": "Engenheiro backend sênior com 26 anos de experiência construindo sistemas em produção, co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — serviços FastAPI sobre pipelines Kafka, busca vetorial com Milvus e Snowflake, rodando em Kubernetes. Também entrega plataformas internas completas sozinho: backends de workflow em GraphQL e Celery, dashboards em Nuxt e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o Model Context Protocol. Sistemas em produção em Java, PHP, Ruby e Python. No início da carreira, definiu a prática de gerência de configuração de software em escala institucional, incluindo a liderança de uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3, atuando como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).",
       "lead": "Líder de engenharia com 26 anos de experiência entre entrega hands-on e responsabilidade por processos organizacionais. Liderou uma equipe de 10 engenheiros de gerência de configuração de software em uma avaliação CMMI 1.2 Nível 3 bem-sucedida como avaliador SCAMPI treinado, e definiu padrões corporativos de engenharia como líder de GCS no Grupo de Processos de Engenharia de Software. Desde então, conduziu a direção técnica de equipes Scrum de 6 a 15 engenheiros em quatro plataformas em produção e hoje é co-responsável por uma plataforma de ML em produção, conduzindo programas de cobertura de testes e de toolchain em cinco repositórios, levando um deles de 0% para ~80% de cobertura. Segue hands-on: quatro plataformas e apps internos construídos sozinho no mesmo período. Mestre em Ciência da Computação (Inteligência Artificial).",
       "ats": "Engenheiro de software sênior com 26 anos de experiência em desenvolvimento backend, entrega full-stack e engenharia de release. Especialista em Python (Django, FastAPI, Flask), design de APIs GraphQL e REST, pipelines com Celery e Kafka, PostgreSQL, Docker, Kubernetes e Helm na AWS EKS, e automação de CI/CD; o trabalho recente inclui busca vetorial com Milvus, pipelines de dados no Snowflake e ferramentas de desenvolvimento com LLM/MCP. Liderou uma equipe de 10 engenheiros em uma avaliação formal CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial)."
     }
