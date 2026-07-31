@@ -2,14 +2,31 @@
 **Senior Software Engineer**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
-Senior backend engineer, 26 years in production. Shares ownership of a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and ships internal platforms solo, from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Production systems in Java, PHP, Ruby and Python. Earlier, led a 10-engineer team through a CMMI Level 3 appraisal as a trained SCAMPI evaluator. M.Sc. in Computer Science (Artificial Intelligence).
+Backend and platform engineer, 26 years in production. Co-owns a production ML platform for automated issue triage and duplicate detection — FastAPI over Kafka, Milvus vector search and Snowflake on Kubernetes/AWS EKS — and delivers internal platforms from data model to deploy: team onboarding (Django/GraphQL/Celery), an engineering-metrics platform with nine CI-fed dashboards, and AI developer tooling on the Claude Agent SDK and MCP. Previously ran Python backend services for two concurrent web platforms on JSON:API contracts, owning CI/CD and Sentry end to end, and was technical lead for Scrum teams of 6 to 15 engineers across four client projects. M.Sc. in Computer Science (Artificial Intelligence).
+
+## Skills
+
+**Backend** (Expert): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
+
+**Frontend** (Advanced): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
+
+**AI & ML Engineering** (Advanced): `LLM application development`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Agentic tooling`, `Vector search`, `Milvus`, `Snowflake`
+
+**DevOps & CI/CD** (Expert): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Multi-arch builds`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `mise`, `prek`, `ruff`, `pytest`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
+
+**Cloud & Orchestration** (Advanced): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`, `Error monitoring`
+
+**Databases** (Advanced): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
+
+**Process & Leadership** (Expert): `Software Configuration Management`, `CMMI`, `SCAMPI appraisal`, `Scrum`, `Kanban`, `Technical Leadership`, `Code Review`, `Mentoring`
+
 
 ## Work Experience
 
 ### Principal Technical Manager · Backend & Platform Engineering — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brazil · 🗓 2026-01 – Present_
 
-Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, four internal platforms and real-time apps built solo, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.
+Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, four internal platforms and real-time apps, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.
 - Shared ownership of a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.
 - Developed a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) that automates a manual nine-step process, with progress tracking, user notifications and update triggers.
 - Developed an engineering-metrics platform (Django + GraphQL, Nuxt 4, PostgreSQL on Kubernetes) with nine dashboards over coverage, LOC, pull-request and bug-fix data from CI.
@@ -89,31 +106,6 @@ _🗓 2000-03 – 2002-08_
 _🗓 1996-01 – 1999-12_
 
 
-## Skills
-
-**Backend** (Expert): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
-
-**Frontend** (Advanced): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
-
-**AI & ML Engineering** (Advanced): `LLM application development`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Agentic tooling`, `Vector search`, `Milvus`, `Snowflake`
-
-**DevOps & CI/CD** (Expert): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Multi-arch builds`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `mise`, `prek`, `ruff`, `pytest`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
-
-**Cloud & Orchestration** (Advanced): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`, `Error monitoring`
-
-**Databases** (Advanced): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
-
-**Process & Leadership** (Expert): `Software Configuration Management`, `CMMI`, `SCAMPI appraisal`, `Scrum`, `Kanban`, `Technical Leadership`, `Code Review`, `Mentoring`
-
-
-## Awards
-
-### [Best Application from the Americas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
-_Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) · 2002_
-
-Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at CESAR (Brazil), was named one of the Top 20 finalists selected from more than 1,000 entrants across 23 countries.
-
-
 ## Certifications
 
 - **AI for Developers (54h)** · CESAR School · 2025-08
@@ -145,6 +137,14 @@ First author. Case study on embedding an inference engine in J2ME for resource-c
 _Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, USA — Springer, pp. 423–435 · 2002_
 
 First author. Communication infrastructure for agents running on handheld devices — built on the SACI framework, using KQML as the outer language and XML as the inner one, and demonstrated on early J2ME cell-phone emulators.
+
+
+## Awards
+
+### [Best Application from the Americas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
+_Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) · 2002_
+
+Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at CESAR (Brazil), was named one of the Top 20 finalists selected from more than 1,000 entrants across 23 countries.
 
 
 ## Languages

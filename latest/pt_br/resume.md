@@ -2,14 +2,31 @@
 **Engenheiro de Software Sênior**
 ✉ [ryan.leite@gmail.com](mailto:ryan.leite@gmail.com) | 📞 +55 81 98255-0011 | 📍 Fortaleza, Ceará, BR | 🔗 [linkedin.com/in/ryalb](https://linkedin.com/in/ryalb) | 🔗 [lattes.cnpq.br/3280302693405113](https://lattes.cnpq.br/3280302693405113)
 
-Engenheiro backend sênior, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas sozinho, do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Sistemas em produção em Java, PHP, Ruby e Python. Antes, liderou uma equipe de 10 engenheiros em uma avaliação CMMI Nível 3 como avaliador SCAMPI treinado. Mestre em Ciência da Computação (Inteligência Artificial).
+Engenheiro de backend e plataforma, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Antes, conduziu serviços de backend em Python para duas plataformas web simultâneas com contratos JSON:API, sendo responsável de ponta a ponta pela CI/CD e pelo Sentry, e foi líder técnico de equipes Scrum de 6 a 15 engenheiros em quatro projetos de clientes. Mestre em Ciência da Computação (Inteligência Artificial).
+
+## Competências
+
+**Backend** (Especialista): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
+
+**Frontend** (Avançado): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
+
+**Engenharia de IA e ML** (Avançado): `Desenvolvimento de aplicações com LLM`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Ferramentas agentivas`, `Busca vetorial`, `Milvus`, `Snowflake`
+
+**DevOps e CI/CD** (Especialista): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Builds multi-arquitetura`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `mise`, `prek`, `ruff`, `pytest`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
+
+**Cloud e Orquestração** (Avançado): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`, `Monitoramento de erros`
+
+**Bancos de Dados** (Avançado): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
+
+**Processos e Liderança** (Especialista): `Gerência de Configuração de Software`, `CMMI`, `Avaliação SCAMPI`, `Scrum`, `Kanban`, `Liderança Técnica`, `Code Review`, `Mentoria`
+
 
 ## Experiência Profissional
 
 ### Principal Technical Manager · Engenharia de Backend e Plataforma — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
 _📍 Recife, PE, Brasil · 🗓 2026-01 – Presente_
 
-Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos construídos sozinho, ferramentas com IA/LLM e programas de qualidade em cinco repositórios. Implantações em Kubernetes escritas como Helm charts, com overlays de Kustomize.
+Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, quatro plataformas e apps internos, ferramentas com IA/LLM e programas de qualidade em cinco repositórios. Implantações em Kubernetes escritas como Helm charts, com overlays de Kustomize.
 - Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
 - Desenvolvi uma plataforma de onboarding de times (Django 6, GraphQL, Celery, Kubernetes) que automatiza um processo manual de nove etapas, com acompanhamento de progresso, notificações aos usuários e triggers de atualização.
 - Desenvolvi uma plataforma de métricas de engenharia (Django + GraphQL, Nuxt 4, PostgreSQL em Kubernetes) com nove dashboards sobre cobertura, linhas de código, pull requests e correções de bugs vindos da CI.
@@ -89,31 +106,6 @@ _🗓 2000-03 – 2002-08_
 _🗓 1996-01 – 1999-12_
 
 
-## Competências
-
-**Backend** (Especialista): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
-
-**Frontend** (Avançado): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `HTML`, `CSS`, `SCSS/SASS`, `BEM`
-
-**Engenharia de IA e ML** (Avançado): `Desenvolvimento de aplicações com LLM`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Ferramentas agentivas`, `Busca vetorial`, `Milvus`, `Snowflake`
-
-**DevOps e CI/CD** (Especialista): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Builds multi-arquitetura`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `mise`, `prek`, `ruff`, `pytest`, `Bash`, `Git`, `GitFlow`, `GitHub`, `GitLab`
-
-**Cloud e Orquestração** (Avançado): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`, `Monitoramento de erros`
-
-**Bancos de Dados** (Avançado): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
-
-**Processos e Liderança** (Especialista): `Gerência de Configuração de Software`, `CMMI`, `Avaliação SCAMPI`, `Scrum`, `Kanban`, `Liderança Técnica`, `Code Review`, `Mentoria`
-
-
-## Prêmios
-
-### [Melhor Aplicação das Américas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
-_Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
-
-O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
-
-
 ## Certificações
 
 - **IA para Devs (54h)** · CESAR School · 2025-08
@@ -145,6 +137,14 @@ Primeiro autor. Estudo de caso sobre embarcar um motor de inferência em J2ME em
 _Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, EUA — Springer, p. 423–435 · 2002_
 
 Primeiro autor. Infraestrutura de comunicação para agentes executando em dispositivos de mão — construída sobre o framework SACI, com KQML como linguagem externa e XML como interna, demonstrada em emuladores de celular J2ME da época.
+
+
+## Prêmios
+
+### [Melhor Aplicação das Américas — Sea Hunter](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
+_Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
+
+O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
 
 
 ## Idiomas
