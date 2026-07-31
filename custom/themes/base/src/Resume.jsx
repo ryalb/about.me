@@ -437,8 +437,13 @@ const CardGrid = styled.div`
      full-width column in the PDF while the browser showed two.  At A4 minus
      page margins the screen rule resolves to two tracks anyway, so state that
      explicitly for print to keep PDF and HTML identical. */
+  /* Print goes single-column on purpose.  The two-column grid interleaves
+     under plain text extraction -- the form most ATS parsers use -- splitting
+     multi-word keywords (Strawberry GraphQL, Tailwind CSS, Multi-arch builds)
+     and detaching each proficiency level from its category.  One column costs
+     no pages and keeps every keyword intact. */
   @media print {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
   }
 `;
 
