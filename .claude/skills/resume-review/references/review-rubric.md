@@ -57,6 +57,12 @@ Look for these before inventing new criticisms:
 - **Unexplained gaps or same-employer sprawl** that reads as stagnation when it was
   actually role progression. (This resume is a long single-employer history across many
   distinct roles — make sure the *progression* is legible, since that's the real story.)
+- **A role summary that contradicts its own bullets** — check every `work` entry's `summary`
+  and `position` against its `highlights`, not just the prose in isolation. Look for counts
+  that no longer add up ("four internal platforms" over five bullets), a summary or position
+  qualifier naming a stack the bullets no longer use, and bullets the summary never accounts
+  for. This is the most common form of drift in this file, because edits land on bullets and
+  the summary is a level of zoom nobody re-reads.
 - **Seniority mismatch in voice** — a principal-level history written in junior-level
   language, or the reverse.
 

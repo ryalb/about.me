@@ -82,16 +82,33 @@ you check (see the parity command in `references/pipeline.md`).
 3. **Apply to both locales.** An en_US-only edit is an unfinished edit. Keep tool, product
    and standard names untranslated (`Certified ScrumMaster`, `Kubernetes`, `JSON:API`);
    translate prose.
-4. **Rebuild:** `mise run build-all`.
-5. **Verify in the format that matters** — not just the one that's easy to grep. HTML
+4. **Touched a role's `highlights`? Re-derive that role's `summary` and `position` from the
+   new bullet set.** Not "glance at it" — read the summary against every bullet and confirm
+   each clause is still supported and nothing new is unaccounted for. An entry is one claim
+   told twice, at two zoom levels; changing one level silently breaks the other. The failures
+   this catches, all seen in practice:
+   - **Counts that no longer add up.** "four internal platforms" when the bullets now
+     enumerate five, or two, or an ambiguous number. A figure a reader can argue with is
+     worse than no figure — prefer one that maps onto the bullets exactly.
+   - **A summary naming a stack the bullets no longer use.** A role summarised as "Python
+     backend services" whose bullets say Laravel reads as a document that contradicts itself.
+     The `position` qualifier fails the same way: `· Telephony & Enterprise Java` after the
+     telephony bullet is deleted is half false.
+   - **New bullets the summary never mentions.** Adding a platform to a role whose summary
+     describes only client work leaves the summary silently incomplete.
+   Deleting a bullet is as dangerous as adding one: whatever the summary said about it is now
+   orphaned. Same for `keywords` — drop a bullet's technology and check the role's keyword
+   list still reflects what the entry claims.
+5. **Rebuild:** `mise run build-all`.
+6. **Verify in the format that matters** — not just the one that's easy to grep. HTML
    passing tells you nothing about the PDF; they use different layout engines.
-6. **Check page counts** with `pdfinfo`. pt_BR prose runs ~20–25% longer than en_US, so
+7. **Check page counts** with `pdfinfo`. pt_BR prose runs ~20–25% longer than en_US, so
    Portuguese edits push page boundaries first. If a change adds a page, tighten the text
    and rebuild before reporting.
-7. **`mise run check` must pass first time.** `build-all` runs it once, and the generator
+8. **`mise run check` must pass first time.** `build-all` runs it once, and the generator
    emits text that already satisfies the whitespace/EOF hooks. A failure is a real failure —
    fix it, don't re-run. Don't report a passing gate you haven't actually seen pass.
-8. **Report honestly:** what changed, which assumptions you made, what you deliberately
+9. **Report honestly:** what changed, which assumptions you made, what you deliberately
    left out and why. Flag data problems you noticed but didn't fix rather than silently
    fixing or silently ignoring them.
 
@@ -114,6 +131,8 @@ you check (see the parity command in `references/pipeline.md`).
 ## Before claiming done
 
 - [ ] Change present in **both** JSON files
+- [ ] For every role whose `highlights` changed: `summary` and `position` re-read against
+      the new bullets, counts verified, orphaned claims removed
 - [ ] `mise run build-all` succeeded (5/5 files per locale)
 - [ ] Verified in every format the change can reach — including PDF
 - [ ] Page counts checked; no unintended new page
