@@ -88,9 +88,9 @@ you check (see the parity command in `references/pipeline.md`).
 6. **Check page counts** with `pdfinfo`. pt_BR prose runs ~20–25% longer than en_US, so
    Portuguese edits push page boundaries first. If a change adds a page, tighten the text
    and rebuild before reporting.
-7. **`mise run check`, twice.** The first run after a build reports failure because the
-   whitespace/EOF hooks rewrite the freshly generated files; the second run confirms green.
-   Don't report a passing gate you haven't actually seen pass.
+7. **`mise run check` must pass first time.** `build-all` runs it once, and the generator
+   emits text that already satisfies the whitespace/EOF hooks. A failure is a real failure —
+   fix it, don't re-run. Don't report a passing gate you haven't actually seen pass.
 8. **Report honestly:** what changed, which assumptions you made, what you deliberately
    left out and why. Flag data problems you noticed but didn't fix rather than silently
    fixing or silently ignoring them.
@@ -117,5 +117,5 @@ you check (see the parity command in `references/pipeline.md`).
 - [ ] `mise run build-all` succeeded (5/5 files per locale)
 - [ ] Verified in every format the change can reach — including PDF
 - [ ] Page counts checked; no unintended new page
-- [ ] `mise run check` green on the second run
+- [ ] `mise run check` green on the first run
 - [ ] Report states what you assumed and what you left undone

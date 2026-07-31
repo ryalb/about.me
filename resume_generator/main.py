@@ -466,6 +466,25 @@ def generate(
     )
 
 
+def _normalize_text(text: str) -> str:
+    """Strip per-line trailing whitespace and end with exactly one newline.
+
+    Applied to every textual format at the write boundary rather than inside each
+    renderer, so it also covers HTML produced by the Bun-rendered theme, which
+    the Python code never touches.
+
+    Why it matters: ``latest/`` is committed, and prek's ``trailing-whitespace``
+    and ``end-of-file-fixer`` hooks rewrite any file that breaks either rule.
+    A build that emitted dirty text therefore failed ``mise run check`` on its
+    first pass — and mise aborts a task's command list at the first non-zero
+    exit, so ``build-all``'s second ``check`` never ran and the task always
+    reported failure. Three offenders: ``.center()`` padding in the text
+    renderer, a trailing blank line in Markdown, and no final newline at all
+    from the theme's HTML.
+    """
+    return "\n".join(line.rstrip() for line in text.split("\n")).rstrip("\n") + "\n"
+
+
 def _render_format(
     fmt: str,
     resume: dict,
@@ -477,7 +496,7 @@ def _render_format(
     if fmt == "html":
         html = get_html()
         path = out_dir / "resume.html"
-        path.write_text(html, encoding="utf-8")
+        path.write_text(_normalize_text(html), encoding="utf-8")
         return path
 
     elif fmt == "pdf":
@@ -489,13 +508,13 @@ def _render_format(
     elif fmt == "md":
         md = render_markdown(resume)
         path = out_dir / "resume.md"
-        path.write_text(md, encoding="utf-8")
+        path.write_text(_normalize_text(md), encoding="utf-8")
         return path
 
     elif fmt == "txt":
         txt = render_text(resume)
         path = out_dir / "resume.txt"
-        path.write_text(txt, encoding="utf-8")
+        path.write_text(_normalize_text(txt), encoding="utf-8")
         return path
 
     elif fmt == "docx":

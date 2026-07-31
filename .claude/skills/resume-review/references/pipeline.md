@@ -42,10 +42,21 @@ Useful `generate` flags: `--summary/-S <key>` (swap in a `meta.summaries` varian
 The `en` and `pt` tasks render at `--zoom 85%`, so page counts in `latest/` reflect that
 scale rather than 100% — check `mise.toml` before reading a page count as a regression.
 
-`mise run check` failing right after `build-all` with "files were modified by this hook" is
-expected — the trailing-whitespace and EOF hooks rewrite the generated files. Re-run to
-confirm green. A genuine failure to watch for: ruff `EXE001` ("shebang is present but file
-is not executable") → `chmod +x <file>`.
+`mise run build-all` runs `mise run check` **once** and it should pass first time. Any failure
+there is a real failure — do not re-run and hope.
+
+Historically the whitespace/EOF hooks rewrote the freshly generated files on every build, so
+`check` always failed the first time and the task ran it twice to absorb that. Fixed at the
+source: `_normalize_text()` in `resume_generator/main.py` strips per-line trailing whitespace
+and enforces exactly one final newline for `html`, `md` and `txt` at the write boundary. It
+lives there rather than in the individual renderers because the HTML comes from the
+Bun-rendered theme, which no Python renderer touches — three separate offenders had to be
+fixed together (`.center()` padding in the text renderer, a trailing blank line in Markdown,
+no final newline at all from the theme).
+
+If a generated file ever starts failing those hooks again, fix the generator, not the task —
+a double `check` masks genuine lint and type failures. A real one to watch for: ruff `EXE001`
+("shebang is present but file is not executable") → `chmod +x <file>`.
 
 ## Verification
 

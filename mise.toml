@@ -86,13 +86,18 @@ run = "rm -rf .output"
 
 [tasks.build-all]
 description = "Generate both language versions"
+# `check` runs once, not twice.  The generator emits text that already satisfies
+# trailing-whitespace and end-of-file-fixer (see _normalize_text in
+# resume_generator/main.py), so it passes first time.  A failure here is a real
+# failure -- the old double-run existed to absorb the hooks rewriting freshly
+# generated files, and it masked genuine lint and type errors.
 run = [
     "mise run icons",
     "mise run clean",
     "mise run build",
     "cp ./.output/*full_en_us/* ./latest/en_us/.",
     "cp ./.output/*full_pt_br/* ./latest/pt_br/.",
-    "mise run check",
+    "mise run fmt",
     "mise run check"
 ]
 
@@ -102,6 +107,6 @@ run = [
     "mise run icons",
     "mise run clean",
     "mise run short",
-    "mise run check",
+    "mise run fmt",
     "mise run check"
 ]
