@@ -31,7 +31,7 @@
       "url": "https://www.cesar.org.br",
       "position": "Principal Technical Manager · Backend & Platform Engineering",
       "startDate": "2026-01",
-      "summary": "Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, four internal platforms and real-time apps, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.",
+      "summary": "Backend and platform engineering for ML-driven developer-productivity systems: shared ownership of a production ML platform, two internal platforms and two real-time team apps, AI/LLM developer tooling, and quality programs across five repositories. Kubernetes deployments authored as Helm charts, with Kustomize overlays.",
       "highlights": [
         "Shared ownership of a production ML platform for automated issue triage and duplicate detection: FastAPI, Kafka, Milvus vector search, Snowflake, Kubernetes on AWS EKS.",
         "Developed a team onboarding platform (Django 6, GraphQL, Celery, Kubernetes) that automates a manual nine-step process, with progress tracking, user notifications and update triggers.",
@@ -69,7 +69,7 @@
       "position": "Senior Technical Manager · Full-Stack Delivery & Technical Leadership",
       "startDate": "2013-06",
       "endDate": "2022-09",
-      "summary": "Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them.",
+      "summary": "Nine years across four client projects: four production web applications in four language stacks, the CI/CD environments behind them, and technical direction for the Scrum teams delivering them — plus CESAR's own portfolio platform from 2020.",
       "highlights": [
         "Contributed to the development of four production web applications across nine years and four client engagements, each in a different language stack — PHP (Yii), Python (Flask/Falcon), Ruby on Rails and JavaScript (Backbone/Marionette, EmberJS, VueJS).",
         "Built and maintained CI/CD environments with Git/GitFlow, TeamCity, Jenkins, Ansible and HashiCorp Vault, enabling secure, repeatable and fully automated deployments.",
