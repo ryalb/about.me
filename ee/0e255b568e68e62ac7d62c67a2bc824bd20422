@@ -1,0 +1,23 @@
+resume-en_us.json
+  s_15a6586dcd4a27::t_6b46caa820a8d9 138,183
+  s_15a6586dcd4a27::t_83356567ed4a9b 5
+resume-pt_br.json
+  s_15a6586dcd4a27::t_6b46caa820a8d9 183
+  s_15a6586dcd4a27::t_573eb67352b0e1 5,138
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.18",
+  "base_commit_sha": "ee0e255b568e68e62ac7d62c67a2bc824bd20422",
+  "prompts": {},
+  "sessions": {
+    "s_15a6586dcd4a27": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "84007e6c-cc9c-4702-8abf-0b9c0fd1ae16",
+        "model": "claude-opus-5"
+      },
+      "human_author": "Ryan Leite Albuquerque <ryan_albuquerque@apple.com>"
+    }
+  }
+}
