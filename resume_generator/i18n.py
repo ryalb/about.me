@@ -1,8 +1,13 @@
 """Locale-dependent labels for generated output.
 
-The language is read from ``meta.language`` in the resume file (a BCP 47 tag,
-e.g. ``en-US`` or ``pt-BR``).  Only labels the renderers emit themselves live
-here — resume *content* is translated by maintaining one file per language.
+The language is resolved in this order:
+1. ``--locale`` CLI flag
+2. ``meta.language`` in the resume file (a BCP 47 tag, e.g. ``en-US`` or ``pt-BR``)
+3. Default ``en-US``
+
+Strings are loaded from ``resume_generator/locales/<tag>.json`` over English.  Only labels
+the renderers emit themselves live here — resume *content* is translated by
+maintaining one resume file per language.
 
 The ``base`` theme resolves the same label in JavaScript (see
 ``custom/themes/base/src/Resume.jsx``); keep the two tables in step.
@@ -10,150 +15,193 @@ The ``base`` theme resolves the same label in JavaScript (see
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
 from typing import Any
 
-DEFAULT_LANGUAGE = "en-US"
+_DEFAULT_LANGUAGE = "en-US"
+_FALLBACK_LANGUAGE = "en"
+_LOCALES_DIR = Path(__file__).parent / "locales"
 
-# Keyed by full BCP 47 tag first, then by the bare language subtag.
-_PRESENT_LABELS = {
-    "en": "Present",
-    "pt": "Presente",
-    "es": "Presente",
-    "fr": "Présent",
-    "it": "Presente",
-    "de": "Heute",
-}
-
-# Section headings the renderers emit themselves.  The English entries are the
-# wording md/txt/docx have always used — the ``base`` theme keeps its own,
-# shorter set ("Experience", "Certificates") in Resume.jsx.
-#
-# Only the languages this repo maintains a resume file for are translated;
-# anything else falls back to English, which is still better than a missing
-# heading.  Add a language here and in Resume.jsx's SECTION_LABELS together.
-_SECTION_LABELS: dict[str, dict[str, str]] = {
-    "en": {
-        "summary": "Summary",
-        "work": "Work Experience",
-        "education": "Education",
-        "skills": "Skills",
-        "projects": "Projects",
-        "volunteer": "Volunteer",
-        "awards": "Awards",
-        "certificates": "Certifications",
-        "publications": "Publications",
-        "languages": "Languages",
-        "interests": "Interests",
-        "references": "References",
-    },
-    "pt": {
-        "summary": "Resumo",
-        "work": "Experiência Profissional",
-        "education": "Formação Acadêmica",
-        "skills": "Competências",
-        "projects": "Projetos",
-        "volunteer": "Trabalho Voluntário",
-        "awards": "Prêmios",
-        "certificates": "Certificações",
-        "publications": "Publicações",
-        "languages": "Idiomas",
-        "interests": "Interesses",
-        "references": "Referências",
-    },
-}
+# Cache loaded locale tables.
+_locale_cache: dict[str, dict[str, Any]] = {}
 
 
-def language_of(resume: dict[str, Any]) -> str:
-    """Return the resume's ``meta.language`` tag, or the default."""
+def _read_table(name: str) -> dict[str, Any] | None:
+    path = _LOCALES_DIR / f"{name}.json"
+    if not path.is_file():
+        return None
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return None
+    return data if isinstance(data, dict) else None
+
+
+def _merge(base: dict[str, Any], override: dict[str, Any]) -> dict[str, Any]:
+    """Recursively overlay *override* on *base* without mutating either."""
+    merged = dict(base)
+    for key, value in override.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = _merge(merged[key], value)
+        else:
+            merged[key] = value
+    return merged
+
+
+def _load_locale(tag: str) -> dict[str, Any]:
+    """Load a locale table, overlaid on English so no key is ever missing.
+
+    Lookup order: full tag (``pt-BR``) → bare language (``pt``).  A key absent
+    from the chosen table falls back to the English string rather than to a
+    hard-coded default at the call site.
+    """
+    if tag in _locale_cache:
+        return _locale_cache[tag]
+
+    english = _read_table(_FALLBACK_LANGUAGE) or {}
+    table = english
+    for candidate in dict.fromkeys((tag, tag.split("-")[0].lower())):
+        if candidate == _FALLBACK_LANGUAGE:
+            break
+        if (found := _read_table(candidate)) is not None:
+            table = _merge(english, found)
+            break
+
+    _locale_cache[tag] = table
+    return table
+
+
+def language_of(resume: dict[str, Any], cli_locale: str | None = None) -> str:
+    """Return the effective language tag.
+
+    Priority: CLI ``--locale`` flag > ``meta.language`` in the resume > default.
+    """
+    if cli_locale and cli_locale.strip():
+        return cli_locale.strip()
     meta = resume.get("meta")
     if isinstance(meta, dict):
         language = meta.get("language")
         if isinstance(language, str) and language.strip():
             return language.strip()
-    return DEFAULT_LANGUAGE
+    return _DEFAULT_LANGUAGE
 
 
-def present_label(resume: dict[str, Any]) -> str:
-    """Return the label marking an entry with no end date as still ongoing.
+def t(locale_data: dict[str, Any], *path: str, default: str = "") -> str:
+    """Look up a translated string by dotted path, falling back to *default*."""
+    node: Any = locale_data
+    for key in path:
+        if not isinstance(node, dict):
+            return default
+        node = node.get(key)
+    return node if isinstance(node, str) else default
 
-    An omitted ``endDate`` is the JSON Resume convention for ongoing work, so
-    every date-range section renders this label in place of the missing date.
+
+_PT_MONTHS = [
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Set",
+    "Out",
+    "Nov",
+    "Dez",
+]
+_EN_MONTHS = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+]
+
+
+def _months_for(language: str) -> list[str]:
+    tag = (language or "en-US").split("-")[0].lower()
+    if tag == "pt":
+        return _PT_MONTHS
+    return _EN_MONTHS
+
+
+def format_date(date_str: str | None, language: str = "en-US") -> str:
+    """Format a date string as MMM/YYYY with the first letter capitalized.
+
+    Accepts ``YYYY``, ``YYYY-MM`` or ``YYYY-MM-DD``.  Year-only values are
+    returned unchanged so that publications and awards that store only a year
+    continue to render as just that year.
     """
-    language = language_of(resume)
-    return (
-        _PRESENT_LABELS.get(language)
-        or _PRESENT_LABELS.get(language.split("-")[0].lower())
-        or _PRESENT_LABELS["en"]
-    )
+    if not date_str:
+        return ""
+    if len(date_str) == 4 and date_str.isdigit():
+        return date_str
+    parts = date_str.split("-")
+    year = parts[0]
+    if len(parts) < 2:
+        return date_str
+    try:
+        month = int(parts[1])
+    except ValueError:
+        return date_str
+    if 1 <= month <= 12:
+        months = _months_for(language)
+        return f"{months[month - 1]}/{year}"
+    return date_str
 
 
-def section_labels(resume: dict[str, Any]) -> dict[str, str]:
-    """Return the section-heading table for the resume's language.
-
-    Missing languages fall back to English rather than to the raw section key,
-    so a heading is never emitted as ``certificates``.
-    """
-    language = language_of(resume)
-    english = _SECTION_LABELS["en"]
-    table = _SECTION_LABELS.get(language) or _SECTION_LABELS.get(
-        language.split("-")[0].lower()
-    )
-    return {**english, **(table or {})}
+def format_date_range(
+    start: str | None, end: str | None, present: str, language: str = "en-US"
+) -> str:
+    """Format a date range as ``MMM/YYYY - MMM/YYYY`` or ``MMM/YYYY - <present>``."""
+    start_str = format_date(start, language)
+    end_str = format_date(end, language) if end else (start_str and present or "")
+    if start_str and end_str:
+        return f"{start_str} - {end_str}"
+    return start_str or end_str or ""
 
 
-# Disclosure for a date-trimmed work history.  Without it a reader cannot tell
-# a filtered résumé from a short career, which misrepresents the candidate in
-# the opposite direction from the usual one.  (singular, plural) per language.
-#
-# Keep in step with CUTOFF_NOTICES in custom/themes/base/src/Resume.jsx.
-_WORK_CUTOFF_NOTICES = {
-    "en": (
-        (
-            "Filtered view — 1 earlier role starting before {date} is not shown. "
-            "Full history available on request."
-        ),
-        (
-            "Filtered view — {count} earlier roles starting before {date} are not "
-            "shown. Full history available on request."
-        ),
-    ),
-    "pt": (
-        (
-            "Visão filtrada — 1 cargo anterior, iniciado antes de {date}, não está "
-            "sendo exibido. Histórico completo disponível sob solicitação."
-        ),
-        (
-            "Visão filtrada — {count} cargos anteriores, iniciados antes de {date}, "
-            "não estão sendo exibidos. Histórico completo disponível sob solicitação."
-        ),
-    ),
-}
+def present_label(locale_data: dict[str, Any]) -> str:
+    """Return the label marking an entry with no end date as still ongoing."""
+    return t(locale_data, "present", default="Present")
 
 
-def work_cutoff_notice(resume: dict[str, Any]) -> str | None:
-    """Return the disclosure line for a date-trimmed work history, or None.
+def section_labels(locale_data: dict[str, Any]) -> dict[str, str]:
+    """Return the section-heading table for the locale."""
+    sections = locale_data.get("section")
+    return dict(sections) if isinstance(sections, dict) else {}
 
-    Reads ``meta.filtered`` as written by :func:`filter.apply_date_cutoff`.
-    Returns None when no cutoff was applied or when it removed no work entry,
-    so callers can emit unconditionally.
-    """
+
+def work_cutoff_notice(
+    resume: dict[str, Any], locale_data: dict[str, Any]
+) -> str | None:
+    """Return the disclosure line for a date-trimmed work history, or None."""
     meta = resume.get("meta")
-    if not isinstance(meta, dict):
-        return None
-    filtered = meta.get("filtered")
+    filtered = meta.get("filtered") if isinstance(meta, dict) else None
     if not isinstance(filtered, dict):
         return None
-
     hidden = filtered.get("hidden")
     count = hidden.get("work", 0) if isinstance(hidden, dict) else 0
     if not count:
         return None
 
-    language = language_of(resume)
-    table = (
-        _WORK_CUTOFF_NOTICES.get(language)
-        or _WORK_CUTOFF_NOTICES.get(language.split("-")[0].lower())
-        or _WORK_CUTOFF_NOTICES["en"]
-    )
-    template = table[0] if count == 1 else table[1]
+    template = t(locale_data, "cutoff_notice", "one" if count == 1 else "many")
+    if not template:
+        return None
     return template.format(count=count, date=filtered.get("cutDate") or "")
+
+
+def load_locale(
+    resume: dict[str, Any], cli_locale: str | None = None
+) -> dict[str, Any]:
+    """Resolve the effective locale and return its string table."""
+    return _load_locale(language_of(resume, cli_locale))

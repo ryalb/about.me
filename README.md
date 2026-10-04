@@ -234,10 +234,10 @@ Markdown, plain-text and Word output intentionally stay icon-free or emoji-only 
 
 ```bash
 # Denser — six pages instead of seven
-uv run resume generate resume-en_us.json --zoom 90%
+uv run resume generate src/ryan-resume-en_us.json --zoom 90%
 
 # Larger type, equivalent to a multiplier
-uv run resume generate resume-en_us.json --zoom 1.15
+uv run resume generate src/ryan-resume-en_us.json --zoom 1.15
 ```
 
 | Value | Read as |
@@ -357,7 +357,7 @@ The input file must conform to the [JSON Resume schema](https://jsonresume.org/s
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
+  "$schema": "schema/extended-schema.json",
   "basics": {
     "name": "Jane Doe",
     "label": "Software Engineer",

@@ -4,27 +4,10 @@
 
 Engenheiro de backend e plataforma, 26 anos em produção. Co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas — FastAPI sobre Kafka, busca vetorial com Milvus e Snowflake em Kubernetes/AWS EKS — e entrega plataformas internas do modelo de dados à implantação: onboarding de times (Django/GraphQL/Celery), uma plataforma de métricas de engenharia com nove dashboards alimentados pela CI e ferramentas de desenvolvimento com IA sobre o Claude Agent SDK e o MCP. Antes: serviços de backend em Python com contratos JSON:API, responsabilidade pela CI/CD e pelo Sentry, e liderança técnica de equipes Scrum de 6 a 15 engenheiros. Mestre em Ciência da Computação (Inteligência Artificial).
 
-## Competências
-
-**Backend** (Especialista): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
-
-**Frontend** (Avançado): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `SCSS/SASS`
-
-**Engenharia de IA e ML** (Avançado): `Desenvolvimento de aplicações com LLM`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Ferramentas agentivas`, `Busca vetorial`, `Milvus`, `Snowflake`
-
-**DevOps e CI/CD** (Especialista): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Builds multi-arquitetura`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `prek`, `ruff`, `pytest`, `Git`, `GitFlow`
-
-**Cloud e Orquestração** (Avançado): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`
-
-**Bancos de Dados** (Avançado): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
-
-**Processos e Liderança** (Especialista): `Gerência de Configuração de Software`, `CMMI`, `Avaliação SCAMPI`, `Scrum`, `Kanban`, `Liderança Técnica`, `Code Review`, `Mentoria`
-
-
 ## Experiência Profissional
 
 ### Principal Technical Manager · Engenharia de Backend e Plataforma — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2026-01 – Presente_
+_📍 Recife, PE, Brasil · 🗓 Jan/2026 - Presente_
 
 Engenharia de backend e de plataforma para sistemas de produtividade baseados em ML: co-responsabilidade por uma plataforma de ML em produção, duas plataformas internas e dois apps de tempo real, ferramentas com IA/LLM e programas de qualidade em cinco repositórios. Implantações em Kubernetes escritas como Helm charts, com overlays de Kustomize.
 - Fui co-responsável por uma plataforma de ML em produção para triagem automática de issues e detecção de duplicatas: FastAPI, Kafka, busca vetorial com Milvus, Snowflake, Kubernetes na AWS EKS.
@@ -37,7 +20,7 @@ Engenharia de backend e de plataforma para sistemas de produtividade baseados em
 - Padronizei o toolchain Python nos mesmos cinco repositórios: Poetry para uv, pre-commit para prek, além de gates de ruff e de tipos.
 
 ### Senior Technical Manager · Serviços de Backend em PHP e Python — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2022-10 – 2025-12_
+_📍 Recife, PE, Brasil · 🗓 Out/2022 - Dez/2025_
 
 Serviços de backend para quatro plataformas web simultâneas — duas aplicações de clientes e os dois sistemas institucionais do CESAR — padronizados em contratos JSON:API, com responsabilidade de ponta a ponta pela esteira de CI/CD e gates automatizados de qualidade.
 - Desenvolvi e mantive serviços de backend para duas aplicações web de clientes em Python (Django e Flask).
@@ -48,7 +31,7 @@ Serviços de backend para quatro plataformas web simultâneas — duas aplicaç�
 - Escrevi todas as suítes de testes unitários e de integração do backend das duas aplicações de clientes, alcançando ~50% de cobertura em uma e ~98% na outra.
 
 ### Senior Technical Manager · Entrega Full-Stack e Liderança Técnica — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2013-06 – 2022-09_
+_📍 Recife, PE, Brasil · 🗓 Jun/2013 - Set/2022_
 
 Nove anos em quatro projetos de clientes: quatro aplicações web em produção em quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção técnica das equipes Scrum — além da plataforma de portfólio do próprio CESAR a partir de 2020.
 - Participei do desenvolvimento de quatro aplicações web em produção ao longo de nove anos e quatro projetos de clientes, cada uma em uma stack de linguagem diferente — PHP (Yii), Python (Flask/Falcon), Ruby on Rails e JavaScript (Backbone/Marionette, EmberJS, VueJS).
@@ -57,7 +40,7 @@ Nove anos em quatro projetos de clientes: quatro aplicações web em produção 
 - Exerci o papel de liderança técnica em quatro projetos de clientes, com equipes Scrum de 6 a 15 engenheiros, conduzindo planejamento de sprints, práticas de code review e compromissos de entrega.
 
 ### Technical Manager · Java Corporativo e Mobile — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2009-01 – 2013-06_
+_📍 Recife, PE, Brasil · 🗓 Jan/2009 - Jun/2013_
 
 Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, as ferramentas de CI/CD e de Scrum por trás dela, e uma plataforma nacional em produção mantida com tráfego ativo.
 - Desenvolvi de ponta a ponta uma aplicação corporativa web e mobile utilizando Java EE/ME, Android, Apache Struts 2, Apache CXF, Spring, Hibernate, Oracle e Apache Tomcat.
@@ -66,7 +49,7 @@ Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, a
 - Mantive uma plataforma web de abrangência nacional em produção, entregando novas funcionalidades com tráfego ativo.
 
 ### Engenheiro Sênior de Gerência de Configuração de Software — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2005-01 – 2009-01_
+_📍 Recife, PE, Brasil · 🗓 Jan/2005 - Jan/2009_
 
 Liderança da equipe corporativa de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3, definindo os processos, ferramentas e automações de GCS adotados como padrão da empresa.
 - Liderei uma equipe de 10 engenheiros de Gerência de Configuração de Software em uma avaliação formal CMMI 1.2 Nível 3 bem-sucedida, atuando como avaliador SCAMPI treinado.
@@ -75,14 +58,14 @@ Liderança da equipe corporativa de Gerência de Configuração de Software em u
 - Desenvolvi ferramentas de automação e extensões para o Mantis (PHP, Shell) para rastreamento de defeitos, rastreabilidade de requisitos e relatórios de code review, posteriormente adotadas como padrão corporativo.
 
 ### Engenheiro de Gerência de Configuração de Software — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2001-10 – 2005-01_
+_📍 Recife, PE, Brasil · 🗓 Out/2001 - Jan/2005_
 
 Definição e automação de processos de GCS para programas multi-site de dispositivos móveis, contribuindo para a certificação CMM Nível 2 e para uma alta de ~20% nas notas de avaliação do cliente.
 - Defini e implementei processos de GCS para projetos multi-site de desenvolvimento de dispositivos móveis utilizando Rational ClearCase e ClearDDTS, contribuindo para a certificação CMM Nível 2 da organização.
 - Elevei em cerca de 20% as notas de avaliação do cliente quanto ao desempenho de GCS, automatizando atividades de gerência de configuração em aproximadamente doze projetos.
 
 ### Engenheiro de Software Júnior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2001-01 – 2001-10_
+_📍 Recife, PE, Brasil · 🗓 Jan/2001 - Out/2001_
 
 Primeira prática de desenvolvimento mobile em J2ME do instituto: mais de 15 aplicações entregues, incluindo um jogo premiado internacionalmente.
 - Fui pioneiro no desenvolvimento de aplicações J2ME no CESAR, estabelecendo a primeira prática de desenvolvimento mobile do instituto.
@@ -90,7 +73,7 @@ Primeira prática de desenvolvimento mobile em J2ME do instituto: mais de 15 apl
 - Escrevi o Sea Hunter, premiado como uma das 20 melhores aplicações no Asia Java Mobile Challenge.
 
 ### Engenheiro de Software Júnior — [CESAR (Centro de Estudos e Sistemas Avançados do Recife)](https://www.cesar.org.br)
-_📍 Recife, PE, Brasil · 🗓 2000-06 – 2000-12_
+_📍 Recife, PE, Brasil · 🗓 Jun/2000 - Dez/2000_
 
 Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos lotéricos e um portal de e-commerce que apoiou uma pesquisa de mestrado.
 - Desenvolvi uma aplicação WAP em J2SE para gestão de jogos lotéricos.
@@ -99,14 +82,22 @@ Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos l
 
 ## Formação Acadêmica
 
-### Mestrado in Ciência da Computação — Universidade Federal de Pernambuco (UFPE)
-_🗓 2000-03 – 2002-08_
+### Mestrado em Ciência da Computação — Universidade Federal de Pernambuco (UFPE)
+_🗓 Mar/2000 - Ago/2002_
 - Inteligência Artificial
 - Sistemas Multiagentes
 - Engenharia de Software
 
-### Bacharelado in Ciência da Computação — Universidade Federal do Ceará (UFC)
-_🗓 1996-01 – 1999-12_
+### Bacharelado em Ciência da Computação — Universidade Federal do Ceará (UFC)
+_🗓 Jan/1996 - Dez/1999_
+
+
+## Prêmios
+
+### [Sea Hunter — Uma das 20 melhores aplicações do Asia Java Mobile Challenge](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
+_Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
+
+O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
 
 
 ## Certificações
@@ -142,12 +133,21 @@ _Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, EUA — Springer, p. 4
 Primeiro autor. Infraestrutura de comunicação para agentes executando em dispositivos de mão — construída sobre o framework SACI, com KQML como linguagem externa e XML como interna, demonstrada em emuladores de celular J2ME da época.
 
 
-## Prêmios
+## Competências
 
-### [Sea Hunter — Uma das 20 melhores aplicações do Asia Java Mobile Challenge](https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge)
-_Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) · 2002_
+**Backend** (Especialista): `Python`, `Django`, `FastAPI`, `Flask`, `Falcon`, `GraphQL`, `Strawberry GraphQL`, `REST API`, `JSON:API`, `Celery`, `Kafka`, `WebSockets`, `PHP`, `Yii`, `Laravel`, `Ruby on Rails`, `Java`
 
-O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os primeiros aparelhos com suporte a Java, foi selecionado entre os 20 finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
+**Frontend** (Avançado): `JavaScript`, `TypeScript`, `VueJS`, `NuxtJS`, `PrimeVue`, `Tailwind CSS`, `Pinia`, `EmberJS`, `Backbone/Marionette`, `SCSS/SASS`
+
+**Engenharia de IA e ML** (Avançado): `Desenvolvimento de aplicações com LLM`, `Model Context Protocol (MCP)`, `Claude Agent SDK`, `Ferramentas agentivas`, `Busca vetorial`, `Milvus`, `Snowflake`
+
+**DevOps e CI/CD** (Especialista): `CI/CD`, `Jenkins`, `TeamCity`, `GitLab CI`, `Docker`, `Builds multi-arquitetura`, `Ansible`, `HashiCorp Vault`, `Sealed Secrets`, `uv`, `prek`, `ruff`, `pytest`, `Git`, `GitFlow`
+
+**Cloud e Orquestração** (Avançado): `Kubernetes`, `Helm`, `Kustomize`, `AWS EKS`, `AWS`, `Google Cloud`, `mTLS`, `OAuth 2.0`, `Sentry`
+
+**Bancos de Dados** (Avançado): `PostgreSQL`, `MySQL`, `Oracle`, `Redis`, `Milvus`, `Snowflake`
+
+**Processos e Liderança** (Especialista): `Gerência de Configuração de Software`, `CMMI`, `Avaliação SCAMPI`, `Scrum`, `Kanban`, `Liderança Técnica`, `Code Review`, `Mentoria`
 
 
 ## Idiomas

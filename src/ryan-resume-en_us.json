@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/master/schema.json",
+  "$schema": "../schema/extended-schema.json",
   "basics": {
     "name": "Ryan Leite Albuquerque",
     "label": "Principal Technical Manager · Senior Software Engineer",
@@ -42,7 +42,27 @@
         "Raised test coverage across five repositories — one from 0% to ~80% by authoring its entire test suite, the other four from roughly 50% to ~80% — and wired coverage reporting into CI.",
         "Standardized the Python toolchain across the same five repositories: Poetry to uv, pre-commit to prek, plus ruff and type-check gates."
       ],
-      "keywords": ["Python", "Django", "FastAPI", "GraphQL", "Celery", "Kafka", "PostgreSQL", "Milvus", "Snowflake", "Docker", "Kubernetes", "Helm", "AWS EKS", "CI/CD", "LLM", "MCP", "Nuxt", "Sentry"]
+      "keywords": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "GraphQL",
+        "Celery",
+        "Kafka",
+        "PostgreSQL",
+        "Milvus",
+        "Snowflake",
+        "Docker",
+        "Kubernetes",
+        "Helm",
+        "AWS EKS",
+        "CI/CD",
+        "LLM",
+        "MCP",
+        "Nuxt",
+        "Sentry"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -60,7 +80,25 @@
         "Ran Sentry error monitoring across three of the four platforms, on two separate instances — a client's and CESAR's — creating projects per environment and instrumenting both frontend and backend applications.",
         "Authored the entire backend unit and integration test suites for the two client applications, reaching ~50% coverage on one and ~98% on the other."
       ],
-      "keywords": ["PHP", "Laravel", "Python", "Django", "Flask", "SQLAlchemy", "Nuxt", "REST API", "JSON:API", "Redis", "Docker", "Git", "GitFlow", "Jenkins", "CI/CD", "Sentry"]
+      "keywords": [
+        "PHP",
+        "Laravel",
+        "Python",
+        "Django",
+        "Flask",
+        "SQLAlchemy",
+        "Nuxt",
+        "REST API",
+        "JSON:API",
+        "Redis",
+        "Docker",
+        "Git",
+        "GitFlow",
+        "Jenkins",
+        "CI/CD",
+        "Sentry"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -76,7 +114,24 @@
         "Built and maintained the portfolio platform from 2020 — a Laravel 9 API exposing JSON:API contracts, with a Nuxt 2 front end added in 2022 — carried forward into the following roles.",
         "Served as technical lead across four client projects with Scrum teams of 6 to 15 engineers, running sprint planning, code review practice and delivery commitments."
       ],
-      "keywords": ["PHP", "Yii", "Laravel", "Python", "Flask", "Falcon", "Ruby on Rails", "JavaScript", "EmberJS", "VueJS", "Nuxt", "JSON:API", "Scrum", "Ansible", "HashiCorp Vault"]
+      "keywords": [
+        "PHP",
+        "Yii",
+        "Laravel",
+        "Python",
+        "Flask",
+        "Falcon",
+        "Ruby on Rails",
+        "JavaScript",
+        "EmberJS",
+        "VueJS",
+        "Nuxt",
+        "JSON:API",
+        "Scrum",
+        "Ansible",
+        "HashiCorp Vault"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -92,7 +147,21 @@
         "Built a Scrum task-board integration for Mantis (PHP) that gave distributed remote teams shared sprint visibility.",
         "Maintained a nationwide production web platform while shipping new features against live traffic."
       ],
-      "keywords": ["Java EE", "Java ME", "Android", "Struts 2", "Apache CXF", "Spring", "Hibernate", "Oracle", "Apache Tomcat", "Maven", "TeamCity", "Mantis"]
+      "keywords": [
+        "Java EE",
+        "Java ME",
+        "Android",
+        "Struts 2",
+        "Apache CXF",
+        "Spring",
+        "Hibernate",
+        "Oracle",
+        "Apache Tomcat",
+        "Maven",
+        "TeamCity",
+        "Mantis"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -108,7 +177,22 @@
         "Rolled out SCM processes across multiple concurrent projects using Rational ClearCase, ClearDDTS, CVS, Subversion, Mantis, Apache Ant and Luntbuild.",
         "Built automation tooling and Mantis extensions (PHP, Shell) for defect tracking, requirements traceability and code review reporting, later adopted as company-wide standards."
       ],
-      "keywords": ["CMMI", "SCAMPI", "SEPG", "SCM", "Rational ClearCase", "ClearDDTS", "CVS", "Subversion", "Mantis", "Apache Ant", "Luntbuild", "PHP", "Shell Script"]
+      "keywords": [
+        "CMMI",
+        "SCAMPI",
+        "SEPG",
+        "SCM",
+        "Rational ClearCase",
+        "ClearDDTS",
+        "CVS",
+        "Subversion",
+        "Mantis",
+        "Apache Ant",
+        "Luntbuild",
+        "PHP",
+        "Shell Script"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -122,7 +206,14 @@
         "Defined and implemented SCM processes for multi-site mobile device development projects using Rational ClearCase and ClearDDTS, contributing to the organization's CMM Level 2 certification.",
         "Raised client evaluation scores for SCM performance by approximately 20% by automating configuration management activities across roughly twelve projects."
       ],
-      "keywords": ["SCM", "Rational ClearCase", "ClearDDTS", "CMM Level 2", "Multi-site development"]
+      "keywords": [
+        "SCM",
+        "Rational ClearCase",
+        "ClearDDTS",
+        "CMM Level 2",
+        "Multi-site development"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -137,7 +228,12 @@
         "Built 15+ mobile applications, primarily games, for early Java-enabled handsets.",
         "Authored Sea Hunter, recognized as one of the top 20 applications at the Asia Java Mobile Challenge."
       ],
-      "keywords": ["Java", "J2ME", "Mobile Games"]
+      "keywords": [
+        "Java",
+        "J2ME",
+        "Mobile Games"
+      ],
+      "hidden": false
     },
     {
       "name": "CESAR (Centro de Estudos e Sistemas Avançados do Recife)",
@@ -151,7 +247,13 @@
         "Built a WAP application in J2SE for lottery game management.",
         "Built an e-commerce portal used to validate a team member's M.Sc. dissertation research."
       ],
-      "keywords": ["Java", "J2SE", "WAP", "E-commerce"]
+      "keywords": [
+        "Java",
+        "J2SE",
+        "WAP",
+        "E-commerce"
+      ],
+      "hidden": false
     }
   ],
   "education": [
@@ -167,7 +269,8 @@
         "Artificial Intelligence",
         "Multi-Agent Systems",
         "Software Engineering"
-      ]
+      ],
+      "hidden": false
     },
     {
       "institution": "Federal University of Ceará (UFC)",
@@ -175,7 +278,8 @@
       "area": "Computer Science",
       "studyType": "B.Sc.",
       "startDate": "1996-01",
-      "endDate": "1999-12"
+      "endDate": "1999-12",
+      "hidden": false
     }
   ],
   "awards": [
@@ -194,40 +298,47 @@
           "url": "https://mobile.phoneky.com/games/?s=download&id=j1j3655",
           "label": "Sea Hunter download (JAR)"
         }
-      ]
+      ],
+      "hidden": false
     }
   ],
   "certificates": [
     {
       "name": "AI for Developers (54h)",
       "date": "2025-08",
-      "issuer": "CESAR School"
+      "issuer": "CESAR School",
+      "hidden": false
     },
     {
       "name": "Certified ScrumMaster (CSM)",
       "date": "2017-10",
       "issuer": "Scrum Alliance",
-      "url": "https://bcert.me/sciltuxvg"
+      "url": "https://bcert.me/sciltuxvg",
+      "hidden": false
     },
     {
       "name": "Zend PHP Certified Developer",
       "date": "2014-10",
-      "issuer": "Zend Technologies, Ltd."
+      "issuer": "Zend Technologies, Ltd.",
+      "hidden": false
     },
     {
       "name": "Rational ClearCase Fundamentals for Windows (16h)",
       "date": "2002",
-      "issuer": "Rational Software do Brasil"
+      "issuer": "Rational Software do Brasil",
+      "hidden": false
     },
     {
       "name": "Rational ClearCase Administration for Windows (16h)",
       "date": "2002",
-      "issuer": "Rational Software do Brasil"
+      "issuer": "Rational Software do Brasil",
+      "hidden": false
     },
     {
       "name": "Applying Rational ClearCase Metadata for Windows (8h)",
       "date": "2002",
-      "issuer": "Rational Software do Brasil"
+      "issuer": "Rational Software do Brasil",
+      "hidden": false
     }
   ],
   "publications": [
@@ -235,73 +346,165 @@
       "name": "Software Configuration Management Diversity: A Commercial Case Study",
       "publisher": "BCS-CMSG — The CMDB and CMS: the Powerhouse of Service Management",
       "releaseDate": "2008-07",
-      "summary": "Second of two authors. Commercial case study on sustaining diverse software configuration management practices inside one organization, published while leading CESAR's company-wide SCM team."
+      "summary": "Second of two authors. Commercial case study on sustaining diverse software configuration management practices inside one organization, published while leading CESAR's company-wide SCM team.",
+      "hidden": false
     },
     {
       "name": "Desenvolvendo o Projeto Conceitual de Jogos Wireless (Developing the Conceptual Design for Wireless Games)",
       "publisher": "1st Brazilian Workshop in Games and Digital Entertainment (WJOGOS), SIBGRAPI 2002, Fortaleza, Brazil — pp. 141–144",
       "releaseDate": "2002-10",
-      "summary": "Fifth of six authors. Conceptual design methods for wireless games, drawn from CESAR's early J2ME mobile game development."
+      "summary": "Fifth of six authors. Conceptual design methods for wireless games, drawn from CESAR's early J2ME mobile game development.",
+      "hidden": false
     },
     {
       "name": "Embedding J2ME-based Inference Engine in Handheld Devices: The KEOPS Case Study",
       "publisher": "Proceedings of the First International Workshop on Ubiquitous Agents on Embedded, Wearable and Mobile Devices, Bologna, Italy",
       "releaseDate": "2002",
-      "summary": "First author. Case study on embedding an inference engine in J2ME for resource-constrained handheld devices."
+      "summary": "First author. Case study on embedding an inference engine in J2ME for resource-constrained handheld devices.",
+      "hidden": false
     },
     {
       "name": "KSACI: A Handheld Device Infrastructure for Agents Communication",
       "publisher": "Intelligent Agents VIII (LNAI 2333), ATAL 2001, Seattle, USA — Springer, pp. 423–435",
       "releaseDate": "2002",
       "url": "https://link.springer.com/chapter/10.1007/3-540-45448-9_32",
-      "summary": "First author. Communication infrastructure for agents running on handheld devices — built on the SACI framework, using KQML as the outer language and XML as the inner one, and demonstrated on early J2ME cell-phone emulators."
+      "summary": "First author. Communication infrastructure for agents running on handheld devices — built on the SACI framework, using KQML as the outer language and XML as the inner one, and demonstrated on early J2ME cell-phone emulators.",
+      "hidden": false
     }
   ],
   "skills": [
     {
       "name": "Backend",
       "level": "Expert",
-      "keywords": ["Python", "Django", "FastAPI", "Flask", "Falcon", "GraphQL", "Strawberry GraphQL", "REST API", "JSON:API", "Celery", "Kafka", "WebSockets", "PHP", "Yii", "Laravel", "Ruby on Rails", "Java"]
+      "keywords": [
+        "Python",
+        "Django",
+        "FastAPI",
+        "Flask",
+        "Falcon",
+        "GraphQL",
+        "Strawberry GraphQL",
+        "REST API",
+        "JSON:API",
+        "Celery",
+        "Kafka",
+        "WebSockets",
+        "PHP",
+        "Yii",
+        "Laravel",
+        "Ruby on Rails",
+        "Java"
+      ],
+      "hidden": false
     },
     {
       "name": "Frontend",
       "level": "Advanced",
-      "keywords": ["JavaScript", "TypeScript", "VueJS", "NuxtJS", "PrimeVue", "Tailwind CSS", "Pinia", "EmberJS", "Backbone/Marionette", "SCSS/SASS"]
+      "keywords": [
+        "JavaScript",
+        "TypeScript",
+        "VueJS",
+        "NuxtJS",
+        "PrimeVue",
+        "Tailwind CSS",
+        "Pinia",
+        "EmberJS",
+        "Backbone/Marionette",
+        "SCSS/SASS"
+      ],
+      "hidden": false
     },
     {
       "name": "AI & ML Engineering",
       "level": "Advanced",
-      "keywords": ["LLM application development", "Model Context Protocol (MCP)", "Claude Agent SDK", "Agentic tooling", "Vector search", "Milvus", "Snowflake"]
+      "keywords": [
+        "LLM application development",
+        "Model Context Protocol (MCP)",
+        "Claude Agent SDK",
+        "Agentic tooling",
+        "Vector search",
+        "Milvus",
+        "Snowflake"
+      ],
+      "hidden": false
     },
     {
       "name": "DevOps & CI/CD",
       "level": "Expert",
-      "keywords": ["CI/CD", "Jenkins", "TeamCity", "GitLab CI", "Docker", "Multi-arch builds", "Ansible", "HashiCorp Vault", "Sealed Secrets", "uv", "prek", "ruff", "pytest", "Git", "GitFlow"]
+      "keywords": [
+        "CI/CD",
+        "Jenkins",
+        "TeamCity",
+        "GitLab CI",
+        "Docker",
+        "Multi-arch builds",
+        "Ansible",
+        "HashiCorp Vault",
+        "Sealed Secrets",
+        "uv",
+        "prek",
+        "ruff",
+        "pytest",
+        "Git",
+        "GitFlow"
+      ],
+      "hidden": false
     },
     {
       "name": "Cloud & Orchestration",
       "level": "Advanced",
-      "keywords": ["Kubernetes", "Helm", "Kustomize", "AWS EKS", "AWS", "Google Cloud", "mTLS", "OAuth 2.0", "Sentry"]
+      "keywords": [
+        "Kubernetes",
+        "Helm",
+        "Kustomize",
+        "AWS EKS",
+        "AWS",
+        "Google Cloud",
+        "mTLS",
+        "OAuth 2.0",
+        "Sentry"
+      ],
+      "hidden": false
     },
     {
       "name": "Databases",
       "level": "Advanced",
-      "keywords": ["PostgreSQL", "MySQL", "Oracle", "Redis", "Milvus", "Snowflake"]
+      "keywords": [
+        "PostgreSQL",
+        "MySQL",
+        "Oracle",
+        "Redis",
+        "Milvus",
+        "Snowflake"
+      ],
+      "hidden": false
     },
     {
       "name": "Process & Leadership",
       "level": "Expert",
-      "keywords": ["Software Configuration Management", "CMMI", "SCAMPI appraisal", "Scrum", "Kanban", "Technical Leadership", "Code Review", "Mentoring"]
+      "keywords": [
+        "Software Configuration Management",
+        "CMMI",
+        "SCAMPI appraisal",
+        "Scrum",
+        "Kanban",
+        "Technical Leadership",
+        "Code Review",
+        "Mentoring"
+      ],
+      "hidden": false
     }
   ],
   "languages": [
     {
       "language": "Portuguese",
-      "fluency": "Native speaker"
+      "fluency": "Native speaker",
+      "hidden": false
     },
     {
       "language": "English",
-      "fluency": "Professional working proficiency"
+      "fluency": "Professional working proficiency",
+      "hidden": false
     }
   ],
   "meta": {

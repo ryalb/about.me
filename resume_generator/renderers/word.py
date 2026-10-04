@@ -12,7 +12,15 @@ from docx.oxml.ns import qn
 from docx.shared import Inches, Length, Pt, RGBColor
 
 from ..contact import profile_display
-from ..i18n import present_label, section_labels, work_cutoff_notice
+from ..i18n import (
+    format_date_range,
+    language_of,
+    load_locale,
+    present_label,
+    section_labels,
+    t,
+    work_cutoff_notice,
+)
 
 if TYPE_CHECKING:
     from docx.document import Document as DocxDocument
@@ -178,24 +186,27 @@ def _add_bullet(doc: DocxDocument, text: str, *, zoom: float = 1.0) -> None:
     para.paragraph_format.left_indent = Inches(0.2)
 
 
-def _date_range(start: str | None, end: str | None, present: str) -> str:
-    if not start and not end:
-        return ""
-    if start and end:
-        return f"{start} – {end}"
-    if start:
-        return f"{start} – {present}"
-    return end or ""
+def _date_range(
+    start: str | None, end: str | None, present: str, language: str = "en-US"
+) -> str:
+    return format_date_range(start, end, present, language)
 
 
-def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) -> None:
+def render_word(
+    resume: dict[str, Any],
+    output_path: Path,
+    zoom: float = 1.0,
+    locale: str | None = None,
+) -> None:
     """Render a JSON Resume dict to a Word .docx file.
 
     *zoom* scales font sizes and paragraph spacing (1.0 = unscaled).
     """
+    locale_data = load_locale(resume, locale)
     doc = Document()
-    present = present_label(resume)
-    labels = section_labels(resume)
+    present = present_label(locale_data)
+    labels = section_labels(locale_data)
+    language = language_of(resume, locale)
 
     # ── Page margins ──────────────────────────────────────────────────────
     for section in doc.sections:
@@ -206,7 +217,7 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
 
     # ── Basics ────────────────────────────────────────────────────────────
     basics = resume.get("basics") or {}
-    name = basics.get("name") or "Resume"
+    name = basics.get("name") or t(locale_data, "untitled", default="Resume")
 
     _add_heading(doc, name, level=1, zoom=zoom)
 
@@ -250,188 +261,205 @@ def render_word(resume: dict[str, Any], output_path: Path, zoom: float = 1.0) ->
             r.font.size = _pt(10, zoom)
             r.font.color.rgb = _TEXT
 
-    # ── Skills ────────────────────────────────────────────────────────────
-    if skills := resume.get("skills"):
-        _add_heading(doc, labels["skills"], level=2, zoom=zoom)
-        for skill in skills:
-            sname = skill.get("name") or ""
-            level = skill.get("level") or ""
-            kws = skill.get("keywords") or []
+    for key, value in resume.items():
+        if key in ("basics", "meta", "$schema"):
+            continue
+        if not isinstance(value, list) or not value:
+            continue
+
+        if key == "skills" and labels.get("skills"):
+            _add_heading(doc, labels["skills"], level=2, zoom=zoom)
+            for skill in value:
+                sname = skill.get("name") or ""
+                level = skill.get("level") or ""
+                kws = skill.get("keywords") or []
+                p = doc.add_paragraph()
+                p.paragraph_format.space_before = _pt(2, zoom)
+                p.paragraph_format.space_after = _pt(2, zoom)
+                r = p.add_run(sname)
+                r.bold = True
+                r.font.size = _pt(10, zoom)
+                if level:
+                    r2 = p.add_run(f" ({level})")
+                    r2.font.size = _pt(9.5, zoom)
+                    r2.font.color.rgb = _MUTED
+                if kws:
+                    r3 = p.add_run(": " + ", ".join(kws))
+                    r3.font.size = _pt(9.5, zoom)
+                    r3.font.color.rgb = _TEXT
+
+        elif key == "work" and labels.get("work"):
+            _add_heading(doc, labels["work"], level=2, zoom=zoom)
+            for job in value:
+                pos = job.get("position") or ""
+                company = job.get("name") or ""
+                loc = job.get("location") or ""
+                subtitle = " | ".join(filter(None, [company, loc]))
+                dr = _date_range(
+                    job.get("startDate"), job.get("endDate"), present, language
+                )
+                _add_entry_header(doc, pos, subtitle=subtitle, date_str=dr, zoom=zoom)
+                if s := job.get("summary"):
+                    _add_body_text(doc, s, zoom=zoom)
+                for h in job.get("highlights") or []:
+                    _add_bullet(doc, h, zoom=zoom)
+            if notice := work_cutoff_notice(resume, locale_data):
+                para = doc.add_paragraph()
+                para.paragraph_format.space_before = _pt(6, zoom)
+                para.paragraph_format.space_after = _pt(2, zoom)
+                run = para.add_run(notice)
+                run.italic = True
+                run.font.size = _pt(9, zoom)
+                run.font.color.rgb = _MUTED
+
+        elif key == "projects" and labels.get("projects"):
+            _add_heading(doc, labels["projects"], level=2, zoom=zoom)
+            for proj in value:
+                pname = proj.get("name") or ""
+                ptype = proj.get("type") or ""
+                dr = _date_range(
+                    proj.get("startDate"), proj.get("endDate"), present, language
+                )
+                _add_entry_header(doc, pname, subtitle=ptype, date_str=dr, zoom=zoom)
+                if desc := proj.get("description"):
+                    _add_body_text(doc, desc, zoom=zoom)
+                kws = proj.get("keywords") or []
+                if kws:
+                    kw_label = t(
+                        locale_data, "education", "keywords", default="Keywords:"
+                    )
+                    _add_body_text(doc, f"{kw_label} " + ", ".join(kws), zoom=zoom)
+                for h in proj.get("highlights") or []:
+                    _add_bullet(doc, h, zoom=zoom)
+
+        elif key == "volunteer" and labels.get("volunteer"):
+            _add_heading(doc, labels["volunteer"], level=2, zoom=zoom)
+            for v in value:
+                pos = v.get("position") or ""
+                org = v.get("organization") or ""
+                dr = _date_range(
+                    v.get("startDate"), v.get("endDate"), present, language
+                )
+                _add_entry_header(doc, pos, subtitle=org, date_str=dr, zoom=zoom)
+                if s := v.get("summary"):
+                    _add_body_text(doc, s, zoom=zoom)
+                for h in v.get("highlights") or []:
+                    _add_bullet(doc, h, zoom=zoom)
+
+        elif key == "education" and labels.get("education"):
+            _add_heading(doc, labels["education"], level=2, zoom=zoom)
+            for edu in value:
+                degree_parts = [edu.get("studyType"), edu.get("area")]
+                in_label = t(locale_data, "education", "in", default="in")
+                degree = f" {in_label} ".join(p for p in degree_parts if p)
+                institution = edu.get("institution") or ""
+                dr = _date_range(
+                    edu.get("startDate"), edu.get("endDate"), present, language
+                )
+                _add_entry_header(
+                    doc,
+                    degree or t(locale_data, "degree", default="Degree"),
+                    subtitle=institution,
+                    date_str=dr,
+                    zoom=zoom,
+                )
+                score_label = t(locale_data, "education", "score", default="Score:")
+                if score := edu.get("score"):
+                    _add_body_text(doc, f"{score_label} {score}", zoom=zoom)
+                workload_label = t(
+                    locale_data, "education", "workload", default="Workload:"
+                )
+                if workload := edu.get("workload"):
+                    _add_body_text(doc, f"{workload_label} {workload}", zoom=zoom)
+                for c in edu.get("courses") or []:
+                    _add_bullet(doc, c, zoom=zoom)
+
+        elif key == "certificates" and labels.get("certificates"):
+            _add_heading(doc, labels["certificates"], level=2, zoom=zoom)
+            for c in value:
+                cname = c.get("name") or ""
+                issuer = c.get("issuer") or ""
+                cdate = c.get("date") or ""
+                _add_entry_header(
+                    doc,
+                    cname,
+                    subtitle=issuer,
+                    date_str=cdate,
+                    url=c.get("url") or "",
+                    zoom=zoom,
+                )
+
+        elif key == "publications" and labels.get("publications"):
+            _add_heading(doc, labels["publications"], level=2, zoom=zoom)
+            for pub in value:
+                pname = pub.get("name") or ""
+                publisher = pub.get("publisher") or ""
+                pdate = pub.get("releaseDate") or ""
+                _add_entry_header(
+                    doc,
+                    pname,
+                    subtitle=publisher,
+                    date_str=pdate,
+                    url=pub.get("url") or "",
+                    zoom=zoom,
+                )
+                if s := pub.get("summary"):
+                    _add_body_text(doc, s, zoom=zoom)
+
+        elif key == "awards" and labels.get("awards"):
+            _add_heading(doc, labels["awards"], level=2, zoom=zoom)
+            for a in value:
+                title = a.get("title") or ""
+                awarder = a.get("awarder") or ""
+                adate = a.get("date") or ""
+                dr = adate
+                _add_entry_header(
+                    doc,
+                    title,
+                    subtitle=awarder,
+                    date_str=dr,
+                    url=a.get("url") or "",
+                    zoom=zoom,
+                )
+                if s := a.get("summary"):
+                    _add_body_text(doc, s, zoom=zoom)
+
+        elif key == "languages" and labels.get("languages"):
+            _add_heading(doc, labels["languages"], level=2, zoom=zoom)
             p = doc.add_paragraph()
             p.paragraph_format.space_before = _pt(2, zoom)
-            p.paragraph_format.space_after = _pt(2, zoom)
-            r = p.add_run(sname)
-            r.bold = True
+            parts = []
+            for lang in value:
+                lname = lang.get("language") or ""
+                fluency = lang.get("fluency") or ""
+                parts.append(lname + (f" ({fluency})" if fluency else ""))
+            r = p.add_run(" | ".join(parts))
             r.font.size = _pt(10, zoom)
-            if level:
-                r2 = p.add_run(f" ({level})")
-                r2.font.size = _pt(9.5, zoom)
-                r2.font.color.rgb = _MUTED
-            if kws:
-                r3 = p.add_run(": " + ", ".join(kws))
-                r3.font.size = _pt(9.5, zoom)
-                r3.font.color.rgb = _TEXT
 
-    # ── Work ──────────────────────────────────────────────────────────────
-    if work := resume.get("work"):
-        _add_heading(doc, labels["work"], level=2, zoom=zoom)
-        for job in work:
-            pos = job.get("position") or ""
-            company = job.get("name") or ""
-            loc = job.get("location") or ""
-            subtitle = " | ".join(filter(None, [company, loc]))
-            dr = _date_range(job.get("startDate"), job.get("endDate"), present)
-            _add_entry_header(doc, pos, subtitle=subtitle, date_str=dr, zoom=zoom)
-            if s := job.get("summary"):
-                _add_body_text(doc, s, zoom=zoom)
-            for h in job.get("highlights") or []:
-                _add_bullet(doc, h, zoom=zoom)
-        if notice := work_cutoff_notice(resume):
-            para = doc.add_paragraph()
-            para.paragraph_format.space_before = _pt(6, zoom)
-            para.paragraph_format.space_after = _pt(2, zoom)
-            run = para.add_run(notice)
-            run.italic = True
-            run.font.size = _pt(9, zoom)
-            run.font.color.rgb = _MUTED
+        elif key == "interests" and labels.get("interests"):
+            _add_heading(doc, labels["interests"], level=2, zoom=zoom)
+            for interest in value:
+                iname = interest.get("name") or ""
+                kws = interest.get("keywords") or []
+                p = doc.add_paragraph()
+                r = p.add_run(iname)
+                r.bold = True
+                r.font.size = _pt(10, zoom)
+                if kws:
+                    r2 = p.add_run(": " + ", ".join(kws))
+                    r2.font.size = _pt(9.5, zoom)
+                    r2.font.color.rgb = _TEXT
 
-    # ── Projects ──────────────────────────────────────────────────────────
-    if projects := resume.get("projects"):
-        _add_heading(doc, labels["projects"], level=2, zoom=zoom)
-        for proj in projects:
-            pname = proj.get("name") or ""
-            ptype = proj.get("type") or ""
-            dr = _date_range(proj.get("startDate"), proj.get("endDate"), present)
-            _add_entry_header(doc, pname, subtitle=ptype, date_str=dr, zoom=zoom)
-            if desc := proj.get("description"):
-                _add_body_text(doc, desc, zoom=zoom)
-            kws = proj.get("keywords") or []
-            if kws:
-                _add_body_text(doc, "Keywords: " + ", ".join(kws), zoom=zoom)
-            for h in proj.get("highlights") or []:
-                _add_bullet(doc, h, zoom=zoom)
-
-    # ── Volunteer ─────────────────────────────────────────────────────────
-    if volunteer := resume.get("volunteer"):
-        _add_heading(doc, labels["volunteer"], level=2, zoom=zoom)
-        for v in volunteer:
-            pos = v.get("position") or ""
-            org = v.get("organization") or ""
-            dr = _date_range(v.get("startDate"), v.get("endDate"), present)
-            _add_entry_header(doc, pos, subtitle=org, date_str=dr, zoom=zoom)
-            if s := v.get("summary"):
-                _add_body_text(doc, s, zoom=zoom)
-            for h in v.get("highlights") or []:
-                _add_bullet(doc, h, zoom=zoom)
-
-    # ── Education ─────────────────────────────────────────────────────────
-    if education := resume.get("education"):
-        _add_heading(doc, labels["education"], level=2, zoom=zoom)
-        for edu in education:
-            degree_parts = [edu.get("studyType"), edu.get("area")]
-            degree = " in ".join(p for p in degree_parts if p)
-            institution = edu.get("institution") or ""
-            dr = _date_range(edu.get("startDate"), edu.get("endDate"), present)
-            _add_entry_header(
-                doc, degree or "Degree", subtitle=institution, date_str=dr, zoom=zoom
-            )
-            if score := edu.get("score"):
-                _add_body_text(doc, f"Score: {score}", zoom=zoom)
-            for c in edu.get("courses") or []:
-                _add_bullet(doc, c, zoom=zoom)
-
-    # ── Certificates ──────────────────────────────────────────────────────
-    if certs := resume.get("certificates"):
-        _add_heading(doc, labels["certificates"], level=2, zoom=zoom)
-        for c in certs:
-            cname = c.get("name") or ""
-            issuer = c.get("issuer") or ""
-            cdate = c.get("date") or ""
-            _add_entry_header(
-                doc,
-                cname,
-                subtitle=issuer,
-                date_str=cdate,
-                url=c.get("url") or "",
-                zoom=zoom,
-            )
-
-    # ── Publications ──────────────────────────────────────────────────────
-    if pubs := resume.get("publications"):
-        _add_heading(doc, labels["publications"], level=2, zoom=zoom)
-        for pub in pubs:
-            pname = pub.get("name") or ""
-            publisher = pub.get("publisher") or ""
-            pdate = pub.get("releaseDate") or ""
-            _add_entry_header(
-                doc,
-                pname,
-                subtitle=publisher,
-                date_str=pdate,
-                url=pub.get("url") or "",
-                zoom=zoom,
-            )
-            if s := pub.get("summary"):
-                _add_body_text(doc, s, zoom=zoom)
-
-    # ── Awards ────────────────────────────────────────────────────────────
-    if awards := resume.get("awards"):
-        _add_heading(doc, labels["awards"], level=2, zoom=zoom)
-        for a in awards:
-            title = a.get("title") or ""
-            awarder = a.get("awarder") or ""
-            adate = a.get("date") or ""
-            dr = adate
-            _add_entry_header(
-                doc,
-                title,
-                subtitle=awarder,
-                date_str=dr,
-                url=a.get("url") or "",
-                zoom=zoom,
-            )
-            if s := a.get("summary"):
-                _add_body_text(doc, s, zoom=zoom)
-
-    # ── Languages ─────────────────────────────────────────────────────────
-    if langs := resume.get("languages"):
-        _add_heading(doc, labels["languages"], level=2, zoom=zoom)
-        p = doc.add_paragraph()
-        p.paragraph_format.space_before = _pt(2, zoom)
-        parts = []
-        for lang in langs:
-            lname = lang.get("language") or ""
-            fluency = lang.get("fluency") or ""
-            parts.append(lname + (f" ({fluency})" if fluency else ""))
-        r = p.add_run(" | ".join(parts))
-        r.font.size = _pt(10, zoom)
-
-    # ── Interests ─────────────────────────────────────────────────────────
-    if interests := resume.get("interests"):
-        _add_heading(doc, labels["interests"], level=2, zoom=zoom)
-        for interest in interests:
-            iname = interest.get("name") or ""
-            kws = interest.get("keywords") or []
-            p = doc.add_paragraph()
-            r = p.add_run(iname)
-            r.bold = True
-            r.font.size = _pt(10, zoom)
-            if kws:
-                r2 = p.add_run(": " + ", ".join(kws))
-                r2.font.size = _pt(9.5, zoom)
-                r2.font.color.rgb = _TEXT
-
-    # ── References ────────────────────────────────────────────────────────
-    if refs := resume.get("references"):
-        _add_heading(doc, labels["references"], level=2, zoom=zoom)
-        for ref in refs:
-            rname = ref.get("name") or ""
-            rtext = ref.get("reference") or ""
-            p = doc.add_paragraph()
-            r = p.add_run(rname)
-            r.bold = True
-            r.font.size = _pt(10, zoom)
-            if rtext:
-                _add_body_text(doc, f'"{rtext}"', zoom=zoom)
+        elif key == "references" and labels.get("references"):
+            _add_heading(doc, labels["references"], level=2, zoom=zoom)
+            for ref in value:
+                rname = ref.get("name") or ""
+                rtext = ref.get("reference") or ""
+                p = doc.add_paragraph()
+                r = p.add_run(rname)
+                r.bold = True
+                r.font.size = _pt(10, zoom)
+                if rtext:
+                    _add_body_text(doc, f'"{rtext}"', zoom=zoom)
 
     doc.save(str(output_path))

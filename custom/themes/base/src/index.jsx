@@ -3,8 +3,9 @@ import { renderResumeDocument } from '@jsonresume/core/ssr';
 import Resume from './Resume.jsx';
 import { fonts, colors } from './tokens.js';
 
-export function render(resume) {
-  return renderResumeDocument(<Resume resume={resume} />, {
+export function render(resume, options = {}) {
+  const themeDir = options.themeDir || '.';
+  return renderResumeDocument(<Resume resume={resume} themeDir={themeDir} />, {
     fonts: fonts.remote,
     headAfterStyles: `<style>
     /*

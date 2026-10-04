@@ -27,8 +27,8 @@ mise run pt                # pt_BR only
 mise run check             # prek run --all-files  (run TWICE after a build)
 mise run clean             # rm -rf .output
 
-uv run resume generate resume-pt_br.json --theme base --name full_pt_br
-uv run resume summaries resume-en_us.json     # list meta.summaries variants
+uv run resume generate src/ryan-resume-pt_br.json --theme base --name full_pt_br
+uv run resume summaries src/ryan-resume-en_us.json     # list meta.summaries variants
 uv run resume sections                        # valid --sections names
 uv run resume themes
 ```
@@ -84,8 +84,8 @@ Run this before and after content edits; the files drift.
 ```bash
 python3 - <<'PY'
 import json
-en = json.load(open('resume-en_us.json'))
-pt = json.load(open('resume-pt_br.json'))
+en = json.load(open('src/ryan-resume-en_us.json'))
+pt = json.load(open('src/ryan-resume-pt_br.json'))
 for sec in ['work','education','awards','certificates','publications','skills','languages']:
     if len(en.get(sec,[])) != len(pt.get(sec,[])):
         print(f"COUNT {sec}: en={len(en.get(sec,[]))} pt={len(pt.get(sec,[]))}")

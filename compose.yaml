@@ -1,0 +1,27 @@
+x-resume: &resume
+  build: .
+  image: resume-generator
+  volumes:
+    - ./.output:/app/.output
+    - ./src:/app/src.:ro
+
+services:
+  # docker compose run --rm resume generate src/ryan-resume-en_us.json --theme base --zoom 80%
+  resume:
+    <<: *resume
+
+  # Mirror the mise tasks: docker compose --profile build up en pt
+  en:
+    <<: *resume
+    profiles: [build]
+    command: generate src/ryan-resume-en_us.json --theme base --name full_en_us --zoom 80% --locale en-US
+
+  pt:
+    <<: *resume
+    profiles: [build]
+    command: generate src/ryan-resume-pt_br.json --theme base --name full_pt_br --zoom 80% --locale pt-BR
+  
+  sheyla-pt:
+    <<: *resume
+    profiles: [build]
+    command: generate src/sheyla-resume-pt_br.json --theme base --name sheyla_pt_br --zoom 70% --locale pt-BR --sections basics,interests,work,education,certificates,awards

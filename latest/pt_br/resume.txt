@@ -15,31 +15,10 @@ Sentry, e liderança técnica de equipes Scrum de 6 a 15 engenheiros. Mestre em
 Ciência da Computação (Inteligência Artificial).
 
 
-COMPETÊNCIAS
-────────────────────────────────────────────────────────────────────────────────
-
-Backend (Especialista): Python, Django, FastAPI, Flask, Falcon, GraphQL,
-Strawberry GraphQL, REST API, JSON:API, Celery, Kafka, WebSockets, PHP, Yii,
-Laravel, Ruby on Rails, Java
-Frontend (Avançado): JavaScript, TypeScript, VueJS, NuxtJS, PrimeVue, Tailwind
-CSS, Pinia, EmberJS, Backbone/Marionette, SCSS/SASS
-Engenharia de IA e ML (Avançado): Desenvolvimento de aplicações com LLM, Model
-Context Protocol (MCP), Claude Agent SDK, Ferramentas agentivas, Busca vetorial,
-Milvus, Snowflake
-DevOps e CI/CD (Especialista): CI/CD, Jenkins, TeamCity, GitLab CI, Docker,
-Builds multi-arquitetura, Ansible, HashiCorp Vault, Sealed Secrets, uv, prek,
-ruff, pytest, Git, GitFlow
-Cloud e Orquestração (Avançado): Kubernetes, Helm, Kustomize, AWS EKS, AWS,
-Google Cloud, mTLS, OAuth 2.0, Sentry
-Bancos de Dados (Avançado): PostgreSQL, MySQL, Oracle, Redis, Milvus, Snowflake
-Processos e Liderança (Especialista): Gerência de Configuração de Software,
-CMMI, Avaliação SCAMPI, Scrum, Kanban, Liderança Técnica, Code Review, Mentoria
-
-
 EXPERIÊNCIA PROFISSIONAL
 ────────────────────────────────────────────────────────────────────────────────
 
-Principal Technical Manager · Engenharia de Backend e Plataforma @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2026-01 – Presente
+Principal Technical Manager · Engenharia de Backend e Plataforma @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2026 - Presente
   Recife, PE, Brasil
   Engenharia de backend e de plataforma para sistemas de produtividade baseados
   em ML: co-responsabilidade por uma plataforma de ML em produção, duas
@@ -72,7 +51,7 @@ Principal Technical Manager · Engenharia de Backend e Plataforma @ CESAR (Centr
     • Padronizei o toolchain Python nos mesmos cinco repositórios: Poetry para
     uv, pre-commit para prek, além de gates de ruff e de tipos.
 
-Senior Technical Manager · Serviços de Backend em PHP e Python @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2022-10 – 2025-12
+Senior Technical Manager · Serviços de Backend em PHP e Python @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Out/2022 - Dez/2025
   Recife, PE, Brasil
   Serviços de backend para quatro plataformas web simultâneas — duas aplicações
   de clientes e os dois sistemas institucionais do CESAR — padronizados em
@@ -99,7 +78,7 @@ Senior Technical Manager · Serviços de Backend em PHP e Python @ CESAR (Centro
     duas aplicações de clientes, alcançando ~50% de cobertura em uma e ~98% na
     outra.
 
-Senior Technical Manager · Entrega Full-Stack e Liderança Técnica @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2013-06 – 2022-09
+Senior Technical Manager · Entrega Full-Stack e Liderança Técnica @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jun/2013 - Set/2022
   Recife, PE, Brasil
   Nove anos em quatro projetos de clientes: quatro aplicações web em produção em
   quatro stacks de linguagem, os ambientes de CI/CD por trás delas e a direção
@@ -119,7 +98,7 @@ Senior Technical Manager · Entrega Full-Stack e Liderança Técnica @ CESAR (Ce
     equipes Scrum de 6 a 15 engenheiros, conduzindo planejamento de sprints,
     práticas de code review e compromissos de entrega.
 
-Technical Manager · Java Corporativo e Mobile @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2009-01 – 2013-06
+Technical Manager · Java Corporativo e Mobile @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2009 - Jun/2013
   Recife, PE, Brasil
   Uma aplicação corporativa web e mobile em Java construída de ponta a ponta, as
   ferramentas de CI/CD e de Scrum por trás dela, e uma plataforma nacional em
@@ -134,7 +113,7 @@ Technical Manager · Java Corporativo e Mobile @ CESAR (Centro de Estudos e Sist
     • Mantive uma plataforma web de abrangência nacional em produção, entregando
     novas funcionalidades com tráfego ativo.
 
-Engenheiro Sênior de Gerência de Configuração de Software @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2005-01 – 2009-01
+Engenheiro Sênior de Gerência de Configuração de Software @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2005 - Jan/2009
   Recife, PE, Brasil
   Liderança da equipe corporativa de Gerência de Configuração de Software em uma
   avaliação formal CMMI 1.2 Nível 3, definindo os processos, ferramentas e
@@ -151,7 +130,7 @@ Engenheiro Sênior de Gerência de Configuração de Software @ CESAR (Centro de
     para rastreamento de defeitos, rastreabilidade de requisitos e relatórios de
     code review, posteriormente adotadas como padrão corporativo.
 
-Engenheiro de Gerência de Configuração de Software @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2001-10 – 2005-01
+Engenheiro de Gerência de Configuração de Software @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Out/2001 - Jan/2005
   Recife, PE, Brasil
   Definição e automação de processos de GCS para programas multi-site de
   dispositivos móveis, contribuindo para a certificação CMM Nível 2 e para uma
@@ -163,7 +142,7 @@ Engenheiro de Gerência de Configuração de Software @ CESAR (Centro de Estudos
     desempenho de GCS, automatizando atividades de gerência de configuração em
     aproximadamente doze projetos.
 
-Engenheiro de Software Júnior @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2001-01 – 2001-10
+Engenheiro de Software Júnior @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2001 - Out/2001
   Recife, PE, Brasil
   Primeira prática de desenvolvimento mobile em J2ME do instituto: mais de 15
   aplicações entregues, incluindo um jogo premiado internacionalmente.
@@ -174,7 +153,7 @@ Engenheiro de Software Júnior @ CESAR (Centro de Estudos e Sistemas Avançados 
     • Escrevi o Sea Hunter, premiado como uma das 20 melhores aplicações no Asia
     Java Mobile Challenge.
 
-Engenheiro de Software Júnior @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2000-06 – 2000-12
+Engenheiro de Software Júnior @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jun/2000 - Dez/2000
   Recife, PE, Brasil
   Desenvolvimento web em Java: uma aplicação WAP em J2SE para gestão de jogos
   lotéricos e um portal de e-commerce que apoiou uma pesquisa de mestrado.
@@ -186,12 +165,22 @@ Engenheiro de Software Júnior @ CESAR (Centro de Estudos e Sistemas Avançados 
 FORMAÇÃO ACADÊMICA
 ────────────────────────────────────────────────────────────────────────────────
 
-Mestrado, Ciência da Computação — Universidade Federal de Pernambuco (UFPE) 2000-03 – 2002-08
+Mestrado, Ciência da Computação — Universidade Federal de Pernambuco (UFPE) Mar/2000 - Ago/2002
   • Inteligência Artificial
   • Sistemas Multiagentes
   • Engenharia de Software
 
-Bacharelado, Ciência da Computação — Universidade Federal do Ceará (UFC) 1996-01 – 1999-12
+Bacharelado, Ciência da Computação — Universidade Federal do Ceará (UFC) Jan/1996 - Dez/1999
+
+
+PRÊMIOS
+────────────────────────────────────────────────────────────────────────────────
+
+Sea Hunter — Uma das 20 melhores aplicações do Asia Java Mobile Challenge Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) | 2002
+  O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os
+  primeiros aparelhos com suporte a Java, foi selecionado entre os 20
+  finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
+  https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge
 
 
 CERTIFICAÇÕES
@@ -230,14 +219,25 @@ KSACI: A Handheld Device Infrastructure for Agents Communication Intelligent Age
   https://link.springer.com/chapter/10.1007/3-540-45448-9_32
 
 
-PRÊMIOS
+COMPETÊNCIAS
 ────────────────────────────────────────────────────────────────────────────────
 
-Sea Hunter — Uma das 20 melhores aplicações do Asia Java Mobile Challenge Asia Java Mobile Challenge (SingTel, Optus e Sun Microsystems) | 2002
-  O Sea Hunter, jogo mobile em J2ME desenvolvido no CESAR (Brasil) para os
-  primeiros aparelhos com suporte a Java, foi selecionado entre os 20
-  finalistas, escolhidos dentre mais de 1.000 inscritos de 23 países.
-  https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge
+Backend (Especialista): Python, Django, FastAPI, Flask, Falcon, GraphQL,
+Strawberry GraphQL, REST API, JSON:API, Celery, Kafka, WebSockets, PHP, Yii,
+Laravel, Ruby on Rails, Java
+Frontend (Avançado): JavaScript, TypeScript, VueJS, NuxtJS, PrimeVue, Tailwind
+CSS, Pinia, EmberJS, Backbone/Marionette, SCSS/SASS
+Engenharia de IA e ML (Avançado): Desenvolvimento de aplicações com LLM, Model
+Context Protocol (MCP), Claude Agent SDK, Ferramentas agentivas, Busca vetorial,
+Milvus, Snowflake
+DevOps e CI/CD (Especialista): CI/CD, Jenkins, TeamCity, GitLab CI, Docker,
+Builds multi-arquitetura, Ansible, HashiCorp Vault, Sealed Secrets, uv, prek,
+ruff, pytest, Git, GitFlow
+Cloud e Orquestração (Avançado): Kubernetes, Helm, Kustomize, AWS EKS, AWS,
+Google Cloud, mTLS, OAuth 2.0, Sentry
+Bancos de Dados (Avançado): PostgreSQL, MySQL, Oracle, Redis, Milvus, Snowflake
+Processos e Liderança (Especialista): Gerência de Configuração de Software,
+CMMI, Avaliação SCAMPI, Scrum, Kanban, Liderança Técnica, Code Review, Mentoria
 
 
 IDIOMAS

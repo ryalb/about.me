@@ -1,8 +1,84 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Section as CoreSection, DateRange } from '@jsonresume/core';
+import { Section as CoreSection } from '@jsonresume/core';
 import { colors, fonts, type, space, layout, scale } from './tokens.js';
 import { Icon, networkIcon } from './Icon.jsx';
+import { readFileSync } from 'fs';
+import { fileURLToPath } from 'url';
+import { dirname, join as pathJoin } from 'path';
+
+const MONTHS_PT = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+
+const formatDate = (dateStr) => {
+  if (!dateStr) return '';
+  if (dateStr.length === 4 && /^\d{4}$/.test(dateStr)) {
+    return dateStr;
+  }
+  const parts = dateStr.split('-');
+  const year = parts[0];
+  if (parts.length < 2) return dateStr;
+  const month = parseInt(parts[1], 10);
+  if (month >= 1 && month <= 12) {
+    return `${MONTHS_PT[month - 1]}/${year}`;
+  }
+  return dateStr;
+};
+
+const formatDateRange = (start, end, present) => {
+  const startStr = formatDate(start);
+  const endStr = end ? formatDate(end) : (startStr ? present : '');
+  if (startStr && endStr) {
+    return `${startStr} - ${endStr}`;
+  }
+  return startStr || endStr || '';
+};
+
+/* ────────────────────────────────────────────────────────────────────────
+   Locale loader
+
+   Strings are loaded from ``locales/<tag>.json`` alongside this theme.
+   Fallback order: full BCP 47 tag → bare language subtag → English.
+   ──────────────────────────────────────────────────────────────────────── */
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const LOCALES_DIR = pathJoin(__dirname, '..', 'locales');
+const _localeCache = {};
+
+const readTable = (baseDir, name) => {
+  try {
+    return JSON.parse(readFileSync(pathJoin(baseDir, `${name}.json`), 'utf-8'));
+  } catch {
+    return null;
+  }
+};
+
+const mergeTables = (base, override) => {
+  const out = { ...base };
+  for (const [key, value] of Object.entries(override)) {
+    const plain = (v) => v && typeof v === 'object' && !Array.isArray(v);
+    out[key] = plain(value) && plain(out[key]) ? mergeTables(out[key], value) : value;
+  }
+  return out;
+};
+
+/* Overlay the requested table on English so a missing key never leaves a
+   blank label or falls back to a hard-coded string. */
+const loadLocale = (tag, baseDir = LOCALES_DIR) => {
+  const cacheKey = `${baseDir}:${tag}`;
+  if (_localeCache[cacheKey]) return _localeCache[cacheKey];
+  const english = readTable(baseDir, 'en') || {};
+  let table = english;
+  for (const c of new Set([tag, tag.split('-')[0].toLowerCase()])) {
+    if (c === 'en') break;
+    const found = readTable(baseDir, c);
+    if (found) {
+      table = mergeTables(english, found);
+      break;
+    }
+  }
+  _localeCache[cacheKey] = table;
+  return table;
+};
 
 /* ────────────────────────────────────────────────────────────────────────
    Section wrapper
@@ -134,7 +210,7 @@ const profileDisplay = (profile = {}) => {
   return username || network;
 };
 
-const ContactInfo = ({ basics = {} }) => {
+const ContactInfo = ({ basics = {}, labels = {} }) => {
   const { email, phone, url, location, profiles = [] } = basics;
   const items = [];
 
@@ -142,7 +218,7 @@ const ContactInfo = ({ basics = {} }) => {
     items.push(
       <ContactItem key="email">
         <Icon name="email" />
-        <a href={`mailto:${email}`} aria-label="Email">
+        <a href={`mailto:${email}`} aria-label={labels.email}>
           {email}
         </a>
       </ContactItem>
@@ -153,7 +229,7 @@ const ContactInfo = ({ basics = {} }) => {
     items.push(
       <ContactItem key="phone">
         <Icon name="phone" />
-        <a href={`tel:${phone.replace(/\s+/g, '')}`} aria-label="Phone">
+        <a href={`tel:${phone.replace(/\s+/g, '')}`} aria-label={labels.phone}>
           {phone}
         </a>
       </ContactItem>
@@ -167,7 +243,7 @@ const ContactInfo = ({ basics = {} }) => {
     : '';
   if (locationStr) {
     items.push(
-      <ContactItem key="location" aria-label="Location">
+      <ContactItem key="location" aria-label={labels.location}>
         <Icon name="location" />
         {locationStr}
       </ContactItem>
@@ -178,7 +254,7 @@ const ContactInfo = ({ basics = {} }) => {
     items.push(
       <ContactItem key="url">
         <Icon name="website" />
-        <a href={url} target="_blank" rel="noopener noreferrer" aria-label="Website">
+        <a href={url} target="_blank" rel="noopener noreferrer" aria-label={labels.website}>
           {url.replace(/^https?:\/\//, '').replace(/\/$/, '')}
         </a>
       </ContactItem>
@@ -196,7 +272,7 @@ const ContactInfo = ({ basics = {} }) => {
             href={profile.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={profile.network || 'Profile'}
+            aria-label={profile.network || labels.profile}
           >
             {text}
           </a>
@@ -513,98 +589,22 @@ const join = (parts, sep = ' · ') => parts.filter(Boolean).join(sep);
    when endDate is explicitly `null` — so every date *range* passes
    `endDate ?? null` to opt into the label.
 
-   The label is passed as `presentLabel` rather than through DateRange's
-   `locale` prop: `locale` would also localise month names, changing every
-   date in the document.  Keep this table in step with
-   `resume_generator/i18n.py`, which resolves the same label for md/txt/docx.
-   ──────────────────────────────────────────────────────────────────────── */
-
-const PRESENT_LABELS = {
-  en: 'Present',
-  pt: 'Presente',
-  es: 'Presente',
-  fr: 'Présent',
-  it: 'Presente',
-  de: 'Heute',
-};
-
-const presentLabelFor = (language) => {
-  const tag = (language || 'en-US').trim();
-  return (
-    PRESENT_LABELS[tag] ||
-    PRESENT_LABELS[tag.split('-')[0].toLowerCase()] ||
-    PRESENT_LABELS.en
-  );
-};
-
-/* Section headings.  This theme uses shorter wording than md/txt/docx
-   ("Experience", not "Work Experience"), so it keeps its own table rather than
-   sharing one with resume_generator/i18n.py — but the set of *languages* must
-   stay in step with the _SECTION_LABELS table there. */
-
-const SECTION_LABELS = {
-  en: {
-    work: 'Experience',
-    skills: 'Skills',
-    education: 'Education',
-    projects: 'Projects',
-    volunteer: 'Volunteer',
-    publications: 'Publications',
-    awards: 'Awards',
-    certificates: 'Certificates',
-    languages: 'Languages',
-    interests: 'Interests',
-    references: 'References',
-  },
-  pt: {
-    work: 'Experiência',
-    skills: 'Competências',
-    education: 'Formação',
-    projects: 'Projetos',
-    volunteer: 'Voluntariado',
-    publications: 'Publicações',
-    awards: 'Prêmios',
-    certificates: 'Certificações',
-    languages: 'Idiomas',
-    interests: 'Interesses',
-    references: 'Referências',
-  },
-};
-
-const sectionLabelsFor = (language) => {
-  const tag = (language || 'en-US').trim();
-  const table =
-    SECTION_LABELS[tag] || SECTION_LABELS[tag.split('-')[0].toLowerCase()];
-  return { ...SECTION_LABELS.en, ...(table || {}) };
-};
+    The label is passed as `presentLabel` so it comes from our locale JSON;
+    `locale` localises the month names to the document language.
+    ──────────────────────────────────────────────────────────────────────── */
 
 /* Disclosure for a date-trimmed work history.  Without it a reader cannot tell
-   a filtered résumé from a short career.  `meta.filtered` is written by
-   apply_date_cutoff() in resume_generator/filter.py.  Keep these strings in
-   step with _WORK_CUTOFF_NOTICES in resume_generator/i18n.py. */
+   a filtered résumé from a short career.  The strings come from the locale
+   JSON loaded above, keeping them in step with the tables in
+   resume_generator/locales/. */
 
-const CUTOFF_NOTICES = {
-  en: {
-    one: 'Filtered view — 1 earlier role starting before {date} is not shown. Full history available on request.',
-    many:
-      'Filtered view — {count} earlier roles starting before {date} are not shown. Full history available on request.',
-  },
-  pt: {
-    one: 'Visão filtrada — 1 cargo anterior, iniciado antes de {date}, não está sendo exibido. Histórico completo disponível sob solicitação.',
-    many:
-      'Visão filtrada — {count} cargos anteriores, iniciados antes de {date}, não estão sendo exibidos. Histórico completo disponível sob solicitação.',
-  },
-};
-
-const workCutoffNotice = (meta = {}) => {
+const workCutoffNotice = (meta = {}, localeData) => {
   const count = meta.filtered?.hidden?.work ?? 0;
   if (!count) return null;
-  const tag = (meta.language || 'en-US').trim();
-  const table =
-    CUTOFF_NOTICES[tag] ||
-    CUTOFF_NOTICES[tag.split('-')[0].toLowerCase()] ||
-    CUTOFF_NOTICES.en;
-  return (count === 1 ? table.one : table.many)
+  const notices = localeData?.cutoff_notice || {};
+  const template = notices[count === 1 ? 'one' : 'many'];
+  if (!template) return null;
+  return template
     .replace('{count}', String(count))
     .replace('{date}', meta.filtered?.cutDate ?? '');
 };
@@ -621,330 +621,345 @@ const CutoffNotice = styled.p`
    Resume
    ──────────────────────────────────────────────────────────────────────── */
 
-function Resume({ resume }) {
+function Resume({ resume, themeDir }) {
   const {
     basics = {},
-    work = [],
-    education = [],
-    skills = [],
-    projects = [],
-    volunteer = [],
-    awards = [],
-    certificates = [],
-    publications = [],
-    languages = [],
-    interests = [],
-    references = [],
     meta = {},
   } = resume;
 
-  const presentLabel = presentLabelFor(meta.language);
-  const labels = sectionLabelsFor(meta.language);
-  const cutoffNotice = workCutoffNotice(meta);
+  const localeBaseDir = themeDir ? pathJoin(themeDir, 'locales') : LOCALES_DIR;
+  const localeData = React.useMemo(() => loadLocale(meta.language || 'en-US', localeBaseDir), [meta.language, localeBaseDir]);
+  const presentLabel = localeData.present;
+  const labels = localeData.section || {};
+  const cutoffNotice = workCutoffNotice(meta, localeData);
 
   return (
     <Layout>
       <Header>
         <Name>{basics.name}</Name>
         {basics.label && <Label>{basics.label}</Label>}
-        <ContactInfo basics={basics} />
+        <ContactInfo basics={basics} labels={localeData.contact} />
         {basics.summary && <Summary>{basics.summary}</Summary>}
       </Header>
 
-      {skills.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.skills}</SectionTitle>
-          <CardGrid>
-            {skills.map((skill, i) => (
-              <Card key={i}>
-                {skill.name && (
-                  <CardTitle>
-                    <span>{skill.name}</span>
-                    {skill.level && <CardLevel>{skill.level}</CardLevel>}
-                  </CardTitle>
-                )}
-                {skill.keywords?.length > 0 && (
-                  <CardBody>{skill.keywords.join(', ')}</CardBody>
-                )}
-              </Card>
-            ))}
-          </CardGrid>
-        </Section>
-      )}
-      {work.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.work}</SectionTitle>
-          {work.map((job, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {job.position && <ItemTitle>{job.position}</ItemTitle>}
-                  {job.name && (
-                    <ItemSubtitle>
-                      <MaybeLink url={job.url}>{job.name}</MaybeLink>
-                      {job.location && <Location>{job.location}</Location>}
-                    </ItemSubtitle>
-                  )}
-                </div>
-                <MetaText>
-                  <DateRange
-                    startDate={job.startDate}
-                    endDate={job.endDate ?? null}
-                    presentLabel={presentLabel}
-                  />
-                </MetaText>
-              </ItemHeader>
-              {job.summary && <BodyText>{job.summary}</BodyText>}
-              {job.highlights?.length > 0 && (
-                <Highlights>
-                  {job.highlights.map((h, j) => (
-                    <li key={j}>{h}</li>
-                  ))}
-                </Highlights>
-              )}
-            </Item>
-          ))}
-          {cutoffNotice && <CutoffNotice>{cutoffNotice}</CutoffNotice>}
-        </Section>
-      )}
-      {projects.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.projects}</SectionTitle>
-          {projects.map((project, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {project.name && (
-                    <ItemTitle>
-                      <MaybeLink url={project.url}>{project.name}</MaybeLink>
-                    </ItemTitle>
-                  )}
-                  {(project.type || project.entity || project.roles?.length) && (
-                    <ItemSubtitle>
-                      {join([
-                        project.type,
-                        project.entity,
-                        project.roles?.join(', '),
-                      ])}
-                    </ItemSubtitle>
-                  )}
-                </div>
-                {(project.startDate || project.endDate) && (
-                  <MetaText>
-                    <DateRange
-                      startDate={project.startDate}
-                      endDate={project.endDate ?? null}
-                      presentLabel={presentLabel}
-                    />
-                  </MetaText>
-                )}
-              </ItemHeader>
-              {project.description && <BodyText>{project.description}</BodyText>}
-              {project.highlights?.length > 0 && (
-                <Highlights>
-                  {project.highlights.map((h, j) => (
-                    <li key={j}>{h}</li>
-                  ))}
-                </Highlights>
-              )}
-              {project.keywords?.length > 0 && (
-                <KeywordRow>{project.keywords.join(' · ')}</KeywordRow>
-              )}
-            </Item>
-          ))}
-        </Section>
-      )}
-      {volunteer.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.volunteer}</SectionTitle>
-          {volunteer.map((vol, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {vol.position && <ItemTitle>{vol.position}</ItemTitle>}
-                  {vol.organization && (
-                    <ItemSubtitle>
-                      <MaybeLink url={vol.url}>{vol.organization}</MaybeLink>
-                    </ItemSubtitle>
-                  )}
-                </div>
-                {(vol.startDate || vol.endDate) && (
-                  <MetaText>
-                    <DateRange
-                      startDate={vol.startDate}
-                      endDate={vol.endDate ?? null}
-                      presentLabel={presentLabel}
-                    />
-                  </MetaText>
-                )}
-              </ItemHeader>
-              {vol.summary && <BodyText>{vol.summary}</BodyText>}
-              {vol.highlights?.length > 0 && (
-                <Highlights>
-                  {vol.highlights.map((h, j) => (
-                    <li key={j}>{h}</li>
-                  ))}
-                </Highlights>
-              )}
-            </Item>
-          ))}
-        </Section>
-      )}
-      {education.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.education}</SectionTitle>
-          {education.map((edu, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {edu.institution && (
-                    <ItemTitle>
-                      <MaybeLink url={edu.url}>{edu.institution}</MaybeLink>
-                    </ItemTitle>
-                  )}
-                  {(edu.studyType || edu.area) && (
-                    <ItemSubtitle>
-                      {join(
-                        [
-                          edu.studyType && edu.area
-                            ? `${edu.studyType} in ${edu.area}`
-                            : edu.studyType || edu.area,
-                          edu.score && `Score: ${edu.score}`,
-                        ],
-                        ' · '
+      {Object.entries(resume).map(([key, value]) => {
+        if (key === 'basics' || key === 'meta' || key === '$schema') return null;
+        if (!Array.isArray(value) || value.length === 0) return null;
+
+        if (key === 'skills') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.skills}</SectionTitle>
+              <CardGrid>
+                {value.map((skill, i) => (
+                  <Card key={i}>
+                    {skill.name && (
+                      <CardTitle>
+                        <span>{skill.name}</span>
+                        {skill.level && <CardLevel>{skill.level}</CardLevel>}
+                      </CardTitle>
+                    )}
+                    {skill.keywords?.length > 0 && (
+                      <CardBody>{skill.keywords.join(', ')}</CardBody>
+                    )}
+                  </Card>
+                ))}
+              </CardGrid>
+            </Section>
+          );
+        }
+
+        if (key === 'work') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.work}</SectionTitle>
+              {value.map((job, i) => (
+                <Item key={i}>
+                  <ItemHeader>
+                    <div>
+                      {job.position && <ItemTitle>{job.position}</ItemTitle>}
+                      {job.name && (
+                        <ItemSubtitle>
+                          <MaybeLink url={job.url}>{job.name}</MaybeLink>
+                          {job.location && <Location>{job.location}</Location>}
+                        </ItemSubtitle>
                       )}
-                    </ItemSubtitle>
+                    </div>
+                    <MetaText>
+                      {formatDateRange(job.startDate, job.endDate ?? null, presentLabel)}
+                    </MetaText>
+                  </ItemHeader>
+                  {job.summary && <BodyText>{job.summary}</BodyText>}
+                  {job.highlights?.length > 0 && (
+                    <Highlights>
+                      {job.highlights.map((h, j) => (
+                        <li key={j}>{h}</li>
+                      ))}
+                    </Highlights>
                   )}
-                </div>
-                {(edu.startDate || edu.endDate) && (
-                  <MetaText>
-                    <DateRange
-                      startDate={edu.startDate}
-                      endDate={edu.endDate ?? null}
-                      presentLabel={presentLabel}
-                    />
-                  </MetaText>
-                )}
-              </ItemHeader>
-              {edu.summary && <BodyText>{edu.summary}</BodyText>}
-              {edu.courses?.length > 0 && (
-                <KeywordRow>{edu.courses.join(' · ')}</KeywordRow>
-              )}
-            </Item>
-          ))}
-        </Section>
-      )}
-      {certificates.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.certificates}</SectionTitle>
-          {certificates.map((cert, i) => (
-            <CompactItem key={i}>
-              <ItemHeader>
-                <div>
-                  {cert.name && (
-                    <ItemTitle>
-                      <MaybeLink url={cert.url}>{cert.name}</MaybeLink>
-                    </ItemTitle>
+                </Item>
+              ))}
+              {cutoffNotice && <CutoffNotice>{cutoffNotice}</CutoffNotice>}
+            </Section>
+          );
+        }
+
+        if (key === 'projects') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.projects}</SectionTitle>
+              {value.map((project, i) => (
+                <Item key={i}>
+                  <ItemHeader>
+                    <div>
+                      {project.name && (
+                        <ItemTitle>
+                          <MaybeLink url={project.url}>{project.name}</MaybeLink>
+                        </ItemTitle>
+                      )}
+                      {(project.type || project.entity || project.roles?.length) && (
+                        <ItemSubtitle>
+                          {join([
+                            project.type,
+                            project.entity,
+                            project.roles?.join(', '),
+                          ])}
+                        </ItemSubtitle>
+                      )}
+                    </div>
+                    {(project.startDate || project.endDate) && (
+                      <MetaText>
+                        {formatDateRange(project.startDate, project.endDate ?? null, presentLabel)}
+                      </MetaText>
+                    )}
+                  </ItemHeader>
+                  {project.description && <BodyText>{project.description}</BodyText>}
+                  {project.highlights?.length > 0 && (
+                    <Highlights>
+                      {project.highlights.map((h, j) => (
+                        <li key={j}>{h}</li>
+                      ))}
+                    </Highlights>
                   )}
-                  {cert.issuer && <ItemSubtitle>{cert.issuer}</ItemSubtitle>}
-                </div>
-                {cert.date && <MetaText>{cert.date}</MetaText>}
-              </ItemHeader>
-            </CompactItem>
-          ))}
-        </Section>
-      )}
-      {publications.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.publications}</SectionTitle>
-          {publications.map((pub, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {pub.name && (
-                    <ItemTitle>
-                      <MaybeLink url={pub.url}>{pub.name}</MaybeLink>
-                    </ItemTitle>
+                  {project.keywords?.length > 0 && (
+                    <KeywordRow>{project.keywords.join(' · ')}</KeywordRow>
                   )}
-                  {pub.publisher && (
-                    <ItemSubtitle>{pub.publisher}</ItemSubtitle>
+                </Item>
+              ))}
+            </Section>
+          );
+        }
+
+        if (key === 'volunteer') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.volunteer}</SectionTitle>
+              {value.map((vol, i) => (
+                <Item key={i}>
+                  <ItemHeader>
+                    <div>
+                      {vol.position && <ItemTitle>{vol.position}</ItemTitle>}
+                      {vol.organization && (
+                        <ItemSubtitle>
+                          <MaybeLink url={vol.url}>{vol.organization}</MaybeLink>
+                        </ItemSubtitle>
+                      )}
+                    </div>
+                    {(vol.startDate || vol.endDate) && (
+                      <MetaText>
+                        {formatDateRange(vol.startDate, vol.endDate ?? null, presentLabel)}
+                      </MetaText>
+                    )}
+                  </ItemHeader>
+                  {vol.summary && <BodyText>{vol.summary}</BodyText>}
+                  {vol.highlights?.length > 0 && (
+                    <Highlights>
+                      {vol.highlights.map((h, j) => (
+                        <li key={j}>{h}</li>
+                      ))}
+                    </Highlights>
                   )}
-                </div>
-                {pub.releaseDate && <MetaText>{pub.releaseDate}</MetaText>}
-              </ItemHeader>
-              {pub.summary && <BodyText>{pub.summary}</BodyText>}
-            </Item>
-          ))}
-        </Section>
-      )}
-      {awards.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.awards}</SectionTitle>
-          {awards.map((award, i) => (
-            <Item key={i}>
-              <ItemHeader>
-                <div>
-                  {award.title && (
-                    <ItemTitle>
-                      <MaybeLink url={award.url}>{award.title}</MaybeLink>
-                    </ItemTitle>
+                </Item>
+              ))}
+            </Section>
+          );
+        }
+
+        if (key === 'education') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.education}</SectionTitle>
+              {value.map((edu, i) => (
+                <Item key={i}>
+                  <ItemHeader>
+                    <div>
+                      {edu.institution && (
+                        <ItemTitle>
+                          <MaybeLink url={edu.url}>{edu.institution}</MaybeLink>
+                        </ItemTitle>
+                      )}
+                       {(edu.studyType || edu.area) && (
+                        <ItemSubtitle>
+                          {join(
+                            [
+                              edu.studyType && edu.area
+                                ? `${edu.studyType} ${localeData.education?.in} ${edu.area}`
+                                : edu.studyType || edu.area,
+                              edu.score && `${localeData.education?.score} ${edu.score}`,
+                              edu.workload && `${localeData.education?.workload} ${edu.workload}`,
+                            ],
+                            ' · '
+                          )}
+                        </ItemSubtitle>
+                      )}
+                    </div>
+                    {(edu.startDate || edu.endDate) && (
+                      <MetaText>
+                        {formatDateRange(edu.startDate, edu.endDate ?? null, presentLabel)}
+                      </MetaText>
+                    )}
+                  </ItemHeader>
+                  {edu.summary && <BodyText>{edu.summary}</BodyText>}
+                  {edu.courses?.length > 0 && (
+                    <KeywordRow>{edu.courses.join(' · ')}</KeywordRow>
                   )}
-                  {award.awarder && <ItemSubtitle>{award.awarder}</ItemSubtitle>}
-                </div>
-                {award.date && <MetaText>{award.date}</MetaText>}
-              </ItemHeader>
-              {award.summary && <BodyText>{award.summary}</BodyText>}
-            </Item>
-          ))}
-        </Section>
-      )}
-      {languages.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.languages}</SectionTitle>
-          <CardGrid>
-            {languages.map((lang, i) => (
-              <Card key={i}>
-                {lang.language && (
-                  <CardTitle>
-                    <span>{lang.language}</span>
-                  </CardTitle>
-                )}
-                {lang.fluency && <CardBody>{lang.fluency}</CardBody>}
-              </Card>
-            ))}
-          </CardGrid>
-        </Section>
-      )}
-      {interests.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.interests}</SectionTitle>
-          <CardGrid>
-            {interests.map((interest, i) => (
-              <Card key={i}>
-                {interest.name && (
-                  <CardTitle>
-                    <span>{interest.name}</span>
-                  </CardTitle>
-                )}
-                {interest.keywords?.length > 0 && (
-                  <CardBody>{interest.keywords.join(', ')}</CardBody>
-                )}
-              </Card>
-            ))}
-          </CardGrid>
-        </Section>
-      )}
-      {references.length > 0 && (
-        <Section>
-          <SectionTitle>{labels.references}</SectionTitle>
-          {references.map((ref, i) => (
-            <Item key={i}>
-              {ref.name && <ItemTitle>{ref.name}</ItemTitle>}
-              {ref.reference && <BodyText>{ref.reference}</BodyText>}
-            </Item>
-          ))}
-        </Section>
-      )}
+                </Item>
+              ))}
+            </Section>
+          );
+        }
+
+        if (key === 'certificates') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.certificates}</SectionTitle>
+              {value.map((cert, i) => (
+                <CompactItem key={i}>
+                  <ItemHeader>
+                    <div>
+                      {cert.name && (
+                        <ItemTitle>
+                          <MaybeLink url={cert.url}>{cert.name}</MaybeLink>
+                        </ItemTitle>
+                      )}
+                      {cert.issuer && <ItemSubtitle>{cert.issuer}</ItemSubtitle>}
+                    </div>
+                    {cert.date && <MetaText>{formatDate(cert.date)}</MetaText>}
+                  </ItemHeader>
+                </CompactItem>
+              ))}
+            </Section>
+          );
+        }
+
+        if (key === 'publications') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.publications}</SectionTitle>
+              {value.map((pub, i) => (
+                <Item key={i}>
+                  <ItemHeader>
+                    <div>
+                      {pub.name && (
+                        <ItemTitle>
+                          <MaybeLink url={pub.url}>{pub.name}</MaybeLink>
+                        </ItemTitle>
+                      )}
+                      {pub.publisher && (
+                        <ItemSubtitle>{pub.publisher}</ItemSubtitle>
+                      )}
+                    </div>
+                    {pub.releaseDate && <MetaText>{formatDate(pub.releaseDate)}</MetaText>}
+                  </ItemHeader>
+                  {pub.summary && <BodyText>{pub.summary}</BodyText>}
+                </Item>
+              ))}
+            </Section>
+          );
+        }
+
+        if (key === 'awards') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.awards}</SectionTitle>
+              {value.map((award, i) => (
+                <Item key={i}>
+                  <ItemHeader>
+                    <div>
+                      {award.title && (
+                        <ItemTitle>
+                          <MaybeLink url={award.url}>{award.title}</MaybeLink>
+                        </ItemTitle>
+                      )}
+                      {award.awarder && <ItemSubtitle>{award.awarder}</ItemSubtitle>}
+                    </div>
+                    {award.date && <MetaText>{formatDate(award.date)}</MetaText>}
+                  </ItemHeader>
+                  {award.summary && <BodyText>{award.summary}</BodyText>}
+                </Item>
+              ))}
+            </Section>
+          );
+        }
+
+        if (key === 'languages') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.languages}</SectionTitle>
+              <CardGrid>
+                {value.map((lang, i) => (
+                  <Card key={i}>
+                    {lang.language && (
+                      <CardTitle>
+                        <span>{lang.language}</span>
+                      </CardTitle>
+                    )}
+                    {lang.fluency && <CardBody>{lang.fluency}</CardBody>}
+                  </Card>
+                ))}
+              </CardGrid>
+            </Section>
+          );
+        }
+
+        if (key === 'interests') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.interests}</SectionTitle>
+              <CardGrid>
+                {value.map((interest, i) => (
+                  <Card key={i}>
+                    {interest.name && (
+                      <CardTitle>
+                        <span>{interest.name}</span>
+                      </CardTitle>
+                    )}
+                    {interest.keywords?.length > 0 && (
+                      <CardBody>{interest.keywords.join(', ')}</CardBody>
+                    )}
+                  </Card>
+                ))}
+              </CardGrid>
+            </Section>
+          );
+        }
+
+        if (key === 'references') {
+          return (
+            <Section key={key}>
+              <SectionTitle>{labels.references}</SectionTitle>
+              {value.map((ref, i) => (
+                <Item key={i}>
+                  {ref.name && <ItemTitle>{ref.name}</ItemTitle>}
+                  {ref.reference && <BodyText>{ref.reference}</BodyText>}
+                </Item>
+              ))}
+            </Section>
+          );
+        }
+
+        return null;
+      })}
     </Layout>
   );
 }

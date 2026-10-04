@@ -1,0 +1,288 @@
+{
+  "$schema": "../schema/extended-schema.json",
+  "basics": {
+    "name": "Sheyla Canuto Barbosa Freire",
+    "label": "Doutora em Direito | Docente e Pesquisadora",
+    "email": "sheylacanutobf@gmail.com",
+    "phone": "+55 (81) 99815-5681",
+    "summary": "Doutora em Direito pela Universidade Federal de Pernambuco (UFPE) e Mestra em Direito pela Universidade Católica de Pernambuco (UNICAP). Especialista em Direito Tributário, Direito Civil e Empresarial, e Direito Público. Experiência em docência no ensino superior, orientação de Trabalho de Conclusão de Curso (TCC), participação em Núcleo Docente Estruturante (NDE) e atuação nas áreas de Direito Civil, Consumidor, Tributário, Administrativo, Militar e Ambiental.",
+    "location": {
+      "address": "Rua Professor Francisco Gonçalves, 1271 - Apto 1703 - Cocó",
+      "postalCode": "60192-170",
+      "city": "Fortaleza",
+      "countryCode": "BR",
+      "region": "Ceará"
+    },
+    "profiles": [
+      {
+        "network": "Lattes",
+        "username": "8549216139965602",
+        "url": "http://lattes.cnpq.br/8549216139965602"
+      },
+      {
+        "network": "ORCID",
+        "username": "0000-0002-7877-0190",
+        "url": "https://orcid.org/0000-0002-7877-0190"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Força Aérea Brasileira (FAB)",
+      "position": "Assessora Jurídica do Segundo Comando Aéreo Regional (II COMAR)",
+      "startDate": "2021-06",
+      "endDate": "2024-06",
+      "location": "Recife/PE",
+      "summary": "Atuação como Assessora Jurídica.",
+      "hidden": false
+    },
+    {
+      "name": "Ordem dos Advogados do Brasil, Seccional Pernambuco (OAB/PE)",
+      "position": "Membro Efetivo da Comissão de Honorários Advocatícios",
+      "startDate": "2019-03",
+      "endDate": "2021-06",
+      "location": "Recife/PE",
+      "hidden": false
+    },
+    {
+      "name": "Universidade Federal de Pernambuco (UFPE)",
+      "position": "Professora Substituta",
+      "startDate": "2018-08",
+      "endDate": "2020-07",
+      "location": "Recife/PE",
+      "summary": "Ministrou as disciplinas de Direito Tributário, Direito Administrativo e Administração Tributária.",
+      "hidden": false
+    },
+    {
+      "name": "Faculdade de Ciências da Administração do Limoeiro (FACAL / FACJUL)",
+      "position": "Professora",
+      "startDate": "2018-02",
+      "endDate": "2020-01",
+      "location": "Limoeiro/PE",
+      "summary": "Lecionou as disciplinas de Metodologia do Trabalho Científico V e VI e Direito Tributário I.",
+      "hidden": false
+    },
+    {
+      "name": "Faculdade Sete de Setembro (FASETE) / Atual UNIRIOS",
+      "position": "Professora",
+      "startDate": "2017-08",
+      "endDate": "2019-01",
+      "location": "Paulo Afonso/BA",
+      "summary": "Atuação docente no Curso de Bacharelado em Direito nas disciplinas de Direito Civil I, Direito das Relações de Consumo e Direito Tributário I e II. Membro do Núcleo Docente Estruturante (NDE), de Julho de 2018 a Dezembro de 2018.",
+      "hidden": false
+    },
+    {
+      "name": "Justiça Federal de Pernambuco (JFPE)",
+      "position": "Conciliadora Judicial",
+      "startDate": "2016-06",
+      "endDate": "2018-03",
+      "location": "Recife/PE",
+      "hidden": false
+    },
+    {
+      "name": "Faculdade Joaquim Nabuco de Paulista",
+      "position": "Professora",
+      "startDate": "2015-08",
+      "endDate": "2016-07",
+      "location": "Paulista/PE",
+      "summary": "Ministrou as disciplinas de Direito Ambiental e Direito Tributário I.",
+      "hidden": false
+    },
+    {
+      "name": "Associação Pernambucana de Ensino Superior (APESU)",
+      "position": "Professora",
+      "startDate": "2014-08",
+      "endDate": "2015-02",
+      "location": "Recife/PE",
+      "summary": "Docente no curso de graduação em Administração (disciplina: Direito nas Organizações).",
+      "hidden": false
+    },
+    {
+      "name": "Black Advogados Associados",
+      "position": "Advogada Associada",
+      "startDate": "2013-07",
+      "endDate": "2014-09",
+      "location": "Recife/PE",
+      "hidden": false
+    },
+    {
+      "name": "Tribunal de Justiça de Pernambuco (TJPE)",
+      "position": "Conciliadora Judicial",
+      "startDate": "2012-11",
+      "endDate": "2016-07",
+      "location": "Recife/PE",
+      "hidden": false
+    }
+  ],
+  "education": [
+    {
+      "institution": "Universidade Federal de Pernambuco (UFPE)",
+      "area": "Direito",
+      "studyType": "Doutorado",
+      "startDate": "2020-03",
+      "endDate": "2025-08",
+      "courses": [
+        "Linha de Pesquisa: Estado e Regulação",
+        "Tese: Controle Judicial da Atividade Normativa da ANAC: Uma Análise Comparativa de Decisões Judiciais no Setor da Aviação Civil"
+      ],
+      "hidden": false
+    },
+    {
+      "institution": "Universidade Católica de Pernambuco (UNICAP)",
+      "area": "Direito",
+      "studyType": "Mestrado",
+      "startDate": "2015-02",
+      "endDate": "2017-03",
+      "courses": [
+        "Linha de Pesquisa: Processo, Hermenêutica e Efetividade dos Direitos",
+        "Dissertação: A Extinção da Punibilidade pelo Pagamento Integral do Débito Tributário",
+        "Bolsista CAPES"
+      ],
+      "hidden": false
+    },
+    {
+      "institution": "Pontifícia Universidade Católica de Minas Gerais (PUC Minas)",
+      "area": "Direito Tributário",
+      "studyType": "Especialização",
+      "workload": "360h",
+      "startDate": "2018-03",
+      "endDate": "2020-12",
+      "courses": [
+        "Monografia: Recurso Especial ao CARF"
+      ],
+      "hidden": false
+    },
+    {
+      "institution": "Universidade Federal de Pernambuco (UFPE)",
+      "area": "Direito Civil e Empresarial",
+      "studyType": "Especialização",
+      "workload": "360h",
+      "startDate": "2011-09",
+      "endDate": "2013-09",
+      "courses": [
+        "Monografia: Da Possibilidade ou Impossibilidade de Uniões Estáveis Plúrimas"
+      ],
+      "hidden": false
+    },
+    {
+      "institution": "Centro Universitário Maurício de Nassau (UNINASSAU)",
+      "area": "Direito Público",
+      "studyType": "Especialização",
+      "workload": "720h",
+      "startDate": "2009-06",
+      "endDate": "2012-02",
+      "courses": [
+        "Monografia: A Construção Discursiva dos Referentes na Motivação de uma Sentença"
+      ],
+      "hidden": false
+    },
+    {
+      "institution": "Universidade Católica de Pernambuco (UNICAP)",
+      "area": "Direito",
+      "studyType": "Bacharelado",
+      "startDate": "2004-01",
+      "endDate": "2009-07",
+      "hidden": false
+    }
+  ],
+  "publications": [
+    {
+      "name": "Extinção da punibilidade pelo pagamento integral do débito tributário em decisão do STF: (des) criminalização dos ilícitos fiscais?",
+      "publisher": "Revista Eletrônica do Curso de Direito da Universidade Federal de Santa Maria(UFSM)",
+      "releaseDate": "2017",
+      "summary": "CAMPOS, Hélio Silvio Ourém; FREIRE, Sheyla Canuto Barbosa.",
+      "hidden": false
+    },
+    {
+      "name": "A representação da mulher no sistema jurídico penal: um estudo de caso a partir das análises das expressões referenciais",
+      "publisher": "Language and Law/Linguagem e Direito, v. 4, p. 72-88, 2017",
+      "releaseDate": "2017",
+      "summary": "CANUTO, Sheyla; COLARES, Virgínia.",
+      "hidden": false
+    },
+    {
+      "name": "Marcas da Transição de Paradigmas na Docência do Ensino Superior: Interfaces da Relação Ensino-Pesquisa com as Estratégias de Ensinagem e a Relação Professor-Aluno",
+      "publisher": "Diálogos: Revista de Estudos Culturais e da Contemporaneidade, v. 1, p. 5-43, 2016",
+      "releaseDate": "2016",
+      "summary": "AMORIM, Maria da Conceição de Melo; CANUTO, Sheyla et al.",
+      "hidden": false
+    },
+    {
+      "name": "Análise Crítica do Discurso Jurídico (ACD): o caso da denúncia de estupro",
+      "publisher": "Editora Foco",
+      "releaseDate": "2024",
+      "summary": "Capítulo de livro in: Transformações das Relações Familiares e a Proteção da Pessoa.",
+      "hidden": false
+    }
+  ],
+  "awards": [
+    {
+      "title": "1º Lugar no Estágio de Adaptação Técnico (EAT 1-2021) do Quadro de Oficiais Convocados (QOCON)",
+      "date": "2021",
+      "awarder": "Força Aérea Brasileira (FAB)",
+      "summary": "Aspirante a Oficial com grau final 9,6992.",
+      "hidden": false
+    },
+    {
+      "title": "1º Lugar na Seleção Pública Simplificada para Professora Substituta de Direito Tributário do Departamento de Ciências Contábeis e Atuariais / CCSA",
+      "date": "2018",
+      "awarder": "Universidade Federal de Pernambuco (UFPE)",
+      "hidden": false
+    },
+    {
+      "title": "4º Lugar na Área de Linguística, Letras e Artes",
+      "date": "2007",
+      "awarder": "IX Jornada de Iniciação Científica (PIBIC / UNICAP)",
+      "hidden": false
+    }
+  ],
+  "skills": [
+    {
+      "name": "Áreas de Atuação e Ensino",
+      "level": "Especialista",
+      "hidden": true,
+      "keywords": [
+        "Direito Tributário",
+        "Direito Ambiental",
+        "Direito Penal Militar",
+        "Processo Penal Militar"
+      ]
+    },
+    {
+      "name": "Competências Acadêmicas",
+      "level": "Avançado",
+      "hidden": true,
+      "keywords": [
+        "Orientação de TCC",
+        "Núcleo Docente Estruturante (NDE)",
+        "Metodologias Ativas de Aprendizagem",
+        "Pesquisa Científica"
+      ]
+    }
+  ],
+  "interests": [
+    {
+      "name": "Áreas de Atuação e Ensino",
+      "keywords": [
+        "Direito Civil",
+        "Direito das Relações de Consumo",
+        "Direito Administrativo",
+        "Direito Constitucional"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "Português",
+      "fluency": "Nativo",
+      "hidden": true
+    }
+  ],
+  "meta": {
+    "version": "v2.1.0",
+    "language": "pt-BR",
+    "lastModified": "2026-10-03T00:00:00",
+    "notes": "Extended schema with workload and hidden fields.",
+    "summaries": {}
+  }
+}

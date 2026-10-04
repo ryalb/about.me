@@ -4,3 +4,4 @@ node_modules
 *.pyc
 *.bak
 .pi*
+.DS_Store

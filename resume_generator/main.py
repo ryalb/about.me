@@ -268,6 +268,19 @@ def generate(
             rich_help_panel="Output",
         ),
     ] = ",".join(ALL_FORMATS),
+    locale: Annotated[
+        str | None,
+        typer.Option(
+            "--locale",
+            "-l",
+            help=(
+                "Override the output language (BCP 47 tag, e.g. en-US or pt-BR). "
+                "When omitted, the generator reads ``meta.language`` from the "
+                "resume file, falling back to en-US."
+            ),
+            rich_help_panel="Content",
+        ),
+    ] = None,
     zoom: Annotated[
         str,
         typer.Option(
@@ -400,6 +413,10 @@ def generate(
         "Highlights",
         "[dim]hidden (--no-highlights)[/dim]" if no_highlights else "[dim]shown[/dim]",
     )
+    table.add_row(
+        "Locale",
+        locale or "[dim]from meta.language[/dim]",
+    )
     table.add_row("Formats", ", ".join(output_formats))
     if zoom_factor != 1.0:
         scaled = [f for f in output_formats if f in ZOOMABLE_FORMATS]
@@ -425,7 +442,11 @@ def generate(
         nonlocal html_content
         if html_content is None:
             html_content = render_html(
-                filtered, effective_theme, zoom=zoom_factor, console=console
+                filtered,
+                effective_theme,
+                zoom=zoom_factor,
+                locale=locale,
+                console=console,
             )
         return html_content
 
@@ -443,7 +464,7 @@ def generate(
 
             try:
                 out_file = _render_format(
-                    fmt, filtered, _get_html, out_dir, zoom_factor
+                    fmt, filtered, _get_html, out_dir, zoom_factor, locale
                 )
                 results.append((fmt, out_file, True, ""))
             except Exception as exc:  # noqa: BLE001 - one bad format must not abort the rest
@@ -491,6 +512,7 @@ def _render_format(
     get_html,
     out_dir: Path,
     zoom: float = 1.0,
+    locale: str | None = None,
 ) -> Path:
     """Render a single format and write the file. Returns the output path."""
     if fmt == "html":
@@ -506,20 +528,20 @@ def _render_format(
         return path
 
     elif fmt == "md":
-        md = render_markdown(resume)
+        md = render_markdown(resume, locale=locale)
         path = out_dir / "resume.md"
         path.write_text(_normalize_text(md), encoding="utf-8")
         return path
 
     elif fmt == "txt":
-        txt = render_text(resume)
+        txt = render_text(resume, locale=locale)
         path = out_dir / "resume.txt"
         path.write_text(_normalize_text(txt), encoding="utf-8")
         return path
 
     elif fmt == "docx":
         path = out_dir / "resume.docx"
-        render_word(resume, path, zoom=zoom)
+        render_word(resume, path, zoom=zoom, locale=locale)
         return path
 
     else:
@@ -527,25 +549,44 @@ def _render_format(
 
 
 def _validate_schema(resume: dict) -> None:
-    """Validate against the official JSON Resume JSON Schema (offline-tolerant)."""
+    """Validate against the JSON Resume schema (prefers local extended schema)."""
     try:
         import urllib.request
 
         import jsonschema
 
-        schema_url = (
-            "https://raw.githubusercontent.com/jsonresume/resume-schema"
-            "/master/schema.json"
-        )
-        try:
-            with urllib.request.urlopen(schema_url, timeout=5) as r:
-                schema = json.loads(r.read())
-            jsonschema.validate(resume, schema)
-            console.print("[dim]✓ Schema validation passed[/dim]")
-        except (OSError, TimeoutError):
-            console.print("[dim]⚠ Schema validation skipped (no network)[/dim]")
-        except jsonschema.ValidationError as exc:
-            console.print(f"[yellow]⚠ Schema warning:[/yellow] {exc.message}")
+        schema = None
+        schema_ref = resume.get("$schema")
+        if isinstance(schema_ref, str):
+            # Try loading a local schema file referenced by $schema
+            local_path = Path(schema_ref)
+            if local_path.is_file():
+                try:
+                    schema = json.loads(local_path.read_text(encoding="utf-8"))
+                except (json.JSONDecodeError, OSError):
+                    schema = None
+            elif schema_ref.startswith("file://"):
+                file_path = Path(schema_ref[len("file://") :])
+                if file_path.is_file():
+                    try:
+                        schema = json.loads(file_path.read_text(encoding="utf-8"))
+                    except (json.JSONDecodeError, OSError):
+                        schema = None
+
+        if schema is None:
+            schema_url = (
+                "https://raw.githubusercontent.com/jsonresume/resume-schema"
+                "/master/schema.json"
+            )
+            try:
+                with urllib.request.urlopen(schema_url, timeout=5) as r:
+                    schema = json.loads(r.read())
+            except (OSError, TimeoutError):
+                console.print("[dim]⚠ Schema validation skipped (no network)[/dim]")
+                return
+
+        jsonschema.validate(resume, schema)
+        console.print("[dim]✓ Schema validation passed[/dim]")
     except ImportError:
         pass
 

@@ -12,7 +12,15 @@ from typing import Any
 from jinja2 import BaseLoader, Environment
 
 from ..contact import profile_display
-from ..i18n import present_label, section_labels, work_cutoff_notice
+from ..i18n import (
+    format_date,
+    language_of,
+    load_locale,
+    present_label,
+    section_labels,
+    t,
+    work_cutoff_notice,
+)
 from ..icons import icon_svg
 
 # ---------------------------------------------------------------------------
@@ -252,7 +260,7 @@ _BUILTIN_TEMPLATE = """\
 
 {% macro date_range(start, end) %}
   {%- if start or end -%}
-    {{ start or '' }}{% if end %} – {{ end }}{% elif start %} – {{ present }}{% endif %}
+    {{ format_date(start, language) }}{% if end %} - {{ format_date(end, language) }}{% elif start %} - {{ present }}{% endif %}
   {%- endif -%}
 {% endmacro %}
 
@@ -349,12 +357,13 @@ _BUILTIN_TEMPLATE = """\
   <div class="entry">
     <div class="entry-header">
       <div>
-        <span class="entry-title">{{ edu.studyType or '' }}{% if edu.area %} in {{ edu.area }}{% endif %}</span>
+        <span class="entry-title">{{ edu.studyType or '' }}{% if edu.area %} {{ education_labels.in }} {{ edu.area }}{% endif %}</span>
         {% if edu.institution %} — {{ edu.institution }}{% endif %}
       </div>
       <span class="entry-date">{{ date_range(edu.startDate, edu.endDate) }}</span>
     </div>
-    {% if edu.score %}<div class="entry-subtitle">Score: {{ edu.score }}</div>{% endif %}
+    {% if edu.score %}<div class="entry-subtitle">{{ education_labels.score }} {{ edu.score }}</div>{% endif %}
+    {% if edu.workload %}<div class="entry-subtitle">{{ education_labels.workload }} {{ edu.workload }}</div>{% endif %}
     {% if edu.courses %}
     <ul class="highlights">
       {% for c in edu.courses %}<li>{{ c }}</li>{% endfor %}
@@ -371,7 +380,7 @@ _BUILTIN_TEMPLATE = """\
   <div class="entry">
     <div class="entry-header">
       <span class="entry-title">{% if c.url %}<a href="{{ c.url }}">{{ c.name }}</a>{% else %}{{ c.name }}{% endif %}</span>
-      <span class="entry-date">{{ c.date or '' }}</span>
+      <span class="entry-date">{{ format_date(c.date, language) }}</span>
     </div>
     {% if c.issuer %}<div class="entry-subtitle">{{ c.issuer }}</div>{% endif %}
   </div>
@@ -385,7 +394,7 @@ _BUILTIN_TEMPLATE = """\
   <div class="entry">
     <div class="entry-header">
       <span class="entry-title">{% if pub.url %}<a href="{{ pub.url }}">{{ pub.name }}</a>{% else %}{{ pub.name }}{% endif %}</span>
-      <span class="entry-date">{{ pub.releaseDate or '' }}</span>
+      <span class="entry-date">{{ format_date(pub.releaseDate, language) }}</span>
     </div>
     {% if pub.publisher %}<div class="entry-subtitle">{{ pub.publisher }}</div>{% endif %}
     {% if pub.summary %}<div class="entry-body">{{ pub.summary }}</div>{% endif %}
@@ -400,7 +409,7 @@ _BUILTIN_TEMPLATE = """\
   <div class="entry">
     <div class="entry-header">
       <span class="entry-title">{% if a.url %}<a href="{{ a.url }}">{{ a.title }}</a>{% else %}{{ a.title }}{% endif %}</span>
-      <span class="entry-date">{{ a.date or '' }}</span>
+      <span class="entry-date">{{ format_date(a.date, language) }}</span>
     </div>
     {% if a.awarder %}<div class="entry-subtitle">{{ a.awarder }}</div>{% endif %}
     {% if a.summary %}<div class="entry-body">{{ a.summary }}</div>{% endif %}
@@ -450,23 +459,33 @@ _BUILTIN_TEMPLATE = """\
 """
 
 
-def render_builtin(resume: dict[str, Any], zoom: float = 1.0) -> str:
+def render_builtin(
+    resume: dict[str, Any], locale: str | None = None, zoom: float = 1.0
+) -> str:
     """Render HTML using the built-in Jinja2 template (no Node.js required)."""
+    locale_data = load_locale(resume, locale)
     env = Environment(loader=BaseLoader(), autoescape=False)
     env.filters["select"] = lambda seq: [x for x in seq if x]
     env.filters["profile_text"] = profile_display
     tmpl = env.from_string(_BUILTIN_TEMPLATE)
 
     basics = resume.get("basics", {}) or {}
-    name = basics.get("name", "Resume")
+    name = basics.get("name") or t(locale_data, "untitled", default="Resume")
 
     return tmpl.render(
         icon=icon_svg,
         name=name,
         root_font_size=f"{zoom * 100:g}%",
-        present=present_label(resume),
-        labels=section_labels(resume),
-        work_notice=work_cutoff_notice(resume),
+        present=present_label(locale_data),
+        labels=section_labels(locale_data),
+        education_labels={
+            "in": t(locale_data, "education", "in", default="in"),
+            "score": t(locale_data, "education", "score", default="Score:"),
+            "workload": t(locale_data, "education", "workload", default="Workload:"),
+        },
+        work_notice=work_cutoff_notice(resume, locale_data),
+        format_date=lambda d: format_date(d, language_of(resume, locale)),
+        language=language_of(resume, locale),
         basics=basics,
         work=resume.get("work", []),
         volunteer=resume.get("volunteer", []),
@@ -478,7 +497,6 @@ def render_builtin(resume: dict[str, Any], zoom: float = 1.0) -> str:
         languages=resume.get("languages", []),
         interests=resume.get("interests", []),
         references=resume.get("references", []),
-        projects=resume.get("projects", []),
     )
 
 
@@ -486,6 +504,7 @@ def render_html(
     resume: dict[str, Any],
     theme: str | None,
     zoom: float = 1.0,
+    locale: str | None = None,
     console=None,
 ) -> str:
     """Render HTML, preferring the requested theme with fallback to built-in.
@@ -501,4 +520,4 @@ def render_html(
                 console.print(
                     f"[yellow]⚠ Theme '{theme}' failed ({exc}), using built-in template.[/yellow]"
                 )
-    return render_builtin(resume, zoom=zoom)
+    return render_builtin(resume, locale=locale, zoom=zoom)

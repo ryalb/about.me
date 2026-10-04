@@ -14,31 +14,10 @@ and technical lead for Scrum teams of 6 to 15 engineers. M.Sc. in Computer
 Science (Artificial Intelligence).
 
 
-SKILLS
-────────────────────────────────────────────────────────────────────────────────
-
-Backend (Expert): Python, Django, FastAPI, Flask, Falcon, GraphQL, Strawberry
-GraphQL, REST API, JSON:API, Celery, Kafka, WebSockets, PHP, Yii, Laravel, Ruby
-on Rails, Java
-Frontend (Advanced): JavaScript, TypeScript, VueJS, NuxtJS, PrimeVue, Tailwind
-CSS, Pinia, EmberJS, Backbone/Marionette, SCSS/SASS
-AI & ML Engineering (Advanced): LLM application development, Model Context
-Protocol (MCP), Claude Agent SDK, Agentic tooling, Vector search, Milvus,
-Snowflake
-DevOps & CI/CD (Expert): CI/CD, Jenkins, TeamCity, GitLab CI, Docker, Multi-arch
-builds, Ansible, HashiCorp Vault, Sealed Secrets, uv, prek, ruff, pytest, Git,
-GitFlow
-Cloud & Orchestration (Advanced): Kubernetes, Helm, Kustomize, AWS EKS, AWS,
-Google Cloud, mTLS, OAuth 2.0, Sentry
-Databases (Advanced): PostgreSQL, MySQL, Oracle, Redis, Milvus, Snowflake
-Process & Leadership (Expert): Software Configuration Management, CMMI, SCAMPI
-appraisal, Scrum, Kanban, Technical Leadership, Code Review, Mentoring
-
-
 WORK EXPERIENCE
 ────────────────────────────────────────────────────────────────────────────────
 
-Principal Technical Manager · Backend & Platform Engineering @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2026-01 – Present
+Principal Technical Manager · Backend & Platform Engineering @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2026 - Present
   Recife, PE, Brazil
   Backend and platform engineering for ML-driven developer-productivity systems:
   shared ownership of a production ML platform, two internal platforms and two
@@ -68,7 +47,7 @@ Principal Technical Manager · Backend & Platform Engineering @ CESAR (Centro de
     • Standardized the Python toolchain across the same five repositories:
     Poetry to uv, pre-commit to prek, plus ruff and type-check gates.
 
-Senior Technical Manager · PHP & Python Backend Services @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2022-10 – 2025-12
+Senior Technical Manager · PHP & Python Backend Services @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Oct/2022 - Dec/2025
   Recife, PE, Brazil
   Backend services for four concurrent web platforms — two client applications
   and CESAR's two institutional systems — standardized on JSON:API response
@@ -92,7 +71,7 @@ Senior Technical Manager · PHP & Python Backend Services @ CESAR (Centro de Est
     • Authored the entire backend unit and integration test suites for the two
     client applications, reaching ~50% coverage on one and ~98% on the other.
 
-Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2013-06 – 2022-09
+Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jun/2013 - Sep/2022
   Recife, PE, Brazil
   Nine years across four client projects: four production web applications in
   four language stacks, the CI/CD environments behind them, and technical
@@ -112,7 +91,7 @@ Senior Technical Manager · Full-Stack Delivery & Technical Leadership @ CESAR (
     to 15 engineers, running sprint planning, code review practice and delivery
     commitments.
 
-Technical Manager · Enterprise Java & Mobile @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2009-01 – 2013-06
+Technical Manager · Enterprise Java & Mobile @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2009 - Jun/2013
   Recife, PE, Brazil
   An enterprise Java web and mobile application built end to end, the CI/CD and
   Scrum tooling behind it, and a nationwide production platform maintained
@@ -127,7 +106,7 @@ Technical Manager · Enterprise Java & Mobile @ CESAR (Centro de Estudos e Siste
     • Maintained a nationwide production web platform while shipping new
     features against live traffic.
 
-Senior Software Configuration Management Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2005-01 – 2009-01
+Senior Software Configuration Management Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2005 - Jan/2009
   Recife, PE, Brazil
   Led the company-wide Software Configuration Management team through a formal
   CMMI 1.2 Level 3 appraisal, defining the SCM processes, tooling and automation
@@ -144,7 +123,7 @@ Senior Software Configuration Management Engineer @ CESAR (Centro de Estudos e S
     tracking, requirements traceability and code review reporting, later adopted
     as company-wide standards.
 
-Software Configuration Management Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2001-10 – 2005-01
+Software Configuration Management Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Oct/2001 - Jan/2005
   Recife, PE, Brazil
   SCM process definition and automation for multi-site mobile device programs,
   contributing to CMM Level 2 certification and to a ~20% rise in client
@@ -156,7 +135,7 @@ Software Configuration Management Engineer @ CESAR (Centro de Estudos e Sistemas
     by automating configuration management activities across roughly twelve
     projects.
 
-Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2001-01 – 2001-10
+Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jan/2001 - Oct/2001
   Recife, PE, Brazil
   The institute's first J2ME mobile development practice: 15+ applications
   shipped, including an internationally awarded game.
@@ -167,7 +146,7 @@ Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Rec
     • Authored Sea Hunter, recognized as one of the top 20 applications at the
     Asia Java Mobile Challenge.
 
-Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) 2000-06 – 2000-12
+Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Recife) Jun/2000 - Dec/2000
   Recife, PE, Brazil
   Java web development: a J2SE WAP application for lottery game management, and
   an e-commerce portal supporting M.Sc. dissertation research.
@@ -179,12 +158,22 @@ Junior Software Engineer @ CESAR (Centro de Estudos e Sistemas Avançados do Rec
 EDUCATION
 ────────────────────────────────────────────────────────────────────────────────
 
-M.Sc., Computer Science — Federal University of Pernambuco (UFPE) 2000-03 – 2002-08
+M.Sc., Computer Science — Federal University of Pernambuco (UFPE) Mar/2000 - Aug/2002
   • Artificial Intelligence
   • Multi-Agent Systems
   • Software Engineering
 
-B.Sc., Computer Science — Federal University of Ceará (UFC)    1996-01 – 1999-12
+B.Sc., Computer Science — Federal University of Ceará (UFC)  Jan/1996 - Dec/1999
+
+
+AWARDS
+────────────────────────────────────────────────────────────────────────────────
+
+Sea Hunter — One of the top 20 applications at the Asia Java Mobile Challenge Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) | 2002
+  Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at
+  CESAR (Brazil), was named one of the Top 20 finalists selected from more than
+  1,000 entrants across 23 countries.
+  https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge
 
 
 CERTIFICATIONS
@@ -222,14 +211,25 @@ KSACI: A Handheld Device Infrastructure for Agents Communication Intelligent Age
   https://link.springer.com/chapter/10.1007/3-540-45448-9_32
 
 
-AWARDS
+SKILLS
 ────────────────────────────────────────────────────────────────────────────────
 
-Sea Hunter — One of the top 20 applications at the Asia Java Mobile Challenge Asia Java Mobile Challenge (SingTel, Optus and Sun Microsystems) | 2002
-  Sea Hunter, a J2ME mobile game written for early Java-enabled handsets at
-  CESAR (Brazil), was named one of the Top 20 finalists selected from more than
-  1,000 entrants across 23 countries.
-  https://www.optus.com.au/about/media-centre/media-releases/2002/10/two-aussies-firms-are-finalists-in-asia-java-mobile-challenge
+Backend (Expert): Python, Django, FastAPI, Flask, Falcon, GraphQL, Strawberry
+GraphQL, REST API, JSON:API, Celery, Kafka, WebSockets, PHP, Yii, Laravel, Ruby
+on Rails, Java
+Frontend (Advanced): JavaScript, TypeScript, VueJS, NuxtJS, PrimeVue, Tailwind
+CSS, Pinia, EmberJS, Backbone/Marionette, SCSS/SASS
+AI & ML Engineering (Advanced): LLM application development, Model Context
+Protocol (MCP), Claude Agent SDK, Agentic tooling, Vector search, Milvus,
+Snowflake
+DevOps & CI/CD (Expert): CI/CD, Jenkins, TeamCity, GitLab CI, Docker, Multi-arch
+builds, Ansible, HashiCorp Vault, Sealed Secrets, uv, prek, ruff, pytest, Git,
+GitFlow
+Cloud & Orchestration (Advanced): Kubernetes, Helm, Kustomize, AWS EKS, AWS,
+Google Cloud, mTLS, OAuth 2.0, Sentry
+Databases (Advanced): PostgreSQL, MySQL, Oracle, Redis, Milvus, Snowflake
+Process & Leadership (Expert): Software Configuration Management, CMMI, SCAMPI
+appraisal, Scrum, Kanban, Technical Leadership, Code Review, Mentoring
 
 
 LANGUAGES

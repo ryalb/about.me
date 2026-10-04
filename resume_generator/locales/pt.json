@@ -1,0 +1,37 @@
+{
+  "present": "Presente",
+  "section": {
+    "summary": "Resumo",
+    "work": "Experiência Profissional",
+    "education": "Formação Acadêmica",
+    "skills": "Competências",
+    "projects": "Projetos",
+    "volunteer": "Trabalho Voluntário",
+    "awards": "Prêmios",
+    "certificates": "Certificações",
+    "publications": "Publicações",
+    "languages": "Idiomas",
+    "interests": "Áreas de Interesse",
+    "references": "Referências"
+  },
+  "cutoff_notice": {
+    "one": "Visão filtrada — 1 cargo anterior, iniciado antes de {date}, não está sendo exibido. Histórico completo disponível sob solicitação.",
+    "many": "Visão filtrada — {count} cargos anteriores, iniciados antes de {date}, não estão sendo exibidos. Histórico completo disponível sob solicitação."
+  },
+  "education": {
+    "in": "em",
+    "score": "Nota:",
+    "gpa_score": "Nota/GPA:",
+    "keywords": "Palavras-chave:",
+    "workload": "Carga Horária:"
+  },
+  "untitled": "Currículo",
+  "degree": "Curso",
+  "contact": {
+    "email": "E-mail",
+    "phone": "Telefone",
+    "location": "Localização",
+    "website": "Site",
+    "profile": "Perfil"
+  }
+}

@@ -44,6 +44,7 @@ class Work(BaseModel):
     endDate: str | None = None
     summary: str | None = None
     highlights: list[str] = Field(default_factory=list)
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 
@@ -55,6 +56,7 @@ class Volunteer(BaseModel):
     endDate: str | None = None
     summary: str | None = None
     highlights: list[str] = Field(default_factory=list)
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 
@@ -66,7 +68,9 @@ class Education(BaseModel):
     startDate: str | None = None
     endDate: str | None = None
     score: str | None = None
+    workload: str | None = None
     courses: list[str] = Field(default_factory=list)
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 
@@ -75,6 +79,7 @@ class Award(BaseModel):
     date: str | None = None
     awarder: str | None = None
     summary: str | None = None
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 
@@ -83,6 +88,7 @@ class Certificate(BaseModel):
     date: str | None = None
     url: str | None = None
     issuer: str | None = None
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 
@@ -92,6 +98,7 @@ class Publication(BaseModel):
     releaseDate: str | None = None
     url: str | None = None
     summary: str | None = None
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 
@@ -131,6 +138,7 @@ class Project(BaseModel):
     roles: list[str] = Field(default_factory=list)
     entity: str | None = None
     type: str | None = None
+    hidden: bool | None = None
     model_config = {"extra": "allow"}
 
 

@@ -1,0 +1,37 @@
+{
+  "present": "Present",
+  "section": {
+    "summary": "Summary",
+    "work": "Work Experience",
+    "education": "Education",
+    "skills": "Skills",
+    "projects": "Projects",
+    "volunteer": "Volunteer",
+    "awards": "Awards",
+    "certificates": "Certifications",
+    "publications": "Publications",
+    "languages": "Languages",
+    "interests": "Interests",
+    "references": "References"
+  },
+  "cutoff_notice": {
+    "one": "Filtered view — 1 earlier role starting before {date} is not shown. Full history available on request.",
+    "many": "Filtered view — {count} earlier roles starting before {date} are not shown. Full history available on request."
+  },
+  "education": {
+    "in": "in",
+    "score": "Score:",
+    "gpa_score": "GPA/Score:",
+    "keywords": "Keywords:",
+    "workload": "Workload:"
+  },
+  "untitled": "Resume",
+  "degree": "Degree",
+  "contact": {
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "website": "Website",
+    "profile": "Profile"
+  }
+}

@@ -86,7 +86,7 @@ const resume = JSON.parse(readFileSync(inputFile, "utf-8"));
 let html;
 
 try {
-  html = await render(resume, { pdfMode: false });
+  html = await render(resume, { pdfMode: false, themeDir });
 } catch {
   // Some themes accept no options argument.
   html = await render(resume);

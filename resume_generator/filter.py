@@ -27,6 +27,7 @@ def apply_section_filter(resume: dict[str, Any], sections: list[str]) -> dict[st
     """Return a copy of resume containing only the requested sections.
 
     ``basics`` and ``meta`` are always preserved unless explicitly excluded.
+    Sections appear in the output in the order given by *sections*.
     """
     result: dict[str, Any] = {}
 
@@ -36,12 +37,53 @@ def apply_section_filter(resume: dict[str, Any], sections: list[str]) -> dict[st
     if "meta" in resume:
         result["meta"] = resume["meta"]
 
+    included = set(sections)
+    for key in sections:
+        if key in ("$schema", "meta"):
+            continue
+        if key in resume:
+            result[key] = copy.deepcopy(resume[key])
+
     for key, value in resume.items():
         if key in ("$schema", "meta"):
             continue
-        if key in sections or key not in ALL_SECTIONS:
-            # Include unknown keys (custom extensions) unconditionally
+        if key not in included and key not in ALL_SECTIONS:
             result[key] = copy.deepcopy(value)
+
+    return result
+
+
+def apply_hidden_flag_filter(resume: dict[str, Any]) -> dict[str, Any]:
+    """Return a copy of resume with entries marked ``hidden: true`` removed.
+
+    Any list section entry that carries ``"hidden": true`` is stripped from the
+    output.  The source JSON is the control plane for this feature, so no CLI
+    flag is required — authors simply annotate the records they want suppressed.
+
+    Removed counts are recorded under ``meta.filtered.explicitlyHidden`` so
+    renderers can disclose them if they choose.
+    """
+    result = copy.deepcopy(resume)
+    hidden: dict[str, int] = {}
+
+    for section in ALL_SECTIONS:
+        if section not in result or not isinstance(result[section], list):
+            continue
+        entries = result[section]
+        kept = []
+        for entry in entries:
+            if isinstance(entry, dict) and entry.get("hidden") is True:
+                hidden[section] = hidden.get(section, 0) + 1
+            else:
+                kept.append(entry)
+        result[section] = kept
+
+    if hidden:
+        meta = result.setdefault("meta", {})
+        if isinstance(meta, dict):
+            filtered = meta.setdefault("filtered", {})
+            if isinstance(filtered, dict):
+                filtered["explicitlyHidden"] = hidden
 
     return result
 
@@ -201,6 +243,11 @@ def filter_resume(
 ) -> dict[str, Any]:
     """Apply summary variant, section filter and date cutoff in sequence."""
     result = copy.deepcopy(resume)
+
+    # Author-controlled record hiding takes precedence over every other filter
+    # so a ``hidden: true`` entry never leaks through even when other filters
+    # would keep it.
+    result = apply_hidden_flag_filter(result)
 
     if summary is not None:
         result = apply_summary_variant(result, summary)

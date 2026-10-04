@@ -1,0 +1,10 @@
+.git
+.kilo
+.claude
+.venv
+.output
+**/node_modules
+*.bak
+.pi*
+docs
+latest

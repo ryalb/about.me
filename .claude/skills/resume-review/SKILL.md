@@ -1,6 +1,6 @@
 ---
 name: resume-review
-description: Review, critique or edit Ryan's bilingual resume in this repo (resume-en_us.json / resume-pt_br.json) and regenerate the md/txt/html/pdf/docx outputs. Use for ATS audits and hiring-manager critiques against a job description, rewriting bullets or summaries, adding certificates/roles/skills, tailoring a version to a role, or any change that must land in both locales and be rebuilt. Triggers on "review my resume", "ATS score", "revisar meu currículo", "tailor to this job", "add this certificate", "rewrite my bullets", "regenerate the resume".
+description: Review, critique or edit Ryan's bilingual resume in this repo (src/ryan-resume-en_us.json / src/ryan-resume-pt_br.json) and regenerate the md/txt/html/pdf/docx outputs. Use for ATS audits and hiring-manager critiques against a job description, rewriting bullets or summaries, adding certificates/roles/skills, tailoring a version to a role, or any change that must land in both locales and be rebuilt. Triggers on "review my resume", "ATS score", "revisar meu currículo", "tailor to this job", "add this certificate", "rewrite my bullets", "regenerate the resume".
 ---
 
 # Resume review and editing
@@ -11,7 +11,7 @@ Two jobs live here. **Review** (Mode 1) produces critique — no file changes un
 
 ## Orientation (read before touching anything)
 
-- **Source of truth is two files:** `resume-en_us.json` and `resume-pt_br.json`. They are
+- **Source of truth is two files:** `src/ryan-resume-en_us.json` and `src/ryan-resume-pt_br.json`. They are
   parallel documents, not a file plus a translation artifact — the same structure, entry
   counts and dates in both.
 - **`latest/en_us/` and `latest/pt_br/` are generated.** Never hand-edit them; they are

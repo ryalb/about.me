@@ -19,7 +19,7 @@ and say so when you do:
 Rules that keep the number honest:
 
 - **No JD, no match score.** Score against role-typical expectations and label it as such.
-- Cite evidence for each component — `resume-en_us.json` line or the JD phrase. An
+- Cite evidence for each component — `src/ryan-resume-en_us.json` line or the JD phrase. An
   uncited score is a guess with decoration.
 - Separate **resume gap** (present in the person's history, missing from the document) from
   **candidacy gap** (genuinely absent experience). The first is worth fixing in the next

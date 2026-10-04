@@ -23,5 +23,5 @@ repo = "local"
 hooks = [
     { id = "ruff-check", name = "ruff check", entry = "ruff check --fix --output-format=concise", language = "system", types_or = ["python", "pyi"] },
     { id = "ruff-format", name = "ruff format", entry = "ruff format", language = "system", types_or = ["python", "pyi"] },
-    { id = "ty", name = "ty type check", entry = "ty check --output-format=concise", language = "system", types = ["python"], pass_filenames = false },
+    { id = "ty", name = "ty type check", entry = "uv run ty check --output-format=concise", language = "system", types = ["python"], pass_filenames = false },
 ]
