@@ -33,7 +33,6 @@
       "startDate": "2021-06",
       "endDate": "2024-06",
       "location": "Recife/PE",
-      "summary": "Atuação como Assessora Jurídica.",
       "hidden": false
     },
     {
@@ -50,7 +49,7 @@
       "startDate": "2018-08",
       "endDate": "2020-07",
       "location": "Recife/PE",
-      "summary": "Ministrou as disciplinas de Direito Tributário, Direito Administrativo e Administração Tributária.",
+      "summary": "Atuação docente nas disciplinas de Direito Tributário, Direito Administrativo e Administração Tributária.",
       "hidden": false
     },
     {
@@ -59,7 +58,7 @@
       "startDate": "2018-02",
       "endDate": "2020-01",
       "location": "Limoeiro/PE",
-      "summary": "Lecionou as disciplinas de Metodologia do Trabalho Científico V e VI e Direito Tributário I.",
+      "summary": "Atuação docente nas disciplinas de Metodologia do Trabalho Científico V e VI e Direito Tributário I.",
       "hidden": false
     },
     {
@@ -68,7 +67,7 @@
       "startDate": "2017-08",
       "endDate": "2019-01",
       "location": "Paulo Afonso/BA",
-      "summary": "Atuação docente no Curso de Bacharelado em Direito nas disciplinas de Direito Civil I, Direito das Relações de Consumo e Direito Tributário I e II. Membro do Núcleo Docente Estruturante (NDE), de Julho de 2018 a Dezembro de 2018.",
+      "summary": "Atuação docente no Curso de Bacharelado em Direito nas disciplinas de Direito Civil I, Direito das Relações de Consumo e Direito Tributário I e II. Membro do Núcleo Docente Estruturante (NDE), de julho de 2018 a dezembro de 2018.",
       "hidden": false
     },
     {
@@ -85,7 +84,7 @@
       "startDate": "2015-08",
       "endDate": "2016-07",
       "location": "Paulista/PE",
-      "summary": "Ministrou as disciplinas de Direito Ambiental e Direito Tributário I.",
+      "summary": "Atuação docente nas disciplinas de Direito Ambiental e Direito Tributário I.",
       "hidden": false
     },
     {
@@ -94,7 +93,7 @@
       "startDate": "2014-08",
       "endDate": "2015-02",
       "location": "Recife/PE",
-      "summary": "Docente no curso de graduação em Administração (disciplina: Direito nas Organizações).",
+      "summary": "Atuação docente no curso de graduação em Administração (disciplina: Direito nas Organizações).",
       "hidden": false
     },
     {
@@ -187,7 +186,7 @@
   ],
   "publications": [
     {
-      "name": "Extinção da punibilidade pelo pagamento integral do débito tributário em decisão do STF: (des) criminalização dos ilícitos fiscais?",
+      "name": "Extinção da punibilidade pelo pagamento integral do débito tributário em decisão do STF: (des)criminalização dos ilícitos fiscais?",
       "publisher": "Revista Eletrônica do Curso de Direito da Universidade Federal de Santa Maria (UFSM), v. 12, p. 735-767, 2017",
       "releaseDate": "2017",
       "summary": "CAMPOS, Hélio Silvio Ourém; FREIRE, Sheyla Canuto Barbosa.",
@@ -224,10 +223,11 @@
       "hidden": false
     },
     {
-      "title": "1º Lugar na Seleção Pública Simplificada para Professor Substituto de Direito Tributário do Departamento de Ciências Contábeis e Atuariais / CCSA",
+      "title": "1º Lugar no Processo Seletivo Simplificado para Professor Substituto de Direito Tributário",
       "date": "2018",
-      "awarder": "Universidade Federal de Pernambuco (UFPE)",
-      "hidden": false
+      "awarder": "Departamento de Direito Público Especializado — Centro de Ciências Jurídicas (CCJ) / Universidade Federal de Pernambuco (UFPE)",
+      "hidden": false,
+      "summary": "Aprovação homologada pelo Edital nº 39/2018 (Edital de Abertura nº 29/2018), publicado no Diário Oficial da União nº 119, Seção 3, p. 75, de 22/06/2018"
     },
     {
       "title": "4º Lugar na Área de Linguística, Letras e Artes",

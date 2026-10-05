@@ -98,18 +98,18 @@ def t(locale_data: dict[str, Any], *path: str, default: str = "") -> str:
 
 
 _PT_MONTHS = [
-    "Jan",
-    "Fev",
-    "Mar",
-    "Abr",
-    "Mai",
-    "Jun",
-    "Jul",
-    "Ago",
-    "Set",
-    "Out",
-    "Nov",
-    "Dez",
+    "jan",
+    "fev",
+    "mar",
+    "abr",
+    "mai",
+    "jun",
+    "jul",
+    "ago",
+    "set",
+    "out",
+    "nov",
+    "dez",
 ]
 _EN_MONTHS = [
     "Jan",
