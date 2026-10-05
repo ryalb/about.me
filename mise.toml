@@ -99,9 +99,14 @@ run = [
     "mise run icons",
     "mise run clean",
     "mise run build",
-    "rm -rf ./latest/*.*",
-    "cp -r ./.output/*_en_us ./latest/en_us/.",
-    "cp -r ./.output/*_pt_br ./latest/pt_br/.",
+    "rm -rf ./latest/ryan",
+    "rm -rf ./latest/sheyla",
+    "mkdir -p ./latest/ryan/en_us",
+    "mkdir -p ./latest/ryan/pt_br",
+    "mkdir -p ./latest/sheyla/pt_br",
+    "cp -r ./.output/*ryan_en_us/*.* ./latest/ryan/en_us/.",
+    "cp -r ./.output/*ryan_pt_br/*.* ./latest/ryan/pt_br/.",
+    "cp -r ./.output/*sheyla_pt_br/*.* ./latest/sheyla/pt_br/.",
     "mise run fmt",
     "mise run check"
 ]
