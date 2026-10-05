@@ -99,8 +99,9 @@ run = [
     "mise run icons",
     "mise run clean",
     "mise run build",
-    "cp ./.output/*full_en_us/* ./latest/en_us/.",
-    "cp ./.output/*full_pt_br/* ./latest/pt_br/.",
+    "rm -rf ./latest/*.*",
+    "cp -r ./.output/*_en_us ./latest/en_us/.",
+    "cp -r ./.output/*_pt_br ./latest/pt_br/.",
     "mise run fmt",
     "mise run check"
 ]

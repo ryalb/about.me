@@ -14,12 +14,12 @@ services:
   en:
     <<: *resume
     profiles: [build]
-    command: generate src/ryan-resume-en_us.json --theme base --name full_en_us --zoom 80% --locale en-US
+    command: generate src/ryan-resume-en_us.json --theme base --name ryan_en_us --zoom 80% --locale en-US
 
   pt:
     <<: *resume
     profiles: [build]
-    command: generate src/ryan-resume-pt_br.json --theme base --name full_pt_br --zoom 80% --locale pt-BR
+    command: generate src/ryan-resume-pt_br.json --theme base --name ryan_pt_br --zoom 80% --locale pt-BR
 
   sheyla-pt:
     <<: *resume

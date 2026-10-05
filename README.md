@@ -3,7 +3,7 @@
 Generate polished, multi-format resumes from a single master [JSON Resume](https://jsonresume.org) file. Apply any [jsonresume theme](https://jsonresume.org/themes), filter sections, and cut old entries — all from one CLI command.
 
 ```
-resume generate resume.json --theme even --cut-date 2018 --sections work,education,skills
+resume generate src/ryan-resume-en_us.json --theme even --cut-date 2018 --sections work,education,skills
 ```
 
 ---
@@ -57,11 +57,11 @@ uv run resume --help
 ## Quick start
 
 ```bash
-# Generate all formats with the default theme
-uv run resume generate resume.json
+# Generate all formats for the en_US resume
+uv run resume generate src/ryan-resume-en_us.json
 
 # Targeted variant: custom theme, recent work only, role-specific summary
-uv run resume generate resume.json \
+uv run resume generate src/ryan-resume-en_us.json \
     --theme base \
     --summary backend \
     --cut-date 2019-01-01 \
@@ -70,11 +70,11 @@ uv run resume generate resume.json \
     --name "backend-role"
 ```
 
-Output lands in `.output/YYYY-MM-DD/` (or `.output/YYYY-MM-DD_backend-role/`):
+Output lands in `.output/YYYY-MM-DD[_name]/`:
 
 ```
 .output/
-└── 2026-07-28_backend-role/
+└── 2026-10-04_backend-role/
     ├── resume.html
     ├── resume.pdf
     ├── resume.md
@@ -100,6 +100,7 @@ resume generate [OPTIONS] RESUME_FILE
 | `--summary` | `-S` | *(none)* | Use a named variant from `meta.summaries` instead of `basics.summary`. See [Summary variants](#summary-variants). |
 | `--no-summary` | | `false` | Omit `basics.summary` from every format. Mutually exclusive with `--summary`. |
 | `--no-highlights` | | `false` | Omit every `work[].highlights` bullet list, keeping each role's title, employer, dates and summary. |
+| `--locale` | `-l` | *(from `meta.language`, else `en-US`)* | Override the output language as a BCP 47 tag, e.g. `en-US` or `pt-BR`. Controls section headings, date labels, cutoff notices and other UI strings. |
 | `--formats` | `-f` | `html,pdf,md,txt,docx` | Comma-separated output formats. |
 | `--zoom` | `-z` | `1.0` | Content scale for `html`, `pdf` and `docx` — a multiplier (`1.15`) or a percentage (`115%`), between 50% and 200%. See [Zoom](#zoom). |
 | `--output-dir` | `-o` | `.output` | Base directory; a dated sub-folder is created automatically. |
@@ -120,7 +121,7 @@ uv run resume themes
 List the summary variants defined in `meta.summaries`, with word counts. Marks which one currently matches `basics.summary`.
 
 ```bash
-uv run resume summaries resume.json
+uv run resume summaries src/ryan-resume-en_us.json
 ```
 
 ### `resume sections`
@@ -152,8 +153,8 @@ Custom themes **shadow npm packages of the same name** — so you can fork `even
 Any package published as `jsonresume-theme-*` works; pass the name without the prefix. It is installed into `node/node_modules/` on first use via `bun add`.
 
 ```bash
-uv run resume generate resume.json --theme caffeine
-uv run resume generate resume.json --theme architects-portfolio
+uv run resume generate src/ryan-resume-en_us.json --theme caffeine
+uv run resume generate src/ryan-resume-en_us.json --theme architects-portfolio
 ```
 
 Pre-bundled:
@@ -191,7 +192,7 @@ To create your own:
 ```bash
 cp -r custom/themes/base custom/themes/mytheme
 cd custom/themes/mytheme && BUN_INSTALL_CACHE_DIR=/tmp/bun-cache bun install
-uv run resume generate resume.json --theme mytheme
+uv run resume generate src/ryan-resume-en_us.json --theme mytheme
 ```
 
 Edit `src/tokens.js` for colours and spacing; edit `src/Resume.jsx` to change structure. Re-run to see changes. Express lengths through `scale()` from `tokens.js` so the theme honours [`--zoom`](#zoom).
@@ -277,10 +278,10 @@ Section filters change *what* appears; the opening summary changes *how you're p
 ```
 
 ```bash
-uv run resume summaries resume.json                              # list variants
-uv run resume generate resume.json --summary lead --name mgmt    # apply one
-uv run resume generate resume.json                               # basics.summary
-uv run resume generate resume.json --no-summary                  # no summary at all
+uv run resume summaries src/ryan-resume-en_us.json                              # list variants
+uv run resume generate src/ryan-resume-en_us.json --summary lead --name mgmt    # apply one
+uv run resume generate src/ryan-resume-en_us.json                               # basics.summary
+uv run resume generate src/ryan-resume-en_us.json --no-summary                  # no summary at all
 ```
 
 With no `--summary` flag, `basics.summary` is used unchanged. `meta.summaries` is **always stripped from generated output**, so the variant map never leaks into a rendered resume.
@@ -293,7 +294,7 @@ With no `--summary` flag, `basics.summary` is used unchanged. `meta.summaries` i
 
 ```bash
 # Compact two-page-ish variant: arc only, no per-role bullets
-uv run resume generate resume.json --no-highlights
+uv run resume generate src/ryan-resume-en_us.json --no-highlights
 ```
 
 On the master resume in this repo it takes the PDF from **6 pages to 4**. Combine it with `--cut-date` and `--summary ats` for the shortest defensible version.
@@ -309,6 +310,45 @@ Unknown summary variant 'nope'.
 Available: ats, backend, lead, platform
 ```
 
+## Locale / i18n
+
+Section headings, date labels, cutoff notices and other UI strings follow the resume's
+output language. The generator resolves it in this order:
+
+1. `--locale` / `-l` CLI flag
+2. `meta.language` in the resume file
+3. fallback to `en-US`
+
+```bash
+# Force pt_BR labels regardless of meta.language
+uv run resume generate src/ryan-resume-en_us.json --locale pt-BR
+```
+
+The three master resumes in this repo already carry the correct `meta.language`:
+
+| Source | `meta.language` |
+|---|---|
+| `src/ryan-resume-en_us.json` | `en-US` |
+| `src/ryan-resume-pt_br.json` | `pt-BR` |
+| `src/sheyla-resume-pt_br.json` | `pt-BR` |
+
+The Docker Compose services pass `--locale` explicitly so the rendered `latest/` artifacts
+are reproducible even if `meta.language` changes:
+
+```yaml
+en:
+    command: generate src/ryan-resume-en_us.json --theme base --name full_en_us --zoom 80% --locale en-US
+pt:
+    command: generate src/ryan-resume-pt_br.json --theme base --name full_pt_br --zoom 80% --locale pt-BR
+sheyla-pt:
+    command: generate src/sheyla-resume-pt_br.json --theme base --name sheyla_pt_br --zoom 70% --locale pt-BR --sections basics,interests,work,education,certificates,publications,awards
+```
+
+String tables live in `resume_generator/locales/<tag>.json`. The theme's own locale files
+(`custom/themes/base/locales/<tag>.json`) are used by the JSX renderer for the contact
+line and section titles; the Python renderers use the package-level tables for cutoff
+notices, education labels, and the "Present" marker.
+
 ---
 
 ## Section filtering & date cutoff
@@ -319,7 +359,7 @@ Pass a comma-separated list to `--sections` to include only those sections:
 
 ```bash
 # Only work history, education, and skills
-uv run resume generate resume.json --sections work,education,skills
+uv run resume generate src/ryan-resume-en_us.json --sections work,education,skills
 ```
 
 Available sections: `basics`, `work`, `volunteer`, `education`, `awards`, `certificates`, `publications`, `skills`, `languages`, `interests`, `references`, `projects`.
@@ -346,7 +386,7 @@ If a cutoff empties a section entirely, the build prints a warning — that sect
 
 ```bash
 # Only positions started in the last ~7 years
-uv run resume generate resume.json --cut-date 2018
+uv run resume generate src/ryan-resume-en_us.json --cut-date 2018
 ```
 
 ---
@@ -382,7 +422,16 @@ The input file must conform to the [JSON Resume schema](https://jsonresume.org/s
   ],
   "skills": [
     { "name": "Backend", "keywords": ["Python", "Go", "PostgreSQL"] }
-  ]
+  ],
+  "meta": {
+    "language": "en-US",
+    "summaries": {
+      "platform": "Software engineer with 25 years of unbroken ownership of build, release…",
+      "backend":  "Senior backend engineer with 26 years building production systems…",
+      "lead":     "Engineering leader with 26 years spanning hands-on delivery…",
+      "ats":      "Senior software engineer with 26 years of experience across…"
+    }
+  }
 }
 ```
 
@@ -434,39 +483,77 @@ See the [WeasyPrint installation guide](https://doc.courtbouillon.org/weasyprint
 
 ```
 about.me/
-├── resume_generator/          # Python package
-│   ├── main.py                # Typer CLI (generate / themes / summaries / sections)
-│   ├── models.py              # Pydantic models for JSON Resume schema
-│   ├── filter.py              # Section filtering, date cutoff, summary variants
-│   ├── icons.py               # Inline MDI (Iconify) SVG icons for HTML/PDF
+├── src/                          # Master resume sources
+│   ├── ryan-resume-en_us.json    # en_US master (single source of truth)
+│   ├── ryan-resume-pt_br.json    # pt_BR translation
+│   └── sheyla-resume-pt_br.json  # pt_BR resume for Sheyla Canuto
+├── latest/                       # Committed rendered outputs
+│   ├── en_us/                    # en_US latest build (html, pdf, md, txt, docx)
+│   └── pt_br/                    # pt_BR latest build (html, pdf, md, txt, docx)
+├── resume_generator/             # Python package
+│   ├── main.py                   # Typer CLI (generate / themes / summaries / sections)
+│   ├── models.py                 # Pydantic models for JSON Resume schema
+│   ├── filter.py                 # Section filtering, date cutoff, summary variants
+│   ├── icons.py                  # Inline MDI (Iconify) SVG icons for HTML/PDF
 │   ├── assets/
-│   │   └── mdi-icons.json     # Vendored MDI icon subset — refresh: mise run icons
+│   │   └── mdi-icons.json        # Vendored MDI icon subset — refresh: mise run icons
 │   └── renderers/
-│       ├── html.py            # HTML — theme resolution + built-in Jinja2 template
-│       ├── pdf.py             # PDF — WeasyPrint
-│       ├── markdown.py        # Markdown renderer
-│       ├── text.py            # Plain text renderer
-│       └── word.py            # Word .docx — python-docx
+│       ├── html.py               # HTML — theme resolution + built-in Jinja2 template
+│       ├── pdf.py                # PDF — WeasyPrint
+│       ├── markdown.py           # Markdown renderer
+│       ├── text.py               # Plain text renderer
+│       └── word.py               # Word .docx — python-docx
 ├── custom/
 │   └── themes/
-│       └── base/              # Default theme (React/JSX, no build step)
-│           ├── src/tokens.js  # Design tokens — edit for restyling
-│           ├── src/Resume.jsx # Component tree + MDI contact line
-│           ├── src/Icon.jsx   # Inline MDI icon component
-│           └── src/index.jsx  # SSR entry
+│       └── base/                 # Default theme (React/JSX, no build step)
+│           ├── src/tokens.js     # Design tokens — edit for restyling
+│           ├── src/Resume.jsx    # Component tree + MDI contact line
+│           ├── src/Icon.jsx      # Inline MDI icon component
+│           └── src/index.jsx     # SSR entry
 ├── node/
-│   ├── render_theme.mjs       # Bun script — loads & invokes a resolved theme dir
-│   ├── package.json           # Bun manifest
-│   ├── bun.lock               # Bun lockfile
-│   └── node_modules/          # npm themes (even, elegant, paper, flat, caffeine…)
+│   ├── render_theme.mjs          # Bun script — loads & invokes a resolved theme dir
+│   ├── package.json              # Bun manifest
+│   ├── bun.lock                  # Bun lockfile
+│   └── node_modules/             # npm themes (even, elegant, paper, flat, caffeine…)
 ├── scripts/
-│   └── fetch_icons.py         # Regenerates the vendored MDI icon subset
+│   └── fetch_icons.py            # Regenerates the vendored MDI icon subset
+├── compose.yaml                  # Docker Compose build services (en, pt, sheyla-pt)
+├── mise.toml                     # Toolchain pins + build tasks
 ├── pyproject.toml
 ├── uv.lock
-└── resume.json                # Your master resume
+└── schema/
+    └── extended-schema.json      # JSON Resume schema with project extensions
 ```
 
 ---
+
+## Build pipeline
+
+This repo ships three master resumes in `src/` and uses Docker Compose + mise to build them:
+
+| Source | Locale | Compose service |
+|---|---|---|
+| `src/ryan-resume-en_us.json` | en-US | `en` |
+| `src/ryan-resume-pt_br.json` | pt-BR | `pt` |
+| `src/sheyla-resume-pt_br.json` | pt-BR | `sheyla-pt` |
+
+```bash
+# Build all three
+mise run build
+
+# Build one
+docker compose run --rm --build en
+```
+
+Output goes to `.output/YYYY-MM-DD[_name]/`. The `build-all` task copies the latest `full_*` builds into `latest/` for committing:
+
+```bash
+mise run build-all
+# → .output/2026-10-04_full_en_us/* → latest/en_us/
+# → .output/2026-10-04_full_pt_br/* → latest/pt_br/
+```
+
+The `sheyla-pt` build uses a reduced section set (`basics,interests,work,education,certificates,publications,awards`) and 70% zoom to fit the academic CV format.
 
 ## Which format to submit
 
@@ -510,14 +597,14 @@ pdftotext latest/en_us/resume.pdf -         | grep -A16 'SKILLS'    # as an ATS 
 
 ## Generating multiple resume variants
 
-A common workflow is to maintain one master `resume.json` and generate tailored variants — combining `--sections`, `--cut-date` and `--summary`:
+A common workflow is to maintain one master resume in `src/` and generate tailored variants — combining `--sections`, `--cut-date` and `--summary`:
 
 ```bash
 # Full resume — all sections, all formats
-uv run resume generate resume.json --theme base --name full
+uv run resume generate src/ryan-resume-en_us.json --theme base --name full
 
 # Engineering IC role — last 8 years, backend-focused summary
-uv run resume generate resume.json \
+uv run resume generate src/ryan-resume-en_us.json \
     --name engineering \
     --theme base \
     --summary backend \
@@ -525,20 +612,20 @@ uv run resume generate resume.json \
     --sections basics,work,education,skills,projects,certificates
 
 # Management role — leadership summary, skip granular projects
-uv run resume generate resume.json \
+uv run resume generate src/ryan-resume-en_us.json \
     --name management \
     --theme base \
     --summary lead \
     --sections basics,work,volunteer,education,awards,languages
 
 # ATS submission — keyword-dense summary, Word output
-uv run resume generate resume.json \
+uv run resume generate src/ryan-resume-en_us.json \
     --name ats \
     --summary ats \
     --formats docx,txt
 
 # One-page PDF only — recent 5 years
-uv run resume generate resume.json \
+uv run resume generate src/ryan-resume-en_us.json \
     --name onepage \
     --theme base \
     --cut-date 2021 \
