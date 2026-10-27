@@ -40,6 +40,7 @@ from rich.table import Table
 from .filter import available_summaries, emptied_sections, filter_resume
 from .models import ALL_SECTIONS
 from .renderers.html import list_custom_themes, render_html
+from .renderers.linkedin import linkedin_overflows, render_linkedin
 from .renderers.markdown import render_markdown
 from .renderers.pdf import render_pdf
 from .renderers.text import render_text
@@ -72,7 +73,9 @@ KNOWN_THEMES: dict[str, str] = {
     "straightforward": "No-frills straightforward layout",
 }
 
-ALL_FORMATS = ["html", "pdf", "md", "txt", "docx"]
+ALL_FORMATS = ["html", "pdf", "md", "txt", "docx", "linkedin"]
+# Appended to every --formats selection.
+ALWAYS_FORMAT = "linkedin"
 
 # Zoom bounds, and the value at or above which a bare number is read as a
 # percentage rather than a multiplier.
@@ -127,6 +130,9 @@ def _parse_formats(raw: str) -> list[str]:
             f"Valid: {', '.join(ALL_FORMATS)}"
         )
         raise typer.Exit(1)
+    # The LinkedIn paste sheet ships with every run, whatever --formats selects.
+    if ALWAYS_FORMAT not in parts:
+        parts.append(ALWAYS_FORMAT)
     return parts
 
 
@@ -264,7 +270,10 @@ def generate(
         typer.Option(
             "--formats",
             "-f",
-            help=f"Comma-separated output formats. Choices: {', '.join(ALL_FORMATS)}",
+            help=(
+                f"Comma-separated output formats. Choices: {', '.join(ALL_FORMATS)}. "
+                f"[bold]{ALWAYS_FORMAT}[/bold] is always generated."
+            ),
             rich_help_panel="Output",
         ),
     ] = ",".join(ALL_FORMATS),
@@ -537,6 +546,14 @@ def _render_format(
         txt = render_text(resume, locale=locale)
         path = out_dir / "resume.txt"
         path.write_text(_normalize_text(txt), encoding="utf-8")
+        return path
+
+    elif fmt == "linkedin":
+        sheet = render_linkedin(resume, locale=locale)
+        path = out_dir / "resume.linkedin.txt"
+        path.write_text(_normalize_text(sheet), encoding="utf-8")
+        for problem in linkedin_overflows(resume, locale=locale):
+            console.print(f"  [yellow]⚠ LinkedIn limit:[/yellow] {problem}")
         return path
 
     elif fmt == "docx":

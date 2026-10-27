@@ -62,6 +62,7 @@ resume_generator/       → Python package
     markdown.py         → md
     text.py             → txt
     word.py             → docx (python-docx)
+    linkedin.py         → resume.linkedin.txt (LinkedIn paste sheet + char-limit checks)
 custom/themes/base/     → default React/JSX theme (Bun transpiles, no build step)
   src/tokens.js         → design tokens + scale() for --zoom
   src/Resume.jsx        → component tree + MDI contact line
